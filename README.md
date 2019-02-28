@@ -20,10 +20,10 @@ asp.net core mvc/webapi + odata + vue + typescript
 
 #### 使用说明
 
-1. 前端采用kendo-vue & element ui，具体请前往各自官方技术网站参考学习
-2. 后台框架：asp.net core  & odata，具体请前往各自官方技术网站参考学习
-3. 本项目可运行至win, mac, linux。win下请使用vs2017/vscode开发;mac下推荐vscode开发，毕竟mac下的vs太大，而且还不是很成熟;linux，鉴于此平台下属于高级玩家的范围，所以我个人建议使用一般的文本编辑器，使用命令编译运行，当然也可以使用vscode等工具，具体请google学习
-4. dotnet core 项目的编译运行等基础知识请前往微软技术网站参考学习
+1. 前端采用kendo-vue & element ui，具体请前往各自官方技术网站参考学习
+2. 后台框架：asp.net core  & odata，具体请前往各自官方技术网站参考学习
+3. 本项目可运行至win, mac, linux。win下请使用vs2017/vscode开发;mac下推荐vscode开发，毕竟mac下的vs太大，而且还不是很成熟;linux，鉴于此平台下属于高级玩家的范围，所以我个人建议使用一般的文本编辑器，使用命令编译运行，当然也可以使用vscode等工具，具体请google学习
+4. dotnet core 项目的编译运行等基础知识请前往微软技术网站参考学习
 5. EntityFrameworkProfiler: 抓sql工具，目前仅用于windows端；使用方法参考最后一部分列出的参考网址。
 
 注：第五步之后，运行项目可能会报错误，是typescript的一个语法错误，此时需要修改两个文件:
@@ -41,12 +41,12 @@ asp.net core mvc/webapi + odata + vue + typescript
 
 #### todo list
 
-1. 权限控制，考虑使用token的方式，需要形成一套单独的机制，包括grid等组件权限控制机制等
+1. 权限控制，考虑使用token的方式，需要形成一套单独的机制，包括grid等组件权限控制机制等
 2. 日志，异常处理等基础性的工作
 3. 多数据库多环境
-4. 前后端打包配置，后端teamcity, 前端webpack已做了一部分工作，但是需要优化
-5. 框架级样式调整
-6. 公共组件开发：文件上传/下载，导入导出.....[后续补充]
+4. 前后端打包配置，后端teamcity, 前端webpack已做了一部分工作，但是需要优化
+5. 框架级样式调整
+6. 公共组件开发：文件上传/下载，导入导出.....[后续补充]
 7. 一个长期的计划：所有框架的知识要点需要形成一个博客文章系列，不仅仅是介绍的形式，包括介绍，使用，以及进阶主题等等。
 
 #### 打包脚本
