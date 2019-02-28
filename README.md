@@ -8,7 +8,7 @@ asp.net core mvc/webapi + odata + vue + typescript
 
 #### 安装教程
 
-1. git clone http://172.16.226.146/TZIWB/TZ.vNext
+1. git clone https://github.com/GavinHome/TZ.vNext
 2. cd TZ.vNext
 3. dotnet restore
 4. cd TZ.vNext.Web
