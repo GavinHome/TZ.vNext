@@ -1,7 +1,7 @@
 # TZ.vNext
 
 #### 项目介绍
-框架代号"vNext"，目的是基于asp.net core集成优秀的技术框架，形成一套完善的前后端分离的跨平台开发的企业级开发框架。前端采用vue + typescript等技术，后台数据访问采用odata标准。
+框架代号"vNext"，目的是基于asp.net core集成优秀的技术框架，形成一套完善的前后端分离的跨平台开发的企业级开发框架。前端采用vue + typescript等技术，后台数据访问采用odata标准。
 
 #### 软件架构
 asp.net core mvc/webapi + odata + vue + typescript 
