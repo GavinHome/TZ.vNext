@@ -1,0 +1,34 @@
+<template>
+    <div class="tz-checkbox">
+        <el-scrollbar v-if="this.getOptions.length > 0">
+            <div class="tz-checkbox-content">
+                <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+                <el-checkbox-group v-model="checkedTemplates" @change="handleCheckedChange" :class="vertical?'tz-checkbox-vertical':''">
+                    <el-checkbox v-for="item in getOptions" :label="item.value" :key="item.value">{{item.label}}</el-checkbox>
+                </el-checkbox-group>
+            </div>
+        </el-scrollbar>
+        <div v-else>
+            <div class="el-tree__empty-block">
+                <span class="el-tree__empty-text">暂无数据</span>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script src="./TzCheckbox.ts" />
+
+<style>
+    .tz-checkbox-vertical .el-checkbox {
+        display: block;
+        margin-left: 0;
+    }
+
+    .tz-checkbox-content {
+        height: 450px;
+        overflow: auto;
+        border: 1px solid #dedee0;
+        padding: 0px 10px;
+    }
+</style>

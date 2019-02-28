@@ -1,0 +1,139 @@
+<template>
+    <div class="navbar navbar-default">
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <div id="logo" style="width: 420px; margin-top: -6px; margin-bottom: -1px;">
+                    <a href="/Home/MyHome">
+                        <img src="../../asserts/logo.png" style="border: 0;">
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-header pull-right" role="navigation">
+                <ul class="nav nav-top">
+                    <li class="dark">
+                        <a target="_blank" id="old" title="旧系统" href="http://tzecc.tztech.net">
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </li>
+                    <li class="orange">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="video" title="入职指南">
+                            <i class="fa fa-video-camera"></i>
+                        </a>
+                    </li>
+                    <li class="red">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="QAhelp" title="问题解答">
+                            <i class="fa fa-comments-o"></i>
+                        </a>
+                    </li>
+                    <li class="grey">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="help" title="帮助">
+                            <i class="fa fa-question-circle-o"></i>
+                        </a>
+                    </li>
+                    <li class="purple">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" title="更新通知" onclick="Application.ShowUpdate()">
+                            <i class="fa fa-bell-o"></i>
+                        </a>
+                    </li>
+                    <li class="green">
+                        <a class="dropdown-toggle" href="http://mm.263.com" target="_blank" title="邮件">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </li>
+                    <li class="light-blue">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <span class="user-info">
+                                <small>欢迎,</small>
+                                {{ userName}}
+                            </span>
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-cogs"></i>设置 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user"></i>个人信息 </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-cogs"></i>修改密码
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a @click.prevent="logout">
+                                    <i class="fa fa-power-off"></i>退出 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./navbar.ts" />
+
+<style>
+    .navbar {
+        margin-left: 0;
+        margin-right: 0;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 45px;
+        position: relative;
+        background: #438eb9;
+        height: 100%;
+    }
+
+    .navbar-container {
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+
+    .nav.nav-top>li {
+        border-left: 1px solid #DDD;
+        float: left;
+        line-height: 46px;
+        height: 46px;
+    }
+    .user-info {
+        max-width: 100px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: left;
+        vertical-align: top;
+        line-height: 15px;
+        position: relative;
+        top: 6px;
+    }
+
+    .user-info small {
+        display: block;
+    }
+
+    .nav>li>a>[class*="fa-"] {
+        font-size: 16px;
+        color: #FFF;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+    }
+
+    .user-menu>li>a>[class*="fa-"] {
+    margin-right: 6px;
+    font-size: 120%;
+}
+</style>

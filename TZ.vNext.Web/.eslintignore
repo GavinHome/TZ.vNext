@@ -1,0 +1,11 @@
+/build/
+/config/
+/dist/
+/*.js
+/test/unit/coverage/
+/ClientApp/assets/
+/node_modules/
+/Examples/
+/ClientApp/components/common/Enums.ts
+/ClientApp/components/common/TzFetch.ts
+/ClientApp/log.ts

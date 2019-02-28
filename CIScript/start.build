@@ -1,0 +1,75 @@
+﻿<?xml version="1.0"  encoding="utf-8"?>
+<project name="ConsoleNAnt" default="release" basedir=".">
+	<property name="debug" value="true"/>
+	<!--解决方案名称，必须修改-->
+	<property name="slnName" value="TZ.vNext.sln"/>
+	<!--发布目录，需与TeamCity中配置的相同-->
+	<property name="publishFolder" value="H:\publish\Publish_TZ_vNext"/>
+	
+	<!--参数说明：
+	build.number  TeamCity生成的版本号
+	build.vcs.number  Svn的版本号
+	projectKey TeamCity中配置的Build configuration ID,在Build Step中配置
+	projectName TeamCity中配置的Build configuration Name,在Build Step中配置-->
+	
+	<!--删除发布目录-->
+	<target name="clear">
+        <delete dir="${publishFolder}"/>
+	</target>
+	
+	<!--替换信息，依赖clear-->
+	<target name="replace" depends="clear">
+		<!--修改DLL版本号-->
+        <!--<exec program="assemblyVersion.bat" > 
+            <arg value="${build.number}" />
+			<arg value="${teamcity.build.checkoutDir}" />
+        </exec>-->
+		
+		<!--修改特定文件中点内容-->			
+		<exec program="Replacer.exe">
+			<arg value="${teamcity.build.checkoutDir}\TZIWB.vNext.Web\ClientApp\components\home\index.vue.html" />
+			<arg value="%BUILDNUMBER%" />
+			<arg value="${build.number}" />
+		</exec>	
+
+		<exec program="Replacer.exe">
+			<arg value="${teamcity.build.checkoutDir}\TZIWB.vNext.Web\ClientApp\components\home\index.vue.html" />
+			<arg value="%REVISION%" />
+			<arg value="${build.vcs.number}" />
+		</exec>
+	</target>
+	
+	<!--编译，依赖 replace-->	
+	<target name="build" depends="replace">
+		<!--编译项目-->
+		<exec program="Compile.bat" > 
+			<arg value="${build.number}" />
+			<arg value="${slnName}" />
+			<arg value="${projectKey}" />
+			<arg value="${projectName}" />
+        </exec>
+	</target>
+	
+	<!--代码质量检查，依赖 build-->
+	<target name="quality" depends="build">
+		<exec program="checkQuality.bat" > 
+			<arg value="${build.number}" />
+			<arg value="${projectKey}" />
+        </exec>
+	</target>
+	
+	<!--生成web站点，依赖 build-->
+	<target name="publish" depends="quality">
+		<exec program="Publish.bat" > 
+			<arg value="${teamcity.build.checkoutDir}" />
+        </exec>
+	</target>
+	
+	<!--发布，依赖 quality-->
+	<target name="release" depends="publish">
+		<exec program="buildGenerator.bat">
+			<arg value="${teamcity.build.checkoutDir}" />
+			<arg value="${publishFolder}" />
+		</exec>
+	</target>
+</project>

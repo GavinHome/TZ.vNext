@@ -1,0 +1,20 @@
+<template>
+  <el-form :inline="true" label-position="left" label-width="0px" class="search-bar" @submit.native.prevent="enterSearch">
+    <el-form-item size="small">
+      <el-input v-model="query" :clearable="true" @clear="clear"></el-input>
+    </el-form-item>
+    <el-form-item size="small">
+      <el-button type="primary" icon="el-icon-search" @click="search">查询</el-button>
+      <el-button type="success" icon="el-icon-search" size="small" v-if="isSearchAll" @click="search">查询所有</el-button>
+      <el-button type="info" icon="el-icon-close" size="small" @click="clear">清除条件</el-button>
+    </el-form-item>
+  </el-form>
+</template>
+
+<script src="./SearchBar.ts" />
+
+<style>
+  .search-bar .el-form-item--mini.el-form-item,.search-bar .el-form-item--small.el-form-item {
+    margin-bottom: 0px;
+  } 
+</style>

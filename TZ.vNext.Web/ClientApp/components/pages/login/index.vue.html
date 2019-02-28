@@ -1,0 +1,102 @@
+<template>
+    <div class="tz-login">
+        <el-container>
+            <el-main>
+                <el-card class="box-card" :body-style="{ height: '100%' }">
+                    <el-row :gutter="20">
+                        <el-col :span="12">
+                            <img src="../../../asserts/login_logo.png" style="margin:35% 10%" alt="登录"/>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form :model="model" ref="loginForm" class="login-form" :rules="rules">
+                                <el-row :gutter="20">
+                                    <el-col :span="24">
+                                        <el-form-item prop="UserName">
+                                            <el-input v-model="model.UserName" placeholder="用户名">
+                                                <i class="el-input__icon" slot="suffix">
+                                                    <img src="../../../asserts/login_user.png" alt="用户名">
+                                                </i>
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                </el-row>
+                                <el-row :gutter="20">
+                                    <el-col :span="24">
+                                        <el-form-item prop="Password">
+                                            <el-input v-model="model.Password" type="password" placeholder="密码">
+                                                <i class="el-input__icon" slot="suffix">
+                                                    <img src="../../../asserts/login_password.png" alt="密码">
+                                                </i>
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                </el-row>
+                                <el-row :gutter="20">
+                                    <el-col :span="24">
+                                        <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
+                                    </el-col>
+                                </el-row>
+                                <el-row>
+                                    <el-col :span="18">
+                                        <el-checkbox v-model="model.IsAutoLogin">自动登录</el-checkbox>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button type="text" style="padding:3px;font-size:12px;margin-bottom: 5px;">忘记密码？</el-button>
+                                    </el-col>
+                                </el-row>
+                            </el-form>
+                        </el-col>
+                    </el-row>
+
+                </el-card>
+
+            </el-main>
+            <el-footer class="text-center">
+                <span style="margin-top: 10px"> &copy; 2013-{{new Date().getFullYear()}} &nbsp;&nbsp;&nbsp;天职咨询
+                </span>
+                <!--&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">天职通下载</a>-->
+            </el-footer>
+        </el-container>
+    </div>
+</template>
+
+<script src="./index.ts" />
+
+<style>
+    .box-card {
+        position: relative;
+        width: 700px;
+        height: 360px;
+        margin: 150px auto;
+        background-image: url("")
+    }
+
+    .box-card .el-row,
+    .box-card .el-col {
+        height: 100%
+    }
+
+    .login-form {
+        margin: 20% 15% 18% 5%
+    }
+
+    .login-form .el-row {
+        margin-bottom: 5px
+    } 
+
+    .login-form .el-button {
+        width: 100%;
+    }
+
+    .login-form .el-checkbox__label {
+        font-size: 12px;
+    }
+
+    .login-form .el-row:last-child{
+        margin-top: 20px
+    }
+
+    .login-form i img{
+        margin-right: 5px;
+    }
+</style>

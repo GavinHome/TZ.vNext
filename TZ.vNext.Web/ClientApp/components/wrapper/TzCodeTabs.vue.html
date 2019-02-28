@@ -1,0 +1,11 @@
+<template>
+    <el-tabs type="border-card" v-model="activeTab" @tab-click="tabChange">
+        <el-tab-pane v-for="item in getOptions" :key="item.value" :label="item.label" :name="item.value">
+        </el-tab-pane>
+        <template>
+            <slot v-bind:activeTab="activeTab"></slot>
+        </template>
+    </el-tabs>
+</template>
+
+<script src="./TzCodeTabs.ts" />

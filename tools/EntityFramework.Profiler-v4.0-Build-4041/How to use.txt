@@ -1,0 +1,22 @@
+Preparing an application to be profiled
+==================================
+Add a reference to HibernatingRhinos.Profiler.Appender.dll assembly (located in the Appender folder of the downloadable zip).
+In the application startup (Application_Start in web applications, Program.Main in windows / console applications or the App constructor for WPF applications), make the following call:
+HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
+
+For running the profiler in production, use the HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.InitializeForProduction() method instead.
+
+
+Profiling the application
+=====================
+Open the EFProf.exe
+Start using the application you wish to profile
+You should see the results immediately in the UI.
+
+Notes
+=====
+You can learn more how to use the profiler here:
+http://www.hibernatingrhinos.com/Products/EFProf/learn
+
+For any issues that you run into, please inform us at the support mailing list:
+http://groups.google.com/group/efprof

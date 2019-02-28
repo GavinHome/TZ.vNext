@@ -1,0 +1,62 @@
+<template>
+    <div class="tz-table-dynamic">
+        <div class="k-toolbar k-grid-toolbar k-grid-top" style="border-width:1px">
+            <div class="pull-left">
+                <search-bar :isSearchAll="false" :mode="'custom'" :schemaModelFields="schemaModelFields" v-model="customDataSource"
+                    ref="searchBar" />
+            </div>
+
+            <div class="pull-right">
+                <slot v-bind:dataSource="dataSource">
+                </slot>
+            </div>
+        </div>
+
+        <el-table v-loading="loading" :data="dataSource" style="width: 100%" :highlight-current-row="true" :border="true"
+            :stripe="true">
+            <el-table-column v-for="col in dynamicColumns.filter(x => x.field)" :key="col.field" :prop="col.field"
+                :label="col.title" :width="col.width">
+                <template slot-scope="scope">
+                    <span v-if="!col.editable">{{ scope.row[col.field] }}</span>
+                    <el-input v-model="scope.row[col.field]" size="medium" v-else />
+                </template>
+            </el-table-column>
+            <el-table-column v-for="col in dynamicColumns.filter(x => x.command)" :key="col.name" :label="col.title"
+                :width="col.width">
+                <template slot-scope="scope">
+                    <el-button v-for="comd in col.command" :key="comd.name" size="mini" @click="comd.click(scope.row)"
+                        v-if="comd.visible(scope.row)" :class="comd.className" :icon="comd.iconClass" style="margin-right:5px !important;"></el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div class="tz-pagination text-right">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" @prev-click="prevClick"
+                @next-click="nextClick" :current-page.sync="currentPage" :page-size="pageSize" layout="total, prev, pager, next"
+                :total="total">
+            </el-pagination>
+        </div>
+    </div>
+</template>
+
+<script src="./TzTableDynamic.ts"></script>
+
+<style>
+    .tz-table-dynamic table tr td,
+    .tz-table-dynamic table tr th {
+        padding: 5px 0;
+    }
+
+    .tz-pagination {
+        /* border: 1px solid #dedee0; */
+        border-bottom: 1px solid #ebeef5;
+        border-left: 1px solid #ebeef5;
+        border-right: 1px solid #ebeef5;
+        padding: 5px 0;
+    }
+
+    .tz-table-dynamic .k-toolbar.k-grid-toolbar.k-grid-top {
+        /* border-width: 1px 1px 0px 1px !important; */
+        background: none;
+        padding: 5px 10px;
+    }
+</style>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+ <Words>
+  <Unrecognized>
+   <Word>cb</Word>
+  </Unrecognized>
+  <Recognized>
+ <Word>Geo</Word>
+ <Word>Npoi</Word>
+  <Word>Tzepm</Word>
+ <Word>Deletable</Word>
+ <Word>Wss</Word>
+ <Word>contravariant</Word>
+ <Word>Objectiva</Word>
+ <Word>Documentum</Word>
+ <Word>Unknow</Word>
+ <Word>occured</Word>
+ <Word>dfs</Word>
+ <Word>Webpart</Word>
+ <Word>ucf</Word>
+ <Word>SP</Word>
+<Word>CreateARBSubscription</Word>
+ <Word>Gridview</Word>
+ <Word>lbl</Word>
+ <Word>ltr</Word>
+ <Word>txt</Word>
+ <Word>dg</Word>
+ <Word>btn</Word>
+ <Word>ibtn</Word>
+ <Word>lnk</Word>
+ <Word>ddl</Word>
+ <Word>lst</Word>
+ <Word>dlst</Word>
+ <Word>rep</Word>
+ <Word>chk</Word>
+ <Word>rdo</Word>
+ <Word>img</Word>
+ <Word>pan</Word>
+ <Word>plh</Word>
+ <Word>cal</Word>
+ <Word>adr</Word>
+ <Word>tbl</Word>
+ <Word>val</Word>
+ <Word>vals</Word>
+ <Word>Infos</Word>
+ <Word>kerberos</Word>
+ <Word>dtc</Word>
+ <Word>Unsubscription</Word>
+ <Word>Dydacomp</Word>
+ <Word>Extention</Word>
+ <Word>Mvc</Word>
+ <Word>Addr</Word>
+ <Word>MemCached</Word>
+ <Word>Isonum</Word>
+ <Word>Deactive</Word>
+ <Word>Mrs</Word>
+ <Word>Jrs</Word>
+ <Word>Upc</Word>
+ <Word>Json</Word>
+ <Word>JsonDataResult</Word>
+ <Word>Util</Word>
+ <Word>Orded</Word>
+ <Word>Hql</Word>
+<word>CSR</word>
+<Word>DTO</Word>
+<Word>API</Word>
+<Word>WareHouse</Word>
+<Word>Cavv</Word>
+<Word>Avs</Word>
+<Word>ARB</Word>
+<Word>Asc</Word>
+<Word>Desc</Word>
+<Word>Encryptor</Word>
+<Word>Sku</Word>
+<Word>Naics</Word>
+   </Recognized>
+  <Deprecated>
+    <!-- Be sure to pascal-case deprecated terms and preferred alternates     -->
+    <!-- Note that terms consisting of one or two tokens only will be flagged -->    
+    <!-- eg, ComPlus can be checked for but NewComPlus will not be detected   -->    
+    <Term PreferredAlternate="EnterpriseServices">ComPlus</Term> 
+  </Deprecated>
+  <Inappropriate/>
+ </Words>
+ <Acronyms>
+  <CasingExceptions>
+   <Acronym>CJK</Acronym>
+   <Acronym>Pi</Acronym>
+   <Acronym>NESW</Acronym>
+   <Acronym>NWSE</Acronym>
+   <Acronym>BreadCrumb</Acronym>
+   <Acronym>Separtor</Acronym>
+  </CasingExceptions>
+ </Acronyms>
+</Dictionary>

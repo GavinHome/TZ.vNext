@@ -1,0 +1,8 @@
+<template>
+    <el-select :value="value" :placeholder="placeholder" @change="update">
+        <el-option v-for="item in getOptions" :key="item.value" :label="item.label" :value="item.value">
+        </el-option>
+    </el-select>
+</template>
+
+<script src="./TzCodeSelect.ts" />

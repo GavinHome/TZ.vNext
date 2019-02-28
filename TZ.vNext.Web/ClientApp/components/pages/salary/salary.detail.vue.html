@@ -1,0 +1,35 @@
+<template>
+    <el-form label-position="top" label-width="80px" :model="model">
+        <el-collapse value="1">
+            <el-collapse-item title="基本信息" name="1">
+                <el-row :gutter="24">
+                    <el-col :span="6">
+                        <el-form-item label="薪酬项名称：" size="medium" class="readonly">
+                            <el-input v-model="model.Name" :readonly="true"></el-input>
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="6">
+                        <el-form-item label="类型：" size="medium" class="readonly">
+                            <el-input v-model="model.FormName" :readonly="true"></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+                <el-row :gutter="24">
+                    <el-col :span="24">
+                        <el-form-item label="备注：" size="medium" class="readonly">
+                            <el-input v-model="model.Description" :readonly="true"></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+            </el-collapse-item>
+        </el-collapse>
+        <el-row class="mb15 mt15">
+            <el-form-item class="text-right">
+                <el-button @click="$router.go(-1)">返回</el-button>
+            </el-form-item>
+        </el-row>
+
+    </el-form>
+</template>
+
+<script src="./salary.detail.ts" />

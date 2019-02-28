@@ -1,0 +1,27 @@
+<template>
+    <div>
+        <kendo-datasource ref="remoteDataSource" :type="'json'" :transport-read="readData" :transport-read-data-type="'json'"
+            :transport-read-type="'POST'" :schema-model-id="'id'" :schema-data="'Data'" :transport-parameter-map="parameterMap" transport-read-content-type="application/json"
+            :schema-total="'Total'" :schema-model-fields="schemaModelFields" :page-size="10" :server-paging="true" :server-operation="true" :server-sorting="true" :server-filtering="true" :server-aggregates="true"
+            :request-start="requestStart" :onerror="onError">
+        </kendo-datasource>
+
+        <div class="k-toolbar k-grid-toolbar k-grid-top">
+            <div class="pull-left">
+                <search-bar :isSearchAll="false" :schemaModelFields="schemaModelFields" v-model="dataSource"/>
+            </div>
+
+            <div class="pull-right">
+                <slot v-bind:dataSource="dataSource">
+                </slot>
+            </div>
+        </div>
+
+        <kendo-grid :height="445" :filterable="true" :sortable="true" :data-source-ref="'remoteDataSource'" :selectable="true" 
+            :pageable="true" :pageable-always-visible="true" :pageable-refresh="true" :columnMenu="true" :resizable="true"
+            :dataBinding="onDataBinding" :dataBound="onDataBound" :editable="false" :columns="DynamicColumns" >
+        </kendo-grid>
+    </div>
+</template>
+
+<script src="./TzGridDynamic.ts"></script>

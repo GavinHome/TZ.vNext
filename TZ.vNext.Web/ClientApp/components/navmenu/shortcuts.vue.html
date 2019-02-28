@@ -1,0 +1,92 @@
+<template>
+    <div class="sidebar-shortcuts-large text-center" v-if="!isCollapsed">
+        <el-button type="success" icon="fa fa-yen" size="small" title="薪酬报表" @click="goto('/salary_reports')"></el-button>
+        <el-button type="info" icon="fa fa-clock-o" size="small" title="薪酬计划" @click="goto('/salary_schedulers')"></el-button>
+        <el-button type="warning" icon="fa fa-user" size="small" title="我的薪酬" @click="goto('/salary_mine')"></el-button>
+        <el-button type="danger" icon="fa fa-home" size="small" title="我的首页" @click="goto('/home')"></el-button>
+    </div>
+
+    <!-- <div class="sidebar-shortcuts-mini text-center" v-else>
+        <el-button type="success" size="mini"></el-button>
+        <el-button type="info" size="mini"></el-button>
+        <el-button type="warning" size="mini"></el-button>
+        <el-button type="danger" size="mini"></el-button>
+    </div> -->
+
+    <el-popover placement="right" trigger="hover" :visible-arrow="false" popper-class="sidebar-shorcuts-popover" v-else>
+        <div class="sidebar-shortcuts-large text-center">
+            <el-button type="success" icon="fa fa-yen" size="small" title="薪酬报表" @click="goto('/salary_reports')"></el-button>
+            <el-button type="info" icon="fa fa-clock-o" size="small" title="薪酬计划" @click="goto('/salary_schedulers')"></el-button>
+            <el-button type="warning" icon="fa fa-user" size="small" title="我的薪酬" @click="goto('/salary_mine')"></el-button>
+            <el-button type="danger" icon="fa fa-home" size="small" title="我的首页" @click="goto('/home')"></el-button>
+        </div>
+        <template slot="reference">
+            <div class="sidebar-shortcuts-mini text-center">
+                <el-button type="success" size="mini"></el-button>
+                <el-button type="info" size="mini"></el-button>
+                <el-button type="warning" size="mini"></el-button>
+                <el-button type="danger" size="mini"></el-button>
+            </div>
+        </template>
+    </el-popover>
+</template>
+
+<script src="./shortcuts.ts" />
+
+<style>
+    .sidebar-shortcuts-mini {
+        font-size: 0;
+        height: 40px;
+        line-height: 18px;
+        background-color: #fff;
+        border-radius: 0px;
+        padding: 2px 6px;
+        border-right: solid 1px #e6e6e6;
+        vertical-align: middle;
+    }
+
+    .sidebar-shortcuts-mini>.el-button {
+        border-width: 0 !important;
+        font-size: 0;
+        line-height: 0;
+        padding: 8px !important;
+        margin: 1px 2px;
+        border-radius: 0 !important;
+        opacity: .85;
+        filter: alpha(opacity=85);
+        border-radius: 0px;
+        margin-left: 0px;
+    }
+
+    .sidebar-shortcuts-large {
+        padding: 4px 0px;
+        border-right: solid 1px #e6e6e6;
+        background-color: #fff;
+    }
+
+    .sidebar-shortcuts-large>.el-button {
+        width: 42px;
+        line-height: 24px;
+        padding: 0;
+        border-width: 4px;
+        text-align: center;
+        border-radius: 0px;
+    }
+
+    .sidebar-shortcuts-large .el-button+.el-button {
+        margin-left: 0px;
+    }
+
+    .sidebar-shorcuts-popover {
+        padding: 0px 5px;
+        border-radius: 0px;
+        margin-top: 1px;
+    }
+
+    .sidebar-shorcuts-popover .sidebar-shortcuts-large {
+        border-right: none;
+    }
+    .sidebar-shorcuts-popover[x-placement^=right] {
+        margin-left: 2.5px;
+    }
+</style>

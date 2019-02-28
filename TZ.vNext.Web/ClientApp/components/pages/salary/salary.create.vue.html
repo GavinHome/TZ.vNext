@@ -1,0 +1,36 @@
+<template>
+    <el-form label-position="top" label-width="80px" :model="model" :rules="rules" ref="ruleForm">
+        <el-collapse value="1">
+            <el-collapse-item title="基本信息" name="1">
+                <el-row :gutter="24">
+                    <el-col :span="12">
+                        <el-form-item label="薪酬项名称：" size="medium" prop="Name">
+                            <el-input v-model="model.Name"></el-input>
+                        </el-form-item>
+                    </el-col>
+                    <el-col :span="12">
+                        <el-form-item label="薪酬项类型" size="medium" prop="FormContent">
+                            <tz-enum-select :placeholder="'请选择'" :enumType="3" v-model="model.FormContent" />
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+                <el-row :gutter="24">
+                    <el-col :span="24">
+                        <el-form-item label="备注：" size="medium">
+                            <el-input type="textarea" :rows="3" :autosize="{ minRows: 3, maxRows: 5 }" v-model="model.Description"></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+            </el-collapse-item>
+        </el-collapse>
+        <el-row class="mb15 mt15">
+            <el-form-item class="text-right">
+                <el-button type="primary" @click="submitForm('ruleForm')">保存</el-button>
+                <el-button @click="$router.go(-1)">返回</el-button>
+            </el-form-item>
+        </el-row>
+
+    </el-form>
+</template>
+
+<script src="./salary.create.ts" />

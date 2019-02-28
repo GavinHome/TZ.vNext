@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+    <None Remove=".gitignore" />
+    <None Remove="StyleCop.Cache" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\TZ.vNext.Core\TZ.vNext.Core.csproj" />
+    <ProjectReference Include="..\TZ.vNext.Database.Contracts\TZ.vNext.Database.Contracts.csproj" />
+    <ProjectReference Include="..\TZ.vNext.Model\TZ.vNext.Model.csproj" />
+    <ProjectReference Include="..\TZ.vNext.Services.Contracts\TZ.vNext.Services.Contracts.csproj" />
+    <ProjectReference Include="..\TZ.vNext.ViewModel\TZ.vNext.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <tz-grid-dynamic :transport_read_url="readUrl" :columns="columns" ref="salaryGrid">
+            <template slot-scope="{ dataSource }">
+                <el-button type="primary" size="small" :round="false" @click="create">新增导入项</el-button>
+            </template>
+        </tz-grid-dynamic>
+    </div>
+</template>
+
+<script src="./salary.grid.ts"></script>

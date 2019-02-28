@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "我的首页";
+}
+
+<div id='app-root'>
+    <!-- Loading... -->
+    <!-- shell -->
+    <div class="global-loading-content"><div class="global-loading"><i class="spinner global-loading-spinner"></i> <span class="global-loading-text">天职咨询薪酬系统</span></div></div>
+</div>
+
+@section scripts {
+    <script src="~/dist/main.js" asp-append-version="true"></script>
+}
+
+
+<style>
+.global-loading-content{
+    padding: 10px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.global-loading {
+    width: 300px;
+    margin: 200px auto 0;
+    white-space: nowrap;
+}
+
+.spinner {
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #4b9fd5;
+    border-radius: 50%;
+    animation: spin .75s infinite linear;
+}
+
+.global-loading-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.global-loading-spinner {
+    vertical-align: middle;
+    width: 80px;
+    height: 80px;
+}
+
+.spinner:after, .spinner:before {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+}
+
+.spinner, .spinner:after, .spinner:before {
+    display: inline-block;
+    box-sizing: border-box;
+    border-color: transparent;
+    border-top-color: #4b9fd5;
+    animation-duration: 1.2s;
+}
+
+    .spinner:before {
+        transform: rotate(120deg);
+    }
+
+    .spinner:after {
+        transform: rotate(240deg);
+    }
+
+@@keyframes spin {
+    from {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+</style>

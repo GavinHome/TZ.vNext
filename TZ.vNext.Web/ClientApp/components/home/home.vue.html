@@ -1,0 +1,46 @@
+<template>
+    <div class="home">
+        <div class="alert alert-block alert-success">
+            <i class="green fa fa-user bigger-110"></i>
+            欢迎您使用
+            <strong class="blue">
+                天职咨询薪酬系统
+            </strong>
+            ， 今天是{{currentDate}}，星期二， 祝您工作愉快！
+        </div>
+        <div class="row margin-10" style="margin-left:0px;">
+            <div class="space-6"></div>
+            <h5 class="lighter">
+                <i class="fa fa-laptop blue"></i>
+                您的业务待办
+            </h5>
+
+            <div class="backlog">
+                <el-row :gutter="10">
+                    <el-col :span="2.5" class="backlog-block" v-for="(block,i) in modules" :key="i">
+                        <el-card shadow="always" :class="'backlog-' + block.ProcessDefName" :body-style="{ padding: '10px 20px' }"
+                            @click.native="goto(block)">
+                            <el-row :gutter="10">
+                                <el-col :span="4"> <i :class="block.icon?block.icon:'fa fa-external-link'"></i></el-col>
+                                <el-col :span="20" class="text-center">
+                                    <div style="padding:0px 10px">
+                                        <div>{{ block.Count }}</div>
+                                        <div>{{ block.ProcessChName }}</div>
+                                    </div>
+                                </el-col>
+                            </el-row>
+                        </el-card>
+                    </el-col>
+                </el-row>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script src="./home.ts"></script>
+
+<style>
+    .home .el-card {
+        margin-bottom: 8px;
+    }
+</style>

@@ -1,0 +1,766 @@
+2017-06-15 17:10:36,370 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2017-06-15 17:10:37,884 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - Could not find license file: C:\Users\lyh67\AppData\Local\EntityFramework Profiler\license.xml
+2017-06-15 17:10:37,888 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - Could not find license file: C:\Users\lyh67\AppData\Local\EntityFramework Profiler\license.xml
+2017-06-15 17:10:37,888 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseFileNotFoundException: Exception of type 'Rhino.Licensing.LicenseFileNotFoundException' was thrown.
+   at Rhino.Licensing.LicenseValidator.AssertValidLicense()
+   at HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   at HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 10:45:37,029 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-07 10:45:39,016 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-07 10:45:39,028 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 10:48:33,046 [13] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:c98d591c-604e-4fe0-9cf3-b26956dc6a8b
+Error Number:4060,State:1,Class:11
+2018-12-07 10:48:33,046 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:c98d591c-604e-4fe0-9cf3-b26956dc6a8b
+Error Number:4060,State:1,Class:11
+2018-12-07 10:48:33,046 [19] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:c98d591c-604e-4fe0-9cf3-b26956dc6a8b
+Error Number:4060,State:1,Class:11
+2018-12-07 10:49:37,602 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:9a217cf0-53f9-4722-84fb-c8893c0ab18e
+Error Number:4060,State:1,Class:11
+2018-12-07 10:50:39,042 [5] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 10:50:39,044 [5] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 10:51:53,944 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-07 10:51:55,486 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-07 10:51:55,499 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 10:52:21,377 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:29e5c859-fa74-4be5-bbeb-4de7b80a731c
+Error Number:4060,State:1,Class:11
+2018-12-07 10:52:21,377 [8] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:29e5c859-fa74-4be5-bbeb-4de7b80a731c
+Error Number:4060,State:1,Class:11
+2018-12-07 10:52:21,377 [9] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:29e5c859-fa74-4be5-bbeb-4de7b80a731c
+Error Number:4060,State:1,Class:11
+2018-12-07 10:56:55,517 [21] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 10:56:55,518 [21] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 10:59:20,210 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-07 10:59:21,860 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-07 10:59:21,867 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 10:59:42,706 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:bbb3dd6a-2465-4ac3-b2aa-cd658c7fa4bd
+Error Number:4060,State:1,Class:11
+2018-12-07 10:59:42,706 [10] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:bbb3dd6a-2465-4ac3-b2aa-cd658c7fa4bd
+Error Number:4060,State:1,Class:11
+2018-12-07 10:59:42,706 [7] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:bbb3dd6a-2465-4ac3-b2aa-cd658c7fa4bd
+Error Number:4060,State:1,Class:11
+2018-12-07 10:59:42,706 [8] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:bbb3dd6a-2465-4ac3-b2aa-cd658c7fa4bd
+Error Number:4060,State:1,Class:11
+2018-12-07 11:04:21,868 [10] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:04:21,870 [10] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:09:21,871 [7] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:09:21,871 [7] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:11:29,722 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-07 11:11:31,942 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-07 11:11:31,952 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 11:12:53,003 [18] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:58387c04-5954-4361-8b4f-55d27b4dc9b5
+Error Number:4060,State:1,Class:11
+2018-12-07 11:12:53,004 [21] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:58387c04-5954-4361-8b4f-55d27b4dc9b5
+Error Number:4060,State:1,Class:11
+2018-12-07 11:12:53,004 [6] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:58387c04-5954-4361-8b4f-55d27b4dc9b5
+Error Number:4060,State:1,Class:11
+2018-12-07 11:16:31,961 [12] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:16:31,962 [12] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:16:47,484 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-07 11:16:48,935 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-07 11:16:48,944 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 11:17:30,098 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:cde7aee3-a483-41d4-b0e3-53400149c67b
+Error Number:4060,State:1,Class:11
+2018-12-07 11:17:30,098 [7] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:cde7aee3-a483-41d4-b0e3-53400149c67b
+Error Number:4060,State:1,Class:11
+2018-12-07 11:17:30,098 [10] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:cde7aee3-a483-41d4-b0e3-53400149c67b
+Error Number:4060,State:1,Class:11
+2018-12-07 11:21:48,947 [8] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:21:48,947 [8] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:23:47,623 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-07 11:23:50,299 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-07 11:23:50,318 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-07 11:24:16,868 [8] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:a15ba6a5-c01a-4160-bf11-ec4ab7a32535
+Error Number:4060,State:1,Class:11
+2018-12-07 11:24:16,868 [5] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:a15ba6a5-c01a-4160-bf11-ec4ab7a32535
+Error Number:4060,State:1,Class:11
+2018-12-07 11:24:16,868 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:a15ba6a5-c01a-4160-bf11-ec4ab7a32535
+Error Number:4060,State:1,Class:11
+2018-12-07 11:28:50,321 [3] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:28:50,322 [3] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:33:50,324 [21] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:33:50,325 [21] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:38:50,326 [28] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:38:50,327 [28] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:43:50,329 [31] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:43:50,330 [31] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:48:50,336 [26] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:48:50,336 [26] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:53:50,338 [23] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:53:50,338 [23] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 11:58:50,340 [22] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 11:58:50,340 [22] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:03:50,341 [10] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:03:50,341 [10] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:08:50,343 [29] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:08:50,343 [29] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:13:51,345 [33] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:13:51,345 [33] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:18:51,356 [6] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:18:51,356 [6] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:23:51,358 [35] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:23:51,358 [35] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:28:51,360 [50] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:28:51,360 [50] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:33:52,364 [12] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:33:52,364 [12] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-07 12:38:52,373 [72] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-07 12:38:52,373 [72] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 12:56:28,037 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-12 12:56:29,916 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-12 12:56:29,927 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-12 12:58:46,430 [17] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:84bded51-5025-4436-9815-5780d67b0393
+Error Number:4060,State:1,Class:11
+2018-12-12 12:58:46,431 [16] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:84bded51-5025-4436-9815-5780d67b0393
+Error Number:4060,State:1,Class:11
+2018-12-12 12:58:51,013 [10] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:84bded51-5025-4436-9815-5780d67b0393
+Error Number:4060,State:1,Class:11
+2018-12-12 12:59:06,323 [12] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:181fb890-4065-4309-8423-fecf180b94e9
+Error Number:4060,State:1,Class:11
+2018-12-12 13:01:29,941 [3] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-12 13:01:29,943 [3] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 13:06:29,951 [12] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-12 13:06:29,951 [12] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 13:14:14,978 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-12 13:14:16,793 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-12 13:14:16,808 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-12 13:15:27,223 [21] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:929fc30a-144b-452c-8395-9594ed947bcf
+Error Number:4060,State:1,Class:11
+2018-12-12 13:15:27,223 [22] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:929fc30a-144b-452c-8395-9594ed947bcf
+Error Number:4060,State:1,Class:11
+2018-12-12 13:15:27,223 [17] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:929fc30a-144b-452c-8395-9594ed947bcf
+Error Number:4060,State:1,Class:11
+2018-12-12 13:19:16,812 [24] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-12 13:19:16,814 [24] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 14:00:09,516 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-12 14:00:11,930 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-12 14:00:11,944 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-12 14:00:23,800 [10] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:30d929e7-0963-4df9-9183-0827e4aee3be
+Error Number:4060,State:1,Class:11
+2018-12-12 14:00:23,800 [12] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:30d929e7-0963-4df9-9183-0827e4aee3be
+Error Number:4060,State:1,Class:11
+2018-12-12 14:00:23,800 [5] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:30d929e7-0963-4df9-9183-0827e4aee3be
+Error Number:4060,State:1,Class:11
+2018-12-12 14:05:11,957 [21] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-12 14:05:11,958 [21] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 14:10:11,958 [27] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-12 14:10:11,959 [27] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 16:36:18,884 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-12 16:36:22,433 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-12 16:36:22,446 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-12 16:37:47,097 [9] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:a991e639-0087-435c-a654-3175b05f2e8a
+Error Number:4060,State:1,Class:11
+2018-12-12 16:37:47,097 [11] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:a991e639-0087-435c-a654-3175b05f2e8a
+Error Number:4060,State:1,Class:11
+2018-12-12 16:37:47,097 [22] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:a991e639-0087-435c-a654-3175b05f2e8a
+Error Number:4060,State:1,Class:11
+2018-12-12 16:41:22,461 [10] ERROR Rhino.Licensing.AbstractLicenseValidator [(null)] - The license have expired and can no longer be used
+2018-12-12 16:41:22,465 [10] INFO  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Got invalidation notification TimeExpired
+2018-12-12 16:45:45,694 [1] DEBUG HibernatingRhinos.Profiler.Client.App [(null)] - Profiler initialized. Build: 4041
+2018-12-12 16:45:49,222 [1] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 11/24/2018 10:03:35
+2018-12-12 16:45:49,252 [1] WARN  HibernatingRhinos.Profiler.Client.Licensing.LicensePromptModel [(null)] - Second chance license validation has failed
+Rhino.Licensing.LicenseExpiredException: Expiration Date: 2018/11/24 10:03:35
+   在 Rhino.Licensing.AbstractLicenseValidator.IsLicenseValid()
+   在 Rhino.Licensing.AbstractLicenseValidator.AssertValidLicense(Action onValidLicense)
+   在 HibernatingRhinos.Profiler.Client.Services.ProfilerLicenseValidator.AssertValidLicense()
+   在 HibernatingRhinos.Profiler.Client.Licensing.LicenseInformationModel.ConfirmLicense(Boolean showDialogIfLicenseDoesNotExists)
+2018-12-12 16:46:27,284 [12] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:5aea7cf2-c4cc-42a3-96bd-e3fbdac87c9f
+Error Number:4060,State:1,Class:11
+2018-12-12 16:46:27,284 [6] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:5aea7cf2-c4cc-42a3-96bd-e3fbdac87c9f
+Error Number:4060,State:1,Class:11
+2018-12-12 16:46:27,284 [9] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:5aea7cf2-c4cc-42a3-96bd-e3fbdac87c9f
+Error Number:4060,State:1,Class:11
+2018-12-12 16:47:19,505 [25] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:28706661-6a8d-4454-9660-31e3cde7eea2
+Error Number:4060,State:1,Class:11
+2018-12-12 16:47:19,505 [27] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:28706661-6a8d-4454-9660-31e3cde7eea2
+Error Number:4060,State:1,Class:11
+2018-12-12 16:47:19,505 [23] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:28706661-6a8d-4454-9660-31e3cde7eea2
+Error Number:4060,State:1,Class:11
+2018-12-12 16:47:19,505 [7] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:28706661-6a8d-4454-9660-31e3cde7eea2
+Error Number:4060,State:1,Class:11
+2018-12-12 16:47:19,505 [21] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:28706661-6a8d-4454-9660-31e3cde7eea2
+Error Number:4060,State:1,Class:11
+2018-12-12 16:47:19,505 [26] ERROR HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache [(null)] - Could not open connection
+System.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "Tztech_Next_20180211"。登录失败。
+用户 'sa' 登录失败。
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 HibernatingRhinos.Profiler.BackEnd.Infrastructure.SchemaCache.TaskHelper(String tableName, ConnectionInfo connection)
+ClientConnectionId:28706661-6a8d-4454-9660-31e3cde7eea2
+Error Number:4060,State:1,Class:11

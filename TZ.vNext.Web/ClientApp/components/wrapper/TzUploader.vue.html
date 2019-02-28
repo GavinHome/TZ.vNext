@@ -1,0 +1,12 @@
+<template>
+    <el-upload class="tz-uploader" :name="name" :file-list="value" ref="upload" action="/File/Upload" :multiple="true" 
+        :on-preview="onPreview" :on-remove="onRemove" :on-change="onChange" :on-success="onSuccess" :on-error="onError" 
+        :on-progress="onProgress" :before-Upload="beforeUpload" :before-Remove="beforeRemove" :on-exceed="onExceed" 
+        :limit="limit">
+        <el-button slot="trigger" size="small" type="primary">添加附件</el-button>
+        <div slot="tip" class="el-upload__tip">{{tips}}</div>
+    </el-upload>
+
+</template>
+
+<script src="./TzUploader.ts" />

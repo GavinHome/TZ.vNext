@@ -1,0 +1,37 @@
+<template>
+    <div>
+        <div class="tz-dialog-content">
+            <el-form label-position="top" label-width="80px">
+                <el-row :gutter="20">
+                    <el-col :span="24">
+                        <el-form-item size="medium">
+                            <el-upload :headers="requestHeaders" class="tz-uploader" :name="'file'" :action="url" :on-success="onSuccess"
+                                :on-error="onError" :on-exceed="onExceed" :limit="1" :on-remove="onRemove">
+                                <el-button slot="trigger" size="small" type="primary">选择附件</el-button>
+                                <!-- <div slot="tip" class="el-upload__tip">请选择文件</div> -->
+                            </el-upload>
+                        </el-form-item>
+                    </el-col>
+                    
+                </el-row>
+
+                <el-row :gutter="20">
+                    <el-col :span="24">
+                        <el-form-item label="" size="medium" class="readonly">
+                            <el-input v-model="this.message" type="textarea" :rows="15" :autosize="{ minRows: 15, maxRows: 15 }" :readonly="true"></el-input>
+                        </el-form-item>
+                    </el-col>
+                </el-row>
+            </el-form>
+        </div>
+
+        <el-row class="mb15 mt15 text-right" style="bottom: 10px;">
+            <div>
+                <el-button type="success" size="small" @click="submit" :disabled="this.buttonDisabled">确定</el-button>
+                <el-button @click="close" size="small">取消</el-button>
+            </div>
+        </el-row>
+    </div>
+</template>
+
+<script src="./TzImport.ts" />

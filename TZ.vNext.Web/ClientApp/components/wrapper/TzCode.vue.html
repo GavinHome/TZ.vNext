@@ -1,0 +1,25 @@
+<template>
+    <div>
+        <el-tree :props="props" node-key="id" :data="data" :load="loadNode" :highlight-current="true" v-if="!multiply" lazy>
+            <span class="custom-tree-node" slot-scope="{ node, data }" v-on:dblclick="dblclick(data)">
+                <span>{{ node.label }}</span>
+            </span>
+        </el-tree>
+        <div v-else>
+            <el-tree :props="props" ref="tree" node-key="id" :data="data" :load="loadNode" :highlight-current="true" lazy show-checkbox>
+                <span class="custom-tree-node" slot-scope="{ node, data }">
+                    <span>{{ node.label }}</span>
+                </span>
+            </el-tree>
+
+            <el-row class="mb15 mt15 text-right" style="position: absolute;bottom: 0;right: 15px;">
+                <div>
+                    <el-button type="success" size="small" @click="submitCode()">确定</el-button>
+                    <el-button @click="close()" size="small">取消</el-button>
+                </div>
+            </el-row>
+        </div>
+    </div>
+</template>
+
+<script src="./TzCode.ts" />

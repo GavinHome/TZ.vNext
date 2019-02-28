@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+
+<DeploymentConfig>
+    <Project Name="BUILD">
+        <ConfigGroup>
+            <ConfigItem Name="IsRelease">False</ConfigItem>
+            <ConfigItem Name="ReleasePassword">123</ConfigItem>
+            <ConfigItem Name="BuildPackageName">tzzxBuild.zip</ConfigItem>
+            <ConfigItem Name="TargetServiceURL">172.16.226.130</ConfigItem>
+            <ConfigItem Name="UserName">administrator</ConfigItem>
+            <ConfigItem Name="PassWord">a.o7a@bj</ConfigItem>
+            <ConfigItem Name="SharedFolderPath">0.Share\TZZX_TZIWB_Salary</ConfigItem>
+            <ConfigItem Name="SharedFolderPhysicalPath">D:\0.Share\TZZX_TZIWB_Salary</ConfigItem>
+            <ConfigItem Name="ProjectSourcePowershellName">TargetServerDeployment.ps1</ConfigItem>
+        </ConfigGroup>
+    </Project>
+    <Project Name="WEB">
+        <ConfigGroup>
+            <ConfigItem Name="WebSourcePath">WebSite</ConfigItem>
+            <ConfigItem Name="WebConfiguration">appsettings.json</ConfigItem>
+            <ConfigItem Name="LastUsedBuildConfiguration">appsettings.QA.json</ConfigItem>
+            <ConfigItem Name="DeployIisApp">SIT_TZIWB_Salary</ConfigItem>
+            <ConfigItem Name="RemoteSitePhysicalPath">D:\1.SIT\TZZX_TZIWB_Salary\Web</ConfigItem>
+            <ConfigItem Name="Backup">False</ConfigItem>
+            <ConfigItem Name="RemoteBackupPhysicalPath">D:\SIT_Back</ConfigItem>
+        </ConfigGroup>
+    </Project>
+</DeploymentConfig>
