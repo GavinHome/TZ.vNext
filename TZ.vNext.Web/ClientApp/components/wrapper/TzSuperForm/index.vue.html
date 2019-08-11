@@ -1,0 +1,64 @@
+<template>
+    <el-form label-position="top" :label-width="labelWidth + 'px'" :model="formData" ref="form" :rules="rules"
+        @submit.native.prevent="handleValidateForm">
+        <!-- 默认插槽作为表单项 -->
+        <slot />
+
+        <div class="single-collapse" v-if="isGroupalbe">
+            <el-row :gutter="24">
+                <el-col :span="field.cols ? 8 * field.cols : 8" v-for="(field, index) of formDesc" :key="field.key">
+
+                    <el-form-item :label="field.label" size="medium" :class="'readonly'" v-if="field.isOnlyDisplay">
+                        <el-input v-model="formData[field.name]" :readonly="true"></el-input>
+                    </el-form-item>
+
+                    <el-form-item :label="field.label" size="medium" :prop="field.name" v-else>
+                        <!-- 具名 作用域插槽(用于用户自定义显示) -->
+                        <slot :data="formData[field.name]" :name="field.name">
+                            <component :desc="field" :is="getComponentName(field.type)"
+                                v-model="formData[field.name]" />
+                        </slot>
+                    </el-form-item>
+                </el-col>
+            </el-row>
+        </div>
+
+        <el-collapse :value="ActiveCollapses" v-else>
+            <el-collapse-item v-for="(group, index) of form" :title="group.title" :name="group.name" :key="group.key">
+                <el-row :gutter="24" v-for="(row, index) of group.rows" :key="row.key">
+                    <el-col :span="field.cols ? 8 * field.cols : 8" v-for="(field, index) of row.fields"
+                        :key="field.key">
+
+                        <el-form-item :label="field.label" size="medium" :class="'readonly'" v-if="field.isOnlyDisplay">
+                            <el-input v-model="formData[field.name]" :readonly="true"></el-input>
+                        </el-form-item>
+
+                        <el-form-item :label="field.label" size="medium" :prop="field.name" v-else>
+                            <!-- 具名 作用域插槽(用于用户自定义显示) -->
+                            <slot :data="formData[field.name]" :name="field.name">
+                                <component :desc="field" :is="getComponentName(field.type)"
+                                    v-model="formData[field.name]" />
+                            </slot>
+                        </el-form-item>
+
+                    </el-col>
+                </el-row>
+            </el-collapse-item>
+        </el-collapse>
+        <el-row class="mb15 mt15">
+            <el-form-item class="text-right">
+                <el-button type="primary" :loading="isLoading || innerIsLoading" native-type="submit"
+                    v-if="showSubmitBtn">{{submitBtnText?submitBtnText:'提交'}}</el-button>
+                <el-button @click="goBack" v-if="showBackBtn">{{backBtnText?backBtnText:'返回'}}</el-button>
+            </el-form-item>
+        </el-row>
+    </el-form>
+</template>
+
+<script src="./index.ts"></script>
+
+<style>
+    .single-collapse {
+        padding:20px;
+    }
+</style>

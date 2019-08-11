@@ -1,0 +1,58 @@
+<template>
+    <div>
+        <el-card :body-style="{ padding: '10px' }" :header="comp.title" :key="comp.title" shadow="never"
+            style="border: none;" v-for="comp of components">
+            <draggable :clone="addFormItem" :group="{ name: 'form', pull: 'clone', put: false }" :list="comp.comps" filter=".undraggable"
+                :sort="false" >
+                <template v-for="item of comp.comps">
+                    <div :key="item.type" class="type-item" v-if="item.isfinished">
+                        <div class="type-item-title">{{item.type}}</div>
+                        <div>{{item.label}}</div>
+                    </div>
+                    <div :key="item.type" class="type-item undraggable" v-else>
+                            <div class="type-item-title">{{item.type}}</div>
+                            <div>{{item.label}}  <em class="pull-right small">即将开放</em></div>
+                        </div>
+                </template>
+            </draggable>
+        </el-card>
+    </div>
+</template>
+
+<script src="./BuilderAppFormComponents.ts"></script>
+
+<style>
+    .app-type-container {
+        line-height: 1.5em;
+        height: 100%;
+    }
+
+    .type-item {
+        width: 270px;
+        color: #606266;
+        cursor: move;
+        border: 1px solid #ebeef5;
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+        text-overflow: ellipsis;
+        border-radius: 3px;
+        padding: 6px 8px;
+        box-sizing: border-box;
+        margin: 5px;
+        font-size: 13px;
+    }
+
+    .type-item:hover {
+        background: #ebeef5
+    }
+
+    .type-item-title {
+        font-weight: bold;
+        color: #222;
+    }
+
+    .type-item.undraggable {
+        background: #ebecec
+    }
+</style>

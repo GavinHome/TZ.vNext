@@ -1,0 +1,8 @@
+<template>
+    <el-select :value="value" @change="update">
+        <el-option :key="option.value" :label="option.text" :value="option.value" v-for="option in options">
+        </el-option>
+    </el-select>
+</template>
+
+<script src="./TzSuperSelect.ts"></script>

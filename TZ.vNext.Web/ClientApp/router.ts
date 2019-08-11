@@ -25,6 +25,16 @@ const salary_detail = resolve => {
     require(['./components/pages/salary/salary.detail.vue.html'], spin.resolve(resolve))
 }
 
+const form_test = resolve => {
+    spin.show()
+    require(['./components/wrapper/TzSuperForm/FormTest.vue.html'], spin.resolve(resolve))
+}
+
+const form_builder = resolve => {
+    spin.show()
+    require(['./components/wrapper/TzSuperFormBuilder/index.vue.html'], spin.resolve(resolve))
+}
+
 const routes = [
     {
         path: '*',
@@ -178,8 +188,39 @@ const routes = [
                         ]
                     }
                 ]
-            }
+            },
+            {
+                path: '/test', name: 'test', title: '测试', icon: 'fa fa-suitcase', component: { template: `<router-view></router-view>` },
+                meta: {
+                    breadcrumb: '测试',
+                    title: '测试',
+                },
+                children: [
+                    {
+                        path: '/form_test',
+                        name: 'form_test',
+                        title: '表单测试',
+                        icon: 'fa fa-caret-right',
+                        component: form_test,
+                        meta: {
+                            parent: 'test',
+                            title: '表单测试'
+                        }
+                    },
+                ]
+            },
         ]
+    },
+    {
+        path: '/form',
+        name: 'form',
+        title: '表单设计器',
+        icon: 'fa fa-building',
+        isHidden: true,
+        meta: {
+            title: '表单设计器'
+        },
+        component: form_builder,
     }
 ]
 

@@ -1,0 +1,78 @@
+<template>
+    <el-container style="height:100%;overflow: hidden;">
+        <el-header>
+            <div class="app-header-container">
+                <h1 class="app-header-title">表单生成器</h1>
+            </div>
+        </el-header>
+        <el-container class="form-builder-container">
+            <el-aside width="300px">
+                <app-form-components></app-form-components>
+            </el-aside>
+            <el-main>
+                <app-form :formAttr="formAttr" @selectedFormItem="handleSelectedFormItem"></app-form>
+            </el-main>
+            <el-aside width="400px" class="property-tab">
+                <el-tabs :stretch="true" v-model="activeTab">
+                    <el-tab-pane label="表单项属性" name="0">
+                        <app-form-item-property :formItem="selectFormItem" />
+                    </el-tab-pane>
+                    <el-tab-pane label="表单属性" name="1">
+                        <app-form-property @change="handleFormPropertyChange" />
+                    </el-tab-pane>
+                </el-tabs>
+            </el-aside>
+        </el-container>
+    </el-container>
+</template>
+
+<script src="./index.ts"></script>
+
+<style>
+    .app-header-container {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        border-bottom: 1px solid #ebeef5
+    }
+
+    .app-header-title {
+        font-size: 24px;
+        color: #409eff;
+    }
+
+    .form-builder-container .el-main {
+        padding: 0px 20px;
+        height: 100%
+    }
+
+    .form-builder-container .el-main::-webkit-scrollbar,
+    .form-builder-container .el-aside::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+    }
+
+    .form-builder-container .el-main::webkit-scrollbar-track,
+    .form-builder-container .el-aside::-webkit-scrollbar-track {
+        /*background: rgb(239, 239, 239);*/
+        background: #fff;
+        border-radius: 2px;
+    }
+
+    .form-builder-container .el-main::-webkit-scrollbar-thumb,
+    .form-builder-container .el-aside::-webkit-scrollbar-thumb {
+        /*background: #bfbfbf;*/
+        background: rgba(144, 147, 153, .3);
+        border-radius: 6px;
+    }
+
+    .form-builder-container .el-main::-webkit-scrollbar-thumb:hover,
+    .form-builder-container .el-aside::-webkit-scrollbar-thumb:hover {
+        background: #333;
+    }
+
+    .form-builder-container .el-main::-webkit-scrollbar-corner,
+    .form-builder-container .el-aside::-webkit-scrollbar-corner {
+        background: #179a16;
+    }
+</style>

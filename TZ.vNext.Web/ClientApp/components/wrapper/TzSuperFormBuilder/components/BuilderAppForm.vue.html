@@ -1,0 +1,107 @@
+<template>
+    <div class="app-form-container">
+        <div class="app-main-header-container">
+            <!-- 顶部按钮 -->
+            <el-button @click="isShowData = true" icon="el-icon-upload2" type="text">生成数据</el-button>
+            <el-button @click="isShowCode = true" icon="el-icon-tickets" type="text">生成代码</el-button>
+            <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
+
+            <!-- 导出数据弹框 -->
+            <el-dialog :visible.sync="isShowData" append-to-body title="数据" v-if="isShowData" width="600px">
+                <json-editor :value="codeData"></json-editor>
+                <div style="text-align: center;margin-top: 20px">
+                    <el-button @click="handleCopyData" type="primary">复制数据</el-button>
+                </div>
+            </el-dialog>
+
+            <!-- 生成代码弹框 -->
+            <el-dialog :visible.sync="isShowCode" append-to-body title="代码" v-if="isShowCode" width="600px">
+                <codemirror :value="codeHtml"></codemirror>
+                <div style="text-align: center;margin-top: 20px">
+                    <el-button @click="handleCopyHtml" type="primary">复制代码</el-button>
+                </div>
+            </el-dialog>
+        </div>
+
+
+        <el-form label-position="top" :label-width="labelWidth + 'px'" :model="formData" ref="form" :rules="rules"
+            @submit.native.prevent="handleValidateForm">
+
+            <el-collapse :value="ActiveCollapses">
+                <el-collapse-item v-for="(group, groupIndex) of groups" :title="group.title" :name="group.name"
+                    :key="group.key">
+                    <app-form-group-item :data="group" @newFormItem="handleNewFormItem" @remove-group="removeGroup" @selectedFormItem="handleSelectFormItem"></app-form-group-item>
+                </el-collapse-item>
+            </el-collapse>
+            <el-row class="mb15 mt15">
+                <el-form-item class="text-right">
+                    <el-button type="primary" native-type="submit" v-if="showSubmitBtn">{{submitBtnText?submitBtnText:'提交'}}</el-button>
+                    <el-button v-if="showBackBtn">{{backBtnText?backBtnText:'返回'}}</el-button>
+                </el-form-item>
+            </el-row>
+        </el-form>
+    </div>
+</template>
+
+<script src="./BuilderAppForm.ts"></script>
+
+
+<style>
+    .app-form-container {
+        padding: 0px;
+    }
+
+    /* 当无表单时的占位 */
+    .form-area-placeholder {
+        width: 100%;
+        height: 350px;
+        line-height: 350px;
+        background-color: white;
+        color: #909399;
+        text-align: center;
+    }
+
+    /* 表单项 */
+    .form-item {
+        background: white;
+        cursor: move;
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+        border: 1px dashed rgba(0, 0, 0, 0);
+    }
+
+    .form-item-active {
+        border: 1px dashed #409eff;
+    }
+
+    /* 遮挡区(遮挡住) */
+    .form-item::after {
+        content: " ";
+        display: block;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .form-item-delete-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 3;
+    }
+
+    .app-main-header-container {
+        height: 57px;
+        line-height: 60px;
+        padding-left: 20px;
+        border-bottom: 1px solid #ebeef5;
+    }
+
+    .group-item-delete-btn {
+        z-index: 3;
+    }
+</style>
