@@ -1,8 +1,8 @@
 ﻿//  -----------------------------------------------------------------------
-//  <copyright file="SecuritySign.cs" company="TZEPM">
-//      Copyright  TZEPM. All rights reserved.
+//  <copyright file="SecuritySign.cs" company="TZ.vNext">
+//      Copyright  TZ.vNext. All rights reserved.
 //   </copyright>
-//  <author>yangxiaomin</author>
+//  <author>??</author>
 //  <date>2018-09-27</date>
 //  -----------------------------------------------------------------------
 

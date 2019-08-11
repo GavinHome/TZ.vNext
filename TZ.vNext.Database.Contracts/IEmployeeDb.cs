@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="IEmployeeDb.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="IEmployeeDb.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>
 // <date>2018/11/26 16:47:28</date>

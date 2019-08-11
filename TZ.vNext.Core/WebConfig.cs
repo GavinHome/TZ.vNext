@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="WebConfig.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright www.tzecc.com. All rights reserved.
-// <author>苟向阳</author>
+// <copyright file="WebConfig.cs" company="TZ.vNext">
+//     Copyright TZ.vNext. All rights reserved.
+// <author>??</author>
 // <date>10/18/2017 11:27:00 PM</date>
 // <description>缺少描述</description>
 // </copyright>

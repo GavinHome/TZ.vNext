@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="GuardUtils.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="GuardUtils.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>
 // <date>2019/01/15 12:52:35</date>

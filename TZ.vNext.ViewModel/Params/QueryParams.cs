@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="QueryParams.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="QueryParams.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>wanghong</author>
+// <author>??</author>
 // <date>2018/12/25 15:48:09</date>
 // <description></description>
 //-----------------------------------------------------------------------------------

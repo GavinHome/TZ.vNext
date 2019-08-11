@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="EmployeeDb.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="EmployeeDb.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>
 // <date>2018/11/26 16:48:13</date>
@@ -34,9 +34,9 @@ namespace TZ.vNext.DataBase.Implement
         {
             var result = new VEmployee
             {
-                Code = "201406348",
-                Name = "杨晓民",
-                UserName = "201406348",
+                Code = "201900666",
+                Name = "王麻子",
+                UserName = "201900666",
                 OrganizationId = Guid.Parse("20000000-0000-0000-0000-000000000039")
             };
             return result;

@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="EmployeeRoleFunctionDb.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="EmployeeRoleFunctionDb.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>
 // <date>2018/11/6 13:26:42</date>

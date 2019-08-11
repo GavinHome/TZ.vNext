@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="DbContextExtensions.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="DbContextExtensions.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>GouXiangyang</author>
+// <author>??</author>
 // <date>2017/3/22 12:52:35</date>
 //-----------------------------------------------------------------------
 

@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="ExportExcelTitleInfo.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="ExportExcelTitleInfo.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>wanghong</author>
+// <author>??</author>
 // <date>2019/1/9 15:42:42</date>
 // <description></description>
 //-----------------------------------------------------------------------------------

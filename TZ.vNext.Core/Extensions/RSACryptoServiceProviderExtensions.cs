@@ -1,6 +1,6 @@
 //  -----------------------------------------------------------------------
-//  <copyright file="RSACryptoServiceProviderExtensions.cs" company="TZEPM">
-//      Copyright  TZEPM. All rights reserved.
+//  <copyright file="RSACryptoServiceProviderExtensions.cs" company="TZ.vNext">
+//      Copyright  TZ.vNext. All rights reserved.
 //   </copyright>
 //  <author>tzxx</author>
 //  <date>2018-12-04</date>

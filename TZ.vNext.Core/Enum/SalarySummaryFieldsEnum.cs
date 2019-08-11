@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="SalarySummaryFieldsEnum.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="SalarySummaryFieldsEnum.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>wanghong</author>
+// <author>??</author>
 // <date>2019-01-22 10:35:54</date>
 //-----------------------------------------------------------------------
 using System.ComponentModel;

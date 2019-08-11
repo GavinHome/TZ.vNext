@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="NonRepeatableAttribute.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright www.tzecc.com. All rights reserved.
-// <author>苟向阳</author>
+// <copyright file="NonRepeatableAttribute.cs" company="TZ.vNext">
+//     Copyright TZ.vNext. All rights reserved.
+// <author>??</author>
 // <date>11/5/2017 6:40:43 PM</date>
 // <description>缺少描述</description>
 // </copyright>

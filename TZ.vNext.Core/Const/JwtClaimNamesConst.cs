@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="JwtClaimNamesConst.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright www.tzecc.com. All rights reserved.
-// <author>苟向阳</author>
+// <copyright file="JwtClaimNamesConst.cs" company="TZ.vNext">
+//     Copyright TZ.vNext. All rights reserved.
+// <author>??</author>
 // <date>8/7/2017 9:42:58 AM</date>
 // <description>缺少描述</description>
 // </copyright>

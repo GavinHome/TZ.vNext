@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="EntitySetWithAllStatus.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright www.tzecc.com. All rights reserved.
+// <copyright file="EntitySetWithAllStatus.cs" company="TZ.vNext">
+//     Copyright TZ.vNext. All rights reserved.
 // <author>lilu</author>
 // <date>2017/9/27 17:57:45</date>
 // <description>描述</description>

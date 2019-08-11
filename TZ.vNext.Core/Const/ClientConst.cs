@@ -1,6 +1,6 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ClientConst.cs" company="TZEPM">
-//      Copyright  TZEPM. All rights reserved.
+// <copyright file="ClientConst.cs" company="TZ.vNext">
+//      Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>He Cong</author>
 // <date>2012-10-16</date>

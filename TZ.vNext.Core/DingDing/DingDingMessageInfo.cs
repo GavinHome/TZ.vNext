@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="DingDingMessageInfo.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="DingDingMessageInfo.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>Liyuhang</author>
 // <date>2016-12-09 10:06:46</date>

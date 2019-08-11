@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IEntitySet.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="IEntitySet.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>GouXiangyang</author>
+// <author>??</author>
 // <date>2017/7/22 12:52:35</date>
 //-----------------------------------------------------------------------
 

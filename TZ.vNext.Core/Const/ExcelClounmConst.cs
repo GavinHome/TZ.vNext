@@ -1,6 +1,6 @@
 ﻿//  -----------------------------------------------------------------------
-//  <copyright file="ExcelClounmConst.cs" company="TZEPM">
-//      Copyright  TZEPM. All rights reserved.
+//  <copyright file="ExcelClounmConst.cs" company="TZ.vNext">
+//      Copyright  TZ.vNext. All rights reserved.
 //   </copyright>
 //  <author>tzxx</author>
 //  <date>2018-12-25</date>

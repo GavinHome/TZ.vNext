@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="DingDingConfiguration.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="DingDingConfiguration.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>陈天运</author>
 // <date>2016.4.25</date>

@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="PagedResult.cs" company="TZEPM">
+// <copyright file="PagedResult.cs" company="TZ.vNext">
 //     Copyright TZEPM. All rights reserved.
 // </copyright>
 // <author>XU DA WEI</author>

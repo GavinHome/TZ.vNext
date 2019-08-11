@@ -189,7 +189,7 @@ var router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    document.title = to.meta.title + " - 天职咨询薪酬系统"
+    document.title = to.meta.title + " - 薪酬系统"
     let cache = new StoreCache('auth')
     if (cache.get('expirationTime')) {
         let isExpire = new Date(cache.get('expirationTime')).getTime() < (new Date()).getTime()

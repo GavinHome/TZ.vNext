@@ -1,6 +1,6 @@
 ﻿//  -----------------------------------------------------------------------
-//  <copyright file="CodeTypeEnum.cs" company="TZEPM">
-//      Copyright  TZEPM. All rights reserved.
+//  <copyright file="CodeTypeEnum.cs" company="TZ.vNext">
+//      Copyright  TZ.vNext. All rights reserved.
 //   </copyright>
 //  <author>lixiaojun</author>
 //  <date>2013-09-26</date>

@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="TypeExtensions.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright www.tzecc.com. All rights reserved.
-// <author>苟向阳</author>
+// <copyright file="TypeExtensions.cs" company="TZ.vNext">
+//     Copyright TZ.vNext. All rights reserved.
+// <author>??</author>
 // <date>11/24/2017 10:56:52 AM</date>
 // <description>缺少描述</description>
 // </copyright>

@@ -27,7 +27,7 @@ export default class LoginComponent extends Vue {
     max_fetch_retry_number = 10;
 
     model = {
-        UserName: '201406348',
+        UserName: '201900666',
         Password: '1',
         IsAutoLogin: false
     }

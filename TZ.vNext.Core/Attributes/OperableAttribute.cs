@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="OperableAttribute.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright www.tzecc.com. All rights reserved.
-// <author>苟向阳</author>
+// <copyright file="OperableAttribute.cs" company="TZ.vNext">
+//     Copyright TZ.vNext. All rights reserved.
+// <author>??</author>
 // <date>10/31/2017 11:40:42 AM</date>
 // <description>缺少描述</description>
 // </copyright>

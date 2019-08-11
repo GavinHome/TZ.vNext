@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ColumnNameAttribute.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="ColumnNameAttribute.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>wanghong</author>
+// <author>??</author>
 // <date>2018.12.5</date>
 //-----------------------------------------------------------------------
 using System;

@@ -1,8 +1,8 @@
 ﻿//  -----------------------------------------------------------------------
-//  <copyright file="DataTypeValidAttribute.cs" company="TZEPM">
-//      Copyright  TZEPM. All rights reserved.
+//  <copyright file="DataTypeValidAttribute.cs" company="TZ.vNext">
+//      Copyright  TZ.vNext. All rights reserved.
 //   </copyright>
-//  <author>gaoxiaoyu</author>
+//  <author>??</author>
 //  <date>2019-1-11</date>
 //  -----------------------------------------------------------------------
 

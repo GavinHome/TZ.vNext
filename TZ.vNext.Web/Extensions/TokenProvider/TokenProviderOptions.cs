@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------------
-// <copyright file="TokenProviderOptions.cs" company="��ְ������ѯ�ɷ����޹�˾��Ȩ����">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="TokenProviderOptions.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>
 // <date>2018/11/6 8:13:46</date>

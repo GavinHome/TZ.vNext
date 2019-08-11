@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="ExcelImportErroInfo.cs" company="天职工程咨询股份有限公司版权所有">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="ExcelImportErroInfo.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>gaoxiaoyu</author>
+// <author>??</author>
 // <date>2019/1/11 15:42:42</date>
 // <description></description>
 //-----------------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="RedisUtil.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="RedisUtil.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>Yangxiaomin</author>
+// <author>??</author>
 // <date>2018-06-20 10:35:54</date>
 //-----------------------------------------------------------------------
 

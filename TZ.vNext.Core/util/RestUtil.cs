@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="RestUtil.cs" company="TZEPM">
-//     Copyright  TZEPM. All rights reserved.
+// <copyright file="RestUtil.cs" company="TZ.vNext">
+//     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>Liyuhang</author>
 // <date>2018-05-17 11:04:41</date>
