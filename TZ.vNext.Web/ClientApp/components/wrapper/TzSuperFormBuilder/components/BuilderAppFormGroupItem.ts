@@ -74,7 +74,6 @@ export default class BuilderAppFormGroupItem extends Vue {
 
     // 删除
     handleDelete(key) {
-        debugger
         var index = -1;
         this.list.forEach((item, i) => {
             if (item.field == key) {

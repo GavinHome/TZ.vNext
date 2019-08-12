@@ -9,11 +9,11 @@ const view_template_tpl = `<template>
     @request-error="handleError" 
     @request-end="handleEnd" 
     @request="handleRequest"
+    %1
   ></tz-super-form>
 </template>
 
-<script src="./render.ts"></script>
-`
+<script src="./render.ts"></script>`
 
 const component_render_tpl = `import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';

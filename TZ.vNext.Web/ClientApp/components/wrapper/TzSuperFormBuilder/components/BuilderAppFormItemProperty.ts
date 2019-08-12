@@ -1,6 +1,5 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator';
-import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
+import { Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({
     props: ["formItem"],
@@ -10,6 +9,8 @@ import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
 })
 export default class BuilderAppFormProperty extends Vue {
     @Prop() formItem!: any
+
+    formData: any = {}
 
     get form() {
         if (this.formItem.formDesc) {
@@ -35,7 +36,13 @@ export default class BuilderAppFormProperty extends Vue {
         return []
     }
 
-    get formData() {
-        return this.formItem ? this.formItem.formData : {}
+    @Watch('formData', { immediate: true, deep: true })
+    onFormDataChanged(val: string, oldVal: string) {
+        this.$emit("formItemPropertyChange", val, oldVal)
+    }
+
+    @Watch('formItem', { immediate: true, deep: true })
+    onFormItemaChanged(val: string, oldVal: string) {
+        this.formData = this.formItem ? this.formItem.formData : {}
     }
 }

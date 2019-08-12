@@ -38,3 +38,52 @@
 </template>
 
 <script src="./BuilderAppFormGroupItem.ts"></script>
+
+<style>
+    .group-item-delete-btn {
+        z-index: 3;
+    }
+
+    .form-item-delete-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 3;
+    }
+
+    /* 当无表单时的占位 */
+    .form-area-placeholder {
+        width: 100%;
+        height: 350px;
+        line-height: 350px;
+        background-color: white;
+        color: #909399;
+        text-align: center;
+    }    
+    
+    /* 表单项 */
+    .form-item {
+        background: white;
+        cursor: move;
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+        border: 1px dashed rgba(0, 0, 0, 0);
+    }
+
+    .form-item-active {
+        border: 1px dashed #409eff;
+    }
+
+    /* 遮挡区(遮挡住) */
+    .form-item::after {
+        content: " ";
+        display: block;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 2;
+    } 
+</style>

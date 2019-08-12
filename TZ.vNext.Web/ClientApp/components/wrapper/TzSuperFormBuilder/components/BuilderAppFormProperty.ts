@@ -1,10 +1,6 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 import { TzSuperFormGroup, TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
-
-import 'element-ui/lib/theme-chalk/index.css'
-// import { Form } from 'element-ui'
-// Vue.use(Form)
 
 @Component({
     props: [],
@@ -15,7 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 export default class BuilderAppFormProperty extends Vue {
     activeTab: number = 0
 
-    form: any = [
+    form: TzSuperFormGroup[] = [
         {
             key: "basic",
             name: "basic",
@@ -26,32 +22,19 @@ export default class BuilderAppFormProperty extends Vue {
                     key: "basic-row1",
                     name: "basic-row1",
                     fields: [
-                        {
-                            key: "labelPosition",
-                            name: "labelPosition",
-                            label: "标签位置：",
-                            type: TzSuperFormType.Select,
-                            title: "标签位置",
-                            isOnlyDisplay: false,
-                            format: null,
-                            options: [{ text: 'left', value: 'left' }, { text: 'right', value: 'right' }, { text: 'top', value: 'top' }],
-                            cols: 3,
-                            attrs: null,
-                            slots: null,
-                        },
-                        {
-                            key: "span",
-                            name: "span",
-                            label: "表单宽度：",
-                            type: TzSuperFormType.Input,
-                            title: "表单宽度",
-                            isOnlyDisplay: false,
-                            format: null,
-                            options: null,
-                            cols: 3,
-                            attrs: null,
-                            slots: null,
-                        },
+                        // {
+                        //     key: "labelWidth",
+                        //     name: "labelWidth",
+                        //     label: "表单宽度：",
+                        //     type: TzSuperFormType.Input,
+                        //     title: "表单宽度",
+                        //     isOnlyDisplay: false,
+                        //     format: null,
+                        //     options: null,
+                        //     cols: 3,
+                        //     attrs: null,
+                        //     slots: null,
+                        // },
                         {
                             key: "isHideSubmitBtn",
                             name: "isHideSubmitBtn",
@@ -116,23 +99,16 @@ export default class BuilderAppFormProperty extends Vue {
         }
     ]
 
-    defaultData: any = {
+    formData: any = {
+        labelWidth: '120px',
         isHideSubmitBtn: false,
         isHideBackBtn: false,
         submitBtnText: '提交',
         backBtnText: '返回',
-        labelWidth: 100,
-        labelPosition: 'top',
-        span: null
     }
 
-    formData: any = {
-        isHideSubmitBtn: false,
-        isHideBackBtn: false,
-        submitBtnText: '提交',
-        backBtnText: '返回',
-        labelWidth: 100,
-        labelPosition: 'top',
-        span: '120px'
+    @Watch('formData', { immediate: true, deep: true })
+    onFormDataChanged(val: string, oldVal: string) {
+        this.$emit("formPropertyChange", val)
     }
 }

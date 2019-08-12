@@ -3,6 +3,7 @@ import { Component, Prop } from 'vue-property-decorator';
 
 import 'element-ui/lib/theme-chalk/index.css'
 import { Container, Aside, Header, Main, TabPane, Tabs } from 'element-ui'
+import BuilderAppForm from "./components/BuilderAppForm";
 Vue.use(Container)
 Vue.use(Aside)
 Vue.use(Header)
@@ -32,5 +33,11 @@ export default class TzSuperFormBuilder extends Vue {
         if(item) {
             this.selectFormItem = item
         }
+    }
+
+    handleFormItemPropertyChange(newVal, oldVal) {
+       if(oldVal && newVal) {
+        (this.$refs.appForm as BuilderAppForm).UpdateData(newVal, oldVal)
+       } 
     }
 }

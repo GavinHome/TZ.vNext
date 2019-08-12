@@ -13,17 +13,12 @@
 
         <!-- 生成代码弹框 -->
         <el-dialog :visible.sync="isShowCode" append-to-body title="代码" v-if="isShowCode" width="1200px">
-            <!-- <div>template.vue.html</div>
-                    <codemirror :value="view_code_html" :mode="'text/html'"></codemirror>
-                    <div>render.ts</div>
-                    <codemirror :value="render_code_html" :mode="'text/typescript'"></codemirror> -->
-
             <el-row :gutter="24">
                 <el-col :span="12">
-                        <codemirror :value="view_code_html" :mode="'text/html'" ></codemirror>
+                    <codemirror :value="view_code_html" :mode="'text/html'"></codemirror>
                 </el-col>
                 <el-col :span="12">
-                        <codemirror :value="render_code_html" :mode="'text/typescript'"></codemirror>
+                    <codemirror :value="render_code_html" :mode="'text/typescript'"></codemirror>
                 </el-col>
             </el-row>
         </el-dialog>
@@ -31,3 +26,12 @@
 </template>
 
 <script src="./BuilderAppFormHeader.ts"></script>
+
+<style>
+    .app-main-header-container {
+        height: 57px;
+        line-height: 60px;
+        padding-left: 20px;
+        border-bottom: 1px solid #ebeef5;
+    }
+</style>

@@ -149,4 +149,28 @@ export default class BuilderAppForm extends Vue {
     get backBtnText() {
         return this.formAttr.backBtnText;
     }
+
+    get labelWidth() {
+        return this.formAttr.labelWidth
+    }
+    
+    UpdateData(newVal: any, oldVal: any) {
+        //throw new Error("Method not implemented.");
+        this.groups.forEach((g,a) => {
+            g.rows.forEach((r,b) => {
+                r.fields.forEach((f,c) => {
+                    if(f.key === oldVal.field) {
+                        debugger
+                        f.key = newVal.field
+                        f.name = newVal.field
+                        f.label = newVal.label + "："
+                        f.title = newVal.label
+                        f.cols = newVal.cols
+                    }
+                })
+            })
+        })
+
+        //this.$emit("selectedFormItem", newVal)
+    }
 }

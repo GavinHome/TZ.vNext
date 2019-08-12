@@ -1,10 +1,10 @@
 <template>
     <div class="app-form-container">
-        <app-form-header :form="groups" :form-data="formData" :rules="rules">
+        <app-form-header :form="groups" :form-data="formData" :rules="rules" :formAttr="formAttr">
             <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
         </app-form-header>
 
-        <el-form label-position="top" :label-width="labelWidth + 'px'" :model="formData" ref="form" :rules="rules"
+        <el-form label-position="top" :label-width="labelWidth" :model="formData" ref="form" :rules="rules"
             @submit.native.prevent="handleValidateForm">
             <el-collapse :value="ActiveCollapses">
                 <el-collapse-item v-for="(group, groupIndex) of groups" :title="group.title" :name="group.name"
@@ -30,59 +30,5 @@
 <style>
     .app-form-container {
         padding: 0px;
-    }
-
-    /* 当无表单时的占位 */
-    .form-area-placeholder {
-        width: 100%;
-        height: 350px;
-        line-height: 350px;
-        background-color: white;
-        color: #909399;
-        text-align: center;
-    }
-
-    /* 表单项 */
-    .form-item {
-        background: white;
-        cursor: move;
-        position: relative;
-        z-index: 1;
-        padding: 0 20px;
-        border: 1px dashed rgba(0, 0, 0, 0);
-    }
-
-    .form-item-active {
-        border: 1px dashed #409eff;
-    }
-
-    /* 遮挡区(遮挡住) */
-    .form-item::after {
-        content: " ";
-        display: block;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-        z-index: 2;
-    }
-
-    .form-item-delete-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 3;
-    }
-
-    .app-main-header-container {
-        height: 57px;
-        line-height: 60px;
-        padding-left: 20px;
-        border-bottom: 1px solid #ebeef5;
-    }
-
-    .group-item-delete-btn {
-        z-index: 3;
     }
 </style>

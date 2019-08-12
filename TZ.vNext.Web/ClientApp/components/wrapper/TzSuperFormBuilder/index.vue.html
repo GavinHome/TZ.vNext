@@ -9,17 +9,16 @@
             <el-aside width="300px">
                 <app-form-components></app-form-components>
             </el-aside>
-            <el-main>
-                
-                <app-form :formAttr="formAttr" @selectedFormItem="handleSelectedFormItem"></app-form>
+            <el-main>                
+                <app-form ref="appForm" :formAttr="formAttr" @selectedFormItem="handleSelectedFormItem"></app-form>
             </el-main>
             <el-aside width="400px" class="property-tab">
                 <el-tabs :stretch="true" v-model="activeTab">
                     <el-tab-pane label="表单项属性" name="0">
-                        <app-form-item-property :formItem="selectFormItem" />
+                        <app-form-item-property :formItem="selectFormItem" @formItemPropertyChange="handleFormItemPropertyChange"/>
                     </el-tab-pane>
                     <el-tab-pane label="表单属性" name="1">
-                        <app-form-property @change="handleFormPropertyChange" />
+                        <app-form-property @formPropertyChange="handleFormPropertyChange" />
                     </el-tab-pane>
                 </el-tabs>
             </el-aside>
