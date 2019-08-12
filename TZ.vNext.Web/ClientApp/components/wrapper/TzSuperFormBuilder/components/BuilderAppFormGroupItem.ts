@@ -74,6 +74,7 @@ export default class BuilderAppFormGroupItem extends Vue {
 
     // 删除
     handleDelete(key) {
+        debugger
         var index = -1;
         this.list.forEach((item, i) => {
             if (item.field == key) {
@@ -85,14 +86,11 @@ export default class BuilderAppFormGroupItem extends Vue {
             this.list.splice(index, 1)
         }
 
-
-        this.data.forEach((group, a) => {
-            group.rows.forEach((row, b) => {
-                row.fields.forEach((field, c) => {
-                    if (field.key === key) {
-                        row.fields.splice(c, 1)
-                    }
-                })
+        this.data.rows.forEach((row, a) => {
+            row.fields.forEach((field, c) => {
+                if (field.key === key) {
+                    row.fields.splice(c, 1)
+                }
             })
         })
     }

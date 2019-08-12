@@ -9,7 +9,7 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Input)
 Vue.use(Button)
 
-//import TzEmployee from "../TzEmployee";
+import TzEmployee from "../TzEmployee";
 import { TzDialog } from '../../common/TzDialog';
 
 @Component({
@@ -19,7 +19,7 @@ import { TzDialog } from '../../common/TzDialog';
         event: 'change'
     },
     components: {
-        //TzEmployee: require("../../wrapper/TzEmployee.vue.html"),
+        TzEmployee: require("../../wrapper/TzEmployee.vue.html"),
     }
 })
 export default class TzSuperEmployeeGrid extends Vue {
@@ -28,15 +28,15 @@ export default class TzSuperEmployeeGrid extends Vue {
     newValue: string = this.value
 
     selectEmployee() {
-        // new TzDialog(
-        //     this.$createElement,
-        //     TzEmployee,
-        //     "人员信息",
-        //     (d: any): any => {
-        //         this.newValue = d.Name
-        //         this.update(d.Id)
-        //     }
-        //);
+        new TzDialog(
+            this.$createElement,
+            TzEmployee,
+            "人员信息",
+            (d: any): any => {
+                this.newValue = d.Name
+                this.update(d.Id)
+            }
+        );
     }
 
     update(value) {

@@ -1,41 +1,22 @@
 <template>
     <div class="app-form-container">
-        <div class="app-main-header-container">
-            <!-- 顶部按钮 -->
-            <el-button @click="isShowData = true" icon="el-icon-upload2" type="text">生成数据</el-button>
-            <el-button @click="isShowCode = true" icon="el-icon-tickets" type="text">生成代码</el-button>
+        <app-form-header :form="groups" :form-data="formData" :rules="rules">
             <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
-
-            <!-- 导出数据弹框 -->
-            <el-dialog :visible.sync="isShowData" append-to-body title="数据" v-if="isShowData" width="600px">
-                <json-editor :value="codeData"></json-editor>
-                <div style="text-align: center;margin-top: 20px">
-                    <el-button @click="handleCopyData" type="primary">复制数据</el-button>
-                </div>
-            </el-dialog>
-
-            <!-- 生成代码弹框 -->
-            <el-dialog :visible.sync="isShowCode" append-to-body title="代码" v-if="isShowCode" width="600px">
-                <codemirror :value="codeHtml"></codemirror>
-                <div style="text-align: center;margin-top: 20px">
-                    <el-button @click="handleCopyHtml" type="primary">复制代码</el-button>
-                </div>
-            </el-dialog>
-        </div>
-
+        </app-form-header>
 
         <el-form label-position="top" :label-width="labelWidth + 'px'" :model="formData" ref="form" :rules="rules"
             @submit.native.prevent="handleValidateForm">
-
             <el-collapse :value="ActiveCollapses">
                 <el-collapse-item v-for="(group, groupIndex) of groups" :title="group.title" :name="group.name"
                     :key="group.key">
-                    <app-form-group-item :data="group" @newFormItem="handleNewFormItem" @remove-group="removeGroup" @selectedFormItem="handleSelectFormItem"></app-form-group-item>
+                    <app-form-group-item :data="group" @newFormItem="handleNewFormItem" @remove-group="removeGroup"
+                        @selectedFormItem="handleSelectFormItem"></app-form-group-item>
                 </el-collapse-item>
             </el-collapse>
             <el-row class="mb15 mt15">
                 <el-form-item class="text-right">
-                    <el-button type="primary" native-type="submit" v-if="showSubmitBtn">{{submitBtnText?submitBtnText:'提交'}}</el-button>
+                    <el-button type="primary" native-type="submit" v-if="showSubmitBtn">
+                        {{submitBtnText?submitBtnText:'提交'}}</el-button>
                     <el-button v-if="showBackBtn">{{backBtnText?backBtnText:'返回'}}</el-button>
                 </el-form-item>
             </el-row>

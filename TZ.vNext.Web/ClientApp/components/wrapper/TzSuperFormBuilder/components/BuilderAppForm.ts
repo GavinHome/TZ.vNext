@@ -1,7 +1,6 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
-import { TzSuperFormType, TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
-import TzSuperForm from "../../TzSuperForm";
+import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
 import Guid from "../../../common/Guid";
 
 @Component({
@@ -13,7 +12,8 @@ import Guid from "../../../common/Guid";
         TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
         TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
         TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
-        AppFormGroupItem: require('./BuilderAppFormGroupItem.vue.html')
+        AppFormGroupItem: require('./BuilderAppFormGroupItem.vue.html'),       
+        AppFormHeader: require('./BuilderAppFormHeader.vue.html'),
     }
 })
 export default class BuilderAppForm extends Vue {
@@ -30,7 +30,6 @@ export default class BuilderAppForm extends Vue {
                     key: "basic-row1",
                     name: "basic-row1",
                     fields: [
-
                     ]
                 }
             ]
@@ -145,8 +144,8 @@ export default class BuilderAppForm extends Vue {
 
     get submitBtnText() {
         return this.formAttr.submitBtnText;
-    } 
-    
+    }
+
     get backBtnText() {
         return this.formAttr.backBtnText;
     }

@@ -19,36 +19,6 @@ export default class BuilderAppFormComponents extends Vue {
 
   components: any = components
   globalId: number = 0
-  // formDesc: any = {
-  //     field: {
-  //       type: 'input',
-  //       label: '数据字段'
-  //     },
-  //     label: {
-  //       type: 'input',
-  //       label: '标签'
-  //     },
-  //     layout: {
-  //       type: 'slider',
-  //       label: '宽度',
-  //       default: 24,
-  //       attrs: {
-  //         min: 1,
-  //         max: 24,
-  //         'format-tooltip' (val) {
-  //           return `${val} / 24`
-  //         }
-  //       }
-  //     },
-  //     default: {
-  //       type: 'codemirror',
-  //       label: '默认值'
-  //     },
-  //     tip: {
-  //       type: 'input',
-  //       label: '表单项提示'
-  //     }
-  //   }
 
   formDesc: any = [
     {
