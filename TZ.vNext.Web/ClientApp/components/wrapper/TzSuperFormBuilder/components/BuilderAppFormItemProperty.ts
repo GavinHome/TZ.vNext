@@ -101,11 +101,6 @@ export default class BuilderAppFormProperty extends Vue {
                 label: this.formItem.label,
                 cols: this.formItem.cols
             }
-
-            // this.formData.key = this.formItem.key
-            // this.formData.name = this.formItem.name
-            // this.formData.label = this.formItem.label
-            // this.formData.cols = this.formItem.cols
         } else {
             this.formData = {}
         }

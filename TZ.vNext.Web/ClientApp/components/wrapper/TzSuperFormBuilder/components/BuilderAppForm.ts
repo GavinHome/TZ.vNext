@@ -5,12 +5,12 @@ import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
 @Component({
     props: ["form", "formAttr"],
     components: {
-        TzSuperForm: require("../../TzSuperForm/index.vue.html"),
-        draggable: require('vuedraggable'),
-        TzSuperTextarea: require('../../TzSuperForm/TzSuperTextarea.vue.html'),
-        TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
-        TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
-        TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
+        //TzSuperForm: require("../../TzSuperForm/index.vue.html"),
+        // draggable: require('vuedraggable'),
+        // TzSuperTextarea: require('../../TzSuperForm/TzSuperTextarea.vue.html'),
+        // TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
+        // TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
+        // TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
         AppFormGroupItem: require('./BuilderAppFormGroupItem.vue.html'),
         AppFormHeader: require('./BuilderAppFormHeader.vue.html'),
     }
@@ -56,9 +56,5 @@ export default class BuilderAppForm extends Vue {
 
     removeGroup(key) {
         this.$emit('remove-group', key)
-    }
-
-    handleFormChange(groupKey, data) {
-        this.$emit("change", groupKey, data)
     }
 }

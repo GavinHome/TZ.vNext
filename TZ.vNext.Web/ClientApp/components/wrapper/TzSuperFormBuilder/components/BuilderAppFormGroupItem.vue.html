@@ -4,94 +4,10 @@
             <slot></slot>
         </div>
 
-        <div class="form-area-placeholder" v-if="rows.length === 0">从左侧拖拽来添加表单项</div>
-
-        <template v-for="(row, rowIndex) of rows" :key="row.key">
-           <app-form-draggle-container :form="row"></app-form-draggle-container>
-        </template>
+        <el-row v-for="(row, rowIndex) of rows" :key="row.key">
+            <app-form-draggle-container :fields="row.fields" @selectedFormItem="handleSelectFormItem"></app-form-draggle-container>
+        </el-row>
     </div>
-
-    <!-- <draggable :animation="200" :disabled="false" :list="list" @add="handleAdd" @end="handleMoveEnd"
-        @start="handleMoveStart" group="form" style="padding-bottom: 80px;height:100%" @change="handleChange" :move="handleMove" tag="el-col">
-
-        <div class="text-right " style="padding-bottom: 20px; height: 100%;" v-if="this.data.key !='basic'">
-           <slot></slot>
-        </div>
-
-        <div class="form-area-placeholder" v-if="list.length === 0">从左侧拖拽来添加表单项</div>
-
-        <template>
-            <el-row :gutter="24" v-for="(row, rowIndex) of rows" :key="row.key">
-                <el-col :span="field.cols ? 8 * field.cols : 8" v-for="(field, index) of row.fields" :key="field.key"
-                    @click.native="handleFormItemClick(field.key)"
-                    :class="{'form-item-active': selectKey === field.key}" class="form-item">
-
-                    <el-form-item :label="field.label + '：'" size="medium" :class="'readonly'" v-if="field.isOnlyDisplay">
-                        <el-input v-model="formData[field.name]" :readonly="true"></el-input>
-                    </el-form-item>
-
-                    <el-form-item :label="field.label + '：'" size="medium" :prop="field.name" v-else>
-                        <slot :data="formData[field.name]" :name="field.name">
-                            <component :desc="field" :is="getComponentName(field.type)"
-                                v-model="formData[field.name]" />
-                        </slot>
-                    </el-form-item>
-
-                    <el-button @click.stop="handleDelete(field.key)" class="form-item-delete-btn" icon="el-icon-delete"
-                        size="mini" style="border-radius: 0" type="primary" v-if="selectKey === field.key"></el-button>
-                </el-col>
-            </el-row>
-        </template>
-    </draggable> -->
 </template>
 
 <script src="./BuilderAppFormGroupItem.ts"></script>
-
-<style>
-    .group-item-delete-btn {
-        z-index: 3;
-    }
-
-    .form-item-delete-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 3;
-    }
-
-    /* 当无表单时的占位 */
-    .form-area-placeholder {
-        width: 100%;
-        height: 350px;
-        line-height: 350px;
-        background-color: white;
-        color: #909399;
-        text-align: center;
-    }
-
-    /* 表单项 */
-    .form-item {
-        background: white;
-        cursor: move;
-        position: relative;
-        z-index: 1;
-        padding: 0 20px;
-        border: 1px dashed rgba(0, 0, 0, 0);
-    }
-
-    .form-item-active {
-        border: 1px dashed #409eff;
-    }
-
-    /* 遮挡区(遮挡住) */
-    .form-item::after {
-        content: " ";
-        display: block;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-        z-index: 2;
-    }
-</style>

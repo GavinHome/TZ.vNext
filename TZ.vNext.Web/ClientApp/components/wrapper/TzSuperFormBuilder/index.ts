@@ -53,9 +53,6 @@ export default class TzSuperFormBuilder extends Vue {
     }
 
     handleFormItemPropertyChange(newVal, oldVal) {
-        console.log("oldVal: " + JSON.stringify(oldVal))
-        console.log("newVal: " + JSON.stringify(newVal))
-        console.log("handleFormItemPropertyChange: " + JSON.stringify(this.form))
         if (oldVal && newVal && newVal.key === oldVal.key) {
             this.form.forEach((g, a) => {
                 g.rows.forEach((r, b) => {

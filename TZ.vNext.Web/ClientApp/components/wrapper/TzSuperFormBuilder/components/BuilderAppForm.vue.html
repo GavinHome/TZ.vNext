@@ -9,7 +9,7 @@
             <el-collapse :value="activeCollapses">
                 <el-collapse-item v-for="(group, groupIndex) of form" :title="group.title" :name="group.name"
                     :key="group.key">
-                    <app-form-group-item :data="group" @selectedFormItem="handleSelectFormItem" @change="handleFormChange">
+                    <app-form-group-item :data="group" @selectedFormItem="handleSelectFormItem">
                         <el-button @click.stop="removeGroup(group.key)" class="group-item-delete-btn"
                             icon="el-icon-delete" size="mini" style="border-radius: 0" type="danger"></el-button>
                     </app-form-group-item>
@@ -31,5 +31,9 @@
 <style>
     .app-form-container {
         padding: 0px;
+    }
+
+    .group-item-delete-btn {
+        z-index: 3;
     }
 </style>

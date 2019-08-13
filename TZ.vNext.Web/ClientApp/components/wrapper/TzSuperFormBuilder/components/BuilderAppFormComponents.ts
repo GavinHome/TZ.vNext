@@ -22,11 +22,10 @@ export default class BuilderAppFormComponents extends Vue {
     var id = this.globalId++;
     data.key = 'key_' + id
     data.name = 'field_' + id
-    console.log('comp:' + JSON.stringify(data))
     return {
       key: data.key,
       name: data.name,
-      label: data.label,
+      label: data.label + id,
       type: data.type,
       title: data.title,
       isOnlyDisplay: data.isOnlyDisplay,
