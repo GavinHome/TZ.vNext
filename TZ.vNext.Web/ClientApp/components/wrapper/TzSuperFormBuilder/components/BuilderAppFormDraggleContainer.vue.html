@@ -1,0 +1,36 @@
+<template>
+    <draggable :animation="200" :disabled="false" :list="list" @add="handleAdd" @end="handleMoveEnd"
+        @start="handleMoveStart" group="form" style="padding-bottom: 80px;height:100%" @change="handleChange" :move="handleMove" tag="el-col">
+
+        <div class="text-right " style="padding-bottom: 20px; height: 100%;" v-if="this.data.key !='basic'">
+           <slot></slot>
+        </div>
+
+        <!-- 当为空时 -->
+        <div class="form-area-placeholder" v-if="list.length === 0">从左侧拖拽来添加表单项</div>
+
+        <template>
+            <el-row :gutter="24" v-for="(row, rowIndex) of rows" :key="row.key">
+                <el-col :span="field.cols ? 8 * field.cols : 8" v-for="(field, index) of row.fields" :key="field.key"
+                    @click.native="handleFormItemClick(field.key)"
+                    :class="{'form-item-active': selectKey === field.key}" class="form-item">
+
+                    <el-form-item :label="field.label + '：'" size="medium" :class="'readonly'" v-if="field.isOnlyDisplay">
+                        <el-input v-model="formData[field.name]" :readonly="true"></el-input>
+                    </el-form-item>
+
+                    <el-form-item :label="field.label + '：'" size="medium" :prop="field.name" v-else>
+                        <slot :data="formData[field.name]" :name="field.name">
+                            <component :desc="field" :is="getComponentName(field.type)"
+                                v-model="formData[field.name]" />
+                        </slot>
+                    </el-form-item>
+
+                    <!-- 删除按钮 -->
+                    <el-button @click.stop="handleDelete(field.key)" class="form-item-delete-btn" icon="el-icon-delete"
+                        size="mini" style="border-radius: 0" type="primary" v-if="selectKey === field.key"></el-button>
+                </el-col>
+            </el-row>
+        </template>
+    </draggable>
+</template>

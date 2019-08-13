@@ -10,7 +10,10 @@
                 <app-form-components></app-form-components>
             </el-aside>
             <el-main>                
-                <app-form ref="appForm" :formAttr="formAttr" @selectedFormItem="handleSelectedFormItem"></app-form>
+                <app-form ref="appForm" :form="form" :formAttr="formAttr" @selectedFormItem="handleSelectedFormItem" @remove-group="removeGroup"
+                @change="handleFormChange">
+                    <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
+                </app-form>
             </el-main>
             <el-aside width="400px" class="property-tab">
                 <el-tabs :stretch="true" v-model="activeTab">

@@ -8,11 +8,11 @@
             <el-row :gutter="24">
                 <el-col :span="field.cols ? 8 * field.cols : 8" v-for="(field, index) of formDesc" :key="field.key">
 
-                    <el-form-item :label="field.label" size="medium" :class="'readonly'" v-if="field.isOnlyDisplay">
+                    <el-form-item :label="field.label + '：'" size="medium" :class="'readonly'" v-if="field.isOnlyDisplay">
                         <el-input v-model="formData[field.name]" :readonly="true"></el-input>
                     </el-form-item>
 
-                    <el-form-item :label="field.label" size="medium" :prop="field.name" v-else>
+                    <el-form-item :label="field.label + '：'" size="medium" :prop="field.name" v-else>
                         <!-- 具名 作用域插槽(用于用户自定义显示) -->
                         <slot :data="formData[field.name]" :name="field.name">
                             <component :desc="field" :is="getComponentName(field.type)"

@@ -1,8 +1,6 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator';
-import { TzSuperFormType, TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
-import TzSuperForm from "../../TzSuperForm";
-import Guid from "../../../common/Guid";
+import { Component, Prop, Watch } from 'vue-property-decorator';
+import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
 
 @Component({
     props: ["data"],
@@ -24,99 +22,66 @@ export default class BuilderAppFormGroupItem extends Vue {
     formData: any = {
     }
 
-    get group() {
-        return this.data
+    // get group() {
+    //     return this.data
+    // }
+
+    get rows() {
+        return this.data.rows
     }
 
     // 新增
     handleAdd(res) {
-        this.selectIndex = res.newIndex       
-
-        var data = this.list[this.selectIndex]
-        console.log(data)
-        if (data) {
-            var rowIndex = -1;
-            this.data.rows.forEach((row, index) => {
-                if (this.arraySum(row.fields.map(x => x.cols ? x.cols : 1)) < 3) {
-                    rowIndex = index;
-                }
-            })
-
-            if (rowIndex === -1) {
-                this.data.rows.push({
-                    key: Guid.newGuid().toString(),
-                    name: Guid.newGuid().toString(),
-                    fields: []
-                })
-
-                rowIndex = this.data.rows.length - 1;
-            }
-
-            //this.$emit('newFormItem', data, this.data.key, rowIndex)
-            this.data.rows[rowIndex].fields.push({
-                key: data.field,
-                name: data.field,
-                label: data.label,
-                type:  data.type,
-                title: data.label,
-                isOnlyDisplay: false,
-                format: null,
-                options: null,
-                cols: 1,
-                attrs: null,
-                slots: null,
-            })
-            
-            this.$emit("selectedFormItem", data)
-            this.selectKey = data.field
-        }
+        this.selectIndex = res.newIndex
+        this.selectKey = this.list[this.selectIndex].key
+        this.$emit("selectedFormItem", this.list[this.selectIndex])     
     }
 
     // 删除
     handleDelete(key) {
-        var index = -1;
-        this.list.forEach((item, i) => {
-            if (item.field == key) {
-                index = i
-            }
-        })
+        if (this.list[this.selectIndex].key === key) {
+            this.list.splice(this.selectIndex, 1)
 
-        if (index != -1) {
-            this.list.splice(index, 1)
-        }
-
-        this.data.rows.forEach((row, a) => {
-            row.fields.forEach((field, c) => {
-                if (field.key === key) {
-                    row.fields.splice(c, 1)
-                }
+            this.data.rows.forEach((row, a) => {
+                row.fields.forEach((field, c) => {
+                    if (field.key === key) {
+                        row.fields.splice(c, 1)
+                    }
+                })
             })
-        })
+        }
+    }
+
+    handleChange(res) {
+        console.log('handleMoveEnd:' + JSON.stringify(res.element))
+    }
+
+    handleMove(e) {
+        console.log('handleMoveEnd:' + e)
     }
 
     // 移动开始
     handleMoveStart(res) {
+        console.log('handleMoveStart:' + res.oldIndex)
         this.selectIndex = res.oldIndex
     }
 
     // 移动结束
     handleMoveEnd(res) {
+        console.log('handleMoveEnd:' + res.newIndex)
         this.selectIndex = res.newIndex
     }
 
     // 点击选中
     handleFormItemClick(key) {
-        this.selectIndex = key
         this.selectKey = key
-
-        var index = -1;
         this.list.forEach((item, i) => {
-            if (item.field == key) {
-                index = i
+            if (item.key === key) {
+                this.selectIndex = i
             }
         })
 
-        this.$emit("selectedFormItem", this.list[index])
+        this.$emit("selectedFormItem", this.list[this.selectIndex])
     }
 
     getComponentName(type: TzSuperFormType) {
@@ -132,19 +97,11 @@ export default class BuilderAppFormGroupItem extends Vue {
             // 外部组件
             return type
         }
-    }   
-
-    removeGroup(key) {
-        this.$emit('remove-group', key)
-    }    
-
-    arraySum(array) {
-        var total = 0,
-            len = array.length
-        for (var i = 0; i < len; i++) {
-            total += array[i];
-        }
-
-        return total;
-    };
+    } 
+    
+    @Watch('list', { immediate: true, deep: true })
+    onListChanged(val: string, oldVal: string) {
+        this.$emit("change", this.data.key, this.list)
+        console.log('list:' + JSON.stringify(this.list))
+    }
 }

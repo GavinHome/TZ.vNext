@@ -1,17 +1,17 @@
 <template>
     <div>
-        <el-card :body-style="{ padding: '10px' }" :header="comp.title" :key="comp.title" shadow="never"
-            style="border: none;" v-for="comp of components">
-            <draggable :clone="addFormItem" :group="{ name: 'form', pull: 'clone', put: false }" :list="comp.comps" filter=".undraggable"
+        <el-card :body-style="{ padding: '10px' }" :header="group.title" :key="group.title" shadow="never"
+            style="border: none;" v-for="group of components">
+            <draggable :clone="cloneComponent" :group="{ name: 'form', pull: 'clone', put: false }" :list="group.comps" filter=".undraggable"
                 :sort="false" >
-                <template v-for="item of comp.comps">
-                    <div :key="item.type" class="type-item" v-if="item.isfinished">
-                        <div class="type-item-title">{{item.type}}</div>
-                        <div>{{item.label}}</div>
+                <template v-for="comp of group.comps">
+                    <div :key="comp.type" class="type-item" v-if="comp.isfinished">
+                        <div class="type-item-title">{{comp.type}}</div>
+                        <div>{{comp.label}}</div>
                     </div>
-                    <div :key="item.type" class="type-item undraggable" v-else>
-                            <div class="type-item-title">{{item.type}}</div>
-                            <div>{{item.label}}  <em class="pull-right small">即将开放</em></div>
+                    <div :key="comp.type" class="type-item undraggable" v-else>
+                            <div class="type-item-title">{{comp.type}}</div>
+                            <div>{{comp.label}}  <em class="pull-right small">即将开放</em></div>
                         </div>
                 </template>
             </draggable>

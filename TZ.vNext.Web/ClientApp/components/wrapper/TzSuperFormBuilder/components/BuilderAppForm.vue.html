@@ -1,16 +1,18 @@
 <template>
     <div class="app-form-container">
-        <app-form-header :form="groups" :form-data="formData" :rules="rules" :formAttr="formAttr">
-            <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
+        <app-form-header :form="form" :form-data="formData" :rules="rules" :formAttr="formAttr">
+            <slot></slot>
         </app-form-header>
 
         <el-form label-position="top" :label-width="labelWidth" :model="formData" ref="form" :rules="rules"
             @submit.native.prevent="handleValidateForm">
-            <el-collapse :value="ActiveCollapses">
-                <el-collapse-item v-for="(group, groupIndex) of groups" :title="group.title" :name="group.name"
+            <el-collapse :value="activeCollapses">
+                <el-collapse-item v-for="(group, groupIndex) of form" :title="group.title" :name="group.name"
                     :key="group.key">
-                    <app-form-group-item :data="group" @newFormItem="handleNewFormItem" @remove-group="removeGroup"
-                        @selectedFormItem="handleSelectFormItem"></app-form-group-item>
+                    <app-form-group-item :data="group" @selectedFormItem="handleSelectFormItem" @change="handleFormChange">
+                        <el-button @click.stop="removeGroup(group.key)" class="group-item-delete-btn"
+                            icon="el-icon-delete" size="mini" style="border-radius: 0" type="danger"></el-button>
+                    </app-form-group-item>
                 </el-collapse-item>
             </el-collapse>
             <el-row class="mb15 mt15">
@@ -25,7 +27,6 @@
 </template>
 
 <script src="./BuilderAppForm.ts"></script>
-
 
 <style>
     .app-form-container {

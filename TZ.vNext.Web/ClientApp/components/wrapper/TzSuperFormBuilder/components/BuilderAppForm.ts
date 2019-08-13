@@ -1,10 +1,9 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
 import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
-import Guid from "../../../common/Guid";
 
 @Component({
-    props: ["formAttr"],
+    props: ["form", "formAttr"],
     components: {
         TzSuperForm: require("../../TzSuperForm/index.vue.html"),
         draggable: require('vuedraggable'),
@@ -12,126 +11,19 @@ import Guid from "../../../common/Guid";
         TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
         TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
         TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
-        AppFormGroupItem: require('./BuilderAppFormGroupItem.vue.html'),       
+        AppFormGroupItem: require('./BuilderAppFormGroupItem.vue.html'),
         AppFormHeader: require('./BuilderAppFormHeader.vue.html'),
     }
 })
 export default class BuilderAppForm extends Vue {
+    @Prop() form!: TzSuperFormGroup[]
     @Prop() formAttr!: any
 
-    groups: TzSuperFormGroup[] = [
-        {
-            key: "basic",
-            name: "basic",
-            title: "基础信息",
-            isCollapsed: false,
-            rows: [
-                {
-                    key: "basic-row1",
-                    name: "basic-row1",
-                    fields: [
-                    ]
-                }
-            ]
-        }
-    ]
+    formData: any = {}
+    rules = {}
 
-    formData: any = {
-    }
-
-    rules = {
-    }
-
-    selectIndex: number = 0
-    selectKey: string = ''
-    list: any = []
-
-    get ActiveCollapses() {
-        return this.groups.filter(x => !x.isCollapsed).map(x => x.name)
-    }
-
-    handleSubmit(data) {
-        console.log(data)
-        return Promise.resolve(data)
-    }
-
-    handleSuccess(response) {
-        console.log(response)
-        this.$message.success('创建成功')
-    }
-
-    handleError(response) {
-        console.log(response)
-        this.$message.success('失败')
-    }
-
-    handleEnd(response) {
-        console.log(response)
-        this.$message.success('处理结束')
-    }
-
-    handleRequest(response) {
-        console.log(response)
-        this.$message.success('自定义处理')
-    }
-
-    addGroup() {
-        this.groups.push(this.newGroup(Guid.newGuid().toString()))
-    }
-
-    removeGroup(key) {
-        this.groups.forEach((group, a) => {
-            if (group.key === key) {
-                this.groups.splice(a, 1)
-            }
-        })
-    }
-
-    newGroup(key) {
-        return {
-            key: key,
-            name: key,
-            title: "分组信息",
-            isCollapsed: false,
-            rows: [
-                this.newRow(Guid.newGuid().toString())
-            ],
-        }
-    }
-
-    newRow(key) {
-        return {
-            key: key,
-            name: key,
-            fields: [
-
-            ]
-        }
-    }
-
-    handleNewFormItem(data, groupkey, rowindex) {
-        this.groups.forEach((g, i) => {
-
-            if (g.key == groupkey) {
-                g.rows[rowindex].fields.push({
-                    key: data.field,
-                    name: data.field,
-                    label: data.label,
-                    type: data.type,
-                    title: data.label,
-                    isOnlyDisplay: false,
-                    format: null,
-                    options: null,
-                    cols: 1,
-                    attrs: null,
-                    slots: null,
-                })
-            }
-        })
-    }
-
-    handleSelectFormItem(data) {
-        this.$emit("selectedFormItem", data)
+    get activeCollapses() {
+        return this.form.filter(x => !x.isCollapsed).map(x => x.name)
     }
 
     get showSubmitBtn() {
@@ -153,24 +45,20 @@ export default class BuilderAppForm extends Vue {
     get labelWidth() {
         return this.formAttr.labelWidth
     }
-    
-    UpdateData(newVal: any, oldVal: any) {
-        //throw new Error("Method not implemented.");
-        this.groups.forEach((g,a) => {
-            g.rows.forEach((r,b) => {
-                r.fields.forEach((f,c) => {
-                    if(f.key === oldVal.field) {
-                        debugger
-                        f.key = newVal.field
-                        f.name = newVal.field
-                        f.label = newVal.label + "："
-                        f.title = newVal.label
-                        f.cols = newVal.cols
-                    }
-                })
-            })
-        })
 
-        //this.$emit("selectedFormItem", newVal)
+    handleValidateForm(e) {
+        console.log(e)
+    }
+
+    handleSelectFormItem(data) {
+        this.$emit("selectedFormItem", data)
+    }
+
+    removeGroup(key) {
+        this.$emit('remove-group', key)
+    }
+
+    handleFormChange(groupKey, data) {
+        this.$emit("change", groupKey, data)
     }
 }

@@ -1,5 +1,7 @@
 import Vue from "vue";
 import { Component, Prop, Watch } from 'vue-property-decorator';
+import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
+import { TzSuperFormField } from "../BuilderFormComps";
 
 @Component({
     props: ["formItem"],
@@ -10,10 +12,15 @@ import { Component, Prop, Watch } from 'vue-property-decorator';
 export default class BuilderAppFormProperty extends Vue {
     @Prop() formItem!: any
 
-    formData: any = {}
+    formData: any = {
+        key: this.formItem.key,
+        name: this.formItem.name,
+        label: this.formItem.label,
+        cols: this.formItem.cols
+    }
 
     get form() {
-        if (this.formItem.formDesc) {
+        if (this.formItem) {
             var result: any = [
                 {
                     key: "basic",
@@ -24,7 +31,51 @@ export default class BuilderAppFormProperty extends Vue {
                         {
                             key: "basic-row1",
                             name: "basic-row1",
-                            fields: this.formItem.formDesc
+                            fields: [
+                                {
+                                    key: "name",
+                                    name: "name",
+                                    label: "标识",
+                                    type: TzSuperFormType.Input,
+                                    title: "标识",
+                                    isOnlyDisplay: false,
+                                    format: null,
+                                    options: null,
+                                    cols: 3,
+                                    attrs: null,
+                                    slots: null,
+                                },
+                                {
+                                    key: "label",
+                                    name: "label",
+                                    label: "标签",
+                                    type: TzSuperFormType.Input,
+                                    title: "标签",
+                                    isOnlyDisplay: false,
+                                    format: null,
+                                    options: null,
+                                    cols: 3,
+                                    attrs: null,
+                                    slots: null,
+                                },
+                                {
+                                    key: "cols",
+                                    name: "cols",
+                                    label: "所占宽度",
+                                    type: TzSuperFormType.Select,
+                                    title: "所占宽度",
+                                    isOnlyDisplay: false,
+                                    format: null,
+                                    options: [
+                                        { text: "1列", value: 1 },
+                                        { text: "2列", value: 2 },
+                                        { text: "3列", value: 3 }
+                                    ],
+                                    cols: 3,
+                                    attrs: null,
+                                    slots: null,
+                                }
+                            ]
                         }
                     ]
                 }
@@ -43,6 +94,20 @@ export default class BuilderAppFormProperty extends Vue {
 
     @Watch('formItem', { immediate: true, deep: true })
     onFormItemaChanged(val: string, oldVal: string) {
-        this.formData = this.formItem ? this.formItem.formData : {}
+        if (this.formItem) {
+            this.formData = {
+                key: this.formItem.key,
+                name: this.formItem.name,
+                label: this.formItem.label,
+                cols: this.formItem.cols
+            }
+
+            // this.formData.key = this.formItem.key
+            // this.formData.name = this.formItem.name
+            // this.formData.label = this.formItem.label
+            // this.formData.cols = this.formItem.cols
+        } else {
+            this.formData = {}
+        }
     }
 }
