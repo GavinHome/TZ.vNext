@@ -16,11 +16,11 @@ export default class BuilderAppFormProperty extends Vue {
         key: this.formItem.key,
         name: this.formItem.name,
         label: this.formItem.label,
-        cols: this.formItem.cols
+        cols: this.formItem.cols,
+        required: false
     }
 
     get form() {
-        debugger
         if (this.formItem) {
             var result: any = [
                 {
@@ -42,7 +42,9 @@ export default class BuilderAppFormProperty extends Vue {
                                     format: null,
                                     options: null,
                                     cols: 3,
-                                    attrs: null,
+                                    attrs: {
+                                        maxlength:20
+                                    },
                                     slots: null,
                                 },
                                 {
@@ -54,7 +56,9 @@ export default class BuilderAppFormProperty extends Vue {
                                     format: null,
                                     options: null,
                                     cols: 3,
-                                    attrs: null,
+                                    attrs: {
+                                        maxlength:20
+                                    },
                                     slots: null,
                                 },
                                 {
@@ -72,6 +76,18 @@ export default class BuilderAppFormProperty extends Vue {
                                     cols: 3,
                                     attrs: null,
                                     slots: null,
+                                },
+                                {
+                                    key: "required",
+                                    name: "required",
+                                    label: "是否必填",
+                                    type: TzSuperFormType.Switch,
+                                    title: "是否必填",
+                                    format: null,
+                                    options: null,
+                                    cols: 3,
+                                    attrs: null,
+                                    slots: null,
                                 }
                             ]
                         }
@@ -86,12 +102,12 @@ export default class BuilderAppFormProperty extends Vue {
     }
 
     @Watch('formData', { immediate: true, deep: true })
-    onFormDataChanged(val: string, oldVal: string) {
+    onFormDataChanged(val: any, oldVal: any) {
         this.$emit("formItemPropertyChange", val, oldVal)
     }
 
     @Watch('formItem', { immediate: true, deep: true })
-    onFormItemaChanged(val: string, oldVal: string) {
+    onFormItemaChanged(val: any, oldVal: any) {
         if (this.formItem) {
             this.formData = {
                 key: this.formItem.key,

@@ -3,14 +3,8 @@ import { Component, Prop } from 'vue-property-decorator';
 import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
 
 @Component({
-    props: ["form", "formAttr"],
+    props: ["form", "formAttr", "rules", "formData"],
     components: {
-        //TzSuperForm: require("../../TzSuperForm/index.vue.html"),
-        // draggable: require('vuedraggable'),
-        // TzSuperTextarea: require('../../TzSuperForm/TzSuperTextarea.vue.html'),
-        // TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
-        // TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
-        // TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
         AppFormGroupItem: require('./BuilderAppFormGroupItem.vue.html'),
         AppFormHeader: require('./BuilderAppFormHeader.vue.html'),
     }
@@ -18,9 +12,8 @@ import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
 export default class BuilderAppForm extends Vue {
     @Prop() form!: TzSuperFormGroup[]
     @Prop() formAttr!: any
-
-    formData: any = {}
-    rules = {}
+    @Prop() rules!: any
+    @Prop() formData!: any
 
     get activeCollapses() {
         return this.form.filter(x => !x.isCollapsed).map(x => x.name)
@@ -54,7 +47,11 @@ export default class BuilderAppForm extends Vue {
         this.$emit("selectedFormItem", data)
     }
 
-    removeGroup(key) {
+    removeGroup(key: any) {
         this.$emit('remove-group', key)
+    }
+    
+    handleDeleteField(data) {
+        this.$emit('delete-field', data)
     }
 }

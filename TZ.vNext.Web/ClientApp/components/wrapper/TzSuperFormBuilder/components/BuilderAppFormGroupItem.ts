@@ -29,4 +29,8 @@ export default class BuilderAppFormGroupItem extends Vue {
     handleSelectFormItem(data) {
         this.$emit("selectedFormItem", data)
     }
+
+    handleDeleteField(data) {
+        this.$emit("delete-field", data)
+    }
 }

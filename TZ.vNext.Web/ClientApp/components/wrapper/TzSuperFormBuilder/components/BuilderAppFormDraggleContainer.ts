@@ -2,6 +2,7 @@ import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
 import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
 import { TzSuperFormField } from "../BuilderFormComps";
+import { getComponentName } from "../../TzSuperForm/TzSuperFunc";
 
 @Component({
     props: ["fields"],
@@ -12,16 +13,17 @@ import { TzSuperFormField } from "../BuilderFormComps";
         TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
         TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
         TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
-        TzSuperText: require('../../TzSuperForm/TzSuperText.vue.html')
+        TzSuperText: require('../../TzSuperForm/TzSuperText.vue.html'),
+        TzSuperSwitch: require('../../TzSuperForm/components/TzSuperSwitch.vue.html')
     },
     watch: {
         list: {
             handler: (newProp, oldProp) => {
-                
+
             },
             deep: true,
             immediate: false
-          }
+        }
     }
 })
 export default class BuilderAppFormDraggleContainer extends Vue {
@@ -36,7 +38,7 @@ export default class BuilderAppFormDraggleContainer extends Vue {
     // 新增
     handleAdd(res) {
         this.selectIndex = res.newIndex
-        this.selectKey = this.list[this.selectIndex].key        
+        this.selectKey = this.list[this.selectIndex].key
 
         this.fields.splice(0, this.fields.length)
         var fields = this.getFields(this.list)
@@ -55,6 +57,7 @@ export default class BuilderAppFormDraggleContainer extends Vue {
             this.fields.forEach((field, c) => {
                 if (field.key === key) {
                     this.fields.splice(c, 1)
+                    this.$emit("delete-field", field.name)
                 }
             })
         }
@@ -95,18 +98,7 @@ export default class BuilderAppFormDraggleContainer extends Vue {
     }
 
     getComponentName(type: TzSuperFormType) {
-        let eleBuiltInNames: string[] = ["input"];
-        let tzBuiltInNames: string[] = ["textarea", "number", "select", "dialog", "text"];
-        if (eleBuiltInNames.includes(type)) {
-            // element 内置组件
-            return 'el-' + type
-        } else if (tzBuiltInNames.includes(type)) {
-            // tz 内置组件
-            return 'tz-super-' + type
-        } else {
-            // 外部组件
-            return type
-        }
+        return getComponentName(type)
     }
 
     // @Watch('list', { immediate: true, deep: true })

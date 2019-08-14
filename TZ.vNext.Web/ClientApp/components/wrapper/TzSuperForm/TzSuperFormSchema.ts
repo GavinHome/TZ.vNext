@@ -63,5 +63,10 @@ export enum TzSuperFormType {
     /// <summary>
     /// 弹框数据
     /// </summary>
-    Dialog = "dialog"
+    Dialog = "dialog",
+
+    /// <summary>
+    /// 弹框数据
+    /// </summary>
+    Switch = "switch"
 }

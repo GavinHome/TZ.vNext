@@ -10,8 +10,8 @@
                 <app-form-components></app-form-components>
             </el-aside>
             <el-main>                
-                <app-form ref="appForm" :form="form" :formAttr="formAttr" @selectedFormItem="handleSelectedFormItem" @remove-group="removeGroup"
-                @change="handleFormChange">
+                <app-form ref="appForm" :form="form" :formAttr="formAttr" :form-data="formData" :rules="rules" @selectedFormItem="handleSelectedFormItem" @remove-group="removeGroup"
+                @change="handleFormChange" @delete-field="handleDeleteField">
                     <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
                 </app-form>
             </el-main>

@@ -4,6 +4,7 @@ import { TzSuperFormGroup, TzSuperFormType, TzSuperFormField } from "./TzSuperFo
 
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
+import { getComponentName } from "./TzSuperFunc";
 Vue.use(ElementUI)
 
 @Component({
@@ -14,7 +15,8 @@ Vue.use(ElementUI)
         TzSuperSelect: require('./TzSuperSelect.vue.html'),
         TzSuperEmployeeGrid: require('./TzSuperEmployeeGrid.vue.html'),
         TzSuperDialog: require('./TzSuperDialog.vue.html'),
-        TzSuperText: require('./TzSuperText.vue.html')
+        TzSuperText: require('./TzSuperText.vue.html'),
+        TzSuperSwitch: require('./components/TzSuperSwitch.vue.html')
     }
 })
 export default class TzSuperForm extends Vue {
@@ -64,21 +66,10 @@ export default class TzSuperForm extends Vue {
         })
 
         return fields;
-    }
+    }  
 
     getComponentName(type: TzSuperFormType) {
-        let eleBuiltInNames: string[] = ["input"];
-        let tzBuiltInNames: string[] = ["textarea", "number", "select", "dialog", "text"];
-        if (eleBuiltInNames.includes(type)) {
-            // element 内置组件
-            return 'el-' + type
-        } else if (tzBuiltInNames.includes(type)) {
-            // tz 内置组件
-            return 'tz-super-' + type
-        } else {
-            // 外部组件
-            return type
-        }
+        return getComponentName(type) 
     }
 
     handleValidateForm(e) {

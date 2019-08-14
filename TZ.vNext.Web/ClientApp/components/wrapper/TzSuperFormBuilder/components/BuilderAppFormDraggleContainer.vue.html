@@ -9,7 +9,7 @@
             @click.native="handleFormItemClick(field.key)" :class="{'form-item-active': selectKey === field.key}"
             class="form-item">
 
-            <el-form-item :label="field.label + '：'" size="medium" :prop="field.name" :class=" field.type === 'text' ? 'readonly' : '' ">
+            <el-form-item :label="field.label + '：'" size="medium" :prop="field.name" :class=" field.type === 'text' ? 'readonly' : '' " :show-message="false">
                 <slot :data="formData[field.name]" :name="field.name">
                     <component :desc="field" :is="getComponentName(field.type)" v-model="formData[field.name]" />
                 </slot>
@@ -23,8 +23,6 @@
 </template>
 
 <script src="./BuilderAppFormDraggleContainer.ts"></script>
-
-
 
 <style>
     .group-item-delete-btn {

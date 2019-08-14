@@ -5,7 +5,7 @@
         </div>
 
         <el-row v-for="(row, rowIndex) of rows" :key="row.key">
-            <app-form-draggle-container :fields="row.fields" @selectedFormItem="handleSelectFormItem"></app-form-draggle-container>
+            <app-form-draggle-container :fields="row.fields" @selectedFormItem="handleSelectFormItem" @delete-field="handleDeleteField"></app-form-draggle-container>
         </el-row>
     </div>
 </template>

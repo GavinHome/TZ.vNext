@@ -4,6 +4,7 @@ import { TzSuperFormGroup, TzSuperFormRow, TzSuperFormField } from "../TzSuperFo
 import 'element-ui/lib/theme-chalk/index.css';
 import { Container, Aside, Header, Main, TabPane, Tabs } from 'element-ui';
 import Guid from "../../common/Guid";
+import { getFormDesc } from "../TzSuperForm/TzSuperFunc";
 Vue.use(Container)
 Vue.use(Aside)
 Vue.use(Header)
@@ -24,6 +25,7 @@ export default class TzSuperFormBuilder extends Vue {
     activeTab: number = 0
     selectFormItem: any = {}
     formAttr: any = {}
+    rules: any = {}
 
     form: TzSuperFormGroup[] = [
         {
@@ -42,6 +44,16 @@ export default class TzSuperFormBuilder extends Vue {
         }
     ]
 
+    get formData() {
+        var desc = getFormDesc(this.form)
+        var data = {}
+        desc.forEach(d => {
+            data[d.name] = null
+        })
+        
+        return data;
+    }
+
     handleFormPropertyChange(attr) {
         this.formAttr = attr
     }
@@ -56,15 +68,29 @@ export default class TzSuperFormBuilder extends Vue {
                 g.rows.forEach((r, b) => {
                     r.fields.forEach((f, c) => {
                         if (f.key === oldVal.key) {
+                            delete this.rules[f.name]
+                            delete this.rules[newVal.name]
+
                             f.name = newVal.name
                             f.label = newVal.label
                             f.title = newVal.label
                             f.cols = newVal.cols
                             this.renderGroup(g.key)
+                            this.renderValidetor(f.name, newVal.required, newVal.label)
                         }
                     })
                 })
             })
+        }
+    }
+
+    renderValidetor(name: string, required: boolean, title: string) {
+        if (required) {
+            Vue.set(this.rules, name, { required: required, message: "请输入" + title, trigger: 'blur' })
+        } else {
+            if(Object.keys(this.rules).indexOf(name) > -1) {
+                delete this.rules[name]
+            }
         }
     }
 
@@ -80,6 +106,12 @@ export default class TzSuperFormBuilder extends Vue {
         }
 
         this.handleFormChange(groupKey, data)
+    }
+
+    handleDeleteField(data) {
+        if(Object.keys(this.rules).indexOf(data) > -1) {
+            delete this.rules[data]
+        }
     }
 
     handleFormChange(groupKey, data) {

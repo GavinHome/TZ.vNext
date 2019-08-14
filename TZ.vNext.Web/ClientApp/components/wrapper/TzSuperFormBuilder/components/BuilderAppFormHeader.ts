@@ -4,6 +4,7 @@ import tpl from "./form_tpl"
 
 import 'element-ui/lib/theme-chalk/index.css'
 import { Row, Col, FormItem, Form } from 'element-ui'
+
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Form)
@@ -43,8 +44,8 @@ export default class BuilderAppFormHeader extends Vue {
 
     get render_code_html() {
         return tpl.render_tpl.replace('%1', JSON.stringify(this.form, null, 4))
-            .replace('%2', JSON.stringify(this.formData))
-            .replace('%3', JSON.stringify(this.rules))
+            .replace('%2', JSON.stringify(this.formData, null, 4))
+            .replace('%3', JSON.stringify(this.rules, null, 4))
             .replace('%4', "100")
     }
 }

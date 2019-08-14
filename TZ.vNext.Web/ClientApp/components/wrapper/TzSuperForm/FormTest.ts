@@ -128,6 +128,24 @@ export default class FormTest extends Vue {
                             slots: null
                         }
                     ]
+                },
+                {
+                    key: "basic-row3",
+                    name: "basic-row3",
+                    fields: [
+                        {
+                            key: "isMarried",
+                            name: "isMarried",
+                            label: "婚否",
+                            type: TzSuperFormType.Switch,
+                            title: "婚否",
+                            format: null,
+                            options: null,
+                            cols: 1,
+                            attrs: null,
+                            slots: null
+                        }
+                    ]
                 }
             ],
         },
@@ -165,7 +183,8 @@ export default class FormTest extends Vue {
         count: 100,
         number: 0.5,
         user: null,
-        total: 50
+        total: 50,
+        isMarried: true
     }
     
     titleChange(e: any) {
