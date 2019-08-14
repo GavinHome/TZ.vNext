@@ -28,7 +28,6 @@ export default class BuilderAppFormComponents extends Vue {
       label: data.label + id,
       type: data.type,
       title: data.title,
-      isOnlyDisplay: data.isOnlyDisplay,
       format: data.format,
       options: data.options,
       cols: data.cols,

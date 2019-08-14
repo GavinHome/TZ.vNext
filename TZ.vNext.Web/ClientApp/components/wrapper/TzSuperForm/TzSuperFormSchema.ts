@@ -18,15 +18,23 @@ export interface TzSuperFormField {
     label: string;
     type: TzSuperFormType;
     title: string;
-    isOnlyDisplay: boolean; //仅仅是显示，默认false
     format?: string | undefined | null;
     options?: any;
     cols?: number; //当前元素占用列个数，默认1
     attrs?: any;
     slots?: any;
+    class?: string;
+    style?: string;
+    on?: any;
 }
 
 export enum TzSuperFormType {
+    
+    /// <summary>
+    /// 静态文本
+    /// </summary>
+    Text = "text",
+
     /// <summary>
     /// 单行文本
     /// </summary>
@@ -50,5 +58,10 @@ export enum TzSuperFormType {
     /// <summary>
     /// 选择器
     /// </summary>
-    Employee = "employee-grid"
+    Employee = "employee-grid",
+
+    /// <summary>
+    /// 弹框数据
+    /// </summary>
+    Dialog = "dialog"
 }

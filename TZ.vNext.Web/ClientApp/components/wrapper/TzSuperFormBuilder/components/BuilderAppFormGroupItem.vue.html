@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app-form-group-item">
         <div class="text-right " style="padding-bottom: 20px; height: 100%;" v-if="this.data.key !='basic'">
             <slot></slot>
         </div>
@@ -11,3 +11,10 @@
 </template>
 
 <script src="./BuilderAppFormGroupItem.ts"></script>
+
+<style>
+.app-form-group-item
+{
+    min-height:350px;
+}
+</style>

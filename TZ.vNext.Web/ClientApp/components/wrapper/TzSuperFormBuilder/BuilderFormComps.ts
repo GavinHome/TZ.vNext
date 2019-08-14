@@ -12,7 +12,6 @@ export interface TzSuperFormField {
     label: string;
     type: TzSuperFormType;
     title: string;
-    isOnlyDisplay: boolean; //仅仅是显示，默认false
     format?: string | undefined | null;
     options?: any;
     cols?: number; //当前元素占用列个数，默认1
@@ -27,7 +26,7 @@ export const components = [
             {
                 type: 'text',
                 label: '静态文本',
-                isfinished: false,
+                isfinished: true,
             },
             {
                 key: '',
@@ -35,7 +34,6 @@ export const components = [
                 label: '单行输入框',
                 type: TzSuperFormType.Input,
                 title: '单行输入框',
-                isOnlyDisplay: false,
                 format: null,
                 options: null,
                 cols: 1,
@@ -49,7 +47,6 @@ export const components = [
                 label: '多行输入框',
                 type: TzSuperFormType.Textarea,
                 title: '多行输入框',
-                isOnlyDisplay: false,
                 format: null,
                 options: null,
                 cols: 3,
@@ -63,7 +60,6 @@ export const components = [
                 label: '数字',
                 type: TzSuperFormType.Number,
                 title: '数字',
-                isOnlyDisplay: false,
                 format: null,
                 options: null,
                 cols: 1,
@@ -77,7 +73,6 @@ export const components = [
                 label: '选择器',
                 type: TzSuperFormType.Select,
                 title: '选择器',
-                isOnlyDisplay: false,
                 format: null,
                 options: options,
                 cols: 1,
@@ -118,17 +113,18 @@ export const components = [
         ]
     },
     {
-        title: '业务组件',
-        comps: [
-            {
-                type: 'employee-grid',
-                label: '人员组件'
-            },
-        ]
-    },
-    {
         title: '扩展组件',
         comps: [
+            {
+                type: 'dialog',
+                label: '弹框',
+                isfinished: false,
+            },
         ]
-    }
+    },    
+    {
+        title: '业务组件',
+        comps: [
+        ]
+    },
 ]

@@ -20,6 +20,7 @@ export default class BuilderAppFormProperty extends Vue {
     }
 
     get form() {
+        debugger
         if (this.formItem) {
             var result: any = [
                 {
@@ -38,7 +39,6 @@ export default class BuilderAppFormProperty extends Vue {
                                     label: "标识",
                                     type: TzSuperFormType.Input,
                                     title: "标识",
-                                    isOnlyDisplay: false,
                                     format: null,
                                     options: null,
                                     cols: 3,
@@ -51,7 +51,6 @@ export default class BuilderAppFormProperty extends Vue {
                                     label: "标签",
                                     type: TzSuperFormType.Input,
                                     title: "标签",
-                                    isOnlyDisplay: false,
                                     format: null,
                                     options: null,
                                     cols: 3,
@@ -64,7 +63,6 @@ export default class BuilderAppFormProperty extends Vue {
                                     label: "所占宽度",
                                     type: TzSuperFormType.Select,
                                     title: "所占宽度",
-                                    isOnlyDisplay: false,
                                     format: null,
                                     options: [
                                         { text: "1列", value: 1 },

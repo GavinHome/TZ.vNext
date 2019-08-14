@@ -47,9 +47,7 @@ export default class TzSuperFormBuilder extends Vue {
     }
 
     handleSelectedFormItem(item) {
-        if (item) {
-            this.selectFormItem = item
-        }
+        this.selectFormItem = item
     }
 
     handleFormItemPropertyChange(newVal, oldVal) {
@@ -71,7 +69,6 @@ export default class TzSuperFormBuilder extends Vue {
     }
 
     renderGroup(groupKey) {
-        console.log('renderGroup:' + groupKey)
         var data: TzSuperFormField[] = []
         var group = this.form.filter(x => x.key === groupKey)[0]
         if (group && data && data.length) {
@@ -86,8 +83,6 @@ export default class TzSuperFormBuilder extends Vue {
     }
 
     handleFormChange(groupKey, data) {
-        console.log('data:' + JSON.stringify(data))
-        console.log('form:' + JSON.stringify(this.form))
         var group = this.form.filter(x => x.key === groupKey)[0]
         if (group && data && data.length) {
             group.rows.splice(0, group.rows.length)
@@ -117,7 +112,6 @@ export default class TzSuperFormBuilder extends Vue {
                         label: item.label,
                         type: item.type,
                         title: item.title,
-                        isOnlyDisplay: item.isOnlyDisplay,
                         format: item.format,
                         options: item.options,
                         cols: item.cols,
@@ -139,7 +133,6 @@ export default class TzSuperFormBuilder extends Vue {
                         label: item.label,
                         type: item.type,
                         title: item.title,
-                        isOnlyDisplay: item.isOnlyDisplay,
                         format: item.format,
                         options: item.options,
                         cols: item.cols,

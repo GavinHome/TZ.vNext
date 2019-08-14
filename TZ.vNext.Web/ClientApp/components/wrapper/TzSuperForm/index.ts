@@ -12,7 +12,9 @@ Vue.use(ElementUI)
         TzSuperTextarea: require('./TzSuperTextarea.vue.html'),
         TzSuperNumber: require('./TzSuperNumber.vue.html'),
         TzSuperSelect: require('./TzSuperSelect.vue.html'),
-        TzSuperEmployeeGrid: require('./TzSuperEmployeeGrid.vue.html')
+        TzSuperEmployeeGrid: require('./TzSuperEmployeeGrid.vue.html'),
+        TzSuperDialog: require('./TzSuperDialog.vue.html'),
+        TzSuperText: require('./TzSuperText.vue.html')
     }
 })
 export default class TzSuperForm extends Vue {
@@ -66,7 +68,7 @@ export default class TzSuperForm extends Vue {
 
     getComponentName(type: TzSuperFormType) {
         let eleBuiltInNames: string[] = ["input"];
-        let tzBuiltInNames: string[] = ["textarea", "number", "select", "employee-grid"];
+        let tzBuiltInNames: string[] = ["textarea", "number", "select", "dialog", "text"];
         if (eleBuiltInNames.includes(type)) {
             // element 内置组件
             return 'el-' + type

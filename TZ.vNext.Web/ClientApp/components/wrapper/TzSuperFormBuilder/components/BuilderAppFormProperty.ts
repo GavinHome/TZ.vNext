@@ -41,7 +41,6 @@ export default class BuilderAppFormProperty extends Vue {
                             label: "提交按钮：",
                             type: TzSuperFormType.Select,
                             title: "提交按钮",
-                            isOnlyDisplay: false,
                             format: null,
                             options: [
                                 { text: '显示', value: false },
@@ -57,7 +56,6 @@ export default class BuilderAppFormProperty extends Vue {
                             label: "返回按钮：",
                             type: TzSuperFormType.Select,
                             title: "返回按钮",
-                            isOnlyDisplay: false,
                             format: null,
                             options: [
                                 { text: '显示', value: false },
@@ -73,7 +71,6 @@ export default class BuilderAppFormProperty extends Vue {
                             label: "提交按钮文字：",
                             type: TzSuperFormType.Input,
                             title: "提交按钮文字",
-                            isOnlyDisplay: false,
                             format: null,
                             options: null,
                             cols: 3,
@@ -86,7 +83,6 @@ export default class BuilderAppFormProperty extends Vue {
                             label: "返回按钮文字：",
                             type: TzSuperFormType.Input,
                             title: "返回按钮文字",
-                            isOnlyDisplay: false,
                             format: null,
                             options: null,
                             cols: 3,

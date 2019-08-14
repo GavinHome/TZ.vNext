@@ -1,11 +1,21 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 import { TzSuperFormGroup, TzSuperFormType } from "./TzSuperFormSchema";
+import TzEmployee from "../TzEmployee";
 
 @Component({
     props: [],
     components: {
-        TzSuperForm: require("./index.vue.html")
+        TzSuperForm: require("./index.vue.html"),
+    },
+    watch: {
+        formData: {
+            handler: (newProp, oldProp) => {
+                newProp['total'] = newProp['count'] * newProp['number']
+            },
+            deep: true,
+            immediate: false
+          }
     }
 })
 export default class FormTest extends Vue {
@@ -24,36 +34,39 @@ export default class FormTest extends Vue {
                         {
                             key: "title",
                             name: "title",
-                            label: "标题：",
+                            label: "标题",
                             type: TzSuperFormType.Input,
                             title: "标题",
-                            isOnlyDisplay: false,
                             format: null,
                             options: null,
                             cols: 1,
-                            attrs: null,
+                            attrs: {
+                            },
+                            on: {
+                                change: e => this.titleChange(e)
+                            },
                             slots: null,
                         },
                         {
                             key: "count",
                             name: "count",
-                            label: "数量：",
+                            label: "数量",
                             type: TzSuperFormType.Number,
                             title: "数量",
-                            isOnlyDisplay: true,
                             format: null,
                             options: null,
                             cols: 1,
                             attrs: null,
                             slots: null,
+                            class: "",
+                            style:"",
                         },
                         {
                             key: "number",
                             name: "number",
-                            label: "人数：",
+                            label: "人数",
                             type: TzSuperFormType.Number,
                             title: "人数",
-                            isOnlyDisplay: false,
                             format: null,
                             options: null,
                             cols: 1,
@@ -69,10 +82,9 @@ export default class FormTest extends Vue {
                         {
                             key: "finished",
                             name: "finished",
-                            label: "是否完成：",
+                            label: "是否完成",
                             type: TzSuperFormType.Select,
                             title: "是否完成",
-                            isOnlyDisplay: false,
                             format: null,
                             options: [
                                 { text: '是', value: 1 },
@@ -85,15 +97,35 @@ export default class FormTest extends Vue {
                         {
                             key: "user",
                             name: "user",
-                            label: "申请人：",
-                            type: TzSuperFormType.Employee,
+                            label: "申请人",
+                            type: TzSuperFormType.Dialog,
                             title: "申请人",
-                            isOnlyDisplay: false,
                             format: null,
                             options: null,
-                            cols: 2,
+                            cols: 1,
                             attrs: null,
-                            slots: null,
+                            slots: [
+                                {
+                                    type: "tz-employee",
+                                    component: TzEmployee,
+                                    props: {
+                                        multiply: true,
+                                    },
+                                    submit: data => this.selectEmployee("user", data),
+                                }
+                            ]
+                        },
+                        {
+                            key: "total",
+                            name: "total",
+                            label: "总计",
+                            type: TzSuperFormType.Text,
+                            title: "总计",
+                            format: null,
+                            options: null,
+                            cols: 1,
+                            attrs: null,
+                            slots: null
                         }
                     ]
                 }
@@ -115,7 +147,6 @@ export default class FormTest extends Vue {
                             label: "内容：",
                             type: TzSuperFormType.Textarea,
                             title: "内容",
-                            isOnlyDisplay: false,
                             format: null,
                             options: null,
                             cols: 3,
@@ -132,8 +163,29 @@ export default class FormTest extends Vue {
         title: null,
         content: null,
         count: 100,
-        number: 0.5
+        number: 0.5,
+        user: null,
+        total: 50
     }
+    
+    titleChange(e: any) {
+        console.log(e)
+    }
+
+    selectEmployee(name, value) {
+        if (value && value.length) {
+            Vue.set(this.formData, name, value.map(x => x.Name).join("；"))
+            Vue.set(this.formData, name + "Id", value.map(x => x.Id).join("；"))
+        } else {
+            Vue.set(this.formData, name, value.Name)
+            Vue.set(this.formData, name + "Id", value.Id)
+        }
+    }
+    
+    // @Watch('formData', { immediate: true, deep: true })
+    // onFormDataChanged(val: any, oldVal: any) {
+    //     //this.formData['total'] = this.formData['count'] * 10
+    // }
 
     rules = {
         title: [

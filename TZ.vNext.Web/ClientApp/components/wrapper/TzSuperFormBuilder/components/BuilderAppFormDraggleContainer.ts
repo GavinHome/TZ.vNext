@@ -1,8 +1,7 @@
 import Vue from "vue";
-import { Component, Prop, Watch } from 'vue-property-decorator';
-import { TzSuperFormType, TzSuperFormRow } from "../../TzSuperForm/TzSuperFormSchema";
+import { Component, Prop } from 'vue-property-decorator';
+import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
 import { TzSuperFormField } from "../BuilderFormComps";
-import Guid from "../../../common/Guid";
 
 @Component({
     props: ["fields"],
@@ -13,6 +12,16 @@ import Guid from "../../../common/Guid";
         TzSuperNumber: require('../../TzSuperForm/TzSuperNumber.vue.html'),
         TzSuperSelect: require('../../TzSuperForm/TzSuperSelect.vue.html'),
         TzSuperEmployeeGrid: require('../../TzSuperForm/TzSuperEmployeeGrid.vue.html'),
+        TzSuperText: require('../../TzSuperForm/TzSuperText.vue.html')
+    },
+    watch: {
+        list: {
+            handler: (newProp, oldProp) => {
+                
+            },
+            deep: true,
+            immediate: false
+          }
     }
 })
 export default class BuilderAppFormDraggleContainer extends Vue {
@@ -27,7 +36,14 @@ export default class BuilderAppFormDraggleContainer extends Vue {
     // 新增
     handleAdd(res) {
         this.selectIndex = res.newIndex
-        this.selectKey = this.list[this.selectIndex].key
+        this.selectKey = this.list[this.selectIndex].key        
+
+        this.fields.splice(0, this.fields.length)
+        var fields = this.getFields(this.list)
+        fields.forEach(r => {
+            this.fields.push(r);
+        })
+
         this.$emit("selectedFormItem", this.list[this.selectIndex])
     }
 
@@ -42,6 +58,8 @@ export default class BuilderAppFormDraggleContainer extends Vue {
                 }
             })
         }
+
+        this.$emit("selectedFormItem", null)
     }
 
     handleChange(res) {
@@ -78,7 +96,7 @@ export default class BuilderAppFormDraggleContainer extends Vue {
 
     getComponentName(type: TzSuperFormType) {
         let eleBuiltInNames: string[] = ["input"];
-        let tzBuiltInNames: string[] = ["textarea", "number", "select", "employee-grid"];
+        let tzBuiltInNames: string[] = ["textarea", "number", "select", "dialog", "text"];
         if (eleBuiltInNames.includes(type)) {
             // element 内置组件
             return 'el-' + type
@@ -91,15 +109,14 @@ export default class BuilderAppFormDraggleContainer extends Vue {
         }
     }
 
-    @Watch('list', { immediate: true, deep: true })
-    onListChanged(val: string, oldVal: string) {
-        this.fields.splice(0, this.fields.length)
-        var fields = this.getFields(this.list)
-        fields.forEach(r => {
-            this.fields.push(r);
-        })
-    }
-
+    // @Watch('list', { immediate: true, deep: true })
+    // onListChanged(val: any, oldVal: any) {
+    //     this.fields.splice(0, this.fields.length)
+    //     var fields = this.getFields(this.list)
+    //     fields.forEach(r => {
+    //         this.fields.push(r);
+    //     })
+    // }
 
     getFields(data): TzSuperFormField[] {
         var fields: TzSuperFormField[] = [];
@@ -112,7 +129,6 @@ export default class BuilderAppFormDraggleContainer extends Vue {
                     label: item.label,
                     type: item.type,
                     title: item.title,
-                    isOnlyDisplay: item.isOnlyDisplay,
                     format: item.format,
                     options: item.options,
                     cols: item.cols,
