@@ -1,24 +1,31 @@
 <template>
-    <draggable :animation="200" :disabled="false" :list="list" @add="handleAdd" @end="handleMoveEnd"
-        @start="handleMoveStart" group="form" style="padding-bottom: 80px;height:100%" @change="handleChange"
-        :move="handleMove">
-        
+    <draggable :animation="200" :disabled="false" :list="fields" @add="handleAdd" @end="handleMoveEnd"
+        @start="handleMoveStart" group="form" style="padding-bottom: 100px;height:100%" tag="el-row">
+
         <div class="form-area-placeholder" v-if="fields.length === 0">从左侧拖拽来添加表单项</div>
 
-        <el-col :span="field.cols ? 8 * field.cols : 8" v-for="(field, index) of fields" :key="field.key"
-            @click.native="handleFormItemClick(field.key)" :class="{'form-item-active': selectKey === field.key}"
-            class="form-item">
+        <template v-else>
+            <!-- 表单项 -->
+            <template v-for="(formItem, index) of fields">
+                <!-- 列 -->
+                <el-col :class="{'form-item-active': selectIndex === index}" :key="index"
+                    @click.native="handleFormItemClick(index)" :span="formItem.cols ? 8 * formItem.cols : 8"
+                    class="form-item" v-if="formItem.type !== 'hide'">
+                    <!-- 表单项 -->
+                    <el-form-item :label="formItem.label + '：'" size="medium" :prop="formItem.name" :class=" formItem.type === 'text' ? 'readonly' : '' " :show-message="false">
+                        <!-- 组件 -->
+                        <component :desc="formItem" :is="getComponentName(formItem.type)"
+                            :key="formItem.key" v-model="formData[formItem.name]" />
+                        <!-- 提示 -->
+                        <!-- <div class="ele-form-tip" v-if="formItem.formData.tip">{{formItem.formData.tip}}</div> -->
+                    </el-form-item>
 
-            <el-form-item :label="field.label + '：'" size="medium" :prop="field.name" :class=" field.type === 'text' ? 'readonly' : '' " :show-message="false">
-                <slot :data="formData[field.name]" :name="field.name">
-                    <component :desc="field" :is="getComponentName(field.type)" v-model="formData[field.name]" />
-                </slot>
-            </el-form-item>
-
-            <!-- 删除按钮 -->
-            <el-button @click.stop="handleDelete(field.key)" class="form-item-delete-btn" icon="el-icon-delete"
-                size="mini" style="border-radius: 0" type="primary" v-if="selectKey === field.key"></el-button>
-        </el-col>
+                    <!-- 删除按钮 -->
+                    <el-button @click.stop="handleDelete(index)" class="form-item-delete-btn" icon="el-icon-delete"
+                        size="mini" style="border-radius: 0" type="primary" v-if="selectIndex === index"></el-button>
+                </el-col>
+            </template>
+        </template>
     </draggable>
 </template>
 

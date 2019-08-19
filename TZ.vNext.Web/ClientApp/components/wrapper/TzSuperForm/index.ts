@@ -1,22 +1,21 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
-import { TzSuperFormGroup, TzSuperFormType, TzSuperFormField } from "./TzSuperFormSchema";
+import { TzSuperFormGroup, TzSuperFormType, TzSuperFormField, getComponentName } from "./schema/TzSuperFormSchema";
 
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
-import { getComponentName } from "./TzSuperFunc";
 Vue.use(ElementUI)
 
 @Component({
     props: ["form", "formData", "rules", "isLoading", "formError", "requestFn", "isHideSubmitBtn", "isHideBackBtn", "submitBtnText", "backBtnText", "labelWidth", "single"],
     components: {
-        TzSuperTextarea: require('./TzSuperTextarea.vue.html'),
-        TzSuperNumber: require('./TzSuperNumber.vue.html'),
-        TzSuperSelect: require('./TzSuperSelect.vue.html'),
-        TzSuperEmployeeGrid: require('./TzSuperEmployeeGrid.vue.html'),
-        TzSuperDialog: require('./TzSuperDialog.vue.html'),
-        TzSuperText: require('./TzSuperText.vue.html'),
-        TzSuperSwitch: require('./components/TzSuperSwitch.vue.html')
+        TzSuperTextarea: require('./components/TzSuperTextarea.vue.html'),
+        TzSuperNumber: require('./components/TzSuperNumber.vue.html'),
+        TzSuperSelect: require('./components/TzSuperSelect.vue.html'),
+        TzSuperDialog: require('./components/TzSuperDialog.vue.html'),
+        TzSuperText: require('./components/TzSuperText.vue.html'),
+        TzSuperSwitch: require('./components/TzSuperSwitch.vue.html'),
+        TzSuperShell: require('./components/TzSuperShell.vue.html')
     }
 })
 export default class TzSuperForm extends Vue {

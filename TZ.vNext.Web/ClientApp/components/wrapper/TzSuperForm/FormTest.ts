@@ -1,12 +1,16 @@
 import Vue from "vue";
-import { Component, Watch } from 'vue-property-decorator';
-import { TzSuperFormGroup, TzSuperFormType } from "./TzSuperFormSchema";
+import { Component } from 'vue-property-decorator';
+import { TzSuperFormGroup, TzSuperFormType, getFormDesc } from "./schema/TzSuperFormSchema";
 import TzEmployee from "../TzEmployee";
+import TzAreaCascader from "../TzAreaCascader";
+
 
 @Component({
     props: [],
     components: {
+        TzAreaCascader: require("../TzAreaCascader.vue.html"),
         TzSuperForm: require("./index.vue.html"),
+        TzEmployee: require("../TzEmployee.vue.html")
     },
     watch: {
         formData: {
@@ -15,11 +19,10 @@ import TzEmployee from "../TzEmployee";
             },
             deep: true,
             immediate: false
-          }
+        }
     }
 })
 export default class FormTest extends Vue {
-
     form: TzSuperFormGroup[] = [
         {
             key: "basic",
@@ -41,6 +44,7 @@ export default class FormTest extends Vue {
                             options: null,
                             cols: 1,
                             attrs: {
+                                placeholder: "请输入标题"
                             },
                             on: {
                                 change: e => this.titleChange(e)
@@ -59,7 +63,7 @@ export default class FormTest extends Vue {
                             attrs: null,
                             slots: null,
                             class: "",
-                            style:"",
+                            style: "",
                         },
                         {
                             key: "number",
@@ -111,6 +115,12 @@ export default class FormTest extends Vue {
                                     props: {
                                         multiply: true,
                                     },
+                                    default: [],
+                                    // [
+                                    //     // { Id: null, Name: null }, 
+                                    //     // { Id: "f9eb6793-649e-4745-b24d-a37300b26ff4", Name: "杨晓民" }, 
+                                    //     // { Id: "e6bceb24-46d4-428d-9832-a7b600eaba95", Name: "纪伟伟" }
+                                    // ],
                                     submit: data => this.selectEmployee("user", data),
                                 }
                             ]
@@ -125,7 +135,15 @@ export default class FormTest extends Vue {
                             options: null,
                             cols: 1,
                             attrs: null,
-                            slots: null
+                            slots: [
+                                {
+                                    type: "tz-employee",
+                                    component: TzEmployee,
+                                    props: {
+                                        multiply: true,
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
@@ -144,6 +162,34 @@ export default class FormTest extends Vue {
                             cols: 1,
                             attrs: null,
                             slots: null
+                        }
+                    ]
+                },
+                {
+                    key: "basic-row4",
+                    name: "basic-row4",
+                    fields: [
+                        {
+                            key: "shell",
+                            name: "shell",
+                            label: "超级外壳",
+                            type: TzSuperFormType.Shell,
+                            title: "超级外壳",
+                            format: null,
+                            options: null,
+                            cols: 3,
+                            attrs: null,
+                            slots: [
+                                {
+                                    type: "tz-area-cascader",
+                                    component: TzAreaCascader,
+                                    props: {},
+                                    default: ["中国", "陕西", "西安"],
+                                    on: {
+                                        change: data => this.changeShell(data)
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }
@@ -182,13 +228,19 @@ export default class FormTest extends Vue {
         content: null,
         count: 100,
         number: 0.5,
-        user: null,
+        user: null, //"杨晓民;纪伟伟",
+        userId: null,
         total: 50,
-        isMarried: true
+        isMarried: true,
+        shell: ["中国", "陕西", "西安"]
     }
-    
+
     titleChange(e: any) {
         console.log(e)
+    }
+
+    changeShell(data: any) {
+        Vue.set(this.formData, "shell", data)
     }
 
     selectEmployee(name, value) {
@@ -199,8 +251,18 @@ export default class FormTest extends Vue {
             Vue.set(this.formData, name, value.Name)
             Vue.set(this.formData, name + "Id", value.Id)
         }
+
+        ////修改默认值
+        var fields = getFormDesc(this.form)
+        var field = fields.filter(x => x.key === name)[0]
+
+        if(field) {
+            field.slots[0].default = value.map(x => {
+                return { Id: x.Id, Name: x.Name}
+            })
+        }
     }
-    
+
     // @Watch('formData', { immediate: true, deep: true })
     // onFormDataChanged(val: any, oldVal: any) {
     //     //this.formData['total'] = this.formData['count'] * 10

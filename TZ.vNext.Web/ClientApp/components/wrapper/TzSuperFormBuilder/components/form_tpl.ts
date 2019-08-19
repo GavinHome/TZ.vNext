@@ -17,7 +17,7 @@ const view_template_tpl = `<template>
 
 const component_render_tpl = `import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
-import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
+import { TzSuperFormGroup } from "../../TzSuperForm/schema/TzSuperFormSchema";
 
 @Component({
     props: [],

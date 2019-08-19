@@ -1,0 +1,17 @@
+<template>
+    <div>
+        <el-input :value="newValue" :disabled="true">
+            <el-button slot="append" icon="el-icon-search" @click="isShow = true"></el-button>
+        </el-input>
+
+        <!-- 弹框 -->
+        <el-dialog :visible.sync="isShow" append-to-body :title="desc.title" v-if="isShow" width="1200px">
+            <template v-for="(comp, key) of desc.slots" v-slot:[key]>
+                <component :key="comp.type" :is="comp.type" @submit=" d => { isShow = false; comp.submit(d) }" v-bind="comp.props" :value="comp.default">
+                </component>
+            </template>
+        </el-dialog>
+    </div>
+</template>
+
+<script src="./TzSuperDialog.ts"></script>

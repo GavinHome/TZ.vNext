@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
-import { TzSuperFormGroup } from "../../TzSuperForm/TzSuperFormSchema";
+import { TzSuperFormGroup } from "../../TzSuperForm/schema/TzSuperFormSchema";
 
 @Component({
     props: ["form", "formAttr", "rules", "formData"],
@@ -14,6 +14,8 @@ export default class BuilderAppForm extends Vue {
     @Prop() formAttr!: any
     @Prop() rules!: any
     @Prop() formData!: any
+
+    selectGroupKey: number = 0
 
     get activeCollapses() {
         return this.form.filter(x => !x.isCollapsed).map(x => x.name)
@@ -53,5 +55,9 @@ export default class BuilderAppForm extends Vue {
     
     handleDeleteField(data) {
         this.$emit('delete-field', data)
+    }
+
+    handleGroupItemClick(key) {
+        this.selectGroupKey = key;
     }
 }

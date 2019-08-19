@@ -9,16 +9,19 @@
             <el-aside width="300px">
                 <app-form-components></app-form-components>
             </el-aside>
-            <el-main>                
-                <app-form ref="appForm" :form="form" :formAttr="formAttr" :form-data="formData" :rules="rules" @selectedFormItem="handleSelectedFormItem" @remove-group="removeGroup"
-                @change="handleFormChange" @delete-field="handleDeleteField">
+            <el-main>
+                <app-form ref="appForm" :form="form" :formAttr="formAttr" :form-data="formData" :rules="rules"
+                    @selectedFormItem="handleSelectedFormItem" @remove-group="removeGroup"
+                    @delete-field="handleDeleteField">
                     <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
+                    <el-button @click="isInitData = true" icon="el-icon-setting" type="text">初始化</el-button>
                 </app-form>
             </el-main>
             <el-aside width="400px" class="property-tab">
                 <el-tabs :stretch="true" v-model="activeTab">
                     <el-tab-pane label="表单项属性" name="0">
-                        <app-form-item-property :formItem="selectFormItem" @formItemPropertyChange="handleFormItemPropertyChange"/>
+                        <app-form-item-property :formItem="selectFormItem"
+                            @formItemPropertyChange="handleFormItemPropertyChange" />
                     </el-tab-pane>
                     <el-tab-pane label="表单属性" name="1">
                         <app-form-property @formPropertyChange="handleFormPropertyChange" />
@@ -26,6 +29,12 @@
                 </el-tabs>
             </el-aside>
         </el-container>
+
+        <!-- 初始化弹框 -->
+        <el-dialog :visible.sync="isInitData" append-to-body title="数据" v-if="isInitData" width="600px">
+            <json-editor :value="form_init_data" @change="handleJsonChanged"></json-editor>
+            <el-button @click="(data) => { isInitData = false;initForms(data)}" icon="el-icon-upload2" type="primary" class="mt10">确定</el-button>
+        </el-dialog>
     </el-container>
 </template>
 

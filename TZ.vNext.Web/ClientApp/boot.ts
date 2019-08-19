@@ -11,6 +11,8 @@ fetchIntercept.register()
 Vue.use(VueRouter)
 Vue.use(log, { entryName: '薪酬系統' });
 
+Vue.prototype.$eventHub= Vue.prototype.$eventHub || new Vue()
+
 new Vue({
     el: '#app-root',
     //router: new VueRouter({ mode: 'history', routes: routes }),

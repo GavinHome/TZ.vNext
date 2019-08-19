@@ -11,7 +11,7 @@
                     </div>
                     <div :key="comp.type" class="type-item undraggable" v-else>
                             <div class="type-item-title">{{comp.type}}</div>
-                            <div>{{comp.label}}  <em class="pull-right small">即将开放</em></div>
+                            <div>{{comp.label}}{{ comp.tip ? '：': '' }}{{comp.tip}}<em class="pull-right small">即将开放</em></div>
                         </div>
                 </template>
             </draggable>

@@ -4,17 +4,20 @@
             <slot></slot>
         </div>
 
-        <el-row v-for="(row, rowIndex) of rows" :key="row.key">
+        <!-- <el-row v-for="(row, rowIndex) of rows" :key="row.key">
             <app-form-draggle-container :fields="row.fields" @selectedFormItem="handleSelectFormItem" @delete-field="handleDeleteField"></app-form-draggle-container>
-        </el-row>
+        </el-row> -->
+        <template v-for="(row, rowIndex) of rows">
+            <app-form-draggle-container :key="row.key" :fields="row.fields" @selectedFormItem="handleSelectFormItem"
+                @delete-field="handleDeleteField"></app-form-draggle-container>
+        </template>
     </div>
 </template>
 
 <script src="./BuilderAppFormGroupItem.ts"></script>
 
 <style>
-.app-form-group-item
-{
-    min-height:350px;
-}
+    .app-form-group-item {
+        min-height: 350px;
+    }
 </style>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { Component, Watch } from 'vue-property-decorator';
-import { TzSuperFormGroup, TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
+import { TzSuperFormGroup, TzSuperFormType } from "../../TzSuperForm/schema/TzSuperFormSchema";
 
 @Component({
     props: [],

@@ -1,4 +1,4 @@
-import { TzSuperFormType } from "../TzSuperForm/TzSuperFormSchema";
+import { TzSuperFormType } from "../TzSuperForm/schema/TzSuperFormSchema";
 
 const options = [
     { text: '选项1', value: 1 },
@@ -24,8 +24,16 @@ export const components = [
         title: '内置组件',
         comps: [
             {
-                type: 'text',
+                key: '',
+                name: '',
                 label: '静态文本',
+                type: TzSuperFormType.Text,
+                title: '静态文本',
+                format: null,
+                options: null,
+                cols: 1,
+                attrs: null,
+                slots: null,
                 isfinished: true,
             },
             {
@@ -49,7 +57,7 @@ export const components = [
                 title: '多行输入框',
                 format: null,
                 options: null,
-                cols: 3,
+                cols: 1,
                 attrs: null,
                 slots: null,
                 isfinished: true,
@@ -129,9 +137,57 @@ export const components = [
         title: '扩展组件',
         comps: [
             {
-                type: 'dialog',
+                key: '',
+                name: '',
                 label: '弹框',
+                type: TzSuperFormType.Dialog,
+                title: '弹框',
+                format: null,
+                options: null,
+                cols: 1,
+                attrs: null,
+                slots: null,
                 isfinished: false,
+            },
+            {
+                key: '',
+                name: '',
+                label: '上传',
+                type: 'upload',
+                title: '上传',
+                format: null,
+                options: null,
+                cols: 1,
+                attrs: null,
+                slots: null,
+                isfinished: false,
+            },
+            {
+                key: '',
+                name: '',
+                label: '动态列表',
+                type: 'grid',
+                title: '动态列表',
+                format: null,
+                options: null,
+                cols: 1,
+                attrs: null,
+                slots: null,
+                isfinished: false,
+            },
+            {
+                key: '',
+                name: '',
+                label: '超级外壳',
+                type: 'shell',
+                title: '超级外壳',
+                format: null,
+                options: null,
+                cols: 1,
+                attrs: null,
+                slots: null,
+                isfinished: false,
+                tip: '可以组装任何组件'
             },
         ]
     },    

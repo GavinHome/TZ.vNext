@@ -1,7 +1,6 @@
 import Vue from "vue";
 import { Component, Prop, Watch } from 'vue-property-decorator';
-import { TzSuperFormType } from "../../TzSuperForm/TzSuperFormSchema";
-import { TzSuperFormField } from "../BuilderFormComps";
+import { TzSuperFormType } from "../../TzSuperForm/schema/TzSuperFormSchema";
 
 @Component({
     props: ["formItem"],
@@ -21,7 +20,7 @@ export default class BuilderAppFormProperty extends Vue {
     }
 
     get form() {
-        if (this.formItem) {
+        if (this.formItem && this.formItem.key) {
             var result: any = [
                 {
                     key: "basic",

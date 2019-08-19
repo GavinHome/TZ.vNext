@@ -8,9 +8,9 @@
             @submit.native.prevent="handleValidateForm">
             <el-collapse :value="activeCollapses">
                 <el-collapse-item v-for="(group, groupIndex) of form" :title="group.title" :name="group.name"
-                    :key="group.key">
-                    <app-form-group-item :data="group" @selectedFormItem="handleSelectFormItem" @delete-field="handleDeleteField">
-                        <el-button @click.stop="removeGroup(group.key)" class="group-item-delete-btn"
+                    :key="group.key" >
+                    <app-form-group-item :data="group" @selectedFormItem="handleSelectFormItem" @delete-field="handleDeleteField" @click.native="handleGroupItemClick(group.key)">
+                        <el-button @click.stop="removeGroup(group.key)" class="group-item-delete-btn" :class="{'group-item-delete-active': selectGroupKey === group.key}"
                             icon="el-icon-delete" size="mini" style="border-radius: 0" type="danger"></el-button>
                     </app-form-group-item>
                 </el-collapse-item>
@@ -36,4 +36,13 @@
     .group-item-delete-btn {
         z-index: 3;
     }
+
+    .group-item-delete-active {
+        border: 1px dashed red;
+        background: red
+    }
+
+    /* .group-item-active {
+        border: 1px dashed #409eff;
+    } */
 </style>
