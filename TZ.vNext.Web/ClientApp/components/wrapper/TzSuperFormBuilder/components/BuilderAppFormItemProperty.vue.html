@@ -1,7 +1,14 @@
 <template>
-    <tz-super-form :form="form" :form-data="formData" :label-width="100" :isHideBackBtn="true" :isHideSubmitBtn="true"
-        :single="true">
-    </tz-super-form>
+    <div>
+        <tz-super-form :form="form" :form-data="formData" :label-width="100" :isHideBackBtn="true"
+            :isHideSubmitBtn="true" :single="true">
+        </tz-super-form>
+
+        <!-- 设置数据源弹框 -->
+        <el-dialog :visible.sync="canSetDataSource" append-to-body title="数据源" v-if="canSetDataSource" width="50%">
+            <app-form-options-set :model="formData.options" @submit="(data) => { canSetDataSource = false; handleOptionsSet(data)}"></app-form-options-set>
+        </el-dialog>
+    </div>
 </template>
 
 <script src="./BuilderAppFormItemProperty.ts"></script>

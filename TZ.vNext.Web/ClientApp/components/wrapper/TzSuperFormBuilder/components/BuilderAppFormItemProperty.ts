@@ -2,10 +2,19 @@ import Vue from "vue";
 import { Component, Prop, Watch } from 'vue-property-decorator';
 import { TzSuperFormType } from "../../TzSuperForm/schema/TzSuperFormSchema";
 
+import 'element-ui/lib/theme-chalk/index.css'
+import { Dialog } from 'element-ui'
+Vue.use(Dialog)
+
+import BuilderAppFormOptionsSet from "./BuilderAppFormOptionsSet"
+
+Vue.component("app-form-options-set", BuilderAppFormOptionsSet)
+
 @Component({
     props: ["formItem"],
     components: {
-        TzSuperForm: require("../../TzSuperForm/index.vue.html")
+        TzSuperForm: require("../../TzSuperForm/index.vue.html"),
+        AppFormOptionsSet: require("./BuilderAppFormOptionsSet.vue.html")
     }
 })
 export default class BuilderAppFormProperty extends Vue {
@@ -20,6 +29,8 @@ export default class BuilderAppFormProperty extends Vue {
         optionsJson: this.formItem.options ? JSON.stringify(this.formItem.options, null, 4) : null,
         options: this.formItem.options
     }
+
+    canSetDataSource: boolean = false
 
     get form() {
         if (this.formItem && this.formItem.key) {
@@ -97,17 +108,32 @@ export default class BuilderAppFormProperty extends Vue {
             ]
 
             if (this.formItem.type === TzSuperFormType.Autocomplete) {
+                // result[0].rows[0].fields.push({
+                //     key: "optionsJson",
+                //     name: "optionsJson",
+                //     label: "数据来源",
+                //     type: TzSuperFormType.Textarea,
+                //     title: "数据来源",
+                //     format: null,
+                //     options: null,
+                //     cols: 3,
+                //     attrs: null,
+                //     slots: null,
+                // })
                 result[0].rows[0].fields.push({
-                    key: "optionsJson",
-                    name: "optionsJson",
+                    key: "setOptionDataSource",
+                    name: "setOptionDataSource",
                     label: "数据来源",
-                    type: TzSuperFormType.Textarea,
+                    type: TzSuperFormType.Button,
                     title: "数据来源",
                     format: null,
                     options: null,
                     cols: 3,
                     attrs: null,
                     slots: null,
+                    on: {
+                        click: (e) => this.canSetDataSource = true
+                    }
                 })
             }
 
@@ -115,6 +141,10 @@ export default class BuilderAppFormProperty extends Vue {
         }
 
         return []
+    }
+
+    handleOptionsSet(data) {
+        this.formData.options = data
     }
 
     @Watch('formData', { immediate: true, deep: true })
