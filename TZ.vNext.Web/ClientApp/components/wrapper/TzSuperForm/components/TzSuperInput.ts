@@ -6,14 +6,19 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Input)
 
 @Component({
-    props: ["value"],
+    props: ["value", "desc"],
     model: {
         prop: 'value',
         event: 'change'
     }
 })
-export default class TzSuperTextarea extends Vue {
-    update(value) {
-        this.$emit('change', value)
+export default class TzSuperRate extends Vue {
+    @Prop() desc!: any
+    @Prop() value!: any
+
+    newValue: any = this.value
+
+    update() {
+        this.$emit('change', this.newValue)
     }
 }

@@ -60,11 +60,14 @@
     "reflect-metadata": "^0.1.12",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2",
+    "v-jsoneditor": "^1.2.2",
     "vue-2-breadcrumbs": "^0.3.0",
     "vue-antd-ui": "^1.0.0",
+    "vue-codemirror": "^4.0.6",
     "vue-router": "^2.8.1",
     "vue-server-renderer": "^2.5.16",
     "vue-skeleton-webpack-plugin": "^1.1.18",
+    "vuedraggable": "^2.23.0",
     "webpack-log": "^2.0.0"
   },
   "analyz": "NODE_ENV=production npm_config_report=true npm run build"

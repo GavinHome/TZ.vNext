@@ -1,0 +1,10 @@
+<template>
+    <el-autocomplete v-model="inputValue" :fetch-suggestions="querySearchAsync" @select="handleSelect" style="width: 100%" :placeholder="'请输入' + desc.title">
+        <template slot-scope="{ item }">
+            <div style="text-overflow: ellipsis;overflow: hidden;">{{ item.value }}</div>
+            <span style="font-size: 12px;color: #b4b4b4;" v-if="item.ext">{{ item.ext }}</span>
+        </template>
+    </el-autocomplete>
+</template>
+
+<script src="./TzSuperAutocomplete.ts"></script>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
-import tpl from "./form_tpl"
+import tpl, { getViewTemplate, getComponentRenderTemplate } from "./form_tpl"
 
 import 'element-ui/lib/theme-chalk/index.css'
 import { Row, Col, FormItem, Form } from 'element-ui'
@@ -42,14 +42,15 @@ export default class BuilderAppFormHeader extends Vue {
             }, [])
         }
 
-        return tpl.template_tpl.replace('%1', htmlFormAttr.join('\n    '))
+        return getViewTemplate(this.formAttr.isCustomHandleRequest).replace('%1', htmlFormAttr.join('\n      '))
     }
 
     get render_code_html() {
-        return tpl.render_tpl.replace('%1', JSON.stringify(this.form_render, null, 4))
+        return getComponentRenderTemplate(this.formAttr.isCustomHandleRequest, this.formAttr.isAutoHandlePost).replace('%1', JSON.stringify(this.form_render, null, 4))
             .replace('%2', JSON.stringify(this.formData, null, 4))
             .replace('%3', JSON.stringify(this.rules, null, 4))
             .replace('%4', "100")
+            .replace('%5', this.formAttr.action)
     }
 
     get form_render() {

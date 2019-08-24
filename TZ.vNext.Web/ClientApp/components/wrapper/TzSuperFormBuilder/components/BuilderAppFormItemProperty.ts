@@ -16,7 +16,9 @@ export default class BuilderAppFormProperty extends Vue {
         name: this.formItem.name,
         label: this.formItem.label,
         cols: this.formItem.cols,
-        required: false
+        required: false,
+        optionsJson: this.formItem.options ? JSON.stringify(this.formItem.options, null, 4) : null,
+        options: this.formItem.options
     }
 
     get form() {
@@ -42,7 +44,7 @@ export default class BuilderAppFormProperty extends Vue {
                                     options: null,
                                     cols: 3,
                                     attrs: {
-                                        maxlength:20
+                                        maxlength: 20
                                     },
                                     slots: null,
                                 },
@@ -56,7 +58,7 @@ export default class BuilderAppFormProperty extends Vue {
                                     options: null,
                                     cols: 3,
                                     attrs: {
-                                        maxlength:20
+                                        maxlength: 20
                                     },
                                     slots: null,
                                 },
@@ -94,6 +96,21 @@ export default class BuilderAppFormProperty extends Vue {
                 }
             ]
 
+            if (this.formItem.type === TzSuperFormType.Autocomplete) {
+                result[0].rows[0].fields.push({
+                    key: "optionsJson",
+                    name: "optionsJson",
+                    label: "数据来源",
+                    type: TzSuperFormType.Textarea,
+                    title: "数据来源",
+                    format: null,
+                    options: null,
+                    cols: 3,
+                    attrs: null,
+                    slots: null,
+                })
+            }
+
             return result;
         }
 
@@ -112,7 +129,9 @@ export default class BuilderAppFormProperty extends Vue {
                 key: this.formItem.key,
                 name: this.formItem.name,
                 label: this.formItem.label,
-                cols: this.formItem.cols
+                cols: this.formItem.cols,
+                options: this.formItem.options,
+                optionsJson: this.formItem.options ? JSON.stringify(this.formItem.options, null, 4) : null
             }
         } else {
             this.formData = {}

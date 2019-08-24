@@ -38,7 +38,7 @@ export default class BuilderAppFormProperty extends Vue {
                         {
                             key: "isHideSubmitBtn",
                             name: "isHideSubmitBtn",
-                            label: "提交按钮：",
+                            label: "提交按钮",
                             type: TzSuperFormType.Select,
                             title: "提交按钮",
                             format: null,
@@ -53,7 +53,7 @@ export default class BuilderAppFormProperty extends Vue {
                         {
                             key: "isHideBackBtn",
                             name: "isHideBackBtn",
-                            label: "返回按钮：",
+                            label: "返回按钮",
                             type: TzSuperFormType.Select,
                             title: "返回按钮",
                             format: null,
@@ -68,7 +68,7 @@ export default class BuilderAppFormProperty extends Vue {
                         {
                             key: "submitBtnText",
                             name: "submitBtnText",
-                            label: "提交按钮文字：",
+                            label: "提交按钮文字",
                             type: TzSuperFormType.Input,
                             title: "提交按钮文字",
                             format: null,
@@ -80,7 +80,7 @@ export default class BuilderAppFormProperty extends Vue {
                         {
                             key: "backBtnText",
                             name: "backBtnText",
-                            label: "返回按钮文字：",
+                            label: "返回按钮文字",
                             type: TzSuperFormType.Input,
                             title: "返回按钮文字",
                             format: null,
@@ -89,6 +89,54 @@ export default class BuilderAppFormProperty extends Vue {
                             attrs: null,
                             slots: null,
                         },
+                        {
+                            key: "isAutoHandlePost",
+                            name: "isAutoHandlePost",
+                            label: "是否默认处理请求",
+                            type: TzSuperFormType.Switch,
+                            title: "是否默认处理请求",
+                            format: null,
+                            options: null,
+                            cols: 3,
+                            attrs: null,
+                            slots: null,
+                        },
+                        {
+                            key: "action",
+                            name: "action",
+                            label: "提交地址",
+                            type: TzSuperFormType.Input,
+                            title: "提交地址",
+                            format: null,
+                            options: null,
+                            cols: 3,
+                            attrs: null,
+                            slots: null,
+                        },
+                        {
+                            key: "isCustomHandleRequest",
+                            name: "isCustomHandleRequest",
+                            label: "是否自定义请求",
+                            type: TzSuperFormType.Switch,
+                            title: "是否自定义请求",
+                            format: null,
+                            options: null,
+                            cols: 3,
+                            attrs: null,
+                            slots: null,
+                        },
+                        {
+                            key: "single",
+                            name: "single",
+                            label: "单组",
+                            type: TzSuperFormType.Switch,
+                            title: "单组",
+                            format: null,
+                            options: null,
+                            cols: 3,
+                            attrs: null,
+                            slots: null,
+                        }
                     ]
                 }
             ]
@@ -101,6 +149,10 @@ export default class BuilderAppFormProperty extends Vue {
         isHideBackBtn: false,
         submitBtnText: '提交',
         backBtnText: '返回',
+        isCustomHandleRequest: false,
+        isAutoHandlePost: true,
+        action: '/api/SuperForm/TestSuperFormSave',
+        single: false
     }
 
     @Watch('formData', { immediate: true, deep: true })

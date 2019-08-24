@@ -1,0 +1,12 @@
+<template>
+    <div>
+        <el-radio-group v-model="newValue" @change="update" v-bind="desc.attrs">
+            <el-radio :key="option.value" :label="option.value" v-bind="option.attrs" v-for="option of options">
+                {{option.text}}</el-radio>
+        </el-radio-group>
+
+        <em v-if="!options || options.length === 0">没有选项</em>
+    </div>
+</template>
+
+<script src="./TzSuperRadio.ts"></script>

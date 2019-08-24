@@ -1,6 +1,6 @@
 <template>
-    <el-select :value="value" @change="update">
-        <el-option :key="option.value" :label="option.text" :value="option.value" v-for="option in options">
+    <el-select v-model="newValue" @change="update" v-bind="desc.attrs">
+        <el-option :key="option.value" :label="option.text" :value="option.value" v-bind="option.attrs" v-for="option in options">
         </el-option>
     </el-select>
 </template>

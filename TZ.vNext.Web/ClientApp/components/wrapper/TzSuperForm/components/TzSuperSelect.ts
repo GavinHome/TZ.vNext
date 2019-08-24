@@ -15,14 +15,17 @@ Vue.use(Option)
 })
 export default class TzSuperSelect extends Vue {
     @Prop() desc!: any
+    @Prop() value!: any
+
+    newValue: any = this.value
+
+    update(value) {
+        this.$emit('change', this.newValue)
+    }
 
     get options() {
         return this.desc && Array.isArray(this.desc.options)
             ? this.desc.options
             : []
-    }
-
-    update(value) {
-        this.$emit('change', value)
     }
 }

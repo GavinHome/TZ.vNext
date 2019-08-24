@@ -1,19 +1,18 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator'
 
-import { InputNumber } from "element-ui";
+import { Button } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-Vue.use(InputNumber)
+Vue.use(Button)
 
 @Component({
-    props: ["value"],
+    props: ["value", "desc"],
     model: {
         prop: 'value',
         event: 'change'
     }
 })
-export default class TzSuperNumber extends Vue {
-    update(value) {
-        this.$emit('change', value)
-    }
+export default class TzSuperButton extends Vue {
+    @Prop() desc!: any
+    @Prop() value!: any
 }

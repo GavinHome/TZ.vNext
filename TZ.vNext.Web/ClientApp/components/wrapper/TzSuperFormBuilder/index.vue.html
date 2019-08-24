@@ -15,6 +15,7 @@
                     @delete-field="handleDeleteField">
                     <el-button @click="addGroup" icon="el-icon-plus" type="text">添加分组</el-button>
                     <el-button @click="isInitData = true" icon="el-icon-setting" type="text">初始化</el-button>
+                    <el-button @click="isPreview = true" icon="el-icon-view" type="text">预览</el-button>
                 </app-form>
             </el-main>
             <el-aside width="400px" class="property-tab">
@@ -33,7 +34,19 @@
         <!-- 初始化弹框 -->
         <el-dialog :visible.sync="isInitData" append-to-body title="数据" v-if="isInitData" width="600px">
             <json-editor :value="form_init_data" @change="handleJsonChanged"></json-editor>
-            <el-button @click="(data) => { isInitData = false;initForms(data)}" icon="el-icon-upload2" type="primary" class="mt10">确定</el-button>
+            <el-button @click="(data) => { isInitData = false;initForms(data)}" icon="el-icon-upload2" type="primary"
+                class="mt10">确定</el-button>
+        </el-dialog>
+
+        <!-- 预览弹框 -->
+        <el-dialog :visible.sync="isPreview" append-to-body title="预览" v-if="isPreview" width="75%">
+
+            <tz-super-form :form="form" :form-data="formData" :label-width="100" :rules="rules"
+                :request-fn="handleSubmit" @request-success="handleSuccess" @request-error="handleError"
+                @request-end="handleEnd" @request="handleRequest" :isCustomHandleRequest="formAttr.isCustomHandleRequest"
+                :isAutoHandlePost="formAttr.isAutoHandlePost" :action="formAttr.action" :single="formAttr.single">
+
+            </tz-super-form>
         </el-dialog>
     </el-container>
 </template>
@@ -86,5 +99,9 @@
     .form-builder-container .el-main::-webkit-scrollbar-corner,
     .form-builder-container .el-aside::-webkit-scrollbar-corner {
         background: #179a16;
+    }    
+
+    .el-collapse-item {
+        min-height: 350px;
     }
 </style>

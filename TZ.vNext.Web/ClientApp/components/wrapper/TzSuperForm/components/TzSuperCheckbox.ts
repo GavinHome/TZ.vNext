@@ -1,10 +1,10 @@
 import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator'
 
-import { Select, Option } from "element-ui";
+import { CheckboxGroup, Radio } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-Vue.use(Select)
-Vue.use(Option)
+Vue.use(CheckboxGroup)
+Vue.use(Radio)
 
 @Component({
     props: ["value", "desc"],
@@ -13,16 +13,19 @@ Vue.use(Option)
         event: 'change'
     }
 })
-export default class TzSuperSelect extends Vue {
+export default class TzSuperCheckbox extends Vue {
     @Prop() desc!: any
+    @Prop() value!: any
 
-    get options() {
-        return this.desc && Array.isArray(this.desc.options)
-            ? this.desc.options
-            : []
+    newValue: any = this.value
+
+    update() {
+        this.$emit('change', this.newValue)
     }
 
-    update(value) {
-        this.$emit('change', value)
+    get options() {
+        return this.desc && this.desc.options
+            ? this.desc.options
+            : []
     }
 }

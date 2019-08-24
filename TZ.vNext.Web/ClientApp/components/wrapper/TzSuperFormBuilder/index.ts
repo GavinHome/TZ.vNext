@@ -5,7 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import { Container, Aside, Header, Main, TabPane, Tabs, Dialog, Button } from 'element-ui';
 import Guid from "../../common/Guid";
 import "../../extension/ArrayExtensions";
-import TzAreaCascader from "../TzAreaCascader";
+import { TzFetch } from "../../common/TzFetch";
 
 Vue.use(Container)
 Vue.use(Aside)
@@ -24,7 +24,7 @@ Vue.use(Button)
         AppFormProperty: require('./components/BuilderAppFormProperty.vue.html'),
         AppFormComponents: require('./components/BuilderAppFormComponents.vue.html'),
         JsonEditor: require('../TzSuperForm/components/TzSuperJsonEditor.vue.html'),
-        TzAreaCascader: require("../TzAreaCascader.vue.html"),
+        TzSuperForm: require("../TzSuperForm/index.vue.html")
     }
 })
 export default class TzSuperFormBuilder extends Vue {
@@ -52,6 +52,7 @@ export default class TzSuperFormBuilder extends Vue {
 
     form_init_data: any = []
     isInitData: boolean = false
+    isPreview: boolean = false
 
     get formData() {
         var desc = getFormDesc(this.form)
@@ -84,6 +85,7 @@ export default class TzSuperFormBuilder extends Vue {
                             f.label = newVal.label
                             f.title = newVal.label
                             f.cols = newVal.cols
+                            f.options = newVal.options
 
                             this.renderValidetor(f.name, newVal.required, newVal.label);
                         }
@@ -245,28 +247,6 @@ export default class TzSuperFormBuilder extends Vue {
                                 "slots": null
                             },
                             {
-                                "key": "shell",
-                                "name": "shell",
-                                "label": "超级外壳",
-                                "type": "shell",
-                                "title": "超级外壳",
-                                "format": null,
-                                "options": null,
-                                "cols": 3,
-                                "attrs": null,
-                                "slots": [
-                                    {
-                                        "type": "tz-area-cascader",
-                                        "component": TzAreaCascader,
-                                        "props": {},
-                                        "default": ["中国", "陕西", "西安"],
-                                        "on": {
-                                            change: data => {}
-                                        }
-                                    }
-                                ]
-                            },
-                            {
                                 "key": "content",
                                 "name": "content",
                                 "label": "内容",
@@ -283,5 +263,40 @@ export default class TzSuperFormBuilder extends Vue {
                 ]
             }
         ]
+    }
+
+    handleSubmit(data) {
+        console.log("submit：" + data)
+        return Promise.resolve(data)
+    }
+
+    handleSuccess(response) {
+        console.log("success: " + response)
+        this.$message.success('创建成功')
+    }
+
+    handleError(response) {
+        console.log("error" + response)
+        this.$message.success('创建失败')
+    }
+
+    handleEnd(response) {
+        console.log("end")
+        this.$message.success('处理结束')
+    }
+
+    handleRequest(response) {
+        console.log("handleRequest" + response)
+        this.$message.success('自定义处理')
+        
+        TzFetch.Post(this.formAttr.action, this.formData).then((data: any) => {
+            if (data) {
+                this.$message.error("自定义提交成功")
+            } else {
+                this.$message.error("自定义提交失败")
+            }
+        }).catch(e => {
+            this.$message.error("自定义提交失败")
+        })
     }
 }

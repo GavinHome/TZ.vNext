@@ -1,6 +1,9 @@
 <template>
-    <tz-super-form :form="form" :form-data="formData" :label-width="100" 
-        :request-fn="handleSubmit" :rules="rules" @request-success="handleSuccess" @request-error="handleError" @request-end="handleEnd" @request="handleRequest">
+    <tz-super-form :form="form" :form-data="formData" :label-width="100" :rules="rules" :isLoading="isLoading" :request-fn="handleSubmit"
+        @request-success="handleSuccess" @request-error="handleError" @request-end="handleEnd" @request="handleRequest">
+        <template slot="button-group">
+            <el-button type="info">保存</el-button>
+        </template>
     </tz-super-form>
 </template>
 
