@@ -134,7 +134,7 @@ export enum TzSuperFormType {
     /// </summary>
     Button = "button",
     /// <summary>
-    /// 带建议的输入框
+    /// 建议输入框
     /// </summary>
     Autocomplete = "autocomplete",
     /// <summary>

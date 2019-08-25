@@ -169,9 +169,9 @@ export default class FormTest extends Vue {
                         {
                             key: "autocomplete",
                             name: "autocomplete",
-                            label: "带建议的输入框",
+                            label: "建议输入框",
                             type: TzSuperFormType.Autocomplete,
-                            title: "带建议的输入框",
+                            title: "建议输入框",
                             format: null,
                             //options: null,
                             // options: [
