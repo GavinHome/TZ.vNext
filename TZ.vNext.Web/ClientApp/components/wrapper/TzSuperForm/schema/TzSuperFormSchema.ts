@@ -1,3 +1,5 @@
+import { GridColumnSchema } from "../../../schemas/GridColumnSchema";
+
 export interface TzSuperFormGroup {
     key: string;
     name: string;
@@ -140,11 +142,15 @@ export enum TzSuperFormType {
     /// <summary>
     /// 级联选择
     /// </summary>
-    Cascader = "cascader"
+    Cascader = "cascader",
+    /// <summary>
+    /// 动态列表
+    /// </summary>
+    Grid = "grid"
 }
 
 export function getComponentName(type: TzSuperFormType) {
-    let builtInNames: string[] = ["input", "textarea", "number", "select", "dialog", "text", "switch", "shell", "time", "tag", "radio", "checkbox", "date", "datetime", "rate", "slider", "password","year","month","daterange","monthrange","datetimerange","dates","week","timerange","button","autocomplete"];
+    let builtInNames: string[] = ["input", "textarea", "number", "select", "dialog", "text", "switch", "shell", "time", "tag", "radio", "checkbox", "date", "datetime", "rate", "slider", "password","year","month","daterange","monthrange","datetimerange","dates","week","timerange","button","autocomplete","grid"];
     if (builtInNames.includes(type)) {
         // tz 内置组件
         return 'tz-super-' + type
@@ -170,3 +176,8 @@ export interface TzSuperOptionSchema {
     ext?: string;
     key: string;
 } 
+
+export interface TzSuperGridOptionSchema{
+    remote: string;
+    schema: GridColumnSchema[];
+}

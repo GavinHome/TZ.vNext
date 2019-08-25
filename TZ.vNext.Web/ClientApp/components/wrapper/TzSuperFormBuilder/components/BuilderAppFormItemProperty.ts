@@ -7,14 +7,16 @@ import { Dialog } from 'element-ui'
 Vue.use(Dialog)
 
 import BuilderAppFormOptionsSet from "./BuilderAppFormOptionsSet"
-
 Vue.component("app-form-options-set", BuilderAppFormOptionsSet)
+import BuilderAppFormGridOptionsSet from "./BuilderAppFormGridOptionsSet"
+Vue.component("app-form-grid-options-set", BuilderAppFormGridOptionsSet)
 
 @Component({
     props: ["formItem"],
     components: {
         TzSuperForm: require("../../TzSuperForm/index.vue.html"),
-        AppFormOptionsSet: require("./BuilderAppFormOptionsSet.vue.html")
+        AppFormOptionsSet: require("./BuilderAppFormOptionsSet.vue.html"),
+        AppFormGridOptionsSet: require("./BuilderAppFormGridOptionsSet.vue.html")
     }
 })
 export default class BuilderAppFormProperty extends Vue {
@@ -31,6 +33,7 @@ export default class BuilderAppFormProperty extends Vue {
     }
 
     canSetDataSource: boolean = false
+    canSetGridDataSource: boolean = false
 
     get form() {
         if (this.formItem && this.formItem.key) {
@@ -108,18 +111,6 @@ export default class BuilderAppFormProperty extends Vue {
             ]
 
             if (this.formItem.type === TzSuperFormType.Autocomplete) {
-                // result[0].rows[0].fields.push({
-                //     key: "optionsJson",
-                //     name: "optionsJson",
-                //     label: "数据来源",
-                //     type: TzSuperFormType.Textarea,
-                //     title: "数据来源",
-                //     format: null,
-                //     options: null,
-                //     cols: 3,
-                //     attrs: null,
-                //     slots: null,
-                // })
                 result[0].rows[0].fields.push({
                     key: "setOptionDataSource",
                     name: "setOptionDataSource",
@@ -133,6 +124,24 @@ export default class BuilderAppFormProperty extends Vue {
                     slots: null,
                     on: {
                         click: (e) => this.canSetDataSource = true
+                    }
+                })
+            }
+
+            if (this.formItem.type === TzSuperFormType.Grid) {
+                result[0].rows[0].fields.push({
+                    key: "setOptionDataSource",
+                    name: "setOptionDataSource",
+                    label: "数据来源",
+                    type: TzSuperFormType.Button,
+                    title: "数据来源",
+                    format: null,
+                    options: null,
+                    cols: 3,
+                    attrs: null,
+                    slots: null,
+                    on: {
+                        click: (e) => this.canSetGridDataSource = true
                     }
                 })
             }

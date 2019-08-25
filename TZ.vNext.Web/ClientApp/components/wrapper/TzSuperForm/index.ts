@@ -36,7 +36,8 @@ Vue.use(ElementUI)
         TzSuperWeek: require('./components/TzSuperWeek.vue.html'),
         TzSuperTimerange: require('./components/TzSuperTimeRange.vue.html'),
         TzSuperButton: require('./components/TzSuperButton.vue.html'),
-        TzSuperAutocomplete: require('./components/TzSuperAutocomplete.vue.html')
+        TzSuperAutocomplete: require('./components/TzSuperAutocomplete.vue.html'),
+        TzSuperGrid: require('./components/TzSuperGrid.vue.html')
     }
 })
 export default class TzSuperForm extends Vue {

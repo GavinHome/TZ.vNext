@@ -3,7 +3,7 @@ import { Component } from 'vue-property-decorator';
 import { TzSuperFormGroup, TzSuperFormType, getFormDesc, TzSuperOptionSchema } from "./schema/TzSuperFormSchema";
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
-import { FieldTypeEnum } from "../../common/Enums";
+import { FieldTypeEnum, EnumHelper, EnumConstType } from "../../common/Enums";
 Vue.use(ElementUI)
 
 @Component({
@@ -526,6 +526,105 @@ export default class FormTest extends Vue {
                         // },
                     ]
                 }
+            ]
+        },
+        {
+            key: "grid",
+            name: "grid",
+            title: "动态列表",
+            isCollapsed: false,
+            rows: [
+                {
+                    key: "grid-row1",
+                    name: "grid-row",
+                    fields: [
+                        {
+                            key: "dynamic-grid",
+                            name: "dynamic-grid",
+                            label: "薪酬项",
+                            type: TzSuperFormType.Grid,
+                            title: "薪酬项",
+                            format: null,
+                            options: {
+                                remote: "",
+                                schema: [
+                                    {
+                                        field: "RowNumber",
+                                        title: "序号",
+                                        width: "8%",
+                                        filterable: false,
+                                        sortable: false,
+                                        editable: false,
+                                        menu: false,
+                                        type: FieldTypeEnum.Number,
+                                        index: 0
+                                    },
+                                    {
+                                        field: "Name",
+                                        title: "名称",
+                                        filterable: true,
+                                        sortable: true,
+                                        editable: false,
+                                        menu: true,
+                                        type: FieldTypeEnum.String,
+                                        width: "22%",
+                                        index: 1
+                                    },
+                                    {
+                                        field: "FormName",
+                                        title: "属性",
+                                        filterable: true,
+                                        sortable: true,
+                                        editable: false,
+                                        menu: true,
+                                        type: FieldTypeEnum.String,
+                                        width: "10%",
+                                        index: 2
+                                    },
+                                    {
+                                        field: "FormContent",
+                                        title: "薪酬项类型",
+                                        filterable: true,
+                                        sortable: true,
+                                        editable: false,
+                                        menu: true,
+                                        type: FieldTypeEnum.Enums,
+                                        width: "10%",
+                                        values: EnumHelper.toEnumOptions(EnumConstType.FormContentType, "text", "value"),
+                                        index: 2
+                                    },
+                                    {
+                                        field: "Description",
+                                        title: "说明",
+                                        filterable: true,
+                                        sortable: true,
+                                        editable: false,
+                                        menu: true,
+                                        type: FieldTypeEnum.String,
+                                        width: "40%",
+                                        index: 3,
+                                        hidden: false
+                                    },
+                                    {
+                                        field: "DataStatus",
+                                        title: "状态",
+                                        filterable: true,
+                                        sortable: true,
+                                        editable: false,
+                                        type: FieldTypeEnum.Enums,
+                                        menu: true,
+                                        width: "10%",
+                                        index: 4,
+                                        values: EnumHelper.toEnumOptions(EnumConstType.DataStatus, "text", "value")
+                                    }
+                                ]
+                            },
+                            cols: 3,
+                            attrs: null,
+                            slots: null,
+                        },
+                    ]
+                },
             ]
         },
         {

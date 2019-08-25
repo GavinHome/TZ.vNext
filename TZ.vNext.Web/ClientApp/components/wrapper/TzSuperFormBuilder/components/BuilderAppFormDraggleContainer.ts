@@ -34,7 +34,8 @@ import { TzSuperFormField } from "../BuilderFormComps";
         TzSuperWeek: require('../../TzSuperForm/components/TzSuperWeek.vue.html'),
         TzSuperTimerange: require('../../TzSuperForm/components/TzSuperTimeRange.vue.html'),
         TzSuperButton: require('../../TzSuperForm/components/TzSuperButton.vue.html'),
-        TzSuperAutocomplete: require('../../TzSuperForm/components/TzSuperAutocomplete.vue.html')
+        TzSuperAutocomplete: require('../../TzSuperForm/components/TzSuperAutocomplete.vue.html'),
+        TzSuperGrid: require('../../TzSuperForm/components/TzSuperGrid.vue.html')
     },
     watch: {
         fields: {

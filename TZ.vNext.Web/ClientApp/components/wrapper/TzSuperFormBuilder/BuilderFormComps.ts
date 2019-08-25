@@ -1,4 +1,5 @@
 import { TzSuperFormType } from "../TzSuperForm/schema/TzSuperFormSchema";
+import { FieldTypeEnum } from "../../common/Enums";
 
 const options = [
     { text: '选项1', value: 1 },
@@ -351,6 +352,34 @@ export const components = [
             {
                 key: '',
                 name: '',
+                label: '动态列表',
+                type: 'grid',
+                title: '动态列表',
+                format: null,
+                options: {
+                    remote: "",
+                    schema: [
+                        {
+                            field: "RowNumber",
+                            title: "序号",
+                            width: "8%",
+                            filterable: false,
+                            sortable: false,
+                            editable: false,
+                            menu: false,
+                            type: FieldTypeEnum.Number,
+                            index: 0
+                        },
+                    ]
+                },
+                cols: 3,
+                attrs: null,
+                slots: null,
+                isfinished: true,
+            },
+            {
+                key: '',
+                name: '',
                 label: '级联选择',
                 type: TzSuperFormType.Cascader,
                 title: '级联选择',
@@ -398,19 +427,6 @@ export const components = [
                 label: '弹框',
                 type: TzSuperFormType.Dialog,
                 title: '弹框',
-                format: null,
-                options: null,
-                cols: 1,
-                attrs: null,
-                slots: null,
-                isfinished: false,
-            },
-            {
-                key: '',
-                name: '',
-                label: '动态列表',
-                type: 'grid',
-                title: '动态列表',
                 format: null,
                 options: null,
                 cols: 1,
