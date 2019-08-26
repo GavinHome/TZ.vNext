@@ -16,7 +16,7 @@ Vue.use(FormItem)
     props: ["model"]
 })
 export default class BuilderAppFormOptionsSet extends Vue {
-    @Prop() model!: any 
+    @Prop() model!: any
 
     dataSource: TzSuperOptionSchema[] = []
     activeName: string = "local"
@@ -40,7 +40,6 @@ export default class BuilderAppFormOptionsSet extends Vue {
     }
 
     created() {
-        debugger
         if (Array.isArray(this.model)) {
             //local
             this.dataSource = this.model
@@ -50,7 +49,7 @@ export default class BuilderAppFormOptionsSet extends Vue {
             this.activeName = "remote"
         }
 
-        if(this.dataSource.length === 0){
+        if (this.dataSource.length === 0) {
             this.add()
         }
     }
@@ -118,40 +117,21 @@ export default class BuilderAppFormOptionsSet extends Vue {
     }
 
     remoteChange() {
-        TzFetch.Post(this.options.remote, {}).then((data: any) => {
-            this.fields = Object.keys(data.Data).map(key => {
-                return {
-                    value: key,
-                    label: data.Data[key].title,
-                }
-            })
+        TzFetch.Post(this.options.schema_meta_url, { key : "VEmployee"}).then((data: any) => {
+            if (data && data.length) {
+                this.fields = data.map(item => {
+                    return {
+                        value: item.field,
+                        label: item.title,
+                    }
+                })
 
-            Object.keys(data.Data).forEach(x => {
-                this.options.schema[x] = { type: "string", filterable: true }
-            })
+                data.forEach(x => {
+                    this.options.schema[x.field] = { type: x.type, filterable: true }
+                })
+            }
         }).catch(err => {
-            this.fields.push({
-                value: "Id",
-                label: "唯一标识",
-            })
-
-            this.fields.push({
-                value: "Name",
-                label: "姓名",
-            })
-
-            this.fields.push({
-                value: "Code",
-                label: "编号",
-            })
-
-            this.list1 = this.fields.map(x => { return { value: x.value, label: x.label } });
-            this.list2 = this.fields.map(x => { return { value: x.value, label: x.label } });
-            this.list3 = this.fields.map(x => { return { value: x.value, label: x.label } });
-
-            this.options.schema["Id"] = { type: "string", filterable: true }
-            this.options.schema["Name"] = { type: "string", filterable: true }
-            this.options.schema["Code"] = { type: "string", filterable: true }
+            this.$message.error("获取失败")
         })
     }
 }

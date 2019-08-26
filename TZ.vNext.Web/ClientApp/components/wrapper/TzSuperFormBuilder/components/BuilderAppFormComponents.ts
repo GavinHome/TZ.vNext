@@ -25,6 +25,7 @@ export default class BuilderAppFormComponents extends Vue {
 
     var options = {
       "remote": "/api/Employees/GridQueryEmployees",
+      "schema_meta_url": "/api/SuperForm/GridQuerySchema",
       "schema": {
         "Id": { "filterable": false, "type": "string" },
         "Name": { "filterable": true, "type": "string" },

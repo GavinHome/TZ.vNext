@@ -12,23 +12,64 @@ Vue.use(Tabs)
 })
 export default class BuilderAppFormOptionsSet extends Vue {
     @Prop() options!: TzSuperGridOptionSchema
+    columns: any[] = [{
+        field: "field",
+        title: "字段",
+        filterable: false,
+        sortable: false,
+        editable: false,
+        menu: false,
+        type: "string",
+        width: "10%",
+        index: 1
+    },
+    {
+        field: "title",
+        title: "名称",
+        filterable: false,
+        sortable: false,
+        editable: false,
+        menu: false,
+        type: "string",
+        width: "10%",
+        index: 2
+    },
+    {
+        field: "index",
+        title: "位置",
+        filterable: false,
+        sortable: false,
+        editable: false,
+        menu: false,
+        type: "number",
+        width: "10%",
+        index: 0
+    }]
+
+    remove(i, r) {
+        this.options.schema.splice(i, 1);
+    }
+
+    created() {
+        debugger
+    }
 
     remoteChange() {
-        TzFetch.Post(this.options.remote, {}).then((data: any) => {
-            var fields = Object.keys(data.Data).map((key, index) => {
+        TzFetch.Post(this.options.schema_meta_url, { key: "VEmployee" }).then((data: any) => {
+            var fields = data.map((item, index) => {
                 return {
-                    field: key,
-                    title: data.Data[key].title,
+                    field: item.field,
+                    title: item.title,
                     filterable: true,
                     sortable: true,
                     editable: false,
                     menu: true,
-                    type: FieldTypeEnum.String,
+                    type: item.type,
                     width: "10%",
                     index: index + 1
                 }
             })
-            
+
             this.options.schema.splice(0, this.options.schema.length)
             this.options.schema.push({
                 field: "RowNumber",
@@ -41,68 +82,10 @@ export default class BuilderAppFormOptionsSet extends Vue {
                 type: FieldTypeEnum.Number,
                 index: 0
             })
-            this.options.schema.concat(fields)
+
+            this.options.schema = this.options.schema.concat(fields)
         }).catch(err => {
-            this.options.schema.concat([
-                {
-                    field: "Name",
-                    title: "名称",
-                    filterable: true,
-                    sortable: true,
-                    editable: false,
-                    menu: true,
-                    type: FieldTypeEnum.String,
-                    width: "22%",
-                    index: 1
-                },
-                {
-                    field: "FormName",
-                    title: "属性",
-                    filterable: true,
-                    sortable: true,
-                    editable: false,
-                    menu: true,
-                    type: FieldTypeEnum.String,
-                    width: "10%",
-                    index: 2
-                },
-                {
-                    field: "FormContent",
-                    title: "薪酬项类型",
-                    filterable: true,
-                    sortable: true,
-                    editable: false,
-                    menu: true,
-                    type: FieldTypeEnum.Enums,
-                    width: "10%",
-                    values: EnumHelper.toEnumOptions(EnumConstType.FormContentType, "text", "value"),
-                    index: 2
-                },
-                {
-                    field: "Description",
-                    title: "说明",
-                    filterable: true,
-                    sortable: true,
-                    editable: false,
-                    menu: true,
-                    type: FieldTypeEnum.String,
-                    width: "40%",
-                    index: 3,
-                    hidden: false
-                },
-                {
-                    field: "DataStatus",
-                    title: "状态",
-                    filterable: true,
-                    sortable: true,
-                    editable: false,
-                    type: FieldTypeEnum.Enums,
-                    menu: true,
-                    width: "10%",
-                    index: 4,
-                    values: EnumHelper.toEnumOptions(EnumConstType.DataStatus, "text", "value")
-                }
-            ])
+            this.$message.error("数据获取失败")
         })
     }
 

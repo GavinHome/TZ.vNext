@@ -151,7 +151,7 @@ export default class BuilderAppFormProperty extends Vue {
         backBtnText: '返回',
         isCustomHandleRequest: false,
         isAutoHandlePost: true,
-        action: '/api/SuperForm/TestSuperFormSave',
+        action: '/api/SuperForm/Save',
         single: false
     }
 

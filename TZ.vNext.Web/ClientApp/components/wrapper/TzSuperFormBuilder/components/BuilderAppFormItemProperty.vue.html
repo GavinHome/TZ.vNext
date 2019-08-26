@@ -11,7 +11,7 @@
 
         <!-- 设置grid数据源弹框 -->
         <el-dialog :visible.sync="canSetGridDataSource" append-to-body title="数据源" v-if="canSetGridDataSource" width="50%">
-            <app-form-grid-options-set @submit="(data) => { canSetGridDataSource = false; handleOptionsSet(data)}"></app-form-grid-options-set>
+            <app-form-grid-options-set :options="formData.options" @submit="(data) => { canSetGridDataSource = false; handleOptionsSet(data)}"></app-form-grid-options-set>
         </el-dialog>
     </div>
 </template>

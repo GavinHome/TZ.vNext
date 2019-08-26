@@ -357,7 +357,8 @@ export const components = [
                 title: '动态列表',
                 format: null,
                 options: {
-                    remote: "",
+                    remote: "/api/SuperForm/GridQueryEmployees",
+                    schema_meta_url: "/api/SuperForm/GridQuerySchema",
                     schema: [
                         {
                             field: "RowNumber",

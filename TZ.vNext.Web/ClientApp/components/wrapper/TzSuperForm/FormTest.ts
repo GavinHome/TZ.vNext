@@ -546,7 +546,7 @@ export default class FormTest extends Vue {
                             title: "薪酬项",
                             format: null,
                             options: {
-                                remote: "",
+                                remote: "/api/Employees/GridQueryEmployees",
                                 schema: [
                                     {
                                         field: "RowNumber",
@@ -567,12 +567,12 @@ export default class FormTest extends Vue {
                                         editable: false,
                                         menu: true,
                                         type: FieldTypeEnum.String,
-                                        width: "22%",
+                                        width: "20%",
                                         index: 1
                                     },
                                     {
-                                        field: "FormName",
-                                        title: "属性",
+                                        field: "Code",
+                                        title: "编号",
                                         filterable: true,
                                         sortable: true,
                                         editable: false,
@@ -582,40 +582,26 @@ export default class FormTest extends Vue {
                                         index: 2
                                     },
                                     {
-                                        field: "FormContent",
-                                        title: "薪酬项类型",
-                                        filterable: true,
-                                        sortable: true,
-                                        editable: false,
-                                        menu: true,
-                                        type: FieldTypeEnum.Enums,
-                                        width: "10%",
-                                        values: EnumHelper.toEnumOptions(EnumConstType.FormContentType, "text", "value"),
-                                        index: 2
-                                    },
-                                    {
-                                        field: "Description",
-                                        title: "说明",
+                                        field: "CompanyTypeName",
+                                        title: "所属公司",
                                         filterable: true,
                                         sortable: true,
                                         editable: false,
                                         menu: true,
                                         type: FieldTypeEnum.String,
-                                        width: "40%",
-                                        index: 3,
-                                        hidden: false
+                                        width: "30%",
+                                        index: 3
                                     },
                                     {
-                                        field: "DataStatus",
-                                        title: "状态",
+                                        field: "OrganizationName",
+                                        title: "所属机构",
                                         filterable: true,
                                         sortable: true,
                                         editable: false,
-                                        type: FieldTypeEnum.Enums,
                                         menu: true,
-                                        width: "10%",
-                                        index: 4,
-                                        values: EnumHelper.toEnumOptions(EnumConstType.DataStatus, "text", "value")
+                                        type: FieldTypeEnum.String,
+                                        width: "30%",
+                                        index: 4
                                     }
                                 ]
                             },
@@ -791,9 +777,9 @@ export default class FormTest extends Vue {
     // }
 
     rules = {
-        // title: [
-        //     { required: true, message: "请输入标题", trigger: 'blur' }
-        // ],
+        title: [
+            { required: true, message: "请输入标题", trigger: 'blur' }
+        ],
         // content: [
         //     { required: true, message: "请输入内容", trigger: 'blur' }
         // ],

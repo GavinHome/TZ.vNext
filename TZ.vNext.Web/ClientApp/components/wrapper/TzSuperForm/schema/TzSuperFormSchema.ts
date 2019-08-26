@@ -179,5 +179,6 @@ export interface TzSuperOptionSchema {
 
 export interface TzSuperGridOptionSchema{
     remote: string;
+    schema_meta_url: string;
     schema: GridColumnSchema[];
 }
