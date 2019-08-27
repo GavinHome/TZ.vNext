@@ -12,7 +12,7 @@ import BuilderAppFormGridOptionsSet from "./BuilderAppFormGridOptionsSet"
 Vue.component("app-form-grid-options-set", BuilderAppFormGridOptionsSet)
 
 @Component({
-    props: ["formItem"],
+    props: ["formItem", "rules"],
     components: {
         TzSuperForm: require("../../TzSuperForm/index.vue.html"),
         AppFormOptionsSet: require("./BuilderAppFormOptionsSet.vue.html"),
@@ -21,6 +21,7 @@ Vue.component("app-form-grid-options-set", BuilderAppFormGridOptionsSet)
 })
 export default class BuilderAppFormProperty extends Vue {
     @Prop() formItem!: any
+    @Prop() rules!: any
 
     formData: any = {
         key: this.formItem.key,
@@ -28,7 +29,6 @@ export default class BuilderAppFormProperty extends Vue {
         label: this.formItem.label,
         cols: this.formItem.cols,
         required: false,
-        optionsJson: this.formItem.options ? JSON.stringify(this.formItem.options, null, 4) : null,
         options: this.formItem.options
     }
 
@@ -169,8 +169,8 @@ export default class BuilderAppFormProperty extends Vue {
                 name: this.formItem.name,
                 label: this.formItem.label,
                 cols: this.formItem.cols,
-                options: this.formItem.options,
-                optionsJson: this.formItem.options ? JSON.stringify(this.formItem.options, null, 4) : null
+                required: this.rules[this.formItem.name] ? true : false,
+                options: this.formItem.options
             }
         } else {
             this.formData = {}

@@ -8,9 +8,11 @@
 
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using TZ.vNext.Core.Attributes;
 
 namespace TZ.vNext.Model.Enum
 {
+    [DataSource("属性类型", "/api/SuperForm/GridQueryEnumType")]
     public enum FormContentType
     {
         /// <summary>

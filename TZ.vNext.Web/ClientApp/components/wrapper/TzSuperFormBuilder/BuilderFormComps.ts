@@ -83,7 +83,18 @@ export const components = [
                 type: TzSuperFormType.Autocomplete,
                 title: '建议输入框',
                 format: null,
-                options: null,
+                options: {
+                    remote: "",
+                    schema_meta_url: "",
+                    schema_meta_key: "",
+                    schema: {
+                    },
+                    map: {
+                        value: "",
+                        ext: "",
+                        key: ""
+                    }
+                },
                 cols: 1,
                 attrs: null,
                 slots: null,
@@ -357,20 +368,21 @@ export const components = [
                 title: '动态列表',
                 format: null,
                 options: {
-                    remote: "/api/SuperForm/GridQueryEmployees",
-                    schema_meta_url: "/api/SuperForm/GridQuerySchema",
+                    remote: "",
+                    schema_meta_url: "",
+                    schema_meta_key: "",
                     schema: [
-                        {
-                            field: "RowNumber",
-                            title: "序号",
-                            width: "8%",
-                            filterable: false,
-                            sortable: false,
-                            editable: false,
-                            menu: false,
-                            type: FieldTypeEnum.Number,
-                            index: 0
-                        },
+                        // {
+                        //     field: "RowNumber",
+                        //     title: "序号",
+                        //     width: "8%",
+                        //     filterable: false,
+                        //     sortable: false,
+                        //     editable: false,
+                        //     menu: false,
+                        //     type: FieldTypeEnum.Number,
+                        //     index: 0
+                        // },
                     ]
                 },
                 cols: 3,
@@ -450,7 +462,7 @@ export const components = [
                 tip: '可以组装任何组件'
             },
         ]
-    },    
+    },
     {
         title: '业务组件',
         comps: [

@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator'
+import { Component, Prop, Watch } from 'vue-property-decorator'
 
 import { Select, Option } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
@@ -18,6 +18,11 @@ export default class TzSuperSelect extends Vue {
     @Prop() value!: any
 
     newValue: any = this.value
+
+    @Watch('value', { immediate: true, deep: true })
+    onFormDataChanged(val: any, oldVal: any) {
+        this.newValue = this.value
+    }
 
     update(value) {
         this.$emit('change', this.newValue)

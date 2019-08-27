@@ -35,6 +35,16 @@
                 <el-form label-position="top" label-width="80px" :model="options" :rules="rules" ref="form">
                     <el-row :gutter="24">
                         <el-col :span="24">
+                            <el-form-item label="数据源：" size="medium">
+                                <el-select v-model="selectedSource" filterable remote reserve-keyword placeholder="请选择数据源" :remote-method="remoteDataSource" :loading="loading" @change="handleDataSourceChange">
+                                    <el-option v-for="item in list" :key="item.key" :label="item.value" :value="item.key">
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row :gutter="24">
+                        <el-col :span="24">
                             <el-form-item label="数据地址：" size="medium" prop="Name">
                                 <el-input placeholder="请输入数据地址" v-model="options.remote">
                                 </el-input>
@@ -45,7 +55,7 @@
                         <el-col :span="24">
                             <el-form-item label="元数据地址：" size="medium" prop="Name">
                                 <el-input placeholder="请输入元数据地址" v-model="options.schema_meta_url">
-                                    <el-button slot="append" icon="el-icon-search" @click="remoteChange">获取</el-button>
+                                    <el-button slot="append" :disabled="!options.remote" icon="el-icon-search" @click="remoteChange">获取</el-button>
                                 </el-input>
                             </el-form-item>
                         </el-col>

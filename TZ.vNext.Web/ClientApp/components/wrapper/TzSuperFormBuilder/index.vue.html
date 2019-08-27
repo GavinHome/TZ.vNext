@@ -21,7 +21,7 @@
             <el-aside width="400px" class="property-tab">
                 <el-tabs :stretch="true" v-model="activeTab">
                     <el-tab-pane label="表单项属性" name="0">
-                        <app-form-item-property :formItem="selectFormItem"
+                        <app-form-item-property :formItem="selectFormItem" :rules="rules"
                             @formItemPropertyChange="handleFormItemPropertyChange" />
                     </el-tab-pane>
                     <el-tab-pane label="表单属性" name="1">
@@ -42,9 +42,12 @@
         <el-dialog :visible.sync="isPreview" append-to-body title="预览" v-if="isPreview" width="75%">
 
             <tz-super-form :form="form" :form-data="formData" :label-width="100" :rules="rules"
+                :submitBtnText="formAttr.submitBtnText" :backBtnText="formAttr.backBtnText"
+                :isHideSubmitBtn="formAttr.isHideSubmitBtn" :isHideBackBtn="formAttr.isHideBackBtn"
                 :request-fn="handleSubmit" @request-success="handleSuccess" @request-error="handleError"
-                @request-end="handleEnd" @request="handleRequest" :isCustomHandleRequest="formAttr.isCustomHandleRequest"
-                :isAutoHandlePost="formAttr.isAutoHandlePost" :action="formAttr.action" :single="formAttr.single">
+                @request-end="handleEnd" @request="handleRequest"
+                :isCustomHandleRequest="formAttr.isCustomHandleRequest" :isAutoHandlePost="formAttr.isAutoHandlePost"
+                :action="formAttr.action" :single="formAttr.single">
 
             </tz-super-form>
         </el-dialog>
@@ -99,7 +102,7 @@
     .form-builder-container .el-main::-webkit-scrollbar-corner,
     .form-builder-container .el-aside::-webkit-scrollbar-corner {
         background: #179a16;
-    }    
+    }
 
     .el-collapse-item {
         min-height: 350px;

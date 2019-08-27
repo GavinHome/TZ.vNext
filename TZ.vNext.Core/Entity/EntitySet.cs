@@ -8,6 +8,7 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TZ.vNext.Core.Entity
@@ -15,6 +16,7 @@ namespace TZ.vNext.Core.Entity
     public abstract class EntitySet : IEntitySetOfType<Guid>
     {
         [Key]
+        [Description("唯一标识")]
         public Guid Id { get; set; }
         object IEntitySet.Id => Id;
     }

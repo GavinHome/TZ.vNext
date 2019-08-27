@@ -46,7 +46,7 @@ export default class TzSuperAutocomplete extends Vue {
             else {
                 //remote                
                 var map = this.desc.options.map
-                var request = kendoHelper.onRequest(this.desc.options.schema, queryString)
+                var request = this.desc.options.schema_meta_key.indexOf("Enum") > -1 ? { key: this.desc.options.schema_meta_key } : kendoHelper.onRequest(this.desc.options.schema, queryString)
                 TzFetch.Post(this.desc.options.remote, request, false).then((data: any) => {
                     if (data && data.Data && data.Data.length) {
                         var results = data.Data.map(x => { return { value: x[map["value"]], ext: x[map["ext"]], key: x[map["key"]] } });

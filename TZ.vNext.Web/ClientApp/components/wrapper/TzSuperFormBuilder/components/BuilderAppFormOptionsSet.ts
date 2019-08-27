@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { Component, Prop, Watch } from 'vue-property-decorator';
-import { TzSuperOptionSchema } from "../../TzSuperForm/schema/TzSuperFormSchema";
+import { TzSuperOptionSchema, TzSuperDataSourceSchema } from "../../TzSuperForm/schema/TzSuperFormSchema";
 import 'element-ui/lib/theme-chalk/index.css'
 import { Tabs, TabPane, Table, Button, TableColumn, Form, FormItem } from 'element-ui'
 import { TzFetch } from "../../../common/TzFetch";
@@ -20,18 +20,10 @@ export default class BuilderAppFormOptionsSet extends Vue {
 
     dataSource: TzSuperOptionSchema[] = []
     activeName: string = "local"
-    options: any = {
-        remote: '',
-        schema: {
-        },
-        map: {
-            key: '',
-            value: '',
-            ext: ''
-        }
-    }
+    options: any = {}
 
     fields: any[] = []
+    source: TzSuperDataSourceSchema[] = []
 
     get columns() {
         return Object.keys(this.dataSource[0]).map(x => {
@@ -52,6 +44,8 @@ export default class BuilderAppFormOptionsSet extends Vue {
         if (this.dataSource.length === 0) {
             this.add()
         }
+
+        TzFetch.Post("/api/SuperForm/GridQueryDataSourceMeta", null).then((data) => this.source = data as TzSuperDataSourceSchema[])
     }
 
     add() {
@@ -67,9 +61,33 @@ export default class BuilderAppFormOptionsSet extends Vue {
         this.$emit("submit", data)
     }
 
+    remoteDataSource(query) {
+        if(query === '') {
+            this.list = this.source
+        }
+
+        this.loading = true;
+        setTimeout(() => {
+            this.loading = false;
+            this.list = this.source.filter(x=> x.value.toLowerCase().indexOf(query) > -1);
+        }, 200);
+    }
+
+    handleDataSourceChange(key) {
+        var item = this.source.filter(x=>x.key === key)[0]
+        if(item) {
+            this.options.remote = item.url
+            this.options.schema_meta_url = item.metaUrl
+            this.options.schema_meta_key = item.key
+        }
+    }
+
+    selectedSource: any = null
+    loading: boolean = false
     loading1: boolean = false
     loading2: boolean = false
     loading3: boolean = false
+    list: any[] = []
     list1: any[] = []
     list2: any[] = []
     list3: any[] = []
@@ -117,7 +135,7 @@ export default class BuilderAppFormOptionsSet extends Vue {
     }
 
     remoteChange() {
-        TzFetch.Post(this.options.schema_meta_url, { key : "VEmployee"}).then((data: any) => {
+        TzFetch.Post(this.options.schema_meta_url, { key : this.options.schema_meta_key }).then((data: any) => {
             if (data && data.length) {
                 this.fields = data.map(item => {
                     return {
@@ -125,7 +143,7 @@ export default class BuilderAppFormOptionsSet extends Vue {
                         label: item.title,
                     }
                 })
-
+                
                 data.forEach(x => {
                     this.options.schema[x.field] = { type: x.type, filterable: true }
                 })

@@ -3,8 +3,8 @@ import { Component, Prop } from 'vue-property-decorator';
 import 'element-ui/lib/theme-chalk/index.css';
 import { Tabs } from 'element-ui';
 import { TzFetch } from "../../../common/TzFetch";
-import { FieldTypeEnum, EnumHelper, EnumConstType } from "../../../common/Enums";
-import { TzSuperGridOptionSchema } from "../../TzSuperForm/schema/TzSuperFormSchema";
+import { FieldTypeEnum } from "../../../common/Enums";
+import { TzSuperGridOptionSchema, TzSuperDataSourceSchema } from "../../TzSuperForm/schema/TzSuperFormSchema";
 Vue.use(Tabs)
 
 @Component({
@@ -46,16 +46,21 @@ export default class BuilderAppFormOptionsSet extends Vue {
         index: 0
     }]
 
+    source: TzSuperDataSourceSchema[] = []
+
     remove(i, r) {
         this.options.schema.splice(i, 1);
     }
 
     created() {
-        debugger
+        TzFetch.Post("/api/SuperForm/GridQueryDataSourceMeta", null).then((data) => {
+            var result = data as TzSuperDataSourceSchema[]
+            this.source = result.filter(x => x.key.indexOf("Enum") <= -1)
+        })
     }
 
     remoteChange() {
-        TzFetch.Post(this.options.schema_meta_url, { key: "VEmployee" }).then((data: any) => {
+        TzFetch.Post(this.options.schema_meta_url, { key: this.options.schema_meta_key }).then((data: any) => {
             var fields = data.map((item, index) => {
                 return {
                     field: item.field,
@@ -93,4 +98,29 @@ export default class BuilderAppFormOptionsSet extends Vue {
         console.log("data: " + JSON.stringify(data))
         this.$emit("submit", data)
     }
+
+    remoteDataSource(query) {
+        if (query === '') {
+            this.list = this.source
+        }
+
+        this.loading = true;
+        setTimeout(() => {
+            this.loading = false;
+            this.list = this.source.filter(x => x.value.toLowerCase().indexOf(query) > -1);
+        }, 200);
+    }
+
+    handleDataSourceChange(key) {
+        var item = this.source.filter(x => x.key === key)[0]
+        if (item) {
+            this.options.remote = item.url as string
+            this.options.schema_meta_url = item.metaUrl
+            this.options.schema_meta_key = item.key as string
+        }
+    }
+
+    selectedSource: any = null
+    loading: boolean = false
+    list: any[] = []
 }
