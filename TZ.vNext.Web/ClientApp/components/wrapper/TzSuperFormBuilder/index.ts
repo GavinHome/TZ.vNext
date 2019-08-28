@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 import { TzSuperFormGroup, TzSuperFormField, getFormDesc } from "../TzSuperForm/schema/TzSuperFormSchema";
 import 'element-ui/lib/theme-chalk/index.css';
 import { Container, Aside, Header, Main, TabPane, Tabs, Dialog, Button } from 'element-ui';
@@ -16,6 +16,9 @@ Vue.use(Tabs)
 Vue.use(Dialog)
 Vue.use(Button)
 
+import VJsoneditor from 'v-jsoneditor'
+Vue.use(VJsoneditor)
+
 @Component({
     props: [],
     components: {
@@ -24,7 +27,8 @@ Vue.use(Button)
         AppFormProperty: require('./components/BuilderAppFormProperty.vue.html'),
         AppFormComponents: require('./components/BuilderAppFormComponents.vue.html'),
         JsonEditor: require('../TzSuperForm/components/TzSuperJsonEditor.vue.html'),
-        TzSuperForm: require("../TzSuperForm/index.vue.html")
+        TzSuperForm: require("../TzSuperForm/index.vue.html"),
+        VJsoneditor,
     }
 })
 export default class TzSuperFormBuilder extends Vue {
@@ -50,9 +54,10 @@ export default class TzSuperFormBuilder extends Vue {
         }
     ]
 
+    isPreview: boolean = false
     form_init_data: any = []
     isInitData: boolean = false
-    isPreview: boolean = false
+    formCodeEditor :any = this.form
 
     get formData() {
         var desc = getFormDesc(this.form)
@@ -93,6 +98,8 @@ export default class TzSuperFormBuilder extends Vue {
                 })
             })
         }
+
+        this.$emit("formChanged")
     }
 
     renderValidetor(name: string, required: boolean, title: string) {
@@ -297,6 +304,12 @@ export default class TzSuperFormBuilder extends Vue {
             }
         }).catch(e => {
             this.$message.error("自定义提交失败")
+        })
+    }
+
+    mounted() {
+        this.$on("formChanged", () => {
+            (this.$refs.codeEditor as any).editor.update(this.form)
         })
     }
 }

@@ -31,4 +31,10 @@ export default class TzSuperJsonEditor extends Vue {
     onListChanged(val: any, oldVal: any) {
         this.$emit('change', this.json)
     }
+
+    @Watch('value', { immediate: true, deep: true })
+    onValueChanged(val: any, oldVal: any) {
+        //this.json = this.value
+        Object.assign(this.json, this.value)
+    }
 }

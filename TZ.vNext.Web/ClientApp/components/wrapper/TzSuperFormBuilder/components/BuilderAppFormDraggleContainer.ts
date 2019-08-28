@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 import { TzSuperFormType, getComponentName } from "../../TzSuperForm/schema/TzSuperFormSchema";
 import { TzSuperFormField } from "../BuilderFormComps";
 
@@ -29,7 +29,7 @@ import { TzSuperFormField } from "../BuilderFormComps";
         TzSuperInput: require('../../TzSuperForm/components/TzSuperInput.vue.html'),
         TzSuperDaterange: require('../../TzSuperForm/components/TzSuperDateRange.vue.html'),
         TzSuperMonthrange: require('../../TzSuperForm/components/TzSuperMonthRange.vue.html'),
-        TzSuperDatetimerange: require('../../TzSuperForm/components/TzSuperDateTimeRange.vue.html'),        
+        TzSuperDatetimerange: require('../../TzSuperForm/components/TzSuperDateTimeRange.vue.html'),
         TzSuperDates: require('../../TzSuperForm/components/TzSuperDates.vue.html'),
         TzSuperWeek: require('../../TzSuperForm/components/TzSuperWeek.vue.html'),
         TzSuperTimerange: require('../../TzSuperForm/components/TzSuperTimeRange.vue.html'),
@@ -37,15 +37,15 @@ import { TzSuperFormField } from "../BuilderFormComps";
         TzSuperAutocomplete: require('../../TzSuperForm/components/TzSuperAutocomplete.vue.html'),
         TzSuperGrid: require('../../TzSuperForm/components/TzSuperGrid.vue.html')
     },
-    watch: {
-        fields: {
-            handler: (newProp, oldProp) => {
-
-            },
-            deep: true,
-            immediate: false
-        }
-    }
+    // watch: {
+    //     fields: {
+    //         handler: (nval, oval) => {
+                
+    //         },
+    //         deep: true,
+    //         immediate: false
+    //     }
+    // }
 })
 export default class BuilderAppFormDraggleContainer extends Vue {
     @Prop() fields!: any
@@ -61,6 +61,10 @@ export default class BuilderAppFormDraggleContainer extends Vue {
         if (index >= this.fields.length) {
             this.selectIndex = this.fields.length - 1
         }
+
+        this.$nextTick(() => {
+            this.$emit("formChanged1")
+        })
     }
 
     // 新增
@@ -83,10 +87,12 @@ export default class BuilderAppFormDraggleContainer extends Vue {
     handleFormItemClick(index) {
         this.selectIndex = index
         this.$emit("selectedFormItem", this.fields[this.selectIndex])
-    }    
+    }
+
     getComponentName(type: TzSuperFormType) {
         return getComponentName(type)
     }
+
     getFields(data): TzSuperFormField[] {
         var fields: TzSuperFormField[] = [];
 

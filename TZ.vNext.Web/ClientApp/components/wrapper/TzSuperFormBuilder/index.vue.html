@@ -27,6 +27,11 @@
                     <el-tab-pane label="表单属性" name="1">
                         <app-form-property @formPropertyChange="handleFormPropertyChange" />
                     </el-tab-pane>
+
+                    <el-tab-pane label="代码可视化" name="2">
+                        <v-jsoneditor v-model="form" :plus="false" :options="{ mode:'code'}" :height="'780px'" ref="codeEditor">    
+                        </v-jsoneditor>
+                    </el-tab-pane>
                 </el-tabs>
             </el-aside>
         </el-container>

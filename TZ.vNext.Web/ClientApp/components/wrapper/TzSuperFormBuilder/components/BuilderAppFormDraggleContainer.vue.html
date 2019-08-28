@@ -1,6 +1,6 @@
 <template>
     <draggable :animation="200" :disabled="false" :list="fields" @add="handleAdd" @end="handleMoveEnd"
-        @start="handleMoveStart" group="form" style="padding-bottom: 100px;height:100%" tag="el-row">
+        @start="handleMoveStart" group="form" style="padding-bottom: 100px;height:100%" tag="el-row" @change="changed">
 
         <div class="form-area-placeholder" v-if="fields.length === 0">从左侧拖拽来添加表单项</div>
 
@@ -21,7 +21,7 @@
                     </el-form-item>
 
                     <!-- 删除按钮 -->
-                    <el-button @click.stop="handleDelete(index)" class="form-item-delete-btn" icon="el-icon-delete"
+                    <el-button @click="handleDelete(index)" class="form-item-delete-btn" icon="el-icon-delete"
                         size="mini" style="border-radius: 0" type="primary" v-if="selectIndex === index"></el-button>
                 </el-col>
             </template>

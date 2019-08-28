@@ -9,7 +9,8 @@ Vue.use(ElementUI)
 @Component({
     props: [],
     components: {
-        TzSuperForm: require("./index.vue.html")
+        TzSuperForm: require("./index.vue.html"),
+        JsonEditor: require('./components/TzSuperJsonEditor.vue.html'),
     },
     watch: {
         formData: {
@@ -738,6 +739,8 @@ export default class FormTest extends Vue {
     }
 
     isLoading: boolean = false
+    isDisplay: boolean = false
+    form_json!: any
 
     titleChange(e: any) {
         console.log(e)
@@ -819,5 +822,11 @@ export default class FormTest extends Vue {
         this.isLoading = true;
         console.log("handleRequest" + response)
         this.$message.success('自定义处理')
+    }
+
+    convertToJson() {
+        //this.form_json = JSON.stringify(this.form)
+        this.form_json = this.form
+        this.isDisplay = true
     }
 }
