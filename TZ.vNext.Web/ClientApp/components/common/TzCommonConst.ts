@@ -3,7 +3,14 @@ export const TzCodeConst = {
 
 export const TzConst = {
     RowNumber: 'RowNumber',  //序号列
-    Coef:'Coef'         //系数的key
+    Coef:'Coef',         //系数的key
+    Percent: 100,
+    MinNumber: -999999999999999,
+    MaxNumber: 999999999999999,
+    DefaultDigit: 2,
+    TWO: 2,
+    THREE: 3,
+    FORE: 4,
 }
 
 export const TzMessageConst = {

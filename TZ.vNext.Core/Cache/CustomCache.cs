@@ -77,6 +77,17 @@ namespace TZ.vNext.Core.Cache
             }
         }
 
+        /// <inheritdoc cref="IMyCache.ClearWithType"/>
+        public void ClearWithType(string keyType)
+        {
+            var allKeys = this._cacheEntries.Keys.ToList();
+            var keyList = allKeys.Where(x => x.ToString().Contains(keyType)).Select(x => x).ToList();
+            foreach (var cacheEntry in keyList)
+            {
+                this._memoryCache.Remove(cacheEntry);
+            }
+        }
+
         public IEnumerator<KeyValuePair<object, object>> GetEnumerator()
         {
             return this._cacheEntries.Select(pair => new KeyValuePair<object, object>(pair.Key, pair.Value.Value)).GetEnumerator();

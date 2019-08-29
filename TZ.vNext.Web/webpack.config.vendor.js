@@ -22,7 +22,6 @@ module.exports = (env) => {
                 'vue/dist/vue.js',
                 // 'vue-property-decorator',
                 // 'vue-class-component',
-                //'iview',
                 'element-ui',
                 'element-ui/lib/theme-chalk/index.css',
                 '@progress/kendo-ui',

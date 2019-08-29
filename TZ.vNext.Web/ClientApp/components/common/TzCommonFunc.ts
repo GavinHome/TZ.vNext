@@ -7,7 +7,7 @@ export default function AuthFunction(value: any): boolean {
     let cache = new StoreCache('auth')
     let functions = cache.get('functions') as string
     let function_array = String.isNullOrEmpty(functions) ? [] : functions.split(',')
-    return !value.isHidden && (value.meta.functionId == null || function_array && function_array.filter(x => x === value.meta.functionId).length > 0)
+    return !value.meta.isHidden && (value.meta.functionId == null || function_array && function_array.filter(x => x === value.meta.functionId).length > 0)
 }
 
 export function encodeQueryData(data: IUrlParameterSchema) {

@@ -36,6 +36,10 @@ export default class SearchBarComponent extends Vue {
         this.search()
     }
 
+    clearText() {
+        this.query = ''
+    }
+
     enterSearch(e) {
         e.preventDefault()
         this.search()

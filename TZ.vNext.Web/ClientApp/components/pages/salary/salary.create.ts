@@ -37,7 +37,7 @@ export default class SalaryCreateComponent extends Vue {
         if (this.id) {
             TzFetch.Post(TzApiConst.SALARY_FINDBYID, { id: this.id }).then(data => {
                 if (data) {
-                    this.model = data
+                    this.model = data as Salary
                 }
                 else {
                     Message.error(TzMessageConst.DATA_FAIL_MESSAGE)

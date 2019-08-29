@@ -4,6 +4,7 @@ import { Form, FormItem, Row, Col, Button, Upload, Message, Select, Option } fro
 import "element-ui/lib/theme-chalk/index.css"
 import StoreCache from "../../components/common/TzStoreCache";
 import { TzMessageConst } from "../common/TzCommonConst";
+
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Row)

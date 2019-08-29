@@ -3,7 +3,6 @@ import { Component, Prop } from "vue-property-decorator";
 import kendoHelper from "../extension/KendoExtensions";
 import { GridModelSchema, GridModelSchemaType } from "../schemas/GridModelSchema";
 import { GridColumnSchema } from "../schemas/GridColumnSchema";
-import "../extension/StringExtensions";
 import "@progress/kendo-ui"
 import '@progress/kendo-ui/css/web/kendo.common.min.css'
 import '@progress/kendo-ui/css/web/kendo.common.core.min.css'
@@ -16,6 +15,9 @@ import IUrlParameterSchema from "../schemas/IUrlParameterSchema";
 import { encodeQueryData } from "../common/TzCommonFunc";
 import { Message } from "element-ui";
 import { TzMessageConst } from "../common/TzCommonConst";
+import StoreCache from "../../components/common/TzStoreCache";
+import "../extension/StringExtensions";
+import { debug } from '../../log';
 
 kendo.culture("zh-CN")
 Vue.use(GridInstaller)
@@ -81,11 +83,41 @@ export default class TzGridDynamic extends Vue {
     }
 
     onError(err) {
-        Message.error(TzMessageConst.DATA_FAIL_MESSAGE)
+        if (err.xhr.status === 401) {
+            this.clearAuth();
+        } else {
+            ////log errors
+            debug.notifyError({
+                error: err,
+                message: err,
+                metaData: {
+                    userToken: this.getUserToken()
+                },
+                lineNumber: 1,
+                columnNumber: 2,
+                fileName: 'TzGridDynamic.ts'
+            });
+
+            Message.error(TzMessageConst.DATA_FAIL_MESSAGE)
+        }
+    }
+
+    clearAuth() {
+        const cache = new StoreCache("auth");
+        cache.clear();
+        this.$router.push({ path: "/login" })
+    }
+
+    getUserToken(): any {
+        let cache = new StoreCache("auth");
+        let token = cache.get("token");
+        let name = cache.get("name");
+
+        return { token: token, name: name };
     }
 
     get readData() {
-        return { url: this.transport_read_url, beforeSend: this.onBeforeSend }
+        return { url: this.transport_read_url, beforeSend: this.onBeforeSend, }
     }
 
     requestStart(e) {

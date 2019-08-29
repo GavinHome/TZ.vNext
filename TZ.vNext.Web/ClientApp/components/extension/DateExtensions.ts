@@ -4,11 +4,19 @@ interface Date {
 
 Date.prototype.toFormatString = function (format: string): string {
     if (this == null) {
-        return '';
+        return "";
     }
 
-    var day = this.getDay();
+    var day = this.getDate();
     var month = this.getMonth() + 1;
     var year = this.getFullYear();
-    return format.replace("yyyy", year.toString()).replace("MM", month.toString()).replace("dd", day.toString())
+    					
+    var hours = this.getHours();
+    var minutes = this.getMinutes();
+    var seconds = this.getSeconds();
+
+    var result = format.replace("yyyy", year.toString()).replace("MM", month.toString()).replace("dd", day.toString())
+    .replace("HH", hours.toString()).replace("mm", minutes.toString()).replace("ss", seconds.toString())
+
+    return result
 }

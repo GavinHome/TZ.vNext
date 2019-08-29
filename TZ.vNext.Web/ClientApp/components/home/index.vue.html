@@ -5,7 +5,9 @@
         </el-header>
         <el-container>
             <el-aside :width="isCollapse?'64px':'200px'" style="background-color: rgb(238, 241, 246)" class="none-select">
-                <menu-component v-bind:isCollapsed="isCollapse" v-on:listenCollapsed="listenCollapsed" />
+                <el-scrollbar>
+                    <menu-component v-bind:isCollapsed="isCollapse" v-on:listenCollapsed="listenCollapsed" />
+                </el-scrollbar>
             </el-aside>
             <el-container>
                 <breadcrumbs class="none-select" />
@@ -15,7 +17,8 @@
                 <el-footer class="text-center">
                     <span>薪酬系统</span>
                     <br>
-                    <span style="margin-top: 10px">Copyright &copy; 2013-{{new Date().getFullYear()}} TZ.vNext All Rights Reserved (Version:%BUILDNUMBER%,
+                    <span style="margin-top: 10px">
+                        Copyright &copy; 2013-{{new Date().getFullYear()}} TZ.vNext All Rights Reserved (Version:%BUILDNUMBER%,
                         Revision:%REVISION%)
                     </span>
                 </el-footer>

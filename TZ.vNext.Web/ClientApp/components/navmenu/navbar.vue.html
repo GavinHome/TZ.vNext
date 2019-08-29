@@ -10,23 +10,13 @@
             </div>
             <div class="navbar-header pull-right" role="navigation">
                 <ul class="nav nav-top">
-                    <li class="orange">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="video" title="入职指南">
-                            <i class="fa fa-video-camera"></i>
-                        </a>
-                    </li>
-                    <li class="red">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="QAhelp" title="问题解答">
-                            <i class="fa fa-comments-o"></i>
-                        </a>
-                    </li>
                     <li class="grey">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="help" title="帮助">
                             <i class="fa fa-question-circle-o"></i>
                         </a>
                     </li>
                     <li class="purple">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" title="更新通知" onclick="Application.ShowUpdate()">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" title="更新通知" onclick="showUpldateLog">
                             <i class="fa fa-bell-o"></i>
                         </a>
                     </li>
@@ -44,20 +34,6 @@
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-cogs"></i>设置 
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-user"></i>个人信息 </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-cogs"></i>修改密码
-                                </a>
-                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a @click.prevent="logout">

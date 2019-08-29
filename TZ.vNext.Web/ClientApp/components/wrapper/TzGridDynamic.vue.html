@@ -3,7 +3,7 @@
         <kendo-datasource ref="remoteDataSource" :type="'json'" :transport-read="readData" :transport-read-data-type="'json'"
             :transport-read-type="'POST'" :schema-model-id="'id'" :schema-data="'Data'" :transport-parameter-map="parameterMap" transport-read-content-type="application/json"
             :schema-total="'Total'" :schema-model-fields="schemaModelFields" :page-size="10" :server-paging="true" :server-operation="true" :server-sorting="true" :server-filtering="true" :server-aggregates="true"
-            :request-start="requestStart" :onerror="onError">
+            :request-start="requestStart" @error="onError">
         </kendo-datasource>
 
         <div class="k-toolbar k-grid-toolbar k-grid-top">

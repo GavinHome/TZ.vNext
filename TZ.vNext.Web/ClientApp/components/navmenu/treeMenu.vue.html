@@ -5,11 +5,11 @@
             <span slot="title">{{title}}</span>
         </template>
         <template>
-            <tree-menu v-for="(node, key) in getNodes" :key="key" :nodes="node.children" :name="node.name" :title="node.title" :nkey="key" :icon="node.icon" 
-                        :isCollapse="node && node.children && node.children.filter(x=> !x.isHidden).length > 0" />
+            <tree-menu v-for="(node, key) in getNodes" :key="key" :nodes="node.children" :name="node.name" :title="node.meta.title" :nkey="key" :icon="node.meta.icon" 
+                        :isCollapse="node && node.children && node.children.filter(x=> !x.meta.isHidden).length > 0" />
 
-            <!-- <tree-menu v-for="(node, key) in nodes.filter(x=> !x.isHidden)" :nodes="node.children" :name="node.name" :title="node.title" :nkey="key" :icon="node.icon" 
-                            :isCollapse="node && node.children && node.children.filter(x=> !x.isHidden).length > 0" /> -->
+            <!-- <tree-menu v-for="(node, key) in nodes.filter(x=> !x.meta.isHidden)" :nodes="node.children" :name="node.name" :title="node.title" :nkey="key" :icon="node.meta.icon" 
+                            :isCollapse="node && node.children && node.children.filter(x=> !x.meta.isHidden).length > 0" /> -->
         </template>
     </el-submenu>
     <el-menu-item :index="name" :key="nkey" :route="name" v-else>

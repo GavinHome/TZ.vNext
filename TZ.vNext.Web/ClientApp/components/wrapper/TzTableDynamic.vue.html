@@ -1,9 +1,9 @@
 <template>
     <div class="tz-table-dynamic">
-        <div class="k-toolbar k-grid-toolbar k-grid-top" style="border-width:1px">
+        <div class="k-toolbar k-grid-toolbar k-grid-top" style="        border-width: 1px">
             <div class="pull-left">
                 <search-bar :isSearchAll="false" :mode="'custom'" :schemaModelFields="schemaModelFields" v-model="customDataSource"
-                    ref="searchBar" />
+                            ref="searchBar" />
             </div>
 
             <div class="pull-right">
@@ -12,27 +12,30 @@
             </div>
         </div>
 
-        <el-table v-loading="loading" :data="dataSource" style="width: 100%" :highlight-current-row="true" :border="true"
-            :stripe="true">
-            <el-table-column v-for="col in dynamicColumns.filter(x => x.field)" :key="col.field" :prop="col.field"
-                :label="col.title" :width="col.width">
+        <el-table :row-class-name="rowClass" v-loading="loading" :data="dataSource" style="width: 100%" :highlight-current-row="true" :border="true"
+                  :stripe="true" tooltip-effect="dark">
+            <el-table-column v-for="col in dynamicColumns.filter(x => x.field)" :key="col.field" :prop="col.field" :fixed="col.fixed"
+                             :label="col.title" :width="col.width" :min-width="150" show-overflow-tooltip align="center">
                 <template slot-scope="scope">
-                    <span v-if="!col.editable">{{ scope.row[col.field] }}</span>
-                    <el-input v-model="scope.row[col.field]" size="medium" v-else />
+                    <div v-if="col.type == 'html'" v-html="scope.row[col.field]"/>
+                    <div v-else slot-scope="scope">
+                        <el-input v-if="(col.editable && scope.row['RowEditable'] === undefined) || (col.editable && scope.row['RowEditable'])" v-model="scope.row[col.field]" size="medium" />
+                        <span v-else>{{toFormat(col.format, scope.row[col.field])}}</span>
+                    </div>
                 </template>
             </el-table-column>
             <el-table-column v-for="col in dynamicColumns.filter(x => x.command)" :key="col.name" :label="col.title"
-                :width="col.width">
+                             :width="col.width" >
                 <template slot-scope="scope">
                     <el-button v-for="comd in col.command" :key="comd.name" size="mini" @click="comd.click(scope.row)"
-                        v-if="comd.visible(scope.row)" :class="comd.className" :icon="comd.iconClass" style="margin-right:5px !important;"></el-button>
+                               v-if="comd.visible(scope.row)" :class="comd.className" :icon="comd.iconClass" style="margin-right: 5px !important;"></el-button>
                 </template>
             </el-table-column>
         </el-table>
         <div class="tz-pagination text-right">
             <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" @prev-click="prevClick"
-                @next-click="nextClick" :current-page.sync="currentPage" :page-size="pageSize" layout="total, prev, pager, next"
-                :total="total">
+                           @next-click="nextClick" :current-page.sync="currentPage" :page-size="pageSize" layout="total, prev, pager, next"
+                           :total="total">
             </el-pagination>
         </div>
     </div>
@@ -58,5 +61,110 @@
         /* border-width: 1px 1px 0px 1px !important; */
         background: none;
         padding: 5px 10px;
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:2560px) {
+        .tz-table-dynamic {
+            width: 2240px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1920px) and (max-width: 2559px) {
+        .tz-table-dynamic {
+            width: 1610px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1680px) and (max-width: 1919px) {
+        .tz-table-dynamic {
+            width: 1375px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1600px) and (max-width: 1679px) {
+        .tz-table-dynamic {
+            width: 1280px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1440px) and (max-width: 1599px) {
+        .tz-table-dynamic {
+            width: 1120px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1400px) and (max-width: 1439px) {
+        .tz-table-dynamic {
+            width: 1080px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1366px) and (max-width: 1399px) {
+        .tz-table-dynamic {
+            width: 1062px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1360px) and (max-width: 1365px) {
+        .tz-table-dynamic {
+            width: 1040px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1280px) and (max-width: 1359px) {
+        .tz-table-dynamic {
+            width: 976px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1200px) and (max-width: 1279px) {
+        .tz-table-dynamic {
+            width: 860px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1152px) and (max-width: 1199px) {
+        .tz-table-dynamic {
+            width: 830px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width:1024px) and (max-width: 1151px) {
+        .tz-table-dynamic {
+            width: 720px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width: 960px) and (max-width: 1023px) {
+        .tz-table-dynamic {
+            width: 760px;
+            overflow: auto
+        }
+    }
+
+    @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (min-width: 800px) and (max-width: 959px) {
+        .tz-table-dynamic {
+            width: 726px;
+            overflow: auto
+        }
+    }
+
+    @media only screen and (-ms-high-contrast:active),(-ms-high-contrast:none) and (max-width: 799px) {
+        .tz-table-dynamic {
+            width: 720px;
+            overflow: auto
+        }
     }
 </style>

@@ -1,0 +1,19 @@
+<template>
+    <div>
+        <tz-super-form :form="form" :form-data="formData" :label-width="100" :rules="rules" :isLoading="isLoading"
+            :request-fn="handleSubmit" @request-success="handleSuccess" @request-error="handleError"
+            @request-end="handleEnd" @request="handleRequest">
+            <template slot="button-group">
+                <el-button type="info" @click="convertToJson">json结构化</el-button>
+            </template>
+        </tz-super-form>
+
+        <!-- 弹框 -->
+        <el-dialog :visible.sync="isDisplay" append-to-body title="数据" v-if="isDisplay" width="600px">
+            <json-editor :value="form_json"></json-editor>
+            <el-button @click="isInitData = false" icon="el-icon-upload2" type="primary" class="mt10">确定</el-button>
+        </el-dialog>
+    </div>
+</template>
+
+<script src="./Dev.ts"></script>

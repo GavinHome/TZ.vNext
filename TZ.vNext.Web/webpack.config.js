@@ -143,37 +143,6 @@ module.exports = (env) => {
             // new webpack.ProvidePlugin({
             //     // "Promise": "es6-promise-promise"
             // }),
-            // new SkeletonPlugin({
-            //     pathname: path.join(__dirname, `./shell`), // the path to store shell file
-            //     staticDir: path.join(__dirname, './dist'), // the same as the `output.path`
-            //     routes: ['/', '/home','/login'], // Which routes you want to generate skeleton screen
-            // })
-            // new SkeletonWebpackPlugin({
-            //     webpackConfig: {
-            //         entry: {
-            //             app: require('./ClientApp/entry-skeleton.js')
-            //         }
-            //     },
-            //     quiet: true,
-            //     minimize: !isDevBuild,
-            //     router: {
-            //         mode: 'history',
-            //         routes: [
-            //             {
-            //                 path: '/',
-            //                 skeletonId: 'skeleton-screen'
-            //             },
-            //             {
-            //                 path: '/home',
-            //                 skeletonId: 'skeleton-screen'
-            //             },
-            //             {
-            //                 path: '/login',
-            //                 skeletonId: 'skeleton-screen'
-            //             }
-            //         ]
-            //     }
-            // })
         ].concat(isDevBuild ? [
             // Plugins that apply in development builds only
             new webpack.SourceMapDevToolPlugin({

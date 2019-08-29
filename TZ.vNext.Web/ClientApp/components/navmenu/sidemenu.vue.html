@@ -3,8 +3,8 @@
         <short-cuts :collapse="isCollapse"/>
         <el-menu :default-active="navigation" class="el-menu-vertical" :router="true" :open="handleOpen" :close="handleClose" :collapse="isCollapse"
             active-text-color="#25639e" :collapse-transition="false" :unique-opened="true">
-            <tree-menu v-for="(node, key) in matchRouter" :key="key" :nodes="node.children" :name="node.name" :title="node.title" 
-                        :nkey="key" :icon="node.icon" :isCollapse="node.children && node.children.length > 0" />
+            <tree-menu v-for="(node, key) in matchRouter" :key="key" :nodes="node.children" :name="node.name" :title="node.meta.title" 
+                        :nkey="key" :icon="node.meta.icon" :isCollapse="node.children && node.children.length > 0" />
 
             <el-menu-item index="" @click="handleCollapse">
                 <i class="fa fa-angle-double-left" v-if="isCollapse"></i>

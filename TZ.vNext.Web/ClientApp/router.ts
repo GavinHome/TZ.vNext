@@ -1,4 +1,4 @@
-import Router from 'vue-router'
+import Router, { RouteConfig } from 'vue-router'
 import spin from './components/common/TzSpin'
 import StoreCache from './components/common/TzStoreCache'
 import { TzFunctionConst } from './components/common/TzCommonConst';
@@ -25,9 +25,9 @@ const salary_detail = resolve => {
     require(['./components/pages/salary/salary.detail.vue.html'], spin.resolve(resolve))
 }
 
-const form_test = resolve => {
+const form_demo = resolve => {
     spin.show()
-    require(['./components/wrapper/TzSuperForm/FormTest.vue.html'], spin.resolve(resolve))
+    require(['./components/wrapper/TzSuperForm/Dev.vue.html'], spin.resolve(resolve))
 }
 
 const form_builder = resolve => {
@@ -35,7 +35,7 @@ const form_builder = resolve => {
     require(['./components/wrapper/TzSuperFormBuilder/index.vue.html'], spin.resolve(resolve))
 }
 
-const routes = [
+const routes: RouteConfig[] = [
     {
         path: '*',
         redirect: '/home'
@@ -43,8 +43,7 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        title: '登录',
-        component: login,
+        component: require('./components/pages/login/index.vue.html'),
         meta: {
             title: '登录'
         },
@@ -53,39 +52,38 @@ const routes = [
     {
         path: '/home',
         name: 'home',
-        title: '主页',
         component: require('./components/home/index.vue.html'),
         meta: {
+            title: '主页',
             requireAuth: true
         },
         children: [
             {
-                path: '', name: 'dashboard', title: '我的仪表盘', icon: 'fa fa-dashboard', component: { template: `<router-view></router-view>` },
+                path: '', name: 'dashboard', component: { template: `<router-view></router-view>` },
                 meta: {
                     breadcrumb: '我的仪表盘',
-                    title: '我的仪表盘'
+                    title: '我的仪表盘',
+                    icon: 'fa fa-dashboard'
                 },
                 children: [
                     {
                         path: '',
                         name: 'myhome',
-                        title: '我的首页',
-                        icon: 'fa fa-caret-right',
                         component: { template: `<router-view></router-view>` },
                         meta: {
                             breadcrumb: '我的首页',
+                            icon: 'fa fa-caret-right',
                             title: '我的首页'
                         },
                         children: [
                             {
                                 path: '',
                                 name: 'home_list',
-                                title: '我的首页',
-                                icon: 'fa fa-caret-right',
                                 component: home,
-                                isHidden: true,
                                 meta: {
                                     parent: 'myhome',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
                                     title: '我的首页'
                                 },
                             },
@@ -94,61 +92,116 @@ const routes = [
                 ]
             },
             {
-                path: '/salary', name: 'salary', title: '薪酬管理', icon: 'fa fa-money', component: { template: `<router-view></router-view>` },
+                path: '/building', name: 'building', component: { template: '<router-view></router-view>' },
+                meta: {
+                    breadcrumb: '我的产品',
+                    title: '我的产品',
+                    icon: 'fa fa-building',
+                },
+                children: [
+                    {
+                        path: '/products',
+                        name: 'products',
+                        component: { template: '<router-view></router-view>' },
+                        meta: {
+                            parent: 'building',
+                            title: '产品集',
+                            icon: 'fa fa-caret-right',
+                        },
+                        children: [
+                            {
+                                path: '',
+                                name: 'products_list',
+                                component: require("./components/pages/product/index.vue.html"),
+                                meta: {
+                                    parent: 'products',
+                                    title: '产品集',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        path: '/trash',
+                        name: 'trash',
+                        component: { template: '<router-view></router-view>' },
+                        meta: {
+                            parent: 'building',
+                            title: '回收站',
+                            icon: 'fa fa-caret-right',
+                        },
+                        children: [
+                            {
+                                path: '',
+                                name: 'trash_list',
+                                component: { template: "<span>未完成</span>" },
+                                meta: {
+                                    parent: 'trash',
+                                    title: '回收站',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                path: '/salary', name: 'salary', component: { template: `<router-view></router-view>` },
                 meta: {
                     breadcrumb: '薪酬管理',
                     title: '薪酬管理',
+                    icon: 'fa fa-money',
                     functionId: TzFunctionConst.SALARY_MANAGEMENT
                 },
                 children: [
                     {
                         path: '/basic',
                         name: 'basic',
-                        title: '基础数据',
-                        icon: 'fa fa-caret-right',
                         component: { template: `<router-view></router-view>` },
                         meta: {
                             breadcrumb: '基础数据',
                             title: '基础数据',
+                            icon: 'fa fa-caret-right',
                             functionId: TzFunctionConst.SALARY_BASIC
                         },
                         children: [
                             {
                                 path: '/parts',
                                 name: 'parts',
-                                title: '薪酬项',
-                                icon: 'fa fa-caret-right',
                                 component: { template: `<router-view></router-view>` },
                                 meta: {
                                     breadcrumb: '薪酬项',
                                     title: '薪酬项',
+                                    icon: 'fa fa-caret-right',
                                     functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
                                 },
                                 children: [
                                     {
                                         path: '',
                                         name: 'salary_parts_grid',
-                                        title: '列表',
-                                        icon: 'fa fa-caret-right',
-                                        isHidden: true,
                                         component: salary_grid,
                                         meta: {
                                             parent: 'parts',
                                             title: '薪酬项',
+                                            icon: 'fa fa-caret-right',
+                                            isHidden: true,
                                             functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
                                         }
                                     },
                                     {
                                         path: 'create',
                                         name: 'salary_parts_create',
-                                        title: '新增薪酬项',
-                                        icon: 'fa fa-caret-right',
-                                        isHidden: true,
                                         component: salary_create,
                                         meta: {
                                             breadcrumb: '新增薪酬项',
                                             parent: 'parts',
                                             title: '新增薪酬项',
+                                            icon: 'fa fa-caret-right',
+                                            isHidden: true,
                                             functionId: TzFunctionConst.SALARY_BASIC_SALARY_CREATE
                                         },
                                         props: (route) => ({ id: route.query.id })
@@ -156,14 +209,13 @@ const routes = [
                                     {
                                         path: 'edit',
                                         name: 'salary_parts_edit',
-                                        title: '编辑薪酬项',
-                                        icon: 'fa fa-caret-right',
-                                        isHidden: true,
                                         component: salary_create,
                                         meta: {
                                             breadcrumb: '编辑薪酬项',
                                             parent: 'parts',
                                             title: '编辑薪酬项',
+                                            icon: 'fa fa-caret-right',
+                                            isHidden: true,
                                             functionId: TzFunctionConst.SALARY_BASIC_SALARY_EDIT
                                         },
                                         props: (route) => ({ id: route.query.id })
@@ -171,14 +223,13 @@ const routes = [
                                     {
                                         path: 'detail',
                                         name: 'salary_parts_detail',
-                                        title: '薪酬项详情',
-                                        icon: 'fa fa-caret-right',
-                                        isHidden: true,
                                         component: salary_detail,
                                         meta: {
                                             breadcrumb: '薪酬项详情',
                                             parent: 'parts',
                                             title: '薪酬项详情',
+                                            icon: 'fa fa-caret-right',
+                                            isHidden: true,
                                             functionId: TzFunctionConst.SALARY_BASIC_SALARY_DETAIL
                                         },
                                         props: (route) => ({ id: route.query.id })
@@ -190,22 +241,37 @@ const routes = [
                 ]
             },
             {
-                path: '/test', name: 'test', title: '测试', icon: 'fa fa-suitcase', component: { template: `<router-view></router-view>` },
+                path: '/demo', name: 'demo', component: { template: `<router-view></router-view>` },
                 meta: {
-                    breadcrumb: '测试',
-                    title: '测试',
+                    breadcrumb: '案例',
+                    title: '案例',
+                    icon: 'fa fa-suitcase'
                 },
                 children: [
                     {
-                        path: '/form_test',
-                        name: 'form_test',
-                        title: '表单测试',
-                        icon: 'fa fa-caret-right',
-                        component: form_test,
+                        path: '/super_form',
+                        name: 'super_form',
+                        component: form_demo,
                         meta: {
-                            parent: 'test',
-                            title: '表单测试'
-                        }
+                            title: '表单',
+                            breadcrumb: '表单',
+                            parent: 'demo',
+                            icon: 'fa fa-caret-right',
+                        },
+                        children: [
+                            {
+                                path: '',
+                                name: 'super_form_page',
+                                component: { template: "<span>未完成</span>" },
+                                meta: {
+                                    parent: 'super_form',
+                                    title: '表单',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
+                                }
+                            }
+                        ]
                     },
                 ]
             },
@@ -214,13 +280,13 @@ const routes = [
     {
         path: '/form',
         name: 'form',
-        title: '表单设计器',
-        icon: 'fa fa-building',
-        isHidden: true,
-        meta: {
-            title: '表单设计器'
-        },
         component: form_builder,
+        meta: {
+            title: '表单设计器',
+            breadcrumb: '表单生成器',
+            icon: 'fa fa-building',
+            isHidden: true,
+        }
     }
 ]
 

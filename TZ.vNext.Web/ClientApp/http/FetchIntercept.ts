@@ -25,6 +25,9 @@ export default {
             },
 
             response: function (response) {
+                if (response.status === 401) {
+                    clearAuth()
+                }
                 // Modify the response object
                 return response;
             },
@@ -54,5 +57,5 @@ function responseError(error) {
 function clearAuth() {
     const cache = new StoreCache("auth");
     cache.clear();
-    window.location.href = "/";
+    window.location.href = "/login";
 }

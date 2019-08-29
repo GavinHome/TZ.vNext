@@ -24,6 +24,12 @@ export default class HomeComponent extends Vue {
     }
 
     goto(block: IBacklogBlock) {
-        this.$router.push({ path: "/backlogs/" + block.ModuleName, query: {} });
+        this.$router.push({ path: "/backlogs/" + block.ModuleName, query: { processDefName: block.ProcessDefName } });
+    }
+
+    get getDay() {
+        var day = new Date().getDay();
+        var days = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+        return days[day];
     }
 }

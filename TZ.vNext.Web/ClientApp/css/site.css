@@ -328,7 +328,31 @@ i.small {
     border-color: #d15b47 !important;
 }
 
+.c-grid-menu-Download {
+    color: #fff !important;
+    background-color: #5cb85c !important;
+    border-color: #4cae4c !important;
+}
+
 .c-grid-menu-ReportGenerate {
+    color: #fff !important;
+    background-color: #F0B203 !important;
+    border-color: #F0B203 !important;
+}
+
+.c-grid-menu-Yes {
+    color: green !important;
+    background-color: #ddd !important;
+    border-color: #ddd !important;
+}
+
+.c-grid-menu-No {
+    color: #777 !important;
+    background-color: #aaa !important;
+    border-color: #aaa !important;
+}
+
+.c-grid-menu-Recover {
     color: #fff !important;
     background-color: #F0B203 !important;
     border-color: #F0B203 !important;
@@ -339,7 +363,6 @@ i.small {
     background-color: #93DEF2 !important;
     border-color: #93DEF2 !important;
 }
-
 /* .k-grid tr:nth-of-type(even) {
   background-color: #f5f5f5;
 } */
@@ -535,10 +558,53 @@ i.small {
     height: 36px;
 }
 
-/* .el-scrollbar{
-  height: 450px;
-} */
-
-.el-scrollbar__wrap {
-  overflow-x: hidden;
+.el-scrollbar {
+    height: 100%;
 }
+
+.tz-organization-tree .el-scrollbar {
+    height: 450px;
+}
+
+.tz-organization-tree .el-scrollbar__wrap {
+    overflow-x: hidden;
+}
+
+/*.el-scrollbar__wrap {
+  overflow-x: hidden;
+}*/
+
+
+/*common*/
+.of-hidden{
+    overflow: hidden;
+}
+
+/*reddot*/
+.reddot:after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    padding: 2px;
+    z-index: 9999999;
+    /*background: #d9534f;*/
+    background: red;
+    border-radius: 50%;
+    font-size: 0;
+    line-height: 0;
+    /*border: 1px solid #d43f3a;*/
+    border: 1px solid red;
+}
+
+.mark-highlight2 td{
+  background: rgb(231, 235, 185) !important;
+}
+
+.mark-highlight1 td{
+  background: rgb(196, 201, 126) !important;
+}
+
+.mark-highlight0 td{
+  background: rgb(238, 177, 177) !important;
+}
+
