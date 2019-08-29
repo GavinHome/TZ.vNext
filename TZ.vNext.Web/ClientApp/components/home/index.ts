@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import { Main, Aside, Container, Header, Dropdown, DropdownItem, Table, TableColumn, Footer } from 'element-ui'
+import { Main, Aside, Container, Header, Dropdown, DropdownItem, Table, TableColumn, Footer, Scrollbar } from 'element-ui'
 
 Vue.use(Main)
 Vue.use(Aside)
@@ -12,6 +12,7 @@ Vue.use(DropdownItem)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Footer)
+Vue.use(Scrollbar)
 
 @Component({
     components: {

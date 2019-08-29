@@ -6,7 +6,11 @@ import UpdateLog from "../home/updatelog";
 
 var cache = new StoreCache('auth')
 
-@Component
+@Component({
+    components: {
+        UpdateLog: require("../home/updatelog.vue.html")
+    }
+})
 export default class NavbarComponent extends Vue {
 
     get userName() {

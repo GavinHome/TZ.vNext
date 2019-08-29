@@ -2,41 +2,40 @@
     <div class="navbar navbar-default">
         <div class="navbar-container" id="navbar-container">
             <div class="navbar-header pull-left">
-                <div id="logo" style="width: 420px; margin-top: -6px; margin-bottom: -1px;">
+                <div id="logo" style="width: 420px; margin-top: 6px;">
                     <a href="/Home/MyHome">
-                        <img src="../../asserts/logo.png" style="border: 0;">
+                        <img src="../../asserts/logo.png" style="border: 0;height: 48px;">
                     </a>
                 </div>
             </div>
             <div class="navbar-header pull-right" role="navigation">
-                <ul class="nav nav-top">
-                    <li class="grey">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="help" title="帮助">
+                <ul class="navTop">
+                    <li>
+                        <a class="dropdown-toggle" :href="'/static/天职咨询薪酬系统操作手册.pdf'" title="帮助" target="_blank">
                             <i class="fa fa-question-circle-o"></i>
                         </a>
                     </li>
-                    <li class="purple">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" title="更新通知" onclick="showUpldateLog">
+                    <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle reddot" href="#" title="更新日志" @click.prevent="showUpldateLog">
                             <i class="fa fa-bell-o"></i>
                         </a>
                     </li>
-                    <li class="green">
+                    <li>
                         <a class="dropdown-toggle" href="http://mm.263.com" target="_blank" title="邮件">
                             <i class="fa fa-envelope"></i>
                         </a>
                     </li>
-                    <li class="light-blue">
+                    <li>
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                             <span class="user-info">
                                 <small>欢迎,</small>
                                 {{ userName}}
                             </span>
-                            <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-chevron-down" aria-hidden="true" style="font-size: 12px;"></i>
                         </a>
                         <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li class="divider"></li>
                             <li>
-                                <a @click.prevent="logout">
+                                <a href="#" @click.prevent="logout">
                                     <i class="fa fa-power-off"></i>退出 
                                 </a>
                             </li>
@@ -48,7 +47,7 @@
     </div>
 </template>
 
-<script src="./navbar.ts" />
+<script src="./navbar.ts"></script>
 
 <style>
     .navbar {
@@ -63,7 +62,7 @@
         padding-right: 0;
         min-height: 45px;
         position: relative;
-        background: #438eb9;
+        background: #00A0FF;
         height: 100%;
     }
 
@@ -72,11 +71,35 @@
         padding-right: 20px;
     }
 
-    .nav.nav-top>li {
-        border-left: 1px solid #DDD;
+    .navTop>li {
         float: left;
-        line-height: 46px;
-        height: 46px;
+        line-height: 66px;
+        width:60px;
+        height: 60px;
+        list-style: none;
+        text-align: center;
+    }
+    .navTop>li:last-child{
+        width: 120px;
+    }
+    .navTop>li>a{
+        display: block;
+        height: 100%;
+        width: auto;
+    }
+    .navTop>li>a:hover{
+        background-color: #0092e9;
+    } 
+    .navTop>li>a:focus{
+        background-color: #0092e9;
+    }  
+    .navTop>li>a>[class*="fa-"] {
+        font-size: 20px;
+        color: #FFF;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+        opacity: 0.8;
     }
     .user-info {
         max-width: 100px;
@@ -88,23 +111,35 @@
         vertical-align: top;
         line-height: 15px;
         position: relative;
-        top: 6px;
+        top: 14px;
+        color: #FFF;
     }
-
+    .user-info>small{
+        color: #afe1fe;
+    }
     .user-info small {
         display: block;
+        margin-bottom: 3px;
     }
-
-    .nav>li>a>[class*="fa-"] {
-        font-size: 16px;
-        color: #FFF;
+    .navbar-header .user-menu{
+        right: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin: 0; 
+        border: 0;
+    }
+    .navbar-header .user-menu::after{
+        border-bottom: 6px solid #fff;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        content: "";
         display: inline-block;
-        width: 20px;
-        text-align: center;
+        right: 10px;
+        position: absolute;
+        top: -6px
     }
-
     .user-menu>li>a>[class*="fa-"] {
-    margin-right: 6px;
-    font-size: 120%;
-}
+        margin-right: 6px;
+        font-size: 120%;
+        padding: 10px;
+    }
 </style>

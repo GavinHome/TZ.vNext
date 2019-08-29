@@ -1,48 +1,16 @@
 <template>
     <div class="update">
         <h1>更新日志</h1>
-        <h5 style="color: #0188ca;margin-top:30px">版本：%BUILDNUMBER%（2019-08-09）</h5>
-        <h6 style="margin-top:20px">功能优化：</h6>
-        <p style="line-height: 1.5;">1.待办改派后审核历史处显示实际待审核人;</p>
-        <p style="line-height: 1.5;">2.区域薪酬岗审核流程从五险一金模块同步五险一金数据;</p>
-        <p style="line-height: 1.5;">3.五险一金：员工编号、名字前后空格处理；所有金额均可以有负值;</p>
-        <p style="line-height: 1.5;">4.新增薪酬项：薪资缓发、入职日期、离职日期、手机号码、员工状态、银行卡、开户行、个人电脑补贴;</p>
-        <p style="line-height: 1.5;">5.财务测税导入增加身份证号，法人机构，金额，账号，财务薪酬岗导入时候以身份证号 + 法人机构做校验;</p>
-        <p style="line-height: 1.5;">6.电脑补贴修改为协议电脑补贴，区域岗新增加导入个人电脑补贴，话费、协议电脑补贴在算薪流程中可修改;</p>
-        <p style="line-height: 1.5;">7.薪酬计算法定工作日21.75相关修改（模板）;</p>
-        <p style="line-height: 1.5;">8.基本月薪、基本补助、工时积分工资、高生活成本四项值乘系数；月薪小计应精确到十位；其余金额保留两位;</p>
-        <p style="line-height: 1.5;">9.管理层不统计工时漏填；客户端token失效时间改为1小时;</p>
-        <p style="line-height: 1.5;">10.不算薪机构：天职信息、苏州作业中心、西安作业中心、长沙作业中心、郑州作业中心;</p>
-        <p style="line-height: 1.5;">11.离职中/离职的人员列表显示高亮，各地区域岗位，可以（逻辑删除） 某个人的薪资记录;</p>
-        <p style="line-height: 1.5;">12.扣款天数 >= 20 高亮，高亮规则： 驳回>离职>天数;</p>
-        <p style="line-height: 1.5;">13.薪酬报表页：添加月份范围：可选时间区间  年月 ~ 年月，导出修改;</p>
-        <p style="line-height: 1.5;">14.薪酬报表：月份、身份证、员工状态、岗位、地区、法人机构、算薪机构、薪档代码、薪档系数、备注、五险一金缴纳地;</p>
-        <p style="line-height: 1.5;">15.新增代发报表导出功能（导出代发报表）</p>
-        <p style="line-height: 1.5;">16.总部标记修改后的记录写意见，区域根据标记进行修改，修改（导入）完成后行高亮;</p>
-        <p style="line-height: 1.5;">17.挂靠为D类，系统中添加增加D类员工的功能；薪酬模板添加D类员工计算模板;</p>
-        <p style="line-height: 1.5;">18.不发工资的账号去除算薪机构,不能进入算薪；算薪流程发起时间修改为4号凌晨4点;</p>
-        <p style="line-height: 1.5;">19.财务测税待办合并;</p>
-        <p style="line-height: 1.5;">20.其他已知问题优化;</p>
-        <p></p>
 
-        <h5 style="color: #0188ca;margin-top:30px">版本：1.0.0.722（2019-05-23）</h5>
-        <h6 style="margin-top:20px">功能优化：</h6>
-        <p style="line-height: 1.5;">1.增加操作手册;</p>
-        <p></p>
+        <h5 style="color: #0188ca;margin-top:30px">版本：1.0.0.722（2019-08-29）</h5>
 
-        <h5 style="color: #0188ca;margin-top:20px">版本：1.0.0.711（2019-05-22）</h5>
-        <h6 style="margin-top:20px">功能优化：</h6>
-        <p style="line-height: 1.5;">增加更新日志;</p>
-        <p></p>
-
-        <h5 style="color: #0188ca;margin-top:20px">版本：1.0.0.706（2019-05-17）</h5>
         <h6 style="margin-top:20px">新增功能：</h6>
-        <p style="line-height: 1.5">1.薪酬基础数据：薪档基数数据，员工薪档历史，五险一金（法人主体的五险一金管理岗），薪酬项，薪酬模板;</p>
-        <p style="line-height: 1.5">2.每月1日生成话费及补贴待办;</p>
-        <p style="line-height: 1.5">3.每月5日发起薪酬计划：自动进行薪酬计算，并下发到区域薪酬管理岗;</p>
-        <p style="line-height: 1.5">4.话费及电脑补贴流程：总部人力薪酬岗和总部行政薪酬岗会签审核;</p>
-        <p style="line-height: 1.5">5.薪酬计划流程：区域薪酬岗（导入数据）->总部薪酬岗（薪酬确认）->总部财务薪酬岗审核（导入个税）;</p>
-        <p style="line-height: 1.5">6.薪酬管理报表：薪酬报表（导出）、薪酬查看（明细）;</p>
+        <p style="line-height: 1.5">1.增加更新日志;</p>
+        <p style="line-height: 1.5">2.增加案例超级表单;</p>
+        <p></p>
+        <h6 style="margin-top:20px">功能优化：</h6>
+        <p style="line-height: 1.5;">1.优化表单样式;</p>
+        <p style="line-height: 1.5;">2.其他已知问题优化;</p>
         <p></p>
     </div>
 </template>
