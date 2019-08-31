@@ -52,13 +52,14 @@ export default class Product extends Vue {
             index: 2
         },
         {
-            field: "LastUpldateAt",
+            field: "UpdateAt",
             title: "最后修改时间",
             filterable: true,
             sortable: true,
             editable: false,
             menu: true,
-            type: FieldTypeEnum.Enums,
+            type: FieldTypeEnum.Date,
+            format: "{0:yyyy-MM-dd HH:mm:ss}",
             width: "25%",
             index: 3
         },
@@ -141,7 +142,8 @@ export default class Product extends Vue {
             Id: '', Name: '未命名产品', Description: '未命名产品', CreateByName: '王麻子'
         }).then((data: any) => {
             if (data && data.Id != null) {
-                this.$router.push({ path: "/product/processing", query: { id: data.Id } });
+                //this.$router.push({ path: "/product/processing", query: { id: data.Id } });
+                kendoExtensions.onRefresh(this.$refs.grid)
             } else {
                 Message.error(TzMessageConst.SAVE_FAIL_MESSAGE)
             }
@@ -163,11 +165,10 @@ export default class Product extends Vue {
     delete(e) {
         var data = { id: kendoExtensions.getRowData(e).Id };
         var url = TzApiConst.PRODUCT_DISABLE;
-        var message = TzMessageConst.DELETE_CONFIRM_MESSAGE + kendoExtensions.getRowData(e).Name + TzMessageConst.SYMBOL_QUESTIONMARK;
-        new TzConfirm().enable(url, message, TzMessageConst.DELETE_MESSAGE, data).then(res => {
+        new TzConfirm().delete(url, data).then(res => {
             kendoExtensions.onRefresh(this.$refs.grid)
         }).catch(e => {
-            Message.error(TzMessageConst.ENABLE_FAIL_MESSAGE)
+            Message.error(TzMessageConst.DELETE_FAIL_MESSAGE)
         })
     }
 }

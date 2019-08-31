@@ -91,8 +91,9 @@ export const TzApiConst = {
 
     PRODUCT_GRID_QUERY: "/api/Product/GridQueryProducts",
     PRODUCT_SAVE: "/api/Product/Save",
-    PRODUCT_ENABLE: "/api/Salary/Enable",
-    PRODUCT_DISABLE: "/api/Salary/Disable",
+    PRODUCT_ENABLE: "/api/Product/Enable",
+    PRODUCT_DISABLE: "/api/Product/Disable",
+    PRODUCT_FINDBYID: "/api/Product/FindById",
 
     CODE_TREE: "/api/Codes/TreeQueryCodes",
 

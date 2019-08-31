@@ -1,0 +1,10 @@
+<template>
+    <tz-super-form :form="data.form" :form-data="data.formData" :label-width="data.labelWidth" :rules="data.rules"
+        :request-fn="handleSubmit" @request-success="handleSuccess" @request-error="handleError"
+        @request-end="handleEnd" :isHideSubmitBtn="data.isHideSubmitBtn" :isHideBackBtn="data.isHideBackBtn"
+        :submitBtnText="data.submitBtnText" :backBtnText="data.backBtnText"
+        :isCustomHandleRequest="data.isCustomHandleRequest" :isAutoHandlePost="data.isAutoHandlePost"
+        :action="data.action" :single="data.single"></tz-super-form>
+</template>
+
+<script src="./product.detail.ts"></script>

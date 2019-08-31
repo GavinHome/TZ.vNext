@@ -29,9 +29,8 @@ namespace TZ.vNext.Model.Mongo.Entity
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public virtual DateTime CreateAt { get; set; }
 
-        [BsonRepresentation(BsonType.DateTime)]
-        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        public virtual DateTime UpdateAt { get; set; }
+        [BsonRepresentation(BsonType.String)]
+        public virtual string CreateBy { get; set; }
 
         /// <summary>
         /// 额外元素，所有未包含在映射中元素会存在于此,类型可以为：IDictionary_string, object 或 BsonDocument

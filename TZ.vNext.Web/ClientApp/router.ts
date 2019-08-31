@@ -35,6 +35,16 @@ const form_builder = resolve => {
     require(['./components/wrapper/TzSuperFormBuilder/index.vue.html'], spin.resolve(resolve))
 }
 
+const processing = resolve => {
+    spin.show()
+    require(['./components/pages/product/processing.vue.html'], spin.resolve(resolve))
+}
+
+const product_view = resolve => {
+    spin.show()
+    require(['./components/pages/product/product.detail.vue.html'], spin.resolve(resolve))
+}
+
 const routes: RouteConfig[] = [
     {
         path: '*',
@@ -118,7 +128,18 @@ const routes: RouteConfig[] = [
                                     title: '产品集',
                                     icon: 'fa fa-caret-right',
                                     isHidden: true,
-                                    functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
+                                }
+                            },
+                            {
+                                path: '/product/view',
+                                name: 'products_view',
+                                component: product_view,
+                                meta: {
+                                    parent: 'products',
+                                    title: '产品集',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    props: (route) => ({ id: route.query.id })
                                 }
                             }
                         ]
@@ -291,13 +312,14 @@ const routes: RouteConfig[] = [
     {
         path: '/processing',
         name: 'processing',
-        component: form_builder,
+        component: processing,
         meta: {
             title: '设计器',
             breadcrumb: '生成器',
             icon: 'fa fa-building',
             isHidden: true,
-        }
+        },
+        props: (route) => ({ id: route.query.id })
     }
 ]
 

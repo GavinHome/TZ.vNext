@@ -16,17 +16,12 @@ namespace TZ.vNext.Model
     /// 薪酬项
     /// </summary>
     [Table("Product_Info")]
-    public class Product : MongoDbEntity
+    public class Product : MongoDbEntityWithUpdateAndByName
     {
         /// <summary>
         /// 名称
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// 创建者姓名
-        /// </summary>
-        public string CreateByName { get; set; }
 
         /// <summary>
         /// 说明

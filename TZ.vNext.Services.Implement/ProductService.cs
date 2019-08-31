@@ -14,6 +14,7 @@ using TZ.vNext.Core.Enum;
 using TZ.vNext.Core.Utility;
 using TZ.vNext.Database.Contracts;
 using TZ.vNext.Model;
+using TZ.vNext.Model.Mongo;
 using TZ.vNext.Services.Contracts;
 using TZ.vNext.ViewModel;
 
@@ -48,13 +49,19 @@ namespace TZ.vNext.Services.Implement
         public async Task<ProductInfo> Save(ProductInfo info)
         {
             GuardUtils.NotNull(info, nameof(info));
-            var model = info.ToModel<Product>();
-            if (info.Id != string.Empty)
+            Product model = info.Id != string.Empty ? await _productDb.GetAsync<Product>(info.Id) : null;
+            if (model != null)
             {
+                model.Name = model.Name;
+                model.CreateByName = model.CreateByName;
+                model.Description = model.Description;
+                model.SetEntityPrincipal(info.User);
                 model = await _productDb.UpdateAsync<Product>(model);
             }
             else
             {
+                model = info.ToModel<Product>();
+                model.SetEntityPrincipal(info.User);
                 model = await _productDb.SaveAsync<Product>(model);
             }
 
