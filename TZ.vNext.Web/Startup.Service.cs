@@ -58,7 +58,7 @@ namespace TZ.vNext.Web
 
         private static void ConfigureDomainService(IServiceCollection services)
         {
-            var servContracts = System.Reflection.Assembly.GetAssembly(typeof(ISalaryService)).GetTypes().Where(x => x.IsInterface && x.FullName.EndsWith("Service")).ToList();
+            var servContracts = System.Reflection.Assembly.GetAssembly(typeof(IProductService)).GetTypes().Where(x => x.IsInterface && x.FullName.EndsWith("Service")).ToList();
             var servImplements = System.Reflection.Assembly.GetAssembly(typeof(SalaryService)).GetTypes().Where(x => x.IsClass && x.FullName.EndsWith("Service")).ToList();
             foreach (var contract in servContracts)
             {

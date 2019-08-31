@@ -25,6 +25,9 @@ namespace TZ.vNext.ViewModel
                 cfg.CreateMap<AttachmentInfo, Attachment>().ConvertUsing<AttachmentConverter>();
                 cfg.CreateMap<Salary, SalaryInfo>();
                 cfg.CreateMap<SalaryInfo, Salary>();
+
+                cfg.CreateMap<Product, ProductInfo>();
+                cfg.CreateMap<ProductInfo, Product>();
             });
 
             _mapper = config.CreateMapper();

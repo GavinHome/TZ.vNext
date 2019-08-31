@@ -70,7 +70,7 @@ var kendoExtensions = {
     },
     onSearch: function (dataSource: any, schema: any, textSearch: string) {
         let filter = this.onRequest(schema, textSearch)
-        if (dataSource) {
+        if (dataSource && dataSource.kendoDataSource) {
             dataSource.kendoDataSource.filter(filter.filter)
         }
     },

@@ -31,6 +31,11 @@ namespace TZ.vNext.ViewModel
             return meduIdListGenerator(model).Select(x => x.ToString()).ToList();
         }
 
+        public static IList<string> GetMongoViewMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : MongoBaseInfo
+        {
+            return meduIdListGenerator(model).Select(x => x.ToString()).ToList();
+        }
+
         public static List<AttachmentInfo> GetUploadFile(this ICache cache, string controlId)
         {
             if (cache.TryGetValue(Core.Const.CommonConstant.AttachmentCacheName, out object cacheFiles))
@@ -97,6 +102,13 @@ namespace TZ.vNext.ViewModel
             return model;
         }
 
+        public static TViewModel SetMongoMenus<TViewModel>(this TViewModel model, IList<string> menus) where TViewModel : MongoBaseInfo
+        {
+            GuardUtils.NotNull(model, nameof(model));
+            model.Menus = menus;
+            return model;
+        }
+
         public static TViewModel SetMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : BaseInfo
         {
             GuardUtils.NotNull(model, nameof(model));
@@ -104,9 +116,27 @@ namespace TZ.vNext.ViewModel
             return model;
         }
 
+        public static TViewModel SetMongoMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : MongoBaseInfo
+        {
+            GuardUtils.NotNull(model, nameof(model));
+            model.Menus = model.GetMongoViewMenus(meduIdListGenerator);
+            return model;
+        }
+
         public static TModel ToModel<TModel>(this BaseInfo model) where TModel : class, IEntitySet
         {
             TModel t = Mapping.Default<BaseInfo, TModel>(model);
+            if (model != null && t != null)
+            {
+                t.SetEntityPrincipal(model.User);
+            }
+
+            return t;
+        }
+
+        public static TModel ToModel<TModel>(this MongoBaseInfo model) where TModel : class, IEntitySet
+        {
+            TModel t = Mapping.Default<MongoBaseInfo, TModel>(model);
             if (model != null && t != null)
             {
                 t.SetEntityPrincipal(model.User);

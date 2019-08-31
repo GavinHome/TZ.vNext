@@ -287,6 +287,17 @@ const routes: RouteConfig[] = [
             icon: 'fa fa-building',
             isHidden: true,
         }
+    },
+    {
+        path: '/processing',
+        name: 'processing',
+        component: form_builder,
+        meta: {
+            title: '设计器',
+            breadcrumb: '生成器',
+            icon: 'fa fa-building',
+            isHidden: true,
+        }
     }
 ]
 

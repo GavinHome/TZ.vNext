@@ -89,6 +89,11 @@ export const TzApiConst = {
     SALARY_CHECKNAME: "/api/Salary/CheckName",
     SALARY_SAVE: "/api/Salary/Save",
 
+    PRODUCT_GRID_QUERY: "/api/Product/GridQueryProducts",
+    PRODUCT_SAVE: "/api/Product/Save",
+    PRODUCT_ENABLE: "/api/Salary/Enable",
+    PRODUCT_DISABLE: "/api/Salary/Disable",
+
     CODE_TREE: "/api/Codes/TreeQueryCodes",
 
     TOKEN: "/api/token"
