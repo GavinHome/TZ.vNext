@@ -191,3 +191,15 @@ export interface TzSuperDataSourceSchema {
     url?: string;
     metaUrl: string;
 }
+
+export interface TzSuperFormAttrSchema {
+    labelWidth: string,
+    isHideSubmitBtn: boolean,
+    isHideBackBtn: boolean,
+    submitBtnText: string,
+    backBtnText: string,
+    isCustomHandleRequest: boolean,
+    isAutoHandlePost: boolean,
+    action: string,
+    single: boolean
+}

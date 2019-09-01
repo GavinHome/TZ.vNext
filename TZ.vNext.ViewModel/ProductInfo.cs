@@ -8,6 +8,8 @@
 //-----------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+using MongoDB.Bson;
 using TZ.vNext.Core.Enum;
 using TZ.vNext.Core.Extensions;
 using TZ.vNext.Model.Enum;
@@ -48,5 +50,10 @@ namespace TZ.vNext.ViewModel
         /// 更新时间
         /// </summary>
         public DateTime? UpdateAt { get; set; }
+
+        /// <summary>
+        /// 内容数据
+        /// </summary>
+        public dynamic ContentData { get; set; }
     }
 }

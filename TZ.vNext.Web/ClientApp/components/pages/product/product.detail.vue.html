@@ -1,10 +1,13 @@
 <template>
-    <tz-super-form :form="data.form" :form-data="data.formData" :label-width="data.labelWidth" :rules="data.rules"
-        :request-fn="handleSubmit" @request-success="handleSuccess" @request-error="handleError"
-        @request-end="handleEnd" :isHideSubmitBtn="data.isHideSubmitBtn" :isHideBackBtn="data.isHideBackBtn"
-        :submitBtnText="data.submitBtnText" :backBtnText="data.backBtnText"
-        :isCustomHandleRequest="data.isCustomHandleRequest" :isAutoHandlePost="data.isAutoHandlePost"
-        :action="data.action" :single="data.single"></tz-super-form>
+    <tz-super-form :form="model.ContentData.form" :form-data="model.ContentData.formData" :rules="model.ContentData.rules"
+        :label-width="model.ContentData.formAttr.labelWidth" :request-fn="handleSubmit" @request-success="handleSuccess"
+        @request-error="handleError" @request-end="handleEnd"
+        :isHideSubmitBtn="model.ContentData.formAttr.isHideSubmitBtn"
+        :isHideBackBtn="model.ContentData.formAttr.isHideBackBtn"
+        :submitBtnText="model.ContentData.formAttr.submitBtnText" :backBtnText="model.ContentData.formAttr.backBtnText"
+        :isCustomHandleRequest="model.ContentData.formAttr.isCustomHandleRequest"
+        :isAutoHandlePost="model.ContentData.formAttr.isAutoHandlePost" :action="model.ContentData.formAttr.action"
+        :single="model.ContentData.formAttr.single"></tz-super-form>
 </template>
 
 <script src="./product.detail.ts"></script>

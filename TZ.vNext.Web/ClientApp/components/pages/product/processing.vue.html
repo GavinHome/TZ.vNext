@@ -1,5 +1,14 @@
 <template>
-    <tz-super-form-builder ref="builder"></tz-super-form-builder>
+    <div>
+        <tz-super-form-builder ref="builder">
+            <template slot="header">
+                <div style="padding: 15px;">
+                    <span>{{status}}</span>
+                    <el-button type="info" size="small" @click="back">返回</el-button>
+                </div>
+            </template>
+        </tz-super-form-builder>
+    </div>
 </template>
 
 <script src="./processing.ts"></script>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { Component, Prop, Watch } from 'vue-property-decorator';
-import { TzSuperFormGroup, TzSuperFormField, getFormDesc } from "../TzSuperForm/schema/TzSuperFormSchema";
+import { TzSuperFormGroup, TzSuperFormField, getFormDesc, TzSuperFormAttrSchema } from "../TzSuperForm/schema/TzSuperFormSchema";
 import 'element-ui/lib/theme-chalk/index.css';
 import { Container, Aside, Header, Main, TabPane, Tabs, Dialog, Button } from 'element-ui';
 import Guid from "../../common/Guid";
@@ -57,7 +57,7 @@ export default class TzSuperFormBuilder extends Vue {
     isPreview: boolean = false
     form_init_data: any = []
     isInitData: boolean = false
-    formCodeEditor :any = this.form
+    formCodeEditor: any = this.form
 
     get formData() {
         var desc = getFormDesc(this.form)
@@ -295,7 +295,7 @@ export default class TzSuperFormBuilder extends Vue {
     handleRequest(response) {
         console.log("handleRequest" + response)
         this.$message.success('自定义处理')
-        
+
         TzFetch.Post(this.formAttr.action, this.formData).then((data: any) => {
             if (data) {
                 this.$message.error("自定义提交成功")
@@ -311,5 +311,13 @@ export default class TzSuperFormBuilder extends Vue {
         this.$on("formChanged", () => {
             (this.$refs.codeEditor as any).editor.update(this.form)
         })
+    }
+
+    setForm(form: TzSuperFormGroup[], formData: any, rules: any, formAttr: TzSuperFormAttrSchema) {
+        //throw new Error("Method not implemented.");
+        this.form = form;
+        //this.formData = formData;
+        this.rules = rules;
+        this.formAttr = formAttr;
     }
 }

@@ -135,12 +135,13 @@ const routes: RouteConfig[] = [
                                 name: 'products_view',
                                 component: product_view,
                                 meta: {
+                                    breadcrumb: '详情',
                                     parent: 'products',
-                                    title: '产品集',
+                                    title: '详情',
                                     icon: 'fa fa-caret-right',
-                                    isHidden: true,
-                                    props: (route) => ({ id: route.query.id })
-                                }
+                                    isHidden: true
+                                },
+                                props: (route) => ({ id: route.query.id })
                             }
                         ]
                     },

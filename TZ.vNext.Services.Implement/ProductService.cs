@@ -52,9 +52,9 @@ namespace TZ.vNext.Services.Implement
             Product model = info.Id != string.Empty ? await _productDb.GetAsync<Product>(info.Id) : null;
             if (model != null)
             {
-                model.Name = model.Name;
-                model.CreateByName = model.CreateByName;
-                model.Description = model.Description;
+                model.Name = info.Name;
+                model.Description = info.Description;
+                model.Content = info.ContentData != null ? MongoDB.Bson.BsonDocument.Parse(info.ContentData.ToString()) : null;
                 model.SetEntityPrincipal(info.User);
                 model = await _productDb.UpdateAsync<Product>(model);
             }

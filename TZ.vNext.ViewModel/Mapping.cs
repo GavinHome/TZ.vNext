@@ -27,7 +27,7 @@ namespace TZ.vNext.ViewModel
                 cfg.CreateMap<SalaryInfo, Salary>();
 
                 cfg.CreateMap<Product, ProductInfo>();
-                cfg.CreateMap<ProductInfo, Product>();
+                cfg.CreateMap<ProductInfo, Product>().ForMember(p => p.ContentData, opt => opt.Ignore());
             });
 
             _mapper = config.CreateMapper();

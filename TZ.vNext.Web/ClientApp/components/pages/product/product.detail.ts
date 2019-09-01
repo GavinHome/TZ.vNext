@@ -1,10 +1,14 @@
 import Vue from "vue";
-import { Component, Prop, Model } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 import { TzFetch } from "../../common/TzFetch";
 import { TzApiConst, TzMessageConst } from "../../common/TzCommonConst";
-import { TzSuperFormGroup } from "../../wrapper/TzSuperForm/schema/TzSuperFormSchema";
 import { Product } from "../../model/Product";
-import { Message } from "element-ui"
+import { Message } from "element-ui";
+import 'element-ui/lib/theme-chalk/index.css'
+import ElementUI from 'element-ui'
+import { FieldTypeEnum, EnumHelper, EnumConstType } from "../../common/Enums";
+import { TzSuperFormType, TzSuperFormGroup } from "../../wrapper/TzSuperForm/schema/TzSuperFormSchema";
+Vue.use(ElementUI)
 
 @Component({
     props: ["id"],
@@ -15,11 +19,7 @@ import { Message } from "element-ui"
 export default class ProductDetail extends Vue {
     @Prop() id!: string
 
-    model!: Product
-
-    get data() {
-        return this.model ? this.model.Content : null
-    }
+    model: Product = {}
 
     created() {
         if (this.id) {
@@ -34,5 +34,31 @@ export default class ProductDetail extends Vue {
                 Message.error(TzMessageConst.DATA_FAIL_MESSAGE)
             });
         }
+    }
+
+    handleSubmit(data) {
+        console.log("submit：" + data)
+        this.$message.success(JSON.stringify(data))
+        return Promise.resolve(data)
+    }
+
+    handleSuccess(response) {
+        console.log("success" + response)
+        this.$message.success('创建成功')
+    }
+
+    handleError(response) {
+        console.log("error" + response)
+        this.$message.success('创建失败')
+    }
+
+    handleEnd(response) {
+        console.log("end: " + response)
+        this.$message.success('处理结束')
+    }
+
+    handleRequest(response) {
+        console.log("handleRequest" + response)
+        this.$message.success('自定义处理')
     }
 }

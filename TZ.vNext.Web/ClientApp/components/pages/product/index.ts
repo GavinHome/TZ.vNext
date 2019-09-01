@@ -16,7 +16,7 @@ Vue.use(Button);
         TzGridDynamic: require("../../wrapper/TzGridDynamic.vue.html")
     }
 })
-export default class Product extends Vue {
+export default class ProductIndex extends Vue {
     columnsData: GridColumnSchema[] = [
         {
             field: "RowNumber",
@@ -139,7 +139,7 @@ export default class Product extends Vue {
 
     create() {
         TzFetch.Post(TzApiConst.PRODUCT_SAVE, {
-            Id: '', Name: '未命名产品', Description: '未命名产品', CreateByName: '王麻子'
+            Id: '', Name: '未命名产品', Description: '未命名产品'
         }).then((data: any) => {
             if (data && data.Id != null) {
                 //this.$router.push({ path: "/product/processing", query: { id: data.Id } });

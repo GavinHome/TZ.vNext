@@ -7,7 +7,10 @@
 // <description></description>
 //-----------------------------------------------------------------------------------
 
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using TZ.vNext.Model.Mongo.Entity;
 
 namespace TZ.vNext.Model
@@ -27,5 +30,22 @@ namespace TZ.vNext.Model
         /// 说明
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// 内容
+        /// </summary>
+        public BsonDocument Content { get; set; }
+
+        /// <summary>
+        /// 内容json
+        /// </summary>
+        [BsonIgnore]
+        public dynamic ContentData
+        {
+            get
+            {
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(Content.ToJson());
+            }
+        }
     }
 }
