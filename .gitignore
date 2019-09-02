@@ -131,6 +131,5 @@ TZ.vNext.Core/.DS_Store
 TZ.vNext.Bps/.DS_Store
 
 .vs
-.vscode
 .sonarlint
 .sonarqube
