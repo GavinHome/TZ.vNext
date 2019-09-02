@@ -36,28 +36,23 @@ export default class CustomComponent extends Vue {
     labelWidth: number = %4
 
     handleSubmit(data) {
-        console.log(data)
         //return Promise.resolve(data)
         return TzFetch.Post("%5", this.formData)
     }
 
     handleSuccess(response) {
-        console.log(response)
         this.$message.success('创建成功')
     }
 
     handleError(response) {
-        console.log(response)
         this.$message.success('失败')
     }
 
     handleEnd(response) {
-        console.log(response)
         this.$message.success('处理结束')
     }
 
     handleRequest(response) {
-        console.log(response)
         this.$message.success('自定义处理')
     }
 }`
@@ -86,27 +81,22 @@ export function getViewTemplate(isCustomHandleRequest: boolean) {
 
 export function getComponentRenderTemplate(isCustomHandleRequest: boolean, isAutoPost:boolean) {
     var internal_method_tpl = `handleSubmit(data) {
-        console.log(data)
         return ${ !isAutoPost? 'TzFetch.Post("%5", this.formData)':'Promise.resolve(data)'}
     }
 
     handleSuccess(response) {
-        console.log(response)
         this.$message.success('创建成功')
     }
 
     handleError(response) {
-        console.log(response)
         this.$message.success('失败')
     }
 
     handleEnd(response) {
-        console.log(response)
         this.$message.success('处理结束')
     }`
 
     var handleRequest_method_tpl = `handleRequest(response) {
-        console.log(response)
         TzFetch.Post("%5", this.formData).then((data: any) => {
             if (data) {
                 this.$router.replace("/")

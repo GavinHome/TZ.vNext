@@ -602,7 +602,6 @@ const Files = [
   }
 ];
 
-// console.log(Files)
 // 创建
 Files.forEach(file => {
   fileSave(path.join(file.path, file.filename))

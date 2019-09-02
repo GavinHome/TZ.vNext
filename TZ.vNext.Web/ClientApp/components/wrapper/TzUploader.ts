@@ -69,7 +69,6 @@ export default class TzUploader extends Vue {
     }
 
     onError(err, file, files) {
-        console.log(err)
         Message.error(TzMessageConst.UPLOAD_FAIL_MESSAGE)
     }
 

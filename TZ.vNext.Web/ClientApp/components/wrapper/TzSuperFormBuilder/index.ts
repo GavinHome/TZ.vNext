@@ -273,27 +273,22 @@ export default class TzSuperFormBuilder extends Vue {
     }
 
     handleSubmit(data) {
-        console.log("submit：" + data)
         return Promise.resolve(data)
     }
 
     handleSuccess(response) {
-        console.log("success: " + response)
         this.$message.success('创建成功')
     }
 
     handleError(response) {
-        console.log("error" + response)
         this.$message.success('创建失败')
     }
 
     handleEnd(response) {
-        console.log("end")
         this.$message.success('处理结束')
     }
 
     handleRequest(response) {
-        console.log("handleRequest" + response)
         this.$message.success('自定义处理')
 
         TzFetch.Post(this.formAttr.action, this.formData).then((data: any) => {

@@ -30,7 +30,6 @@ export default class Processing extends Vue {
             TzFetch.Post(TzApiConst.PRODUCT_FINDBYID, { id: this.id }).then(data => {
                 this.model = data as Product;
                 if (this.model) {
-                    console.log("model init:" + JSON.stringify(this.model));
                     if (this.model && this.model.ContentData) {
                         (this.$refs.builder as TzSuperFormBuilder).setForm(this.model.ContentData.form, this.model.ContentData.formData, this.model.ContentData.rules, this.model.ContentData.formAttr)
                     }
@@ -69,7 +68,6 @@ export default class Processing extends Vue {
             formAttr: (this.$refs.builder as TzSuperFormBuilder).formAttr
         }
         
-        console.log("model submit after:" + JSON.stringify(this.model))
         TzFetch.Post(TzApiConst.PRODUCT_SAVE, this.model, false).then( d => {
             this.status = "保存完成..."
             setTimeout(() => {

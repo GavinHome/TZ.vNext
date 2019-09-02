@@ -80,7 +80,6 @@ export default class LoginComponent extends Vue {
             credentials: "include",
             method: 'POST',
         }).then(res => res.json()).then(data => this.autoAuth(data)).then(spin.resolve(() => { })).catch(err => {
-            console.log(err)
             if (n === 1) {
                 spin.close()
                 Message.error(TzMessageConst.AUTO_LOGIN_FAIL_MESSAGE)

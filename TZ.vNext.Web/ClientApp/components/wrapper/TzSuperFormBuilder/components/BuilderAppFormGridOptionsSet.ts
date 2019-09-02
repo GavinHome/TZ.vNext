@@ -95,7 +95,6 @@ export default class BuilderAppFormOptionsSet extends Vue {
     }
 
     submit(data) {
-        console.log("data: " + JSON.stringify(data))
         this.$emit("submit", data)
     }
 

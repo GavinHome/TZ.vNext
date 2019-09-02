@@ -743,7 +743,6 @@ export default class Dev extends Vue {
     form_json!: any
 
     titleChange(e: any) {
-        console.log(e)
     }
     
     autocompleteChange(data: TzSuperOptionSchema) {
@@ -798,29 +797,24 @@ export default class Dev extends Vue {
     }
 
     handleSubmit(data) {
-        console.log("submit：" + data)
         this.$message.success(JSON.stringify(data))
         return Promise.resolve(data)
     }
 
     handleSuccess(response) {
-        console.log("success" + response)
         this.$message.success('创建成功')
     }
 
     handleError(response) {
-        console.log("error" + response)
         this.$message.success('创建失败')
     }
 
     handleEnd(response) {
-        console.log("end: " + response)
         this.$message.success('处理结束')
     }
 
     handleRequest(response) {
         this.isLoading = true;
-        console.log("handleRequest" + response)
         this.$message.success('自定义处理')
     }
 
