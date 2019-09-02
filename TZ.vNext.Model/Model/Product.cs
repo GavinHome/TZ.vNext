@@ -44,7 +44,7 @@ namespace TZ.vNext.Model
         {
             get
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(Content.ToJson());
+                return Content == null ? null : Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(Content.ToJson());
             }
         }
     }

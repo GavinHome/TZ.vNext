@@ -54,7 +54,7 @@ export default class ProductIndex extends Vue {
         {
             field: "UpdateAt",
             title: "最后修改时间",
-            filterable: true,
+            filterable: false,
             sortable: true,
             editable: false,
             menu: true,
