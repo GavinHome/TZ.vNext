@@ -16,36 +16,37 @@ namespace TZ.vNext.Core.Mongo
 {
     public class MongoDbContextOptionsBuilder
     {
+
+        private readonly string SettingSample = "Data Source=mongodb://127.0.0.1:27017;Database=local";
+        private readonly string DataSourceKey = "Data Source";
+        private readonly string DatabaseKey = "Database";
+
         public MongoDbContextOptionsBuilder()
         {
-            Options = new MongoDbContextOptions();
+            Options = new MongoDbContextOptions() { ConnectString = "mongodb://127.0.0.1:27017", Database = "local" };
         }
 
-        //
-        // 摘要:
-        //     Gets the options being configured.
         public virtual MongoDbContextOptions Options { get; }
 
         public MongoDbContextOptionsBuilder UseMongoServer(string connectionString)
         {
-            //Data Source=mongodb://127.0.0.1:27017;Database=tzsalary
-            if (string.IsNullOrEmpty(connectionString) || !connectionString.ToLower().Contains("Data Source=".ToLower()) || !connectionString.ToLower().Contains("Database=".ToLower()))
+            if (string.IsNullOrEmpty(connectionString) || !connectionString.ToLower().Contains($"{DataSourceKey}=".ToLower()) || !connectionString.ToLower().Contains($"{DatabaseKey}=".ToLower()))
             {
-                throw new ArgumentNullException(nameof(connectionString), "mongo配置错误或连接串为空：MongodbConnection，示例：Data Source=mongodb://127.0.0.1:27017;Database=local");
+                throw new ArgumentNullException(nameof(connectionString), $"mongo配置错误或连接串为空：MongodbConnection，示例：{SettingSample}");
             }
 
-            var client = connectionString.Split(";").FirstOrDefault(x => x.Contains("Data Source=") || x.Contains("data source=")).Replace("Data Source=", string.Empty).Replace("data Source=", string.Empty).TrimStart().TrimEnd();
+            var client = connectionString.Split(";").FirstOrDefault(x => x.Contains($"{DataSourceKey}=") || x.Contains($"{DataSourceKey.ToLower()}=")).Replace($"{DataSourceKey}=", string.Empty).Replace($"{DataSourceKey.ToLower()}=", string.Empty).TrimStart().TrimEnd();
 
             if (string.IsNullOrEmpty(client))
             {
-                throw new ArgumentNullException(nameof(connectionString), "mongo配置错误：Data Source，示例：Data Source=mongodb://127.0.0.1:27017;Database=local");
+                throw new ArgumentNullException(nameof(connectionString), $"mongo配置错误：{DataSourceKey}，示例：{SettingSample}");
             }
 
-            var database = connectionString.Split(";").FirstOrDefault(x => x.Contains("Database=") || x.Contains("database=")).Replace("Database=", string.Empty).Replace("database=", string.Empty).TrimStart().TrimEnd();
+            var database = connectionString.Split(";").FirstOrDefault(x => x.Contains($"{DatabaseKey}=") || x.Contains($"{DatabaseKey.ToLower()}=")).Replace($"{DatabaseKey}=", string.Empty).Replace($"{DatabaseKey.ToLower()}= ", string.Empty).TrimStart().TrimEnd();
 
             if (string.IsNullOrEmpty(database))
             {
-                throw new ArgumentNullException(nameof(connectionString), "mongo配置错误：Database，示例：Data Source=mongodb://127.0.0.1:27017;Database=local");
+                throw new ArgumentNullException(nameof(connectionString), $"mongo配置错误：{DatabaseKey}，示例：{SettingSample}");
             }
 
             Options.ConnectString = client;
@@ -53,5 +54,21 @@ namespace TZ.vNext.Core.Mongo
 
             return this;
         }
+
+        ////private MongoDbContextOptionsBuilder UseMongoServer(IMongoClient client)
+        ////{
+        ////    return this;
+        ////}
+
+        ////private MongoDbContextOptionsBuilder UseDatabase(string name)
+        ////{
+        ////    client.GetDatabase(name);
+        ////    return this;
+        ////}
+
+        ////private MongoDbContextOptionsBuilder UseMongoServer(IMongoDatabase database)
+        ////{
+        ////    return this;
+        ////}
     }
 }
