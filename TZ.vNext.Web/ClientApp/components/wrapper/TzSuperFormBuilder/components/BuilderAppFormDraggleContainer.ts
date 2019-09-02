@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Component, Prop, Watch } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 import { TzSuperFormType, getComponentName } from "../../TzSuperForm/schema/TzSuperFormSchema";
 import { TzSuperFormField } from "../BuilderFormComps";
 
@@ -36,19 +36,10 @@ import { TzSuperFormField } from "../BuilderFormComps";
         TzSuperButton: require('../../TzSuperForm/components/TzSuperButton.vue.html'),
         TzSuperAutocomplete: require('../../TzSuperForm/components/TzSuperAutocomplete.vue.html'),
         TzSuperGrid: require('../../TzSuperForm/components/TzSuperGrid.vue.html')
-    },
-    // watch: {
-    //     fields: {
-    //         handler: (nval, oval) => {
-                
-    //         },
-    //         deep: true,
-    //         immediate: false
-    //     }
-    // }
+    }
 })
 export default class BuilderAppFormDraggleContainer extends Vue {
-    @Prop() fields!: any
+    @Prop() fields!: TzSuperFormField[]
 
     selectIndex: number = 0
 
@@ -63,7 +54,7 @@ export default class BuilderAppFormDraggleContainer extends Vue {
         }
 
         this.$nextTick(() => {
-            this.$emit("formChanged1")
+            this.$emit("formChanged")
         })
     }
 
@@ -93,26 +84,20 @@ export default class BuilderAppFormDraggleContainer extends Vue {
         return getComponentName(type)
     }
 
-    getFields(data): TzSuperFormField[] {
-        var fields: TzSuperFormField[] = [];
+    changed(e) {
+        if (e.added) {
+            var lastKey = this.checkName()
+            e.added.element.name = e.added.element.name.replace("{0}", lastKey)
+        }
+    }
 
-        if (data.length && data.length > 0) {
-            data.filter(item => item).forEach(item => {
-                fields.push({
-                    key: item.key,
-                    name: item.name,
-                    label: item.label,
-                    type: item.type,
-                    title: item.title,
-                    format: item.format,
-                    options: item.options,
-                    cols: item.cols,
-                    attrs: item.attrs,
-                    slots: item.slots,
-                })
-            });
+    checkName(): string {
+        var names = this.fields.filter((x: TzSuperFormField) => x && x.name && x.name.startsWith("field_")).map(x => x.name).sort().reverse();
+        var max = names.length
+        while (names.filter(x => x === "field_" + max).length > 0) {
+            max = max + 1
         }
 
-        return fields;
+        return max.toString()
     }
 }

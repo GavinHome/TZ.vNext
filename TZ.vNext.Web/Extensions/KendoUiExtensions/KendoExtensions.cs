@@ -112,6 +112,18 @@ namespace TZ.vNext.Web.Extensions.KendoUiExtensions
                     describ.Value = Enum.ToObject(Nullable.GetUnderlyingType(prop.PropertyType), outInt);
                 }
             }
+            else if (prop.PropertyType == typeof(DateTime) || prop.PropertyType == typeof(DateTime?))
+            {
+                DateTime dateVal;
+                if (DateTime.TryParse(describ.Value.ToString(), out dateVal))
+                {
+                    describ.Value = dateVal;
+                }
+                else
+                {
+                    describ.Value = DateTime.MinValue;
+                }
+            }
         }
 
         private static bool IsNullableEnum(Type type)

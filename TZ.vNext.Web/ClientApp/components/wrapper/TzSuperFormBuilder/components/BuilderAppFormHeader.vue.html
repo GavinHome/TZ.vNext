@@ -7,12 +7,12 @@
         <slot />
 
         <!-- 导出数据弹框 -->
-        <el-dialog :visible.sync="isShowData" append-to-body title="数据" v-if="isShowData" width="600px">
+        <el-dialog :visible.sync="isShowData" append-to-body title="数据" v-if="isShowData" width="60%">
             <json-editor :value="form_render"></json-editor>
         </el-dialog>
 
         <!-- 生成代码弹框 -->
-        <el-dialog :visible.sync="isShowCode" append-to-body title="代码" v-if="isShowCode" width="1200px">
+        <el-dialog :visible.sync="isShowCode" append-to-body title="代码" v-if="isShowCode" width="90%">
             <el-row :gutter="24">
                 <el-col :span="12">
                     <codemirror :value="view_code_html" :mode="'text/html'"></codemirror>

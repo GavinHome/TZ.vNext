@@ -11,7 +11,9 @@
                     </div>
                     <div :key="comp.type" class="type-item undraggable" v-else>
                             <div class="type-item-title">{{comp.type}}</div>
-                            <div>{{comp.label}}{{ comp.tip ? '：': '' }}{{comp.tip}}<em class="pull-right small">即将开放</em></div>
+                            <div>{{comp.label}}{{ comp.tip ? '：': '' }}{{comp.tip}}
+                                <!-- <em class="pull-right small">即将开放</em> -->
+                            </div>
                         </div>
                 </template>
             </draggable>
@@ -28,7 +30,7 @@
     }
 
     .type-item {
-        width: 127px;
+        width: 105px;
         color: #606266;
         cursor: move;
         border: 1px solid #ebeef5;
@@ -39,7 +41,7 @@
         border-radius: 3px;
         padding: 6px 8px;
         box-sizing: border-box;
-        margin: 5px;
+        margin: 2px;
         font-size: 13px;
     }
 
@@ -54,6 +56,34 @@
 
     .type-item.undraggable {
         background: #ebecec;
-        width: 270px
+        /* width: 270px */
+    }
+
+    @media screen and  (min-width:842px) and (max-width: 1627px) {
+        .type-item {
+            width: 100%;
+            margin: 2px;
+        }
+    }
+
+    @media screen and  (min-width:842px) and (max-width: 1627px) {
+        .type-item {
+            width: 100%;
+            margin: 2px;
+        }
+    }
+
+    @media screen and  (min-width:1628px) {
+        .type-item {
+            width: 46%;
+            margin: 5px;
+        }
+    }
+
+    @media screen and  (max-width:842px) {
+        .type-item {
+            width: 100%;
+            margin: 0px;
+        }
     }
 </style>

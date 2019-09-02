@@ -7,7 +7,7 @@
             </div>
         </el-header>
         <el-container class="form-builder-container">
-            <el-aside width="300px">
+            <el-aside width="15%" class="form-builder-components">
                 <app-form-components></app-form-components>
             </el-aside>
             <el-main>
@@ -30,7 +30,8 @@
                     </el-tab-pane>
 
                     <el-tab-pane label="代码可视化" name="2">
-                        <v-jsoneditor v-model="form" :plus="false" :options="{ mode:'code'}" :height="'780px'" ref="codeEditor">    
+                        <v-jsoneditor v-model="form" :plus="false" :options="{ mode:'code'}" :height="'780px'"
+                            ref="codeEditor">
                         </v-jsoneditor>
                     </el-tab-pane>
                 </el-tabs>
@@ -38,14 +39,14 @@
         </el-container>
 
         <!-- 初始化弹框 -->
-        <el-dialog :visible.sync="isInitData" append-to-body title="数据" v-if="isInitData" width="600px">
+        <el-dialog :visible.sync="isInitData" append-to-body title="数据" v-if="isInitData" width="60%">
             <json-editor :value="form_init_data" @change="handleJsonChanged"></json-editor>
             <el-button @click="(data) => { isInitData = false;initForms(data)}" icon="el-icon-upload2" type="primary"
                 class="mt10">确定</el-button>
         </el-dialog>
 
         <!-- 预览弹框 -->
-        <el-dialog :visible.sync="isPreview" append-to-body title="预览" v-if="isPreview" width="75%">
+        <el-dialog :visible.sync="isPreview" append-to-body title="预览" v-if="isPreview" width="80%">
 
             <tz-super-form :form="form" :form-data="formData" :label-width="100" :rules="rules"
                 :submitBtnText="formAttr.submitBtnText" :backBtnText="formAttr.backBtnText"
@@ -112,5 +113,12 @@
 
     .el-collapse-item {
         min-height: 350px;
+    }
+
+
+    @media screen and (min-width:1628px) {
+        .form-builder-components {
+            width: 20% !important
+        }
     }
 </style>

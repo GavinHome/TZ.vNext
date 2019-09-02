@@ -47,7 +47,7 @@ var kendoExtensions = {
                 if (schema[v] && schema[v].filterable) {
                     if (schema[v].type === FieldTypeEnum.Number && (Number(textSearch) === 0 || Number(textSearch))) {
                         filterCondition.push({ field: v, operator: "eq", value: Number(textSearch) })
-                    } else if (schema[v].type === FieldTypeEnum.Date) {
+                    } else if (schema[v].type === FieldTypeEnum.Date && new Date(textSearch)) {
                         filterCondition.push({ field: v, operator: "eq", value: new Date(textSearch) })
                     } else if (schema[v].type === FieldTypeEnum.String) {
                         filterCondition.push({ field: v, operator: "contains", value: textSearch })

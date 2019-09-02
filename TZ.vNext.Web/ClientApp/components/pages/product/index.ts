@@ -37,7 +37,7 @@ export default class ProductIndex extends Vue {
             editable: false,
             menu: true,
             type: FieldTypeEnum.String,
-            width: "25%",
+            width: "15%",
             index: 1
         },
         {
@@ -48,33 +48,33 @@ export default class ProductIndex extends Vue {
             editable: false,
             menu: true,
             type: FieldTypeEnum.String,
-            width: "25%",
+            width: "15%",
             index: 2
         },
         {
             field: "UpdateAt",
             title: "最后修改时间",
-            filterable: false,
+            filterable: true,
             sortable: true,
             editable: false,
             menu: true,
             type: FieldTypeEnum.Date,
             format: "{0:yyyy-MM-dd HH:mm:ss}",
-            width: "25%",
+            width: "20%",
             index: 3
         },
-        // {
-        //     field: "Description",
-        //     title: "说明",
-        //     filterable: true,
-        //     sortable: true,
-        //     editable: false,
-        //     menu: true,
-        //     type: FieldTypeEnum.String,
-        //     width: "20%",
-        //     index: 4,
-        //     hidden: false
-        // },
+        {
+            field: "Description",
+            title: "说明",
+            filterable: true,
+            sortable: true,
+            editable: false,
+            menu: true,
+            type: FieldTypeEnum.String,
+            width: "20%",
+            index: 4,
+            hidden: false
+        },
         {
             title: "操作",
             filterable: false,
