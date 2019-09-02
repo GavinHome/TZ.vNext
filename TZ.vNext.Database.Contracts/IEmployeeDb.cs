@@ -14,13 +14,13 @@ namespace TZ.vNext.Database.Contracts
     /// <summary>
     /// 员工信息
     /// </summary>
-    public interface IEmployeeDb : IDbCommon
+    public interface IEmployeeDb : IMongoDbCommon
     {
         /// <summary>
         /// 根据账号获取员工信息
         /// </summary>
         /// <param name="userName">账号</param>
         /// <returns>员工信息</returns>
-        VEmployee FindByUserName(string userName);
+        Employee FindByUserName(string userName);
     }
 }

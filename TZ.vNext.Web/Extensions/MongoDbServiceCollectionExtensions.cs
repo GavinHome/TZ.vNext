@@ -22,8 +22,8 @@ namespace TZ.vNext.Web.Extensions.Mongo
             var options = new MongoDbContextOptionsBuilder();
             optionsAction(options);
             serviceCollection.AddSingleton<MongoDbContextOptions>(options.Options);
-            ////serviceCollection.AddSingleton<MongoContext, MongoDbContext>();
-            return serviceCollection.AddMongoDbContext<MongoDbContext>();
+            serviceCollection.AddSingleton<MongoContext, MongoDbContext>();
+            return serviceCollection;
         }
 
         public static IServiceCollection AddMongoDbContext<TContext>(this IServiceCollection serviceCollection) where TContext : MongoContext

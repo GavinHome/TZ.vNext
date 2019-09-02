@@ -36,7 +36,7 @@ namespace TZ.vNext.Web.PermissionExtensions
 
             if (requirement.Permissions.Any() && claim != null)
             {
-                var functions = _authFunctionService.GetFunctionsByUserName(claim.Value).Select(x => x.ToString());
+                var functions = _authFunctionService.GetFunctionsByUserName(claim.Value);
                 if (functions.Intersect(requirement.Permissions).Any())
                 {
                     context.Succeed(requirement);

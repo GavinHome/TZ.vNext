@@ -17,7 +17,7 @@ namespace TZ.vNext.Model
     /// <summary>
     /// 薪酬项
     /// </summary>
-    [Table("Product_Info")]
+    [BsonDiscriminator("Product")]
     public class Product : MongoDbEntityWithUpdateAndByName
     {
         /// <summary>

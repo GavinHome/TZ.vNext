@@ -148,7 +148,7 @@ namespace TZ.vNext.Services.Implement
 
         private static Type[] GetDataSourceAssembly()
         {
-            return Assembly.GetAssembly(typeof(VEmployee)).GetTypes();
+            return Assembly.GetAssembly(typeof(Code)).GetTypes();
         }
 
         private static DataSourceAttribute GetDataSourceAttribute(MemberInfo x)

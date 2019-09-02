@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Compile Remove="Context\MongoContext.cs" />
+    <Compile Remove="Model\Employee\VEmployee.cs" />
   </ItemGroup>
 
   <ItemGroup>

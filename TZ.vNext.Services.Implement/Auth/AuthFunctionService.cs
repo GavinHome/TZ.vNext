@@ -21,6 +21,7 @@ namespace TZ.vNext.Services.Implement
     public class AuthFunctionService : IAuthFunctionService
     {
         private readonly IServiceScopeFactory scopeFactory;
+
         public AuthFunctionService(IServiceScopeFactory scopeFactory)
         {
             this.scopeFactory = scopeFactory;
@@ -31,15 +32,15 @@ namespace TZ.vNext.Services.Implement
         /// </summary>
         /// <param name="userName">账号</param>
         /// <returns>员工权限</returns>
-        public IList<Guid> GetFunctionsByUserName(string userName)
+        public IList<string> GetFunctionsByUserName(string userName)
         {
             using (var scope = scopeFactory.CreateScope())
             {
-                var employeeRoleFunctionDb = scope.ServiceProvider.GetRequiredService<IEmployeeRoleFunctionDb>();
+                ////var employeeRoleFunctionDb = scope.ServiceProvider.GetRequiredService<IEmployeeRoleFunctionDb>();
                 var employeeDb = scope.ServiceProvider.GetRequiredService<IEmployeeDb>();
                 var user = employeeDb.FindByUserName(userName);
-                var result = employeeRoleFunctionDb.GetFunctionsByUserId(user.Id);
-                return result;
+                ////var result = employeeRoleFunctionDb.GetFunctionsByUserId(user.Id);
+                return user.Functions;
             }
         }
     }

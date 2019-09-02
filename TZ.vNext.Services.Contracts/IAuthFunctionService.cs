@@ -22,6 +22,6 @@ namespace TZ.vNext.Services.Contracts
         /// </summary>
         /// <param name="userName">账号</param>
         /// <returns>员工权限</returns>
-        IList<Guid> GetFunctionsByUserName(string userName);
+        IList<string> GetFunctionsByUserName(string userName);
     }
 }

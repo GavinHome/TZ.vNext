@@ -70,7 +70,8 @@ namespace TZ.vNext.Services.Implement
         public async Task<UserAuth> GetUserAuthInfo(string userName)
         {
             var user = _employeeDb.FindByUserName(userName);
-            var funs = _employeeRoleFunctionDb.GetFunctionsByUserId(user.Id);
+            ////var funs = _employeeRoleFunctionDb.GetFunctionsByUserId(user.Id);
+            var functions = user.Functions;
 
             return await Task.Run(() => new UserAuth()
             {
@@ -79,7 +80,7 @@ namespace TZ.vNext.Services.Implement
                 Name = user.Name,
                 OrganizationId = user.OrganizationId,
                 UserName = user.UserName,
-                Functions = funs
+                Functions = functions
             });
         }
     }

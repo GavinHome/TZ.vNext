@@ -17,9 +17,5 @@
     <ProjectReference Include="..\TZ.vNext.Services.Contracts\TZ.vNext.Services.Contracts.csproj" />
     <ProjectReference Include="..\TZ.vNext.ViewModel\TZ.vNext.ViewModel.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Employee\" />
-  </ItemGroup>
 
 </Project>
