@@ -8,11 +8,10 @@
 //-----------------------------------------------------------------------------------
 
 using System;
-using System.Linq;
+using TZ.vNext.Core.Utility;
 using TZ.vNext.Database.Contracts;
 using TZ.vNext.Model;
 using TZ.vNext.Model.Context;
-using TZ.vNext.Model.Enum;
 
 namespace TZ.vNext.DataBase.Implement
 {
@@ -32,13 +31,29 @@ namespace TZ.vNext.DataBase.Implement
         /// <returns>员工信息</returns>
         public VEmployee FindByUserName(string userName)
         {
+            if (userName == "admin")
+            {
+                return new VEmployee
+                {
+                    Id = Guid.Empty,
+                    Code = "admin",
+                    Name = "管理员",
+                    UserName = "admin",
+                    Password = MD5Helper.MD5UserPassword("admin", "123"),
+                    OrganizationId = Guid.Parse("20000000-0000-0000-0000-000000000039")
+                };
+            }
+
             var result = new VEmployee
             {
+                Id = Guid.NewGuid(),
                 Code = "201900666",
                 Name = "王麻子",
                 UserName = "201900666",
+                Password = MD5Helper.MD5UserPassword("201900666", "1"),
                 OrganizationId = Guid.Parse("20000000-0000-0000-0000-000000000039")
             };
+
             return result;
         }
     }

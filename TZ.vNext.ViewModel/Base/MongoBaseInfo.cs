@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace TZ.vNext.ViewModel
 {
-    public class MongoBaseInfo
+    public class MongoBaseInfo : IViewModelOfType<string>
     {
         public MongoBaseInfo()
         {
@@ -23,7 +23,7 @@ namespace TZ.vNext.ViewModel
         /// <summary>
         /// Id
         /// </summary>
-        public String Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// 身份
@@ -34,5 +34,7 @@ namespace TZ.vNext.ViewModel
         /// 菜单
         /// </summary>
         public IList<string> Menus { get; set; }
+
+        object IViewModel.Id => Id;
     }
 }

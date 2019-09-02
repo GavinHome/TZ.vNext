@@ -35,10 +35,8 @@ namespace TZ.vNext.Services.Implement
         {
             using (var scope = scopeFactory.CreateScope())
             {
-                ////var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
                 var employeeRoleFunctionDb = scope.ServiceProvider.GetRequiredService<IEmployeeRoleFunctionDb>();
                 var employeeDb = scope.ServiceProvider.GetRequiredService<IEmployeeDb>();
-                ////var user = await db.AsQueryable<Employee>().FirstOrDefaultAsync(x => x.UserName == userName);
                 var user = employeeDb.FindByUserName(userName);
                 var result = employeeRoleFunctionDb.GetFunctionsByUserId(user.Id);
                 return result;

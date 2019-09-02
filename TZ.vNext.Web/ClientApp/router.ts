@@ -107,6 +107,7 @@ const routes: RouteConfig[] = [
                     breadcrumb: '我的产品',
                     title: '我的产品',
                     icon: 'fa fa-building',
+                    functionId: TzFunctionConst.PRODUCT_MANAGEMENT
                 },
                 children: [
                     {
@@ -117,6 +118,7 @@ const routes: RouteConfig[] = [
                             parent: 'building',
                             title: '产品集',
                             icon: 'fa fa-caret-right',
+                            functionId: TzFunctionConst.PRODUCT_LIST
                         },
                         children: [
                             {
@@ -128,6 +130,7 @@ const routes: RouteConfig[] = [
                                     title: '产品集',
                                     icon: 'fa fa-caret-right',
                                     isHidden: true,
+                                    functionId: TzFunctionConst.PRODUCT_LIST
                                 }
                             },
                             {
@@ -139,7 +142,8 @@ const routes: RouteConfig[] = [
                                     parent: 'products',
                                     title: '详情',
                                     icon: 'fa fa-caret-right',
-                                    isHidden: true
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.PRODUCT_DETAIL
                                 },
                                 props: (route) => ({ id: route.query.id })
                             }
@@ -164,7 +168,7 @@ const routes: RouteConfig[] = [
                                     title: '回收站',
                                     icon: 'fa fa-caret-right',
                                     isHidden: true,
-                                    functionId: TzFunctionConst.SALARY_BASIC_SALARY_LIST
+                                    functionId: TzFunctionConst.PRODUCT_LIST
                                 }
                             }
                         ]

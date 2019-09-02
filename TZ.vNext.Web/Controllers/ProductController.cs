@@ -45,7 +45,7 @@ namespace TZ.vNext.Web.Controllers
             return Json(await
                 _productService.Get().ToDataSourcePageResultAsync(
                     request,
-                    x => x.ToViewModel<ProductInfo>().SetMongoMenus(t =>
+                    x => x.ToViewModel<ProductInfo>().SetMenus(t =>
                     {
                         IList<MenuTypeEnum> menuIds = new List<MenuTypeEnum>();
                         menuIds.Add(MenuTypeEnum.Detail);

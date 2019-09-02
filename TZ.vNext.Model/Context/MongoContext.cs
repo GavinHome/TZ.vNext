@@ -9,6 +9,7 @@
 
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using TZ.vNext.Core.Mongo.Extensions;
 using TZ.vNext.Model.Mongo;
 
 namespace TZ.vNext.Model.Context

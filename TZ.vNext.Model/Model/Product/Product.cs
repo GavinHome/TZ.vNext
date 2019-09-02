@@ -7,11 +7,10 @@
 // <description></description>
 //-----------------------------------------------------------------------------------
 
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using TZ.vNext.Model.Mongo.Entity;
+using TZ.vNext.Core.Mongo.Entity;
 
 namespace TZ.vNext.Model
 {

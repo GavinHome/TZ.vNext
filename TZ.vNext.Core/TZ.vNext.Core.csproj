@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -14,6 +14,8 @@
     <PackageReference Include="Aspose.Cells" Version="18.12.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.0.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.7.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.7.2" />
     <PackageReference Include="NPOI" Version="2.4.1" />
     <PackageReference Include="Quartz" Version="3.0.7" />
     <PackageReference Include="RestSharp" Version="106.2.2" />

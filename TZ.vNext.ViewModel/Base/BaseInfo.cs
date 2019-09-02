@@ -13,7 +13,7 @@ using System.Security.Claims;
 
 namespace TZ.vNext.ViewModel
 {
-    public class BaseInfo
+    public class BaseInfo : IViewModelOfType<Guid>
     {
         public BaseInfo()
         {
@@ -34,5 +34,7 @@ namespace TZ.vNext.ViewModel
         /// 菜单
         /// </summary>
         public IList<string> Menus { get; set; }
+
+        object IViewModel.Id => Id;
     }
 }

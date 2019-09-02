@@ -1,13 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Session\**" />
+    <EmbeddedResource Remove="Session\**" />
+    <None Remove="Session\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove=".DS_Store" />
     <None Remove=".gitignore" />
     <None Remove="StyleCop.Cache" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Session\MongoSessionManager.cs" />
   </ItemGroup>
 
   <ItemGroup>

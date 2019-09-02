@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -16,6 +16,10 @@
     <ProjectReference Include="..\TZ.vNext.Model\TZ.vNext.Model.csproj" />
     <ProjectReference Include="..\TZ.vNext.Services.Contracts\TZ.vNext.Services.Contracts.csproj" />
     <ProjectReference Include="..\TZ.vNext.ViewModel\TZ.vNext.ViewModel.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Employee\" />
   </ItemGroup>
 
 </Project>

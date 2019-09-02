@@ -10,6 +10,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using TZ.vNext.Core.Mongo.Extensions;
 using TZ.vNext.Core.Enum;
 using TZ.vNext.Core.Utility;
 using TZ.vNext.Database.Contracts;

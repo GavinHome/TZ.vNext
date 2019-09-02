@@ -8,11 +8,9 @@
 //-----------------------------------------------------------------------------------
 
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using TZ.vNext.Database.Contracts;
 using TZ.vNext.Model.Context;
-using TZ.vNext.Model;
 
 namespace TZ.vNext.DataBase.Implement
 {
@@ -32,6 +30,15 @@ namespace TZ.vNext.DataBase.Implement
         /// <returns>用户权限</returns>
         public IList<Guid> GetFunctionsByUserId(Guid userId)
         {
+            if (userId == Guid.Empty)
+            {
+                return new List<Guid>
+                {
+                    Guid.Parse("00000000-0000-1112-0000-000000000000"),
+                    Guid.Parse("00000000-0000-1112-0001-000000000000")
+                };
+            }
+
             var result = new List<Guid>
             {
                 Guid.Parse("00000000-0000-1111-0000-000000000000"),
