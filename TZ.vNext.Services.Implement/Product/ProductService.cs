@@ -15,7 +15,6 @@ using TZ.vNext.Core.Enum;
 using TZ.vNext.Core.Utility;
 using TZ.vNext.Database.Contracts;
 using TZ.vNext.Model;
-using TZ.vNext.Model.Mongo;
 using TZ.vNext.Services.Contracts;
 using TZ.vNext.ViewModel;
 

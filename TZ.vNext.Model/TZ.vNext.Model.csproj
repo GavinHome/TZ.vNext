@@ -11,13 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove=".DS_Store" />
-    <None Remove=".gitignore" />
-    <None Remove="StyleCop.Cache" />
+    <Compile Remove="Context\MongoContext.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Session\MongoSessionManager.cs" />
+    <None Remove=".DS_Store" />
+    <None Remove=".gitignore" />
+    <None Remove="StyleCop.Cache" />
   </ItemGroup>
 
   <ItemGroup>

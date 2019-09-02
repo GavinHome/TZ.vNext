@@ -3,21 +3,21 @@
 //     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>
-// <date>2018/11/22 16:54:52</date>
+// <date>2019/09/02 15:04:46</date>
 // <description></description>
 //-----------------------------------------------------------------------------------
 
+using System;
 using MongoDB.Driver;
-using TZ.vNext.Core.Const;
 
-namespace TZ.vNext.Model.Mongo
+namespace TZ.vNext.Core.Mongo
 {
     public static class MongoSessionManager
     {
         private static IMongoDatabase _mongoDatabase = null;
         private static object _locker = new object();
 
-        public static IMongoDatabase GetDBSession()
+        public static IMongoDatabase GetDBSession(string client, string database)
         {
             if (_mongoDatabase == null)
             {
@@ -26,13 +26,13 @@ namespace TZ.vNext.Model.Mongo
                 {
                     if (_mongoDatabase == null)
                     {
-                        if (string.IsNullOrEmpty(SystemVariableConst.MongoDB_Path) || string.IsNullOrEmpty(SystemVariableConst.MongoDB_Name))
+                        if (string.IsNullOrEmpty(client) || string.IsNullOrEmpty(database))
                         {
                             throw new System.ArgumentException("mongo配置不正确或没有配置mongo连接串");
                         }
                         else
                         {
-                            _mongoDatabase = new MongoClient(SystemVariableConst.MongoDB_Path).GetDatabase(SystemVariableConst.MongoDB_Name);
+                            _mongoDatabase = new MongoClient(client).GetDatabase(database);
                         }
                     }
                 }

@@ -25,6 +25,7 @@ using TZ.vNext.Core;
 using TZ.vNext.Core.Cache;
 using TZ.vNext.Core.Const;
 using TZ.vNext.Model.Context;
+using TZ.vNext.Web.Extensions.Mongo;
 using TZ.vNext.Web.Filters;
 using TZ.vNext.Web.Middleware;
 using TZ.vNext.Web.MiddlewareExtensions;
@@ -89,7 +90,12 @@ namespace TZ.vNext.Web
             ////services.AddODataQueryFilter();
             services.AddOData();
 
-            services.AddSingleton<MongoContext, MongoDbContext>();
+            ////services.AddSingleton<MongoContext, MongoDbContext>();
+
+            services.AddMongoDbContext<MongoDbContext>(options =>
+            {
+                options.UseMongoServer(Configuration.GetConnectionString("MongodbConnection"));
+            });
 
             ////Maintain property names during serialization. See:https://github.com/aspnet/Announcements/issues/194
             services.AddMvc(options =>

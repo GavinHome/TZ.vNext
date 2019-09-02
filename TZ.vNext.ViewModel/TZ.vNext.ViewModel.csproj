@@ -5,12 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="MapperExtensions.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove=".DS_Store" />
     <None Remove=".gitignore" />
+    <None Remove="MapperExtensions.cs.backup" />
     <None Remove="StyleCop.Cache" />
   </ItemGroup>
 

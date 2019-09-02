@@ -14,6 +14,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using TZ.vNext.Core.Entity;
+using TZ.vNext.Core.Mongo.Context;
 using TZ.vNext.Core.Utility;
 using TZ.vNext.Database.Contracts;
 using TZ.vNext.Model.Context;

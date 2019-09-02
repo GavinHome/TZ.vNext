@@ -7,6 +7,7 @@
 // <description></description>
 //-----------------------------------------------------------------------------------
 
+using TZ.vNext.Core.Mongo.Context;
 using TZ.vNext.Database.Contracts;
 using TZ.vNext.Model.Context;
 

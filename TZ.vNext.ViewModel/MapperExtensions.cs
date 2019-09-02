@@ -16,6 +16,7 @@ using TZ.vNext.Core.Entity;
 using TZ.vNext.Core.Enum;
 using TZ.vNext.Core.Extensions;
 using TZ.vNext.Core.Utility;
+using TZ.vNext.ViewModel.Extensions;
 
 namespace TZ.vNext.ViewModel
 {
@@ -26,12 +27,7 @@ namespace TZ.vNext.ViewModel
             return meduIdListGenerator(model).Select(x => x.ToString()).ToList();
         }
 
-        public static IList<string> GetViewMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : BaseInfo
-        {
-            return meduIdListGenerator(model).Select(x => x.ToString()).ToList();
-        }
-
-        public static IList<string> GetMongoViewMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : MongoBaseInfo
+        public static IList<string> GetViewMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : IViewModel
         {
             return meduIdListGenerator(model).Select(x => x.ToString()).ToList();
         }
@@ -88,38 +84,33 @@ namespace TZ.vNext.ViewModel
             }
         }
 
-        public static TViewModel SetClaimsPrincipal<TViewModel>(this TViewModel model, ClaimsPrincipal user) where TViewModel : BaseInfo
+        public static TViewModel SetClaimsPrincipal<TViewModel>(this TViewModel model, ClaimsPrincipal user) where TViewModel : IViewModel
         {
-            GuardUtils.NotNull(model, nameof(model));
-            model.User = user;
+            //GuardUtils.NotNull(model, nameof(model));
+            if (model.IsNotNull())
+            {
+                model.User = user;
+            }
             return model;
         }
 
-        public static TViewModel SetMenus<TViewModel>(this TViewModel model, IList<string> menus) where TViewModel : BaseInfo
+        public static TViewModel SetMenus<TViewModel>(this TViewModel model, IList<string> menus) where TViewModel : IViewModel
         {
-            GuardUtils.NotNull(model, nameof(model));
-            model.Menus = menus;
+            if (model.IsNotNull())
+            {
+                model.Menus = menus;
+            }
+
             return model;
         }
 
-        public static TViewModel SetMongoMenus<TViewModel>(this TViewModel model, IList<string> menus) where TViewModel : MongoBaseInfo
+        public static TViewModel SetMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : IViewModel
         {
-            GuardUtils.NotNull(model, nameof(model));
-            model.Menus = menus;
-            return model;
-        }
+            if (model.IsNotNull())
+            {
+                model.Menus = model.GetViewMenus(meduIdListGenerator);
+            }
 
-        public static TViewModel SetMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : BaseInfo
-        {
-            GuardUtils.NotNull(model, nameof(model));
-            model.Menus = model.GetViewMenus(meduIdListGenerator);
-            return model;
-        }
-
-        public static TViewModel SetMongoMenus<TViewModel>(this TViewModel model, Func<TViewModel, IList<MenuTypeEnum>> meduIdListGenerator) where TViewModel : MongoBaseInfo
-        {
-            GuardUtils.NotNull(model, nameof(model));
-            model.Menus = model.GetMongoViewMenus(meduIdListGenerator);
             return model;
         }
 
@@ -157,7 +148,7 @@ namespace TZ.vNext.ViewModel
             return t;
         }
 
-        public static IList<TModel> ToModels<TViewModel, TModel>(this IList<TViewModel> viewModels) where TViewModel : BaseInfo
+        public static IList<TModel> ToModels<TViewModel, TModel>(this IList<TViewModel> viewModels) where TViewModel : IViewModel
         {
             IList<TModel> t = Mapping.Default<IList<TViewModel>, IList<TModel>>(viewModels);
             foreach (var item in t)
