@@ -1,9 +1,9 @@
 ﻿//-----------------------------------------------------------------------------------
-// <copyright file="VEmployee.cs" company="TZ.vNext">
+// <copyright file="Employee.cs" company="TZ.vNext">
 //     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
-// <author>tzxx</author>
-// <date>2018/11/6 8:13:46</date>
+// <author>yangxiaomin</author>
+// <date>2019/09/02 17:15:42</date>
 // <description></description>
 //-----------------------------------------------------------------------------------
 
@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using TZ.vNext.Core.Attributes;
-using TZ.vNext.Core.Entity;
 using TZ.vNext.Core.Mongo.Entity;
 
 namespace TZ.vNext.Model

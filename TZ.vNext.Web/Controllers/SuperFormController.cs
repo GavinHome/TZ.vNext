@@ -27,7 +27,7 @@ namespace TZIWB.vNext.Web.Controllers
         /// 数据源
         /// </summary>
         /// <returns></returns>
-        [HttpPost("[action]")]
+        [HttpPost("[action]"), HttpGet("[action]")]
         public IActionResult GridQueryDataSourceMeta()
         {
             return Json(_formDataService.GridQueryDataSourceMeta());
