@@ -72,7 +72,6 @@ export const TzRuleMsgConst = {
     LOGIN_USERNAME: "请输入用户名",
     LOGIN_PASSWORD: "请输入密码",
 
-
     SALARY_FORMCONTENT_REQUIRED: "请选择薪酬项类型",
     SALARY_NAME_REQUIRED: "请输入薪酬项名称",
     SALARY_NAME_REPEATED: "薪酬项名称不能重复",
