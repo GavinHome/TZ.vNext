@@ -119,6 +119,7 @@ TZ.vNext.Web/publish
 
 
 TZ.vNext.Web/.DS_Store
+TZ.vNext.Web/Program.cs
 TZ.vNext.Web.Common/.DS_Store
 TZ.vNext.ViewModel/.DS_Store
 TZ.vNext.Services.Implement/.DS_Store
