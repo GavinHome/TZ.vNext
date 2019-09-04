@@ -29,7 +29,7 @@ jobs:
         cd TZ.vNext.Web
         npm install
         
-    - name: replacer
+    - name: npm install
       run: |
         "../CIScript/Replacer.exe" "./node_modules/vue-router/types/router.d.ts" "import Vue = require("vue”);" "import Vue from 'vue'"
         "../CIScript/Replacer.exe" "./node_modules/vue-router/types/vue.d.ts" "import Vue = require("vue");" "import Vue from 'vue'"
