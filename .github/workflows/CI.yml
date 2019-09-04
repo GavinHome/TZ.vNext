@@ -16,10 +16,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-    - name: nuget sources add 
-      run: |
-        NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
-        
+
     - name: npm install
       run: |
         cd TZ.vNext.Web
