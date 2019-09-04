@@ -6,7 +6,7 @@ const bundleOutputDir = './wwwroot/dist';
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 //const SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin');
 //const { SkeletonPlugin } = require('page-skeleton-webpack-plugin')
 
@@ -139,7 +139,7 @@ module.exports = (env) => {
                 threshold: 10240,
                 minRatio: 0.8
             }),
-            //new BundleAnalyzerPlugin(),
+            new BundleAnalyzerPlugin(),
             // new webpack.ProvidePlugin({
             //     // "Promise": "es6-promise-promise"
             // }),
