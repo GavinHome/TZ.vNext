@@ -31,11 +31,11 @@ jobs:
         
     - name: replacer:router.d.ts
       run: |
-        "./CIScript/Replacer.exe" "./TZ.vNext.Web/node_modules/vue-router/types/router.d.ts" "import Vue = require("vue”);" "import Vue from 'vue'"
+        "./CIScript/Replacer.exe" "./TZ.vNext.Web/node_modules/vue-router/types/router.d.ts" 'import Vue = require("vue");' "import Vue from 'vue'"
         
     - name: replacer:vue.d.ts
       run: |
-        "./CIScript/Replacer.exe" "./TZ.vNext.Web/node_modules/vue-router/types/vue.d.ts" "import Vue = require("vue");" "import Vue from 'vue'"
+        "./CIScript/Replacer.exe" "./TZ.vNext.Web/node_modules/vue-router/types/vue.d.ts" 'import Vue = require("vue");' "import Vue from 'vue'"
         
     - name: publish with dotnet
       run: |
