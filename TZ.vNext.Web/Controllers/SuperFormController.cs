@@ -24,9 +24,9 @@ namespace TZIWB.vNext.Web.Controllers
         }
 
         /// <summary>
-        /// 数据源
+        /// 获取数据源
         /// </summary>
-        /// <returns></returns>
+        /// <returns>数据源</returns>
         [HttpPost("[action]"), HttpGet("[action]")]
         public IActionResult GridQueryDataSourceMeta()
         {
@@ -34,10 +34,10 @@ namespace TZIWB.vNext.Web.Controllers
         }
 
         /// <summary>
-        /// 数据源元信息（通用）
+        /// 获取数据源元信息（通用）
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">参数：key</param>
+        /// <returns>数据源元信息</returns>
         [HttpPost("[action]")]
         public IActionResult GridQuerySchema([FromBody]dynamic data)
         {
@@ -48,8 +48,8 @@ namespace TZIWB.vNext.Web.Controllers
         /// <summary>
         /// 获取枚举数据（通用）
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">参数：key</param>
+        /// <returns>枚举数据</returns>
         [HttpPost("[action]")]
         public IActionResult GridQueryEnumType([FromBody]dynamic data)
         {

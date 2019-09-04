@@ -148,7 +148,8 @@ namespace TZ.vNext.Web
                     HotModuleReplacement = true
                 });
 
-                HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
+                ////Profiler for Entity Framework, need install the package EntityFrameworkProfiler
+                ////HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
             }
             else
             {

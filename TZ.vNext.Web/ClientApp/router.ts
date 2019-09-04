@@ -2,6 +2,7 @@ import Router, { RouteConfig } from 'vue-router'
 import spin from './components/common/TzSpin'
 import StoreCache from './components/common/TzStoreCache'
 import { TzFunctionConst } from './components/common/TzCommonConst';
+import { Component } from 'vue-router/types/router';
 
 const login = require('./components/pages/login/index.vue.html')
 
@@ -53,7 +54,7 @@ const routes: RouteConfig[] = [
     {
         path: '/login',
         name: 'login',
-        component: require('./components/pages/login/index.vue.html'),
+        component: login as Component,
         meta: {
             title: '登录'
         },

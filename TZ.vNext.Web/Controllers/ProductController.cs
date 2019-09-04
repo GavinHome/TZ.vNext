@@ -39,7 +39,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_LIST)]
+        ////[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_LIST)]
         public async Task<IActionResult> GridQueryProducts([FromBody]DataSourceRequest request)
         {
             return Json(await
@@ -61,7 +61,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_LIST)]
+        ////[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_LIST)]
         public async Task<IActionResult> FindById([FromBody]dynamic data)
         {
             System.Guid.TryParse(data.id.ToString(), out Guid id);
@@ -70,7 +70,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_CREATE)]
+        ////[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_CREATE)]
         public async Task<IActionResult> Save([FromBody]ProductInfo info)
         {
             GuardUtils.NotNull(info, nameof(info));
@@ -80,7 +80,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_EDIT)]
+        ////[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_EDIT)]
         public async Task<IActionResult> Enable([FromBody]dynamic data)
         {
             System.Guid.TryParse(data.id.ToString(), out Guid id);
@@ -90,7 +90,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_EDIT)]
+        ////[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_EDIT)]
         public async Task<IActionResult> Disable([FromBody]dynamic data)
         {
             System.Guid.TryParse(data.id.ToString(), out Guid id);
@@ -100,7 +100,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_EDIT)]
+        ////[AuthorizePermission(FunctionsConst.SALARY_BASIC_SALARY_EDIT)]
         public async Task<IActionResult> Delete([FromBody]dynamic data)
         {
             System.Guid.TryParse(data.id.ToString(), out Guid id);

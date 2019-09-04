@@ -28,7 +28,7 @@ namespace TZ.vNext.Web.Controllers
 
         [HttpPost, HttpGet]
         [Route("[action]")]
-        //[AuthorizePermission(FunctionsConst.)]
+        ////[AuthorizePermission(FunctionsConst.)]
         public async Task<IActionResult> Init()
         {
             var result = await _employeeService.Init();

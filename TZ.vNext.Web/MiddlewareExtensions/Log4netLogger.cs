@@ -1,3 +1,12 @@
+//-----------------------------------------------------------------------------------
+// <copyright file="Log4netLogger.cs" company="天职工程咨询股份有限公司版权所有">
+//     Copyright  TZEPM. All rights reserved.
+// </copyright>
+// <author>tzxx</author>
+// <date>2019/08/27 15:48:47</date>
+// <description></description>
+//-----------------------------------------------------------------------------------
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -38,32 +47,44 @@ namespace TZ.vNext.Web.CustomTokenProvider
             }
         }
 
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state,
-            Exception exception, Func<TState, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
             if (!IsEnabled(logLevel))
             {
                 return;
             }
+
             if (formatter == null)
             {
                 throw new ArgumentNullException(nameof(formatter));
             }
+
             string message = null;
-            if (null != formatter)
+            if (formatter != null)
             {
                 message = formatter(state, exception);
             }
+
             if (!string.IsNullOrEmpty(message) || exception != null)
             {
                 switch (logLevel)
                 {
-                    case LogLevel.Critical: _log.Fatal(message); break;
+                    case LogLevel.Critical:
+                        _log.Fatal(message);
+                        break;
                     case LogLevel.Debug:
-                    case LogLevel.Trace: _log.Debug(message); break;
-                    case LogLevel.Error: _log.Error(message); break;
-                    case LogLevel.Information: _log.Info(message); break;
-                    case LogLevel.Warning: _log.Warn(message); break;
+                    case LogLevel.Trace:
+                        _log.Debug(message);
+                        break;
+                    case LogLevel.Error:
+                        _log.Error(message);
+                        break;
+                    case LogLevel.Information:
+                        _log.Info(message);
+                        break;
+                    case LogLevel.Warning:
+                        _log.Warn(message);
+                        break;
                     default:
                         _log.Warn($"Unknown log level {logLevel}.\r\n{message}");
                         break;
