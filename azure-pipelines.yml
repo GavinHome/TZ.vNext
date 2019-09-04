@@ -21,6 +21,12 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: NuGetCommand@2
+  displayName: 'Authenticate with Azure DevOps NuGet'
+  inputs:
+    command: custom
+    arguments: sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
