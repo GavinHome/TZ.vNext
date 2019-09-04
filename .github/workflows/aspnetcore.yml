@@ -18,7 +18,8 @@ jobs:
         dotnet-version: 2.2.108
     - name: publish with dotnet
       run: |
-        sudo apt install nuget
+        sudo apt-get install mono-complete
+        mono nuget.exe install
         NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
         cd TZ.vNext.Web
         npm install
