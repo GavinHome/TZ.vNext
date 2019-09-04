@@ -1,0 +1,24 @@
+name: ASP.NET Core CI
+
+on: 
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: publish with dotnet
+      run: |
+        NuGet Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
+        cd TZ.vNext.Web
+        npm install
+        dotnet publish --configuration Release
