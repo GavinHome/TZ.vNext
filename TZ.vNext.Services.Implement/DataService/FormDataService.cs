@@ -43,7 +43,7 @@ namespace TZ.vNext.Services.Implement
         /// 获取数据源元信息（通用）
         /// </summary>
         /// <param name="key">key</param>
-        /// <returns></returns>
+        /// <returns>数据源元信息</returns>
         public IEnumerable GridQuerySchema(string key)
         {
             if (!string.IsNullOrEmpty(key))
@@ -146,17 +146,17 @@ namespace TZ.vNext.Services.Implement
             }
         }
 
-        private static Type[] GetDataSourceAssembly()
+        private Type[] GetDataSourceAssembly()
         {
             return Assembly.GetAssembly(typeof(Code)).GetTypes();
         }
 
-        private static DataSourceAttribute GetDataSourceAttribute(MemberInfo x)
+        private DataSourceAttribute GetDataSourceAttribute(MemberInfo x)
         {
-            return ((DataSourceAttribute)Attribute.GetCustomAttribute(x, typeof(DataSourceAttribute)));
+            return (DataSourceAttribute)Attribute.GetCustomAttribute(x, typeof(DataSourceAttribute));
         }
 
-        private static string GetDescription(MemberInfo x)
+        private string GetDescription(MemberInfo x)
         {
             return ((DescriptionAttribute)Attribute.GetCustomAttribute(x, typeof(DescriptionAttribute))).Description;
         }

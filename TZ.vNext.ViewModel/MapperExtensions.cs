@@ -91,6 +91,7 @@ namespace TZ.vNext.ViewModel
             {
                 model.User = user;
             }
+
             return model;
         }
 

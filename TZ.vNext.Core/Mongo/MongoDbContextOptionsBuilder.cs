@@ -16,7 +16,6 @@ namespace TZ.vNext.Core.Mongo
 {
     public class MongoDbContextOptionsBuilder
     {
-
         private readonly string SettingSample = "Data Source=mongodb://127.0.0.1:27017;Database=local";
         private readonly string DataSourceKey = "Data Source";
         private readonly string DatabaseKey = "Database";

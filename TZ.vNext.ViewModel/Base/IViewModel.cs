@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IEntitySet.cs" company="TZ.vNext">
+// <copyright file="IViewModel.cs" company="TZ.vNext">
 //     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>??</author>

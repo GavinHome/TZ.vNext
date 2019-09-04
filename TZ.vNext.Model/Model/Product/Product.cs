@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------------
-// <copyright file="Salary.cs" company="TZ.vNext">
+// <copyright file="Product.cs" company="TZ.vNext">
 //     Copyright  TZ.vNext. All rights reserved.
 // </copyright>
 // <author>tzxx</author>

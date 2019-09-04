@@ -26,7 +26,7 @@ namespace TZ.vNext.Services.Contracts
         /// 获取数据源元信息（通用）
         /// </summary>
         /// <param name="key">key</param>
-        /// <returns></returns>
+        /// <returns>数据源元信息</returns>
         IEnumerable GridQuerySchema(string key);
 
         /// <summary>

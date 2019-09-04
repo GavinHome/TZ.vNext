@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="IEntitySetOfType.cs" company="TZ.vNext">
+// <copyright file="IViewModelOfType.cs" company="TZ.vNext">
 //     Copyright TZ.vNext. All rights reserved.
 // <author>??</author>
 // <date>7/27/2017 10:14:21 AM</date>

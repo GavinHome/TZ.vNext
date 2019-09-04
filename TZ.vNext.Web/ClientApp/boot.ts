@@ -9,7 +9,7 @@ import log from './log';
 
 fetchIntercept.register()
 Vue.use(VueRouter)
-Vue.use(log, { entryName: '薪酬系統' });
+Vue.use(log, { entryName: '业务表单设计系统' });
 
 Vue.prototype.$eventHub= Vue.prototype.$eventHub || new Vue()
 
