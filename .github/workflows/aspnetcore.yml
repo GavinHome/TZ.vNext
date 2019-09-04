@@ -17,4 +17,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: publish with dotnet
-      run: dotnet publish --configuration Release
+      run: |
+        cd TZ.vNext.Web
+        npm install
+        dotnet publish --configuration Release
