@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Telerik.UI.for.AspNet.Core</id>
+    <version>2018.1.503</version>
+    <authors>Progress</authors>
+    <owners>Progress</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://www.telerik.com/purchase/license-agreement/aspnet-mvc</licenseUrl>
+    <projectUrl>http://www.telerik.com/aspnet-mvc</projectUrl>
+    <description>Telerik UI for ASP.NET MVC provides server-side helpers for Kendo UI's JavaScript framework. It enables developers comfortable with the ASP.NET MVC framework to easily configure and work with Kendo UI via familiar server-side programming instead of relying solely on hand-coding of HTML and JavaScript.</description>
+    <tags>aspnet mvc aspnext vnext VS2015 Kendo Kendo UI JavaScript UI</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Core" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Formatters.Xml" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.TagHelpers" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Routing" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.PlatformAbstractions" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.Common" version="4.1.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq.Queryable" version="4.0.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.6">
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Core" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Formatters.Xml" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.TagHelpers" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Routing" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.PlatformAbstractions" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Data.Common" version="4.1.0" exclude="Build,Analyzers" />
+        <dependency id="System.Linq.Queryable" version="4.0.1" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Xml.XmlDocument" version="4.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
