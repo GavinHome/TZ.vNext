@@ -19,7 +19,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'dir'
-    
+
 - task: NuGetToolInstaller@1
 
 - task: Npm@1
@@ -30,14 +30,12 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
-    workingDirectory: 'TZ.vNext'
+      '".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from \"vue\""'
 
 - task: CmdLine@2
   inputs:
     script: |
-      '".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from ''vue''"'
-    workingDirectory: 'TZ.vNext'
+      'type ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"'
 
 - task: NuGetCommand@2
   inputs:
