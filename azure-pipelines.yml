@@ -33,8 +33,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: |
-      'type ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"'
+    script: 'type "./TZ.vNext.Web/node_modules/vue-router/types/router.d.ts"'
 
 - task: NuGetCommand@2
   inputs:
