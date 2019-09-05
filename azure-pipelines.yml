@@ -17,15 +17,21 @@ variables:
 steps:
 - task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
+- task: NuGet@0
   displayName: 'Authenticate with Azure DevOps NuGet'
   inputs:
-    command: custom
+    command: nuget
     arguments: sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'TZ.vNext/TZ.vNext.Web'
+
 
 - task: VSBuild@1
   inputs:
