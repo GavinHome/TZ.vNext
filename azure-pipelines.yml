@@ -15,25 +15,34 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-
-- task: CmdLine@2
-  inputs:
-    script: 'dir'
-
 - task: NuGetToolInstaller@1
+  displayName: 'Setup NuGet'
 
 - task: Npm@1
+  displayName: 'npm install'
   inputs:
     command: 'install'
     workingDir: 'TZ.vNext.Web'
 
 - task: CmdLine@2
+  displayName: 'replacer'
   inputs:
-    script: '"./CIScript/Replacer.exe" "./TZ.vNext.Web/node_modules/vue-router/types/router.d.ts" "import Vue = require("vue")" "import Vue from "vue""'
+    script: '"CIScript/Replacer.exe" "TZ.vNext.Web/node_modules/vue-router/types/router.d.ts" "import Vue = require("vue")" "import Vue from "vue""'
+
 
 - task: CmdLine@2
   inputs:
-    script: 'type "./TZ.vNext.Web/node_modules/vue-router/types/router.d.ts"'
+    script: 'dir TZ.vNext.Web'
+
+- task: CmdLine@2
+  inputs:
+    script: 'type "TZ.vNext.Web/node_modules/vue-router/types/router.d.ts"'
+
+# - task: NuGetCommand@2
+#   displayName: 'Authenticate with Azure DevOps NuGet'
+#   inputs:
+#     command: custom
+#     arguments: sources add -name 'telerik.com' -source 'https://nuget.telerik.com/nuget' -UserName '331033463@qq.com' -Password 'Tztech@2017'
 
 - task: NuGetCommand@2
   inputs:
