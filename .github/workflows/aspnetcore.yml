@@ -37,7 +37,7 @@ jobs:
         type ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts"
         
     - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.1
+      uses: SonarSource/sonarcloud-github-action@v1.1
         
     - name: publish with dotnet
       run: |
