@@ -20,7 +20,7 @@ jobs:
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
       
-    - name: Setup Nuget Source
+    - name: add guget source: telerik
       run: |
         nuget sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
     
@@ -29,12 +29,12 @@ jobs:
         cd TZ.vNext.Web
         npm install
         
-    - name: replacer:router.d.ts/vue.d.ts
+    - name: replacer: router.d.ts/vue.d.ts
       run: |
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" 'import Vue = require(\"vue\");' "import Vue from 'vue'"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"
         type ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"
         
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "//import Vue = require(\"vue\")" "import Vue from 'vue'"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"
         type ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts"
         
     - name: publish with dotnet
