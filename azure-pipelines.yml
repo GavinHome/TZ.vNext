@@ -35,19 +35,19 @@ steps:
     script: '"CIScript/Replacer.exe" "TZ.vNext.Web/node_modules/vue-router/types/vue.d.ts" "import Vue = require(\"vue\")" "import Vue from \"vue\""'
 
 
-- task: CmdLine@2
-  inputs:
-    script: 'type "TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts"'
-
-- task: CmdLine@2
-  inputs:
-    script: 'type "TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"'
-
-# - task: NuGetCommand@2
-#   displayName: 'Authenticate with Azure DevOps NuGet'
+# - task: CmdLine@2
 #   inputs:
-#     command: custom
-#     arguments: sources add -name 'telerik.com' -source 'https://nuget.telerik.com/nuget' -UserName '331033463@qq.com' -Password 'Tztech@2017'
+#     script: 'type "TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts"'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'type "TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"'
+
+- task: NuGetCommand@2
+  displayName: 'Authenticate with Azure DevOps NuGet'
+  inputs:
+    command: custom
+    arguments: sources add -name 'telerik.com' -source 'https://nuget.telerik.com/nuget' -UserName '331033463@qq.com' -Password 'Tztech@2017'
 
 - task: NuGetCommand@2
   inputs:
