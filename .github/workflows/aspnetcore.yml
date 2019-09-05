@@ -57,9 +57,9 @@ jobs:
         dotnet publish --configuration Release
         
     - name: Send dingding notify
-      uses: zcong1993/actions-ding@master
+      uses: GavinHome/action-dingding@v1.0.1
       with:
-        dingToken: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
+        token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
         body: |
           {
             "msgtype": "link",
