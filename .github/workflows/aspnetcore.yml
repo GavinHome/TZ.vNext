@@ -1,4 +1,4 @@
-name: AspNet Core CI
+name: ASP.NET Core CI
 
 on: 
   push:
