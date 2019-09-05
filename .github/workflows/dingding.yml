@@ -20,8 +20,8 @@ jobs:
           {
             "msgtype": "link",
             "link": {
-                "text": "test",
-                "title": "test",
+                "text": "test1",
+                "title": "test1",
                 "picUrl": "",
                 "messageUrl": "https://www.dingtalk.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI"
             }
