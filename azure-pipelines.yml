@@ -32,11 +32,11 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'dir TZ.vNext.Web'
+    script: 'dir "TZ.vNext.Web/node_modules/vue-router/types"'
 
 - task: CmdLine@2
   inputs:
-    script: 'type "TZ.vNext.Web/node_modules/vue-router/types/router.d.ts"'
+    script: 'type "TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"'
 
 # - task: NuGetCommand@2
 #   displayName: 'Authenticate with Azure DevOps NuGet'
