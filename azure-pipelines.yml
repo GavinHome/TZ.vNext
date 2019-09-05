@@ -19,11 +19,9 @@ steps:
   displayName: 'Setup NuGet'
 
 - task: NuGetCommand@2
-  displayName: 'add nuget source telerikt'
   inputs:
-    command: custom
-    arguments: sources add -name telerik.com -source https://nuget.telerik.com/nuget -UserName 331033463@qq.com -Password Tztech@2017
-
+    command: 'custom'
+    arguments: 'sources add -name telerik.com -source https://nuget.telerik.com/nuget -UserName 331033463@qq.com -Password Tztech@2017'
 - task: Npm@1
   displayName: 'npm install'
   inputs:
