@@ -29,8 +29,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: |
-      '".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from \"vue\""'
+    script: '"./CIScript/Replacer.exe" "./TZ.vNext.Web/node_modules/vue-router/types/router.d.ts" "import Vue = require("vue")" "import Vue from "vue""'
 
 - task: CmdLine@2
   inputs:
