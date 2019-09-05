@@ -15,6 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+
+- task: CmdLine@2
+  inputs:
+    script: 'dir'
+    
 - task: NuGetToolInstaller@1
 
 - task: Npm@1
