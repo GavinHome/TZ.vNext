@@ -21,7 +21,7 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: '${web}/TZ.vNext.Web'
+    workingDir: '$(web)/TZ.vNext.Web'
 
 - task: CmdLine@2
   inputs:
