@@ -10,7 +10,8 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: '**/*.sln'  
+  web: '**/TZ.vNext'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -20,7 +21,7 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: 'TZ.vNext/TZ.vNext/TZ.vNext.Web'
+    workingDir: '${web}/TZ.vNext.Web'
 
 - task: CmdLine@2
   inputs:
@@ -30,7 +31,8 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: '".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from ''vue''"'
+    script: |
+      '".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from ''vue''"'
     workingDirectory: 'TZ.vNext'
 
 - task: NuGetCommand@2
