@@ -1,4 +1,4 @@
-name: TZ.vNext CI
+name: AspNet Core CI
 
 on: 
   push:
