@@ -38,6 +38,11 @@ steps:
   inputs:
     script: '"CIScript/Replacer.exe" "TZ.vNext.Web/node_modules/vue-router/types/vue.d.ts" "import Vue = require(\"vue\")" "import Vue from \"vue\""'
 
+- task: CmdLine@2
+  displayName: 'copy telerik dll'
+  inputs:
+    script: 'xcopy packages\* C:\Users\VssAdministrator\.nuget\packages\ /e'
+
 
 # - task: CmdLine@2
 #   inputs:
