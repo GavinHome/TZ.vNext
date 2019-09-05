@@ -20,7 +20,7 @@ steps:
 - task: NuGet@0
   displayName: 'Authenticate with Azure DevOps NuGet'
   inputs:
-    command: nuget
+    command: custom
     arguments: sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
 
 - task: NuGetCommand@2
