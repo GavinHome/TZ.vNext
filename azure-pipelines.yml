@@ -18,12 +18,6 @@ steps:
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
-  displayName: 'Authenticate with Azure DevOps NuGet'
-  inputs:
-    command: custom
-    arguments: sources add -name \"telerik.com\" -source \"https://nuget.telerik.com/nuget\" -UserName \"331033463@qq.com\" -Password \"Tztech@2017\"
-
-- task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
@@ -32,6 +26,16 @@ steps:
     command: 'install'
     workingDir: 'TZ.vNext/TZ.vNext.Web'
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
+    workingDirectory: 'TZ.vNext'
+
+- task: CmdLine@2
+  inputs:
+    script: '".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from ''vue''"'
+    workingDirectory: 'TZ.vNext'
 
 - task: VSBuild@1
   inputs:
