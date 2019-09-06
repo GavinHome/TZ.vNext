@@ -17,38 +17,38 @@ jobs:
       with:
         dotnet-version: 2.2.108
 
-    - name: Setup Nuget.exe
-      uses: warrenbuckley/Setup-Nuget@v1
+    # - name: Setup Nuget.exe
+    #   uses: warrenbuckley/Setup-Nuget@v1
 
-    - name: add guget source telerik
-      run: |
-        xcopy packages\* C:\Users\runneradmin\.nuget\packages\ /e
-    
-    - name: npm install
-      run: |
-        cd TZ.vNext.Web
-        npm install
-        
-    - name: replacer router.d.ts/vue.d.ts
-      run: |
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
-
-    # - name: replacer version
+    # - name: add guget source telerik
     #   run: |
-    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%BUILDNUMBER%" "0.1.0"        
-    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%REVISION%" "${{ github.sha }}"
-    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "%BUILDNUMBER%" "0.1.0"
+    #     xcopy packages\* C:\Users\runneradmin\.nuget\packages\ /e
+    
+    # - name: npm install
+    #   run: |
+    #     cd TZ.vNext.Web
+    #     npm install
+        
+    # - name: replacer router.d.ts/vue.d.ts
+    #   run: |
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
+
+    - name: replacer version
+      run: |
+        type ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html"
+        type ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%BUILDNUMBER%" "0.1.0"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%REVISION%" "${{ github.sha }}"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "%BUILDNUMBER%" "0.1.0"
 
     - name: publish with dotnet
       run: |
         cd TZ.vNext.Web
         mkdir publish
         dotnet publish --configuration Release -o publish
-        echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt        
-        dir publish
+        echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
         "../tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
-        dir
     
     # - uses: ncipollo/release-action@v1
     #   with:
