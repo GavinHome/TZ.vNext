@@ -45,9 +45,9 @@ jobs:
         cd TZ.vNext.Web
         mkdir publish
         dotnet publish --configuration Release -o publish
-        echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
+        echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt        
+        dir publish
         "./tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
-        dir publish/
         dir
     
     # - uses: ncipollo/release-action@v1
