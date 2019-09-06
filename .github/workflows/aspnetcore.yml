@@ -22,7 +22,7 @@ jobs:
       
     - name: add guget source telerik
       run: |
-        dir C:\Users
+        dir C:\Users\runneradmin
 
     # - name: add guget source telerik
     #   run: |
