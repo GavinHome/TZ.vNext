@@ -56,8 +56,9 @@ jobs:
         cd TZ.vNext.Web
         dotnet publish --configuration Release
         
-    - name: Send dingding notify
-      uses: GavinHome/action-dingding@v2
+    - name: Send dingding notify for build success
+      uses: GavinHome/action-dingding@v2      
+      if: success()
       with:
         token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
         body: |
@@ -66,6 +67,22 @@ jobs:
             "link": {
                 "text": "TZ.vNext 编译成功",
                 "title": "Build Sucess",
+                "picUrl": "",
+                "messageUrl": "https://github.com/GavinHome/TZ.vNext"
+            }
+          }
+          
+    - name: Send dingding notify for build failure
+      uses: GavinHome/action-dingding@v2
+      if: failure()
+      with:
+        token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
+        body: |
+          {
+            "msgtype": "link",
+            "link": {
+                "text": "TZ.vNext 编译失败",
+                "title": "Build Failure",
                 "picUrl": "",
                 "messageUrl": "https://github.com/GavinHome/TZ.vNext"
             }
