@@ -37,7 +37,7 @@ jobs:
     - name: publish with dotnet
       run: |
         mkdir publish
-        dotnet publish TZ.vNext.Web/TZIWB.vNext.Web.csproj --configuration Release -o publish
+        dotnet publish TZ.vNext.Web/TZ.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0
     
@@ -57,7 +57,7 @@ jobs:
           {
             "msgtype": "markdown",
             "markdown": {
-                "title": "TZ.vNext 发布结果",
-                "text": "#### TZ.vNext Release \n #### 当前发布版本：0.1.0 \n #### 执行结果：${{ job.status }}\n\n > ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/releases) \n"
+                "title": "Release v0.1.0",
+                "text": "#### TZ.vNext Release \n #### 发布版本：0.1.0 \n\n > ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/releases) \n"
             }
           }
