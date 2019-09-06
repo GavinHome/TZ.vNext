@@ -42,15 +42,16 @@ jobs:
 
     - name: publish with dotnet
       run: |
+        cd TZ.vNext.Web
         mkdir publish
-        dotnet publish TZ.vNext.Web/TZ.vNext.Web.csproj --configuration Release -o publish
+        dotnet publish --configuration Release -o publish
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
         "./tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
         dir publish/
     
     # - uses: ncipollo/release-action@v1
     #   with:
-    #     artifacts: "publish.zip, publish/version"
+    #     artifacts: "TZ.vNext.Web/publish.zip, publish/version"
     #     body: "publishing v0.1.0"
     #     commit: "release"
     #     tag: "v0.1.0"
