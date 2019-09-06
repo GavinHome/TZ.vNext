@@ -40,7 +40,6 @@ jobs:
 
     - name: publish with dotnet
       run: |
-        # dotnet publish TZ.vNext.Web/TZIWB.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.sha }} > publish/version.txt
     
     - name: commit publish outputs to release branch
