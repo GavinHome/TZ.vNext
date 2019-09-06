@@ -16,7 +16,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-        
+    
+    - name: echo sha
+      run: |
+        cd TZ.vNext.Web
+        echo ${{ github.sha }}
+        echo ${{ github.sha }} > publish/version.txt
+        dir publish
+
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
 
