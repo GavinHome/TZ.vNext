@@ -19,13 +19,6 @@ jobs:
         
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
-      
-#     - name: add guget source telerik
-#       run: |
-#         echo %USERNAME%
-#         dir C:\Users\runneradmin
-#         dir C:\hostedtoolcache\windows\nuget\latest\x64
-#         dir d:\a
 
     - name: add guget source telerik
       run: |
@@ -44,7 +37,8 @@ jobs:
     - name: publish with dotnet
       run: |
         cd TZ.vNext.Web
-        dotnet publish --configuration Release
+        dotnet publish --configuration Release -o publish
+        dir publish
         
     - name: Send dingding notify for build
       uses: GavinHome/action-dingding@v2
