@@ -36,9 +36,9 @@ jobs:
 
     - name: replacer version
       run: |
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%BUILDNUMBER%" "0.1.0"        
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%REVISION%" "${{ github.sha }}"
-        ".\CIScript\Replacer.exe" ".\TZIWB.vNext.Web\ClientApp\components\home\updatelog.vue.html" "%BUILDNUMBER%" "0.1.0"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "\%BUILDNUMBER\%" "0.1.0"        
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "\%REVISION%" "${{ github.sha }}"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "\%BUILDNUMBER\%" "0.1.0"
 
     - name: publish with dotnet
       run: |
