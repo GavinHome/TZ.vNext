@@ -20,9 +20,9 @@ jobs:
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
       
-    # - name: add guget source telerik
-    #   run: |
-    #     nuget sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" 
+    - name: add guget source telerik
+      run: |
+        dir C:\Users
 
     # - name: add guget source telerik
     #   run: |
