@@ -69,7 +69,7 @@ jobs:
                 "text": "TZ.vNext 编译成功",
                 "title": "Build Sucess",
                 "picUrl": "",
-                "messageUrl": "https://github.com/GavinHome/TZ.vNext"
+                "messageUrl": "https://github.com/GavinHome/TZ.vNext/actions"
             }
           }
           
@@ -85,6 +85,6 @@ jobs:
                 "text": "TZ.vNext 编译失败",
                 "title": "Build Failure",
                 "picUrl": "",
-                "messageUrl": "https://github.com/GavinHome/TZ.vNext"
+                "messageUrl": "https://github.com/GavinHome/TZ.vNext/actions"
             }
           }
