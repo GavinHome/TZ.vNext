@@ -44,6 +44,7 @@ jobs:
         echo ${{ github.sha }} > publish/version.txt
     
     - name: commit publish outputs to release branch
+      run: |
         git checkout -b releases/v1.0
         git add publish/*
         git commit -m "publish v1.0"
