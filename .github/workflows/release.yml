@@ -1,9 +1,9 @@
 name: release
 
-# on: 
-#   push:
-#     branches:
-#     - master
+on: 
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -48,6 +48,7 @@ jobs:
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
         "./tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
         dir publish/
+        dir
     
     # - uses: ncipollo/release-action@v1
     #   with:
