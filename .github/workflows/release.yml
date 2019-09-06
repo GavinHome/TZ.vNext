@@ -34,14 +34,19 @@ jobs:
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
 
+    - name: replacer version
+      run: |
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%BUILDNUMBER%" "0.1.0"        
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%REVISION%" "${{ github.sha }}"
+        ".\CIScript\Replacer.exe" ".\TZIWB.vNext.Web\ClientApp\components\home\updatelog.vue.html" "%BUILDNUMBER%" "0.1.0"
+
     - name: publish with dotnet
       run: |
         mkdir publish
         dotnet publish TZ.vNext.Web/TZ.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
         "./tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
-        dir
-        dir publish
+        dir publish/
     
     # - uses: ncipollo/release-action@v1
     #   with:
@@ -52,6 +57,7 @@ jobs:
     #     token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Send dingding notify for build
+      if: success()
       uses: GavinHome/action-dingding@v2
       with:
         token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'

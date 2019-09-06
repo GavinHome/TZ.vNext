@@ -1,9 +1,9 @@
 name: ASP.NET Core CI
 
-# on: 
-#   push:
-#     branches:
-#     - master
+on: 
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
     - name: replacer router.d.ts/vue.d.ts
       run: |
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"
     
     - name: mkdir publish
       run: |
@@ -41,7 +41,6 @@ jobs:
     - name: publish with dotnet
       run: |
         dotnet publish TZ.vNext.Web/TZ.vNext.Web.csproj --configuration Release -o publish
-        echo ${{ github.sha }} > publish/version.txt
         dir publish
         
     - name: Send dingding notify for build
