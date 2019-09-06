@@ -25,6 +25,7 @@ namespace TZ.vNext.Web
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://*:5000")
                 .ConfigureAppConfiguration(ConfigConfiguration)
                 .UseStartup<Startup>()
                 .UseContentRoot(Directory.GetCurrentDirectory())
