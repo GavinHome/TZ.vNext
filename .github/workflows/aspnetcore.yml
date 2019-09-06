@@ -20,7 +20,7 @@ jobs:
     - name: echo sha
       run: |
         cd TZ.vNext.Web
-        mkdir publish
+        mkdir publish 
         echo ${{ github.sha }}
         echo ${{ github.sha }} > publish/version.txt
         dir publish
