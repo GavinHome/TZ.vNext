@@ -47,12 +47,12 @@ jobs:
         dotnet publish --configuration Release -o publish
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt        
         dir publish
-        "./tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
+        "../tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
         dir
     
     # - uses: ncipollo/release-action@v1
     #   with:
-    #     artifacts: "TZ.vNext.Web/publish.zip, publish/version"
+    #     artifacts: "TZ.vNext.Web/publish.zip, publish/version.txt"
     #     body: "publishing v0.1.0"
     #     commit: "release"
     #     tag: "v0.1.0"
