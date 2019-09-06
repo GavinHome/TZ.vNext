@@ -22,7 +22,7 @@ jobs:
       
     - name: add guget source telerik
       run: |
-        nuget sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" -UserName "331033463@qq.com" -Password "Tztech@2017"
+        nuget sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" 
     
     - name: npm install
       run: |
