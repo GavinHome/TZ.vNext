@@ -20,16 +20,16 @@ jobs:
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
       
+#     - name: add guget source telerik
+#       run: |
+#         echo %USERNAME%
+#         dir C:\Users\runneradmin
+#         dir C:\hostedtoolcache\windows\nuget\latest\x64
+#         dir d:\a
+
     - name: add guget source telerik
       run: |
-        echo %USERNAME%
-        dir C:\Users\runneradmin
-        dir C:\hostedtoolcache\windows\nuget\latest\x64
-        dir d:\a
-
-    # - name: add guget source telerik
-    #   run: |
-    #     xcopy packages\* C:\Users\VssAdministrator\.nuget\packages\ /e
+        xcopy packages\* C:\Users\runneradmin\.nuget\packages\ /e
     
     - name: npm install
       run: |
