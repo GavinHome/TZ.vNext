@@ -1,9 +1,9 @@
 name: release
 
-# on: 
-#   push:
-#     branches:
-#     - release
+on: 
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -17,22 +17,22 @@ jobs:
       with:
         dotnet-version: 2.2.108
 
-    - name: Setup Nuget.exe
-      uses: warrenbuckley/Setup-Nuget@v1
+    # - name: Setup Nuget.exe
+    #   uses: warrenbuckley/Setup-Nuget@v1
 
-    - name: add guget source telerik
-      run: |
-        xcopy packages\* C:\Users\runneradmin\.nuget\packages\ /e
+    # - name: add guget source telerik
+    #   run: |
+    #     xcopy packages\* C:\Users\runneradmin\.nuget\packages\ /e
     
-    - name: npm install
-      run: |
-        cd TZ.vNext.Web
-        npm install
+    # - name: npm install
+    #   run: |
+    #     cd TZ.vNext.Web
+    #     npm install
         
-    - name: replacer router.d.ts/vue.d.ts
-      run: |
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
+    # - name: replacer router.d.ts/vue.d.ts
+    #   run: |
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
     
     - name: mkdir publish
       run: |
@@ -40,23 +40,24 @@ jobs:
 
     - name: publish with dotnet
       run: |
-        dotnet publish TZ.vNext.Web/TZIWB.vNext.Web.csproj --configuration Release -o publish
+        # dotnet publish TZ.vNext.Web/TZIWB.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.sha }} > publish/version.txt
     
-    - name: commit publish to release publish
+    - name: commit publish outputs to release branch
+        git checkout -b releases/v1.0
         git add publish/*
         git commit -m "publish v1.0"
-        git push origin release
+        git push origin releases/v1.0
         
-    - name: Send dingding notify for build
-      uses: GavinHome/action-dingding@v2
-      with:
-        token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
-        body: |
-          {
-            "msgtype": "markdown",
-            "markdown": {
-                "title": "TZ.vNext 发布结果",
-                "text": "#### TZ.vNext Build \n #### 当前提交版本：${{ github.sha }} \n #### 当前发布版本：1.0 \n #### 执行结果：${{ job.status }}\n\n > ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
-            }
-          }
+    # - name: Send dingding notify for build
+    #   uses: GavinHome/action-dingding@v2
+    #   with:
+    #     token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
+    #     body: |
+    #       {
+    #         "msgtype": "markdown",
+    #         "markdown": {
+    #             "title": "TZ.vNext 发布结果",
+    #             "text": "#### TZ.vNext Build \n #### 当前提交版本：${{ github.sha }} \n #### 当前发布版本：1.0 \n #### 执行结果：${{ job.status }}\n\n > ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
+    #         }
+    #       }
