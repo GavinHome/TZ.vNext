@@ -38,9 +38,11 @@ jobs:
       run: |
         type ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html"
         type ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html"
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%BUILDNUMBER%" "0.1.0"
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%REVISION%" "${{ github.sha }}"
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "%BUILDNUMBER%" "0.1.0"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "BUILDNUMBER" "0.1.0"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "REVISION" "${{ github.sha }}"
+        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "BUILDNUMBER" "0.1.0"
+        type ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html"
+        type ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html"
 
     - name: publish with dotnet
       run: |
