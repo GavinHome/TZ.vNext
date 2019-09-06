@@ -1,9 +1,9 @@
 name: dingding
 
-# on: 
-#   push:
-#     branches:
-#     - master
+on: 
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -16,14 +16,25 @@ jobs:
       uses: GavinHome/action-dingding@v2      
       with:
         token: f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713
+#         body: |
+#           {
+#             "msgtype": "link",
+#             "link": {
+#                 "text": "test2",
+#                 "title": "test2",
+#                 "picUrl": "",
+#                 "messageUrl": "https://www.dingtalk.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI"
+#             }
+#           }
         body: |
           {
-            "msgtype": "link",
+            "msgtype": "markdown",
             "link": {
-                "text": "test2",
-                "title": "test2",
-                "picUrl": "",
-                "messageUrl": "https://www.dingtalk.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI"
+                "title": "### TZ.vNext \n",
+                "text": "#### TZ.vNext 编译 \n" +
+                 "执行结果：${{ job.status }} \n\n" +
+                 "> ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n"  +
+                 "> ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
             }
           }
         
