@@ -64,8 +64,8 @@ jobs:
           {
             "msgtype": "link",
             "link": {
-                "text": "TZ.vNext有新的更新，请查看",
-                "title": "更新提醒",
+                "text": "TZ.vNext 编译成功",
+                "title": "Build Sucess",
                 "picUrl": "",
                 "messageUrl": "https://github.com/GavinHome/TZ.vNext"
             }
