@@ -34,11 +34,11 @@ jobs:
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
 
-    - name: replacer version
-      run: |
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "\%BUILDNUMBER\%" "0.1.0"        
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "\%REVISION%" "${{ github.sha }}"
-        ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "\%BUILDNUMBER\%" "0.1.0"
+    # - name: replacer version
+    #   run: |
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%BUILDNUMBER%" "0.1.0"        
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\index.vue.html" "%REVISION%" "${{ github.sha }}"
+    #     ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\ClientApp\components\home\updatelog.vue.html" "%BUILDNUMBER%" "0.1.0"
 
     - name: publish with dotnet
       run: |
