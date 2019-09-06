@@ -40,7 +40,9 @@ jobs:
 
     - name: publish with dotnet
       run: |
-        dotnet publish TZ.vNext.Web/TZ.vNext.Web.csproj --configuration Release -o .\publish
+        cd TZ.vNext.Web
+        mkdir publish
+        dotnet publish --configuration Release -o publish
         dir publish
         
     - name: Send dingding notify for build
