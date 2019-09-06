@@ -58,33 +58,17 @@ jobs:
         dotnet publish --configuration Release
         
     - name: Send dingding notify for build
-      uses: GavinHome/action-dingding@v2      
-#       if: success()
+      uses: GavinHome/action-dingding@v2
       with:
         token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
         body: |
           {
-            "msgtype": "link",
+            "msgtype": "markdown",
             "link": {
-                "text": "TZ.vNext build ${{ job.status }} 详情请点击查看",
-                "title": "编译结果",
-                "picUrl": "",
-                "messageUrl": "https://github.com/GavinHome/TZ.vNext/actions"
+                "title": "### TZ.vNext \n",
+                "text": "#### TZ.vNext 编译 \n" +
+                 "执行结果：${{ job.status }} \n\n" +
+                 "> ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n"  +
+                 "> ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
             }
           }
-          
-#     - name: Send dingding notify for build failure
-#       uses: GavinHome/action-dingding@v2
-#       if: failure()
-#       with:
-#         token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
-#         body: |
-#           {
-#             "msgtype": "link",
-#             "link": {
-#                 "text": "TZ.vNext 编译失败",
-#                 "title": "Build Failure",
-#                 "picUrl": "",
-#                 "messageUrl": "https://github.com/GavinHome/TZ.vNext/actions"
-#             }
-#           }
