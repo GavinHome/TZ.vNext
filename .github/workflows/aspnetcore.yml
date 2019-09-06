@@ -20,9 +20,13 @@ jobs:
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
       
-    - name: add guget source telerik
-      run: |
-        nuget sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" 
+    # - name: add guget source telerik
+    #   run: |
+    #     nuget sources add -name "telerik.com" -source "https://nuget.telerik.com/nuget" 
+
+    # - name: add guget source telerik
+    #   run: |
+    #     xcopy packages\* C:\Users\VssAdministrator\.nuget\packages\ /e
     
     - name: npm install
       run: |
@@ -33,25 +37,7 @@ jobs:
       run: |
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
-        
-#         type ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts"
-#         type ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts"
-        
-#     - name: Sonarscanner for dotnet
-#       uses: Secbyte/dotnet-sonarscanner@v1.1
-#       with:
-#         buildCommand: dotnet build .
-#         testCommand: dotnet test .
-#         projectKey: 'Gavin_TZ.vNext'
-#         projectName: 'TZ.vNext'
-#         sonarOrganisation: 'gavinhome'
-#         verbose: "true"
-#         openCoverPaths: "tests/coverage.opencover.xml"
-#         coverageExclusions: "**test*.cs"
-#       env:
-#         SONAR_TOKEN: 'a3161a5d555a8fa8021a52e406b00883757b98ce'
-#         GITHUB_TOKEN: 'travis encrypt 3f78d7bb5b411c13005794cb16c6bdcdedc446cc'
-        
+       
     - name: publish with dotnet
       run: |
         cd TZ.vNext.Web
