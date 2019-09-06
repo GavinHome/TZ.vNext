@@ -24,6 +24,7 @@ jobs:
       run: |
         dir C:\Users\runneradmin
         dir C:\hostedtoolcache\windows\nuget\latest\x64
+        dir d:\a
 
     # - name: add guget source telerik
     #   run: |
