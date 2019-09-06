@@ -39,15 +39,15 @@ jobs:
         mkdir publish
         dotnet publish TZ.vNext.Web/TZ.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
-        echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0
-        "./tools/7-Zip/7z.exe" a "publish_%date:~0,4%-%date:~5,2%-%date:~8,2%.zip" "publish/*"
+        "./tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
         dir
+        dir publish
     
     # - uses: ncipollo/release-action@v1
     #   with:
-    #     artifacts: "publish_*, publish/version"
+    #     artifacts: "publish.zip, publish/version"
     #     body: "publishing v0.1.0"
-    #     commit: "releases/v0.1.0"
+    #     commit: "release"
     #     tag: "v0.1.0"
     #     token: ${{ secrets.GITHUB_TOKEN }}
         
