@@ -36,13 +36,13 @@ jobs:
     
     - name: mkdir publish
       run: |
-        mkdir TZ.vNext.Web/publish
+        mkdir publish
 
     - name: publish with dotnet
       run: |
         dotnet publish TZ.vNext.Web/TZIWB.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.sha }} > publish/version.txt
-        dir TZ.vNext.Web/publish
+        dir publish
         
     - name: Send dingding notify for build
       uses: GavinHome/action-dingding@v2
