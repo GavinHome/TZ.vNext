@@ -30,10 +30,8 @@ jobs:
           {
             "msgtype": "markdown",
             "markdown": {
-                "title": TZ.vNext",
-                "text": "#### TZ.vNext 编译 \n" +
-                 "执行结果： ${{ job.status }}\n\n" +
-                 "> ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
+                "title": "TZ.vNext",
+                "text": "#### TZ.vNext 编译 \n 执行结果： ${{ job.status }}\n\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
             }
           }
         
