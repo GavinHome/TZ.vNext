@@ -16,14 +16,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-    
-    - name: echo sha
-      run: |
-        cd TZ.vNext.Web
-        mkdir publish 
-        echo ${{ github.sha }}
-        echo ${{ github.sha }} > publish/version.txt
-        dir publish
 
     - name: Setup Nuget.exe
       uses: warrenbuckley/Setup-Nuget@v1
@@ -41,14 +33,16 @@ jobs:
       run: |
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\router.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"        
         ".\CIScript\Replacer.exe" ".\TZ.vNext.Web\node_modules\vue-router\types\vue.d.ts" "import Vue = require(\"vue\")" "import Vue from 'vue'"  
-       
+    
+    - name: mkdir publish
+      run: |
+        mkdir TZ.vNext.Web/publish
+
     - name: publish with dotnet
       run: |
-        cd TZ.vNext.Web
-        dotnet publish --configuration Release -o publish
-        echo ${{ github.sha }}
+        dotnet publish TZ.vNext.Web/TZIWB.vNext.Web.csproj --configuration Release -o publish
         echo ${{ github.sha }} > publish/version.txt
-        dir publish
+        dir TZ.vNext.Web/publish
         
     - name: Send dingding notify for build
       uses: GavinHome/action-dingding@v2
@@ -59,6 +53,6 @@ jobs:
             "msgtype": "markdown",
             "markdown": {
                 "title": "TZ.vNext 编译结果",
-                "text": "#### TZ.vNext Build \n  #### 执行结果： ${{ job.status }}\n\n > ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
+                "text": "#### TZ.vNext Build \n #### 当前提交版本：${{ github.sha }} \n #### 执行结果：${{ job.status }}\n\n > ![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n > ###### 请点击详情查看 [详情](https://github.com/GavinHome/TZ.vNext/actions) \n"
             }
           }
