@@ -1,9 +1,9 @@
 name: release
 
-on: 
-  push:
-    branches:
-    - release
+# on: 
+#   push:
+#     branches:
+#     - releases/v0.1.0
 
 jobs:
   build:
@@ -53,19 +53,19 @@ jobs:
         echo ${{ github.repository }} - ${{ github.ref }} - ${{ github.sha }} - 0.1.0 > publish/version.txt
         "../tools/7-Zip/7z.exe" a "publish.zip" "publish/*"
     
-    # - uses: ncipollo/release-action@v1
-    #   with:
-    #     artifacts: "TZ.vNext.Web/publish.zip, publish/version.txt"
-    #     body: "publishing v0.1.0"
-    #     commit: "release"
-    #     tag: "v0.1.0"
-    #     token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "TZ.vNext.Web/publish.zip, publish/version.txt"
+        body: "publishing v0.1.0"
+        commit: "releases/0.1.0"
+        tag: "v0.1.0"
+        token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Send dingding notify for build
       if: success()
-      uses: GavinHome/action-dingding@v2
+      uses: GavinHome/action-dingding@v1.0
       with:
-        token: 'f8e6693c61f3a970efe789133f5dd4b691ab9a6f0f9058022bf450057a523713'
+        token: ${{ secrets.DING_TOKEN }}
         body: |
           {
             "msgtype": "markdown",
