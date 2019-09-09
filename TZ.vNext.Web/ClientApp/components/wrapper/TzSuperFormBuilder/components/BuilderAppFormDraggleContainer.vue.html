@@ -12,7 +12,7 @@
                     @click.native="handleFormItemClick(index)" :span="formItem.cols ? 8 * formItem.cols : 8"
                     class="form-item" v-if="formItem.type !== 'hide'">
                     <!-- 表单项 -->
-                    <el-form-item :label="formItem.label + '：'" size="medium" :prop="formItem.name" :class=" formItem.type === 'text' ? 'readonly' : '' " :show-message="false">
+                    <el-form-item :label=" formItem.label ? formItem.label + '：' : '' " size="medium" :prop="formItem.name" :class=" formItem.type === 'text' ? 'readonly' : '' " :show-message="false">
                         <!-- 组件 -->
                         <component :desc="formItem" :is="getComponentName(formItem.type)"
                             :key="formItem.key" v-model="formData[formItem.name]" />
