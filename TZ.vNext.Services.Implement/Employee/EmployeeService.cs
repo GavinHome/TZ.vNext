@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TZ.vNext.Core.Utility;
@@ -25,6 +26,12 @@ namespace TZ.vNext.Services.Implement
         public EmployeeService(IEmployeeDb employeeDb)
         {
             _employeeDb = employeeDb;
+        }
+
+        public async Task<IQueryable<Employee>> GetAllValidUserQuery()
+        {
+            var query = (await _employeeDb.GetAsync<Employee>()).Where(x => x.DataStatus == Core.Enum.DataStatusEnum.Valid);
+            return query;
         }
 
         public async Task<IList<Employee>> Init()

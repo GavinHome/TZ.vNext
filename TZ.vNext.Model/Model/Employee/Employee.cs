@@ -39,19 +39,16 @@ namespace TZ.vNext.Model
         /// <summary>
         /// 账号
         /// </summary>
-        [Description("账号")]
         public string UserName { get; set; }
 
         /// <summary>
         /// 密码
         /// </summary>
-        [Description("密码")]
         public string Password { get; set; }
 
         /// <summary>
         /// 组织机构
         /// </summary>
-        [Description("组织机构")]
         public string OrganizationId { get; set; }
 
         /// <summary>

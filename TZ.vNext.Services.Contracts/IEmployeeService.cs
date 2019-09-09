@@ -9,14 +9,17 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TZ.vNext.Model;
+using TZ.vNext.ViewModel;
 
 namespace TZ.vNext.Services.Contracts
 {
     public interface IEmployeeService
     {
         Task<IList<Employee>> Init();
+        Task<IQueryable<Employee>> GetAllValidUserQuery();
     }
 }
