@@ -30,7 +30,7 @@ namespace TZ.vNext.ViewModel
                 cfg.CreateMap<ProductInfo, Product>().ForMember(p => p.ContentData, opt => opt.Ignore());
 
                 cfg.CreateMap<Employee, EmployeeInfo>();
-                ////cfg.CreateMap<EmployeeInfo, Employee>();
+                cfg.CreateMap<EmployeeInfo, Employee>();
             });
 
             _mapper = config.CreateMapper();

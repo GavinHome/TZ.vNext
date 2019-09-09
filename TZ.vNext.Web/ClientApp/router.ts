@@ -46,6 +46,21 @@ const product_view = resolve => {
     require(['./components/pages/product/product.detail.vue.html'], spin.resolve(resolve))
 }
 
+const employee_grid = resolve => {
+    spin.show()
+    require(['./components/pages/employee/employee.grid.vue.html'], spin.resolve(resolve))
+}
+
+const employee_create = resolve => {
+    spin.show()
+    require(['./components/pages/employee/employee.create.vue.html'], spin.resolve(resolve))
+}
+
+const employee_detail = resolve => {
+    spin.show()
+    require(['./components/pages/employee/employee.detail.vue.html'], spin.resolve(resolve))
+}
+
 const routes: RouteConfig[] = [
     {
         path: '*',
@@ -174,6 +189,85 @@ const routes: RouteConfig[] = [
                             }
                         ]
                     }
+                ]
+            },
+            {
+                path: '/employees', name: 'employees', component: { template: `<router-view></router-view>` },
+                meta: {
+                    breadcrumb: '人力资源',
+                    title: '人力资源',
+                    icon: 'fa fa-money',
+                    functionId: TzFunctionConst.Employee_MANAGEMENT
+                },
+                children: [
+                    {
+                        path: '/employee',
+                        name: 'employee',
+                        component: { template: `<router-view></router-view>` },
+                        meta: {
+                            breadcrumb: '用户管理',
+                            title: '用户管理',
+                            icon: 'fa fa-caret-right',
+                            functionId: TzFunctionConst.Employee_LIST
+                        },
+                        children: [
+                            {
+                                path: '',
+                                name: 'employee_grid',
+                                component: employee_grid,
+                                meta: {
+                                    breadcrumb: '用户列表',
+                                    parent: 'employee',
+                                    title: '用户列表',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.Employee_LIST
+                                }
+                            },
+                            {
+                                path: 'create',
+                                name: 'employee_create',
+                                component: employee_create,
+                                meta: {
+                                    breadcrumb: '新增用户',
+                                    parent: 'employee',
+                                    title: '新增用户',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.Employee_CREATE
+                                },
+                                props: (route) => ({ id: route.query.id })
+                            },
+                            {
+                                path: 'edit',
+                                name: 'employee_edit',
+                                component: employee_create,
+                                meta: {
+                                    breadcrumb: '编辑用户',
+                                    parent: 'employee',
+                                    title: '编辑用户',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.Employee_EDIT
+                                },
+                                props: (route) => ({ id: route.query.id })
+                            },
+                            {
+                                path: 'detail',
+                                name: 'employee_detail',
+                                component: employee_detail,
+                                meta: {
+                                    breadcrumb: '用户详情',
+                                    parent: 'employee',
+                                    title: '用户详情',
+                                    icon: 'fa fa-caret-right',
+                                    isHidden: true,
+                                    functionId: TzFunctionConst.Employee_DETAIL
+                                },
+                                props: (route) => ({ id: route.query.id })
+                            }
+                        ]
+                    },
                 ]
             },
             {

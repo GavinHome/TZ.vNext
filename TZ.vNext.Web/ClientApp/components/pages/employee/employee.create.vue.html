@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <tz-super-form :form="form" :form-data="formData" :label-width="labelWidth" :rules="rules"
+        :request-fn="handleSubmit" @request-success="handleSuccess" @request-error="handleError"
+        @request-end="handleEnd" :labelWidth="'120px'" :isHideSubmitBtn="false" :isHideBackBtn="false" :submitBtnText="提交"
+        :backBtnText="返回" :isCustomHandleRequest="false" :isAutoHandlePost="true" :action="'/api/Employee/Save'"
+        :single="false"></tz-super-form>
+    </div>
+</template>
+
+<script src="./employee.create.ts" />

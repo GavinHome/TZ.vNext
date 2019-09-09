@@ -210,5 +210,30 @@ namespace TZ.vNext.Web.PermissionExtensions
         /// 产品管理-我的产品-产品集-详情
         /// </summary>
         public const string PRODUCT_DETAIL = "00000000-0000-1112-0001-000000000000";
+
+        /// <summary>
+        /// 用户管理
+        /// </summary>
+        public const string Employee_MANAGEMENT = "00000000-0000-1113-0000-000000000000";
+
+        /// <summary>
+        /// 用户管理-列表
+        /// </summary>
+        public const string Employee_LIST = "00000000-0000-1113-0001-000000000000";
+
+        /// <summary>
+        /// 用户管理-新增
+        /// </summary>
+        public const string Employee_CREATE = "00000000-0000-1113-0001-000000000000";
+
+        /// <summary>
+        /// 用户管理-编辑
+        /// </summary>
+        public const string Employee_EDIT = "00000000-0000-1113-0001-000000000000";
+
+        /// <summary>
+        /// 用户管理-详情
+        /// </summary>
+        public const string Employee_DETAIL = "00000000-0000-1113-0001-000000000000";
     }
 }

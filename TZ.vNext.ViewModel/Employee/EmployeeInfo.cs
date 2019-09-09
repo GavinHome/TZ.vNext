@@ -33,5 +33,10 @@ namespace TZ.vNext.ViewModel
         /// </summary>
         [Description("姓名")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public DataStatusEnum DataStatus { get; set; }
     }
 }

@@ -790,5 +790,11 @@ namespace TZ.vNext.Core.Extensions
             base64EncodedText = base64EncodedText.PadRight(base64EncodedText.Length + ((4 - (base64EncodedText.Length % 4)) % 4), '=');
             return System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64EncodedText));
         }
+
+        public static string GetCode(this System.Security.Claims.ClaimsPrincipal claimsPrincipal)
+        {
+            var user = claimsPrincipal.FindFirst(c => c.Type == System.Security.Claims.ClaimTypes.NameIdentifier);
+            return user.Value;
+        }
     }
 }

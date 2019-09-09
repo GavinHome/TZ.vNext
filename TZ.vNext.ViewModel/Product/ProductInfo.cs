@@ -42,6 +42,11 @@ namespace TZ.vNext.ViewModel
         public DataStatusEnum DataStatus { get; set; }
 
         /// <summary>
+        /// 创建账号
+        /// </summary>
+        public string CreateBy { get; set; }
+
+        /// <summary>
         /// 更新账号
         /// </summary>
         public string UpdateBy { get; set; }

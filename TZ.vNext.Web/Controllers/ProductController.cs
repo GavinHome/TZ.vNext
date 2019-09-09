@@ -49,7 +49,7 @@ namespace TZ.vNext.Web.Controllers
                     {
                         IList<MenuTypeEnum> menuIds = new List<MenuTypeEnum>();
                         menuIds.Add(MenuTypeEnum.Detail);
-                        if (t.DataStatus == DataStatusEnum.Valid)
+                        if (t.DataStatus == DataStatusEnum.Valid && t.CreateBy == this.HttpContext.User.GetCode())
                         {
                             menuIds.Add(MenuTypeEnum.Edit);
                             menuIds.Add(MenuTypeEnum.Delete);

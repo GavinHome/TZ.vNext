@@ -20,6 +20,12 @@ namespace TZ.vNext.Services.Contracts
     public interface IEmployeeService
     {
         Task<IList<Employee>> Init();
-        Task<IQueryable<Employee>> GetAllValidUserQuery();
+        Task<IQueryable<Employee>> GetAllValid();
+        Task<object> FindById(string id);
+        Task<bool> Disable(string id);
+        Task<bool> Enable(string id);
+        Task<EmployeeInfo> Save(EmployeeInfo info);
+        Task<EmployeeInfo> FindByCode(string code);
+        Task<IQueryable<Employee>> Get();
     }
 }

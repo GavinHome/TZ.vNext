@@ -7,6 +7,7 @@
 // <description></description>
 //-----------------------------------------------------------------------------------
 
+using System.Threading.Tasks;
 using TZ.vNext.Model;
 
 namespace TZ.vNext.Database.Contracts

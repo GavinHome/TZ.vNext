@@ -1,0 +1,9 @@
+<template>
+    <tz-grid-dynamic :transport_read_url="readUrl" :columns="columns" ref="grid">
+        <template slot-scope="{ dataSource }">
+            <el-button type="primary" size="small" :round="false" @click="create">新增人员</el-button>
+        </template>
+    </tz-grid-dynamic>
+</template>
+
+<script src="./employee.grid.ts"></script>

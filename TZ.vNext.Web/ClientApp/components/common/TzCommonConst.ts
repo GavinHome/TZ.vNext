@@ -75,6 +75,11 @@ export const TzRuleMsgConst = {
     SALARY_FORMCONTENT_REQUIRED: "请选择薪酬项类型",
     SALARY_NAME_REQUIRED: "请输入薪酬项名称",
     SALARY_NAME_REPEATED: "薪酬项名称不能重复",
+
+    
+    EMPLOYEE_CODE_REQUIRED: "请输入用户编号",
+    EMPLOYEE_NAME_REQUIRED: "请输入用户姓名",
+    EMPLOYEE_CODE_REPEATED: "用户编号不能重复",
 }
 
 ////系统API地址
@@ -94,6 +99,13 @@ export const TzApiConst = {
     PRODUCT_DISABLE: "/api/Product/Disable",
     PRODUCT_FINDBYID: "/api/Product/FindById",
 
+    Employee_GRID_QUERY: "/api/Employee/GridQueryEmployeesGrid",
+    Employee_FINDBYID: "/api/Employee/FindById",
+    Employee_ENABLE: "/api/Employee/Enable",
+    Employee_DISABLE: "/api/Employee/Disable",
+    Employee_CHECKCODE: "/api/Employee/CheckCode",
+    Employee_SAVE: "/api/Salary/Save",
+
     CODE_TREE: "/api/Codes/TreeQueryCodes",
 
     TOKEN: "/api/token"
@@ -111,5 +123,11 @@ export const TzFunctionConst = {
     PRODUCT_LIST: "00000000-0000-1112-0001-000000000000",
     PRODUCT_CREATE: "00000000-0000-1112-0001-000000000000",
     PRODUCT_EDIT: "00000000-0000-1112-0001-000000000000",
-    PRODUCT_DETAIL: "00000000-0000-1112-0001-000000000000"
+    PRODUCT_DETAIL: "00000000-0000-1112-0001-000000000000",
+
+    Employee_MANAGEMENT: "00000000-0000-1113-0000-000000000000",
+    Employee_LIST: "00000000-0000-1113-0000-000000000000",
+    Employee_CREATE: "00000000-0000-1113-0000-000000000000",
+    Employee_EDIT: "00000000-0000-1113-0000-000000000000",
+    Employee_DETAIL: "00000000-0000-1113-0000-000000000000",
 }
