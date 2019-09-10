@@ -166,6 +166,39 @@ const routes: RouteConfig[] = [
                         ]
                     },
                     {
+                        path: '/shareWithMe',
+                        name: 'shareWithMe',
+                        component: { template: '<span>未完成</span>' },
+                        meta: {
+                            parent: 'building',
+                            title: '分享给我',
+                            icon: 'fa fa-caret-right',
+                            functionId: TzFunctionConst.PRODUCT_LIST
+                        },
+                    },
+                    {
+                        path: '/collaborate',
+                        name: 'collaborate',
+                        component: { template: '<span>未完成</span>' },
+                        meta: {
+                            parent: 'building',
+                            title: '与我协作',
+                            icon: 'fa fa-caret-right',
+                            functionId: TzFunctionConst.PRODUCT_LIST
+                        },
+                    },
+                    {
+                        path: '/open',
+                        name: 'open',
+                        component: { template: '<span>未完成</span>' },
+                        meta: {
+                            parent: 'building',
+                            title: '公开作品',
+                            icon: 'fa fa-caret-right',
+                            functionId: TzFunctionConst.PRODUCT_LIST
+                        },
+                    },
+                    {
                         path: '/trash',
                         name: 'trash',
                         component: { template: '<router-view></router-view>' },

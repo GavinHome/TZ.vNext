@@ -193,6 +193,7 @@ export interface TzSuperDataSourceSchema {
 }
 
 export interface TzSuperFormAttrSchema {
+    name: string,
     labelWidth: string,
     isHideSubmitBtn: boolean,
     isHideBackBtn: boolean,

@@ -2,13 +2,52 @@
     <div style="height:100%;overflow: hidden;">
         <tz-super-form-builder ref="builder">
             <template slot="header">
-                <div style="padding: 15px;">
-                    <span>{{status}}</span>
-                    <el-button type="info" size="small" @click="back">返回</el-button>
+                <div style="padding: 15px 0px;width: 100%;">
+                    <div class="pull-left" style="width: 60%">
+                        <el-input v-model="model.Name" size="medium" class="noborder name"></el-input>
+                    </div>
+
+                    <!-- <div class="pull-left " style="width: 40%;margin-left: 10px;">
+                        <span>描述：</span>
+                        <el-input v-model="model.Description" size="medium" class="noborder description"></el-input>
+                    </div> -->
+
+                    <div class="pull-right">
+                        <span>{{status}}</span>
+                        <el-button type="info" size="small" @click="editDescription = true" class="mr15">编辑描述
+                        </el-button>
+                        <el-button type="info" size="small" @click="back">返回</el-button>
+                    </div>
                 </div>
             </template>
         </tz-super-form-builder>
+
+        <!-- 预览弹框 -->
+        <el-dialog :visible.sync="editDescription" append-to-body title="编辑描述" v-if="editDescription" width="60%">
+            <el-input type="textarea" placeholder="请输入描述" :rows="5" v-model="model.Description" maxlength="50" show-word-limit></el-input>
+        </el-dialog>
     </div>
 </template>
 
 <script src="./processing.ts"></script>
+
+<style>
+    .noborder input {
+        border: none;
+        padding: 0px
+    }
+
+    .noborder.name input {
+        font-size: 28px
+    }
+
+    .noborder.description input {
+        color: #888
+    }
+
+    .noborder input:focus {
+        border: 1px solid #dcdfe6;
+        font-size: inherit;
+        padding: 0 15px;
+    }
+</style>

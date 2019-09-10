@@ -608,3 +608,7 @@ i.small {
   background: rgb(238, 177, 177) !important;
 }
 
+
+.noborder{
+  border: none
+}

@@ -17,6 +17,7 @@ Vue.use(Dialog)
 Vue.use(Button)
 
 import VJsoneditor from 'v-jsoneditor'
+import BuilderAppFormProperty from "./components/BuilderAppFormProperty";
 Vue.use(VJsoneditor)
 
 @Component({
@@ -314,5 +315,6 @@ export default class TzSuperFormBuilder extends Vue {
         //this.formData = formData;
         this.rules = rules;
         this.formAttr = formAttr;
+        (this.$refs.formPropertyPanel as BuilderAppFormProperty).setFormAttr(formAttr);
     }
 }

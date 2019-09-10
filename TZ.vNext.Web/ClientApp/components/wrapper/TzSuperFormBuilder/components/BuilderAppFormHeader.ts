@@ -37,12 +37,17 @@ export default class BuilderAppFormHeader extends Vue {
         // 拼接form属性
         if (formAttrEntries.length) {
             htmlFormAttr = formAttrEntries.reduce((acc: string[], val) => {
-                acc.push(`:${val[0]}="${val[1]}"`)
+                if (val[0] === 'action') {
+                    acc.push(`:${val[0]}="'${val[1]}'"`)
+                }
+                else {
+                    acc.push(`:${val[0]}="${val[1]}"`)
+                }
                 return acc
             }, [])
         }
 
-        return getViewTemplate(this.formAttr.isCustomHandleRequest).replace('%1', htmlFormAttr.join('\n      '))
+        return getViewTemplate(this.formAttr.isCustomHandleRequest).replace('%1', htmlFormAttr.join('\n      ')).replace('{name}', this.formAttr.name)
     }
 
     get render_code_html() {
@@ -51,12 +56,13 @@ export default class BuilderAppFormHeader extends Vue {
             .replace('%3', JSON.stringify(this.rules, null, 4))
             .replace('%4', "100")
             .replace('%5', this.formAttr.action)
+            .replace('{name}', this.formAttr.name)
     }
 
     get form_render() {
         var forms: TzSuperFormGroup[] = []
         this.form.forEach((g, a) => {
-            var fields: TzSuperFormField [] = []
+            var fields: TzSuperFormField[] = []
             g.rows.forEach((r, b) => {
                 fields = fields.concat(r.fields)
             })
@@ -77,7 +83,7 @@ export default class BuilderAppFormHeader extends Vue {
         return forms;
     }
 
-     getGroupRows(data): TzSuperFormRow[] {
+    getGroupRows(data): TzSuperFormRow[] {
         var rows: TzSuperFormRow[] = [];
 
         if (data.length && data.length > 0) {

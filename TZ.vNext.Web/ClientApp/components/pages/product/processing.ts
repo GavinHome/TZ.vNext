@@ -3,8 +3,12 @@ import { Component, Prop } from 'vue-property-decorator';
 import { TzFetch } from "../../common/TzFetch";
 import { TzApiConst, TzMessageConst } from "../../common/TzCommonConst";
 import { Product } from "../../model/Product";
-import { Message } from "element-ui";
+import { Message, Row, Col, FormItem } from "element-ui";
 import TzSuperFormBuilder from "../../wrapper/TzSuperFormBuilder";
+
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(FormItem);
 
 @Component({
     props: ["id"],
@@ -15,7 +19,9 @@ import TzSuperFormBuilder from "../../wrapper/TzSuperFormBuilder";
 export default class Processing extends Vue {
     @Prop() id!: string
 
-    model!: Product
+    model = new Product()
+
+    editDescription: boolean = false
 
     timer!: any
 

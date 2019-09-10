@@ -1,6 +1,6 @@
 import { TzSuperFormGroup, TzSuperFormAttrSchema } from "../wrapper/TzSuperForm/schema/TzSuperFormSchema";
 
-export interface Product {
+export class Product {
     Id?: string;
     Name?: string;
     Description?: string;

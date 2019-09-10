@@ -13,7 +13,7 @@ const view_template_tpl = `<template>
   ></tz-super-form>
 </template>
 
-<script src="./render.ts"></script>`
+<script src="./{name}.ts"></script>`
 
 const component_render_tpl = `import Vue from "vue";
 import { Component, Prop } from 'vue-property-decorator';
@@ -76,7 +76,7 @@ export function getViewTemplate(isCustomHandleRequest: boolean) {
     ></tz-super-form>
   </template>
   
-  <script src="./render.ts"></script>`
+  <script src="./{name}.ts"></script>`
 }
 
 export function getComponentRenderTemplate(isCustomHandleRequest: boolean, isAutoPost:boolean) {

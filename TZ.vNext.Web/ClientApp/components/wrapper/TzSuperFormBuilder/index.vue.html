@@ -2,8 +2,9 @@
     <el-container style="height:100%;overflow: hidden;">
         <el-header>
             <div class="app-header-container">
-                <h1 class="app-header-title">表单生成器</h1>
-                <slot name="header"></slot>
+                <slot name="header">
+                    <h1 class="app-header-title">表单生成器</h1>
+                </slot>
             </div>
         </el-header>
         <el-container class="form-builder-container">
@@ -26,7 +27,7 @@
                             @formItemPropertyChange="handleFormItemPropertyChange" />
                     </el-tab-pane>
                     <el-tab-pane label="表单属性" name="1">
-                        <app-form-property @formPropertyChange="handleFormPropertyChange" />
+                        <app-form-property @formPropertyChange="handleFormPropertyChange" ref="formPropertyPanel"/>
                     </el-tab-pane>
 
                     <el-tab-pane label="代码可视化" name="2">
