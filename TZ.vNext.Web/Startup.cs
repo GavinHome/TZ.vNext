@@ -223,20 +223,9 @@ namespace TZ.vNext.Web
 
         private void RegisterGlobalConfig()
         {
-            SystemVariableConst.MongoDB_Path = Configuration.GetSection("TZIWB:MongoDB_Path").Value;
-            SystemVariableConst.MongoDB_Name = Configuration.GetSection("TZIWB:MongoDB_Name").Value;
-
             SystemVariableConst.Redis_Switch = bool.Parse(Configuration.GetSection("TZIWB:Redis:Switch").Value);
             SystemVariableConst.Redis_ConnectionString = Configuration.GetSection("TZIWB:Redis:ConnectionString").Value;
             SystemVariableConst.Redis_DefaultKey = Configuration.GetSection("TZIWB:Redis:DefaultKey").Value;
-
-            SystemVariableConst.Bps_BaseUrl = Configuration.GetSection("TZIWB:Bps:BaseUrl").Value;
-            SystemVariableConst.Bps_GraphUrl = Configuration.GetSection("TZIWB:Bps:GraphUrl").Value;
-            SystemVariableConst.Bps_wfadmin = Configuration.GetSection("TZIWB:Bps:wfadmin").Value;
-            SystemVariableConst.Bps_HistoryDbConnectionString = Configuration.GetSection("TZIWB:Bps:HistoryDbConnectionString").Value;
-
-            SystemVariableConst.CA_Switch = bool.Parse(Configuration.GetSection("TZIWB:CA:Switch").Value);
-            SystemVariableConst.CA_BaseUrl = Configuration.GetSection("TZIWB:CA:BaseUrl").Value;
 
             SystemVariableConst.Dingding_AgentId = Configuration.GetSection("TZIWB:Dingding:BaseUrl").Value;
             SystemVariableConst.Dingding_CorpId = Configuration.GetSection("TZIWB:Dingding:DingdingCorpId").Value;
@@ -244,18 +233,8 @@ namespace TZ.vNext.Web
             SystemVariableConst.Dingding_AccessTokenExpireTime = Configuration.GetSection("TZIWB:Dingding:DingdingAccessTokenExpireTime").Value;
             SystemVariableConst.Dingding_JsTicketExpireTime = Configuration.GetSection("TZIWB:Dingding:DingdingJsTicketExpireTime").Value;
 
-            SystemVariableConst.TemplateFilesPath = System.IO.Directory.GetCurrentDirectory() + "/TemplateFiles";
-            SystemVariableConst.StaticTemplateMap = RegisterStaticTemplateFiles();
-
-            SystemVariableConst.JobScheduler_Enable = bool.Parse(Configuration.GetSection("TZIWB:JobSchedulerService:Enable").Value);
-            SystemVariableConst.JobScheduler_Url = Configuration.GetSection("TZIWB:JobSchedulerService:JobUrl").Value;
-            SystemVariableConst.NoParticipantMsgJobScheduler_Url = Configuration.GetSection("TZIWB:JobSchedulerService:NoParticipantMsgJobUrl").Value;
-            SystemVariableConst.SalaryCalculateUrl = Configuration.GetSection("TZIWB:RestApi:SalaryCalculateUrl").Value;
-            SystemVariableConst.SalaryCalculateSheetName = Configuration.GetSection("TZIWB:SalaryTemplate:SalaryCalculateSheetName").Value;
-            SystemVariableConst.BaseSalarySheetName = Configuration.GetSection("TZIWB:SalaryTemplate:BaseSalarySheetName").Value;
-            SystemVariableConst.SalaryDataSourceName = Configuration.GetSection("TZIWB:SalaryTemplate:SalaryDataSourceName").Value;
-            SystemVariableConst.SalaryTemplateFileName = Configuration.GetSection("TZIWB:SalaryTemplate:SalaryTemplateFileName").Value;
-            SystemVariableConst.FileProtectPassword = Configuration.GetSection("TZIWB:SalaryTemplate:FileProtectPassword").Value;
+            ////SystemVariableConst.TemplateFilesPath = System.IO.Directory.GetCurrentDirectory() + "/TemplateFiles";
+            ////SystemVariableConst.StaticTemplateMap = RegisterStaticTemplateFiles();
         }
 
         private System.Collections.Generic.IDictionary<string, string> RegisterStaticTemplateFiles()

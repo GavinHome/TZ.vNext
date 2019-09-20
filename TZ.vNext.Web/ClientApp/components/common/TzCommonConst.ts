@@ -78,6 +78,7 @@ export const TzRuleMsgConst = {
 
     
     EMPLOYEE_CODE_REQUIRED: "请输入用户编号",
+    EMPLOYEE_CODE_LENGTH: "用户编号长度不正确(9位)",
     EMPLOYEE_NAME_REQUIRED: "请输入用户姓名",
     EMPLOYEE_CODE_REPEATED: "用户编号不能重复",
 }

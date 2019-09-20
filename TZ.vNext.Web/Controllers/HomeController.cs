@@ -29,12 +29,5 @@ namespace TZ.vNext.Web.Controllers
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
             return View();
         }
-
-        public IActionResult GetGraph(string id)
-        {
-            var url = SystemVariableConst.Bps_GraphUrl;
-            var result = RestUtil.Get(new Uri(url + "?id=" + id), null);
-            return Content(result, "text/html");
-        }
     }
 }

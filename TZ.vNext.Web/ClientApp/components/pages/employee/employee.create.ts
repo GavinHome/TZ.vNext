@@ -4,6 +4,7 @@ import { TzSuperFormGroup } from "../../wrapper/TzSuperForm/schema/TzSuperFormSc
 import { TzRuleMsgConst, TzApiConst, TzMessageConst } from "../../common/TzCommonConst";
 import { Message } from "element-ui"
 import { TzFetch } from "../../common/TzFetch";
+import remote from "../../common/TzValidators";
 
 @Component({
     props: ["id"],
@@ -61,9 +62,22 @@ export default class EmployeeCreateComponent extends Vue {
         Id: ''
     }
 
-    rules: any = {
-        "Code": [{ required: true, message: TzRuleMsgConst.EMPLOYEE_CODE_REQUIRED, trigger: "change" }],
-        "Name": [{ required: true, message: TzRuleMsgConst.EMPLOYEE_NAME_REQUIRED, trigger: "change" }]
+    get rules() {
+        return {
+            "Code": [
+                { required: true, message: TzRuleMsgConst.EMPLOYEE_CODE_REQUIRED, trigger: "change" },
+                {
+                    validator: remote,
+                    url: `${TzApiConst.Employee_CHECKCODE}?id=${this.formData.Id}&code=${this.formData.Code}`,
+                    message: TzRuleMsgConst.EMPLOYEE_CODE_REPEATED,
+                    trigger: "blur"
+                },
+                {
+                    len: 9, message: TzRuleMsgConst.EMPLOYEE_CODE_LENGTH, trigger: "change"
+                }
+            ],
+            "Name": [{ required: true, message: TzRuleMsgConst.EMPLOYEE_NAME_REQUIRED, trigger: "change" }]
+        }
     }
 
     labelWidth: number = 100
