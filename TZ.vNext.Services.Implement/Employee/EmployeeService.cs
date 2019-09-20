@@ -91,6 +91,14 @@ namespace TZ.vNext.Services.Implement
             else
             {
                 model = info.ToModel<Employee>();
+                model.Id = _employeeDb.NewId();
+                model.OrganizationId = "20000000-0000-0000-0000-000000000039";
+                model.Functions = new List<string>()
+                {
+                   "00000000-0000-1112-0000-000000000000",
+                   "00000000-0000-1112-0001-000000000000"
+                };
+
                 model.UserName = model.Code;
                 model.Password = MD5Helper.MD5UserPassword(model.Code, "1");
                 model.SetEntityPrincipal(info.User);
