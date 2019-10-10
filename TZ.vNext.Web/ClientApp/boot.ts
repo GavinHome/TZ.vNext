@@ -7,11 +7,16 @@ import 'font-awesome/css/font-awesome.min.css'
 import fetchIntercept from "./http/FetchIntercept"
 import log from './log';
 
+//import AlbatroUI from "albatro-ui";
+//import "albatro-ui/lib/theme-albatro/index.css";
+//Vue.use(AlbatroUI);
+
 fetchIntercept.register()
 Vue.use(VueRouter)
 Vue.use(log, { entryName: '业务表单设计系统' });
 
-Vue.prototype.$eventHub= Vue.prototype.$eventHub || new Vue()
+Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
+
 
 new Vue({
     el: '#app-root',

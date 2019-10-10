@@ -19,7 +19,9 @@ module.exports = (env) => {
         resolve: {
             extensions: ['.js', '.ts', '.vue'],
             alias: {
-                'vue': 'vue/dist/vue.js'
+                'vue': 'vue/dist/vue.js',
+                'ELEMENT': 'element-ui',
+                'kendo': '@progress/kendo-ui'
             }
         },
         entry: { 'main': './ClientApp/boot.ts' },
