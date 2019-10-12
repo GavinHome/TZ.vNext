@@ -48,7 +48,7 @@
     "@progress/kendo-theme-default": "^2.54.0",
     "@progress/kendo-treelist-vue-wrapper": "^2018.2.620",
     "@progress/kendo-ui": "^2018.2.704",
-    "albatro-ui": "^0.2.1",
+    "albatro-ui": "^0.2.3",
     "element-ui": "^2.4.3",
     "fetch-download": "^1.1.1",
     "fetch-intercept": "^2.2.3",

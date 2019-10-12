@@ -10,8 +10,6 @@ import { FieldTypeEnum, EnumHelper, EnumConstType } from "../../common/Enums";
 import { TzSuperFormType, TzSuperFormGroup } from "../../wrapper/TzSuperForm/schema/TzSuperFormSchema";
 Vue.use(ElementUI)
 
-
-
 @Component({
     props: ["id"],
     components: {
