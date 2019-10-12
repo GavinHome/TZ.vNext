@@ -5,6 +5,7 @@
     "module": "es2015",
     "noImplicitAny": false,
     "removeComments": true,
+    "strictFunctionTypes": false,
     "moduleResolution": "node",
     "target": "es5",
     "sourceMap": true,
