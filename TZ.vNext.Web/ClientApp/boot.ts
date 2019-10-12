@@ -13,9 +13,9 @@ Vue.use(log, { entryName: '业务表单设计系统' });
 
 Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
 
-import AlbatroUI from "albatro-ui";
-import "albatro-ui/lib/theme-albatro/index.css";
-Vue.use(AlbatroUI);
+//import AlbatroUI from "albatro-ui";
+//import "albatro-ui/lib/theme-albatro/index.css";
+//Vue.use(AlbatroUI);
 
 
 new Vue({

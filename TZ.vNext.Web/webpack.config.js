@@ -6,9 +6,7 @@ const bundleOutputDir = './wwwroot/dist';
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-//const SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin');
-//const { SkeletonPlugin } = require('page-skeleton-webpack-plugin')
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
@@ -20,8 +18,8 @@ module.exports = (env) => {
             extensions: ['.js', '.ts', '.vue'],
             alias: {
                 'vue': 'vue/dist/vue.js',
-                'ELEMENT': 'element-ui',
-                'kendo': '@progress/kendo-ui'
+                //'ELEMENT': 'element-ui',
+                //'kendo': '@progress/kendo-ui'
             }
         },
         entry: { 'main': './ClientApp/boot.ts' },
@@ -108,6 +106,11 @@ module.exports = (env) => {
             filename: '[name].js',
             publicPath: '/dist/'
         },
+        //externals: isDevBuild ? {} : {
+        //    "vue-router": "VueRouter",
+        //    "vue": "Vue",
+        //    "element-ui": "ELEMENT"
+        //},
         plugins: [
             new CheckerPlugin(),
             new webpack.DefinePlugin({

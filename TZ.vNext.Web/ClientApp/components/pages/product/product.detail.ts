@@ -5,9 +5,7 @@ import { TzApiConst, TzMessageConst } from "../../common/TzCommonConst";
 import { Product } from "../../model/Product";
 import { Message } from "element-ui";
 import 'element-ui/lib/theme-chalk/index.css'
-import ElementUI from 'element-ui'
-import { FieldTypeEnum, EnumHelper, EnumConstType } from "../../common/Enums";
-import { TzSuperFormType, TzSuperFormGroup } from "../../wrapper/TzSuperForm/schema/TzSuperFormSchema";
+import ElementUI from 'element-ui';
 Vue.use(ElementUI)
 
 @Component({
