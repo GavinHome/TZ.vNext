@@ -29,7 +29,7 @@ namespace TZ.vNext.Web.Controllers
         {
             _logger.LogInformation("------------Front-End Log Report Start------------");
             _logger.LogError($"{Newtonsoft.Json.JsonConvert.SerializeObject(data)}");
-            _logger.LogInformation("------------Front End Log Report End------------");
+            _logger.LogInformation("------------Front-End Log Report End------------");
             return Json(true);
         }
     }

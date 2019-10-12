@@ -90,8 +90,6 @@ namespace TZ.vNext.Web
             ////services.AddODataQueryFilter();
             services.AddOData();
 
-            ////services.AddSingleton<MongoContext, MongoDbContext>();
-
             services.AddMongoDbContext<MongoDbContext>(options =>
             {
                 options.UseMongoServer(Configuration.GetConnectionString("MongodbConnection"));
@@ -223,7 +221,6 @@ namespace TZ.vNext.Web
 
         private void RegisterGlobalConfig()
         {
-            SystemVariableConst.Redis_Switch = bool.Parse(Configuration.GetSection("TZIWB:Redis:Switch").Value);
             SystemVariableConst.Redis_ConnectionString = Configuration.GetSection("TZIWB:Redis:ConnectionString").Value;
             SystemVariableConst.Redis_DefaultKey = Configuration.GetSection("TZIWB:Redis:DefaultKey").Value;
 
@@ -232,17 +229,6 @@ namespace TZ.vNext.Web
             SystemVariableConst.Dingding_CorpSecret = Configuration.GetSection("TZIWB:Dingding:DingdingCorpSecret").Value;
             SystemVariableConst.Dingding_AccessTokenExpireTime = Configuration.GetSection("TZIWB:Dingding:DingdingAccessTokenExpireTime").Value;
             SystemVariableConst.Dingding_JsTicketExpireTime = Configuration.GetSection("TZIWB:Dingding:DingdingJsTicketExpireTime").Value;
-
-            ////SystemVariableConst.TemplateFilesPath = System.IO.Directory.GetCurrentDirectory() + "/TemplateFiles";
-            ////SystemVariableConst.StaticTemplateMap = RegisterStaticTemplateFiles();
-        }
-
-        private System.Collections.Generic.IDictionary<string, string> RegisterStaticTemplateFiles()
-        {
-            var map = new System.Collections.Generic.Dictionary<string, string>();
-            map.Add("五险一金模板", "五险一金模板.xlsx");
-            map.Add("薪酬导入项模板", "薪酬导入项模板.xlsx");
-            return map;
         }
 
         private void RegisterGlobalServices(IServiceProvider servicePrivider)

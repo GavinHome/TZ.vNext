@@ -11,7 +11,6 @@ using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace TZ.vNext.Web
 {
@@ -19,7 +18,6 @@ namespace TZ.vNext.Web
     {
         public static void Main(string[] args)
         {
-            //LoadLog4netConfig();
             BuildWebHost(args).Run();
         }
 

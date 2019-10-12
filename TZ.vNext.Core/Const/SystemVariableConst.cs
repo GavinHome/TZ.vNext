@@ -15,7 +15,6 @@ namespace TZ.vNext.Core.Const
 {
     public static class SystemVariableConst
     {
-        public static bool Redis_Switch { get; set; }
         public static string Redis_ConnectionString { get; set; }
         public static string Redis_DefaultKey { get; set; }
 
