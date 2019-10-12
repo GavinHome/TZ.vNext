@@ -3537,9 +3537,9 @@
       "dev": true
     },
     "element-ui": {
-      "version": "2.12.0",
-      "resolved": "https://registry.npmjs.org/element-ui/-/element-ui-2.12.0.tgz",
-      "integrity": "sha512-DapyT0PW4i/1ETPHk8K8Qbe8B6hj10+dXsRTrOTFryV9wAs6e9mCxbV65awokyR2/v/KuIHJmqX+mH3wUa4rOQ==",
+      "version": "2.4.3",
+      "resolved": "https://registry.npmjs.org/element-ui/-/element-ui-2.4.3.tgz",
+      "integrity": "sha512-fHcpUGbJsfP1mvfErdnn4A7MglNbfL4uiukGHRZaFy1K7HhVKEpLficNqUtaYS3SKjKnzpkSdZkrJJCR1aNICw==",
       "requires": {
         "async-validator": "~1.8.1",
         "babel-helper-vue-jsx-merge-props": "^2.0.0",

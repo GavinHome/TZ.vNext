@@ -10,9 +10,7 @@ import { FieldTypeEnum, EnumHelper, EnumConstType } from "../../common/Enums";
 import { TzSuperFormType, TzSuperFormGroup } from "../../wrapper/TzSuperForm/schema/TzSuperFormSchema";
 Vue.use(ElementUI)
 
-import AlbatroUI  from "albatro-ui";
-import "albatro-ui/lib/theme-albatro/index.css";
-Vue.use(AlbatroUI);
+
 
 @Component({
     props: ["id"],

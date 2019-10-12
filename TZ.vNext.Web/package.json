@@ -49,7 +49,7 @@
     "@progress/kendo-treelist-vue-wrapper": "^2018.2.620",
     "@progress/kendo-ui": "^2018.2.704",
     "albatro-ui": "^0.2.1",
-    "element-ui": "^2.12.0",
+    "element-ui": "^2.4.3",
     "fetch-download": "^1.1.1",
     "fetch-intercept": "^2.2.3",
     "font-awesome": "^4.7.0",
