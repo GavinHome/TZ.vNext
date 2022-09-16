@@ -12,7 +12,7 @@
     "babel-core": "https://registry.npmjs.org/babel-core/-/babel-core-6.26.3.tgz",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-component": "^1.1.1",
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^3.4.1",
     "compression-webpack-plugin": "^1.1.12",
     "css-loader": "^0.25.0",
     "eslint": "^5.9.0",
